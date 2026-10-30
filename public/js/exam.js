@@ -52,12 +52,21 @@ document.addEventListener('DOMContentLoaded', () => {
   timeRemainingSeconds = durationMinutes * 60;
 
   // Restore any previous in-progress answers if page was refreshed
-  const savedAnswers = sessionStorage.getItem(`answers_${currentSessionId}_r${currentRound}`);
+  const savedAnswers = sessionStorage.getItem(`answers_${currentSessionId}_r${currentRound}`) || localStorage.getItem(`answers_${currentSessionId}_r${currentRound}`);
   if (savedAnswers) {
     try {
       studentAnswers = JSON.parse(savedAnswers);
     } catch(e) {}
   }
+
+  // Prevent accidental page close or refresh during exam
+  window.addEventListener('beforeunload', (e) => {
+    if (!isSubmitting) {
+      e.preventDefault();
+      e.returnValue = 'Exam is in progress. Leaving or refreshing may trigger a proctoring violation strike.';
+      return e.returnValue;
+    }
+  });
 
   // Initialize statuses
   resetQuestionStatuses();
@@ -246,6 +255,7 @@ function selectOption(optionIndex) {
   studentAnswers[q.id] = optionIndex;
   try {
     sessionStorage.setItem(`answers_${currentSessionId}_r${currentRound}`, JSON.stringify(studentAnswers));
+    localStorage.setItem(`answers_${currentSessionId}_r${currentRound}`, JSON.stringify(studentAnswers));
   } catch(e) {}
 
   if (questionStatuses[currentIndex] === 'review' || questionStatuses[currentIndex] === 'review-answered') {
@@ -262,6 +272,7 @@ function clearCurrentSelection() {
   delete studentAnswers[q.id];
   try {
     sessionStorage.setItem(`answers_${currentSessionId}_r${currentRound}`, JSON.stringify(studentAnswers));
+    localStorage.setItem(`answers_${currentSessionId}_r${currentRound}`, JSON.stringify(studentAnswers));
   } catch(e) {}
 
   if (questionStatuses[currentIndex] === 'review-answered') {
@@ -820,6 +831,10 @@ async function performFinalSubmission(autoSubmitted = false, reason = '') {
 
     sessionStorage.setItem('lastResult', JSON.stringify(data.result));
     sessionStorage.removeItem('examQuestions');
+    try {
+      localStorage.setItem('wegrow_result_' + resultId, JSON.stringify(data.result));
+      localStorage.setItem('wegrow_latest_result_id', resultId);
+    } catch (e) {}
 
     try {
       if (document.exitFullscreen) document.exitFullscreen().catch(() => {});

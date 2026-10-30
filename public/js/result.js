@@ -12,16 +12,47 @@ document.addEventListener('DOMContentLoaded', async () => {
       const data = await res.json();
       if (data.success && data.result) {
         currentResult = data.result;
+        // Safely cache in localStorage so refresh / closed tab never loses it
+        try {
+          localStorage.setItem('wegrow_result_' + resultId, JSON.stringify(data.result));
+          localStorage.setItem('wegrow_latest_result_id', resultId);
+        } catch (e) {}
       }
     } catch (e) {
       console.warn("Failed fetching result by ID, checking local cache", e);
     }
   }
 
+  // Fallback 1: LocalStorage for this specific resultId
+  if (!currentResult && resultId) {
+    const localSaved = localStorage.getItem('wegrow_result_' + resultId);
+    if (localSaved) {
+      try {
+        currentResult = JSON.parse(localSaved);
+      } catch (e) {}
+    }
+  }
+
+  // Fallback 2: sessionStorage lastResult
   if (!currentResult) {
     const cached = sessionStorage.getItem('lastResult');
     if (cached) {
-      currentResult = JSON.parse(cached);
+      try {
+        currentResult = JSON.parse(cached);
+      } catch (e) {}
+    }
+  }
+
+  // Fallback 3: Most recent cached result in localStorage
+  if (!currentResult) {
+    const latestId = localStorage.getItem('wegrow_latest_result_id');
+    if (latestId) {
+      const latestCached = localStorage.getItem('wegrow_result_' + latestId);
+      if (latestCached) {
+        try {
+          currentResult = JSON.parse(latestCached);
+        } catch (e) {}
+      }
     }
   }
 

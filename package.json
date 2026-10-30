@@ -7,6 +7,7 @@
     "start": "node server.js",
     "build": "npm rebuild better-sqlite3 --build-from-source && node generators/load_all_to_db.js",
     "postinstall": "npm rebuild better-sqlite3 --build-from-source || true",
+    "seed:supabase": "node generators/seed_to_supabase.js",
     "test": "node test_system.js"
   },
   "engines": {
@@ -17,8 +18,10 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@supabase/supabase-js": "^2.118.0",
     "better-sqlite3": "^13.0.3",
     "cors": "^2.8.6",
+    "dotenv": "^18.0.9",
     "express": "^5.3.0"
   }
 }

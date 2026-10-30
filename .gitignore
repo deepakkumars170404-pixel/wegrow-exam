@@ -6,4 +6,6 @@ package-lock.json
 *.db-wal
 data/*.db
 data/exam.db
+.env
+.env.local
 
