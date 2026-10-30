@@ -9,6 +9,6 @@ services:
       - key: NODE_ENV
         value: production
       - key: NODE_VERSION
-        value: 22.12.0
+        value: 22
       - key: PORT
         value: 10000

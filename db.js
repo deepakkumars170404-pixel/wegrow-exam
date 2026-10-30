@@ -4,16 +4,42 @@ const fs = require('fs');
 
 console.log('[DB INIT] Initializing SQLite connection...');
 
-const DB_PATH = path.join(__dirname, 'data', 'exam.db');
-const dataDir = path.join(__dirname, 'data');
-if (!fs.existsSync(dataDir)) {
-  fs.mkdirSync(dataDir, { recursive: true });
+const isLinux = process.platform === 'linux' || !!process.env.RENDER;
+let DB_PATH = process.env.DB_PATH;
+
+if (!DB_PATH) {
+  if (isLinux) {
+    DB_PATH = path.join('/tmp', 'exam.db');
+  } else {
+    DB_PATH = path.join(__dirname, 'data', 'exam.db');
+  }
 }
 
-// If database file doesn't exist on server, generate it natively from seed questions
+const dbDir = path.dirname(DB_PATH);
+if (!fs.existsSync(dbDir)) {
+  fs.mkdirSync(dbDir, { recursive: true });
+}
+
+const localSeedDb = path.join(__dirname, 'data', 'exam.db');
+
+// If DB doesn't exist at DB_PATH, either copy from pre-built seed or generate fresh
 if (!fs.existsSync(DB_PATH)) {
-  console.log('[DB INIT] Generating fresh native database from question bank...');
-  require('./generators/load_all_to_db');
+  if (fs.existsSync(localSeedDb) && DB_PATH !== localSeedDb) {
+    console.log(`[DB INIT] Copying pre-built database from ${localSeedDb} to ${DB_PATH}...`);
+    try {
+      fs.copyFileSync(localSeedDb, DB_PATH);
+    } catch (err) {
+      console.warn('[DB INIT] Copy failed, will generate fresh:', err.message);
+    }
+  }
+
+  if (!fs.existsSync(DB_PATH)) {
+    console.log(`[DB INIT] Generating fresh native database at ${DB_PATH} from question bank...`);
+    const loadAllToDb = require('./generators/load_all_to_db');
+    if (typeof loadAllToDb === 'function') {
+      loadAllToDb(DB_PATH);
+    }
+  }
 }
 
 console.log('[DB INIT] Active DB Path:', DB_PATH);

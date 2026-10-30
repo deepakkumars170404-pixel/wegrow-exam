@@ -2,11 +2,17 @@ const Database = require('better-sqlite3');
 const path = require('path');
 const fs = require('fs');
 
-const dbPath = path.join(__dirname, '..', 'data', 'exam.db');
-const db = new Database(dbPath);
-db.pragma('journal_mode = WAL');
+function loadAllToDb(customDbPath) {
+  const dbPath = customDbPath || path.join(__dirname, '..', 'data', 'exam.db');
+  const dir = path.dirname(dbPath);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
 
-console.log('--- Initializing Database & Loading All 850 Questions ---');
+  const db = new Database(dbPath);
+  db.pragma('journal_mode = WAL');
+
+  console.log(`--- Initializing Database at ${dbPath} & Loading All 850 Questions ---`);
 
 // 1. Ensure schema
 db.exec(`
@@ -293,5 +299,14 @@ const dummyStudentClean = db.prepare("DELETE FROM results WHERE student_name LIK
 console.log(`Cleaned ${dummyStudentClean.changes} dummy test records from results.`);
 
 db.close();
-console.log('Database setup complete!');
+  console.log('Database setup complete!');
+  return dbPath;
+}
+
+if (require.main === module) {
+  loadAllToDb();
+}
+
+module.exports = loadAllToDb;
+
 
