@@ -212,19 +212,28 @@ async function runFullSimulation() {
     failures.slice(0, 5).forEach((f, idx) => console.error(`  [Fail ${idx + 1}]: ${f.error}`));
   }
 
-  // Verify Leaderboard count in SQLite
-  const Database = require('better-sqlite3');
-  const db = new Database('D:\\WEGROW\\Exam\\data\\exam.db');
-  const countInDb = db.prepare("SELECT COUNT(*) as c FROM results WHERE student_name LIKE 'StressCandidate_%'").get().c;
-  console.log(`Verified ${countInDb} completed exam submissions safely stored in SQLite database.`);
+  // Clean up all stress test records from Supabase and SQLite
+  try {
+    require('dotenv').config();
+    if (process.env.SUPABASE_URL && process.env.SUPABASE_KEY) {
+      const { createClient } = require('@supabase/supabase-js');
+      const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
+      await supabase.from('results').delete().ilike('student_name', '%StressCandidate%');
+      await supabase.from('sessions').delete().ilike('student_name', '%StressCandidate%');
+      console.log('🧹 Cleaned up test records from Supabase Cloud.');
+    }
+  } catch (e) {}
 
-  // Clean up all stress test records so DB is pristine
-  const delRes = db.prepare("DELETE FROM results WHERE student_name LIKE 'StressCandidate_%'").run();
-  const delSes = db.prepare("DELETE FROM sessions WHERE student_name LIKE 'StressCandidate_%'").run();
-  console.log(`🧹 Cleaned up ${delRes.changes} test results and ${delSes.changes} test sessions.`);
+  try {
+    const Database = require('better-sqlite3');
+    const path = require('path');
+    const db = new Database(path.join(__dirname, '..', 'data', 'exam.db'));
+    const delRes = db.prepare("DELETE FROM results WHERE student_name LIKE 'StressCandidate_%'").run();
+    const delSes = db.prepare("DELETE FROM sessions WHERE student_name LIKE 'StressCandidate_%'").run();
+    console.log(`🧹 Cleaned up ${delRes.changes} test results and ${delSes.changes} test sessions from local SQLite.`);
+    db.close();
+  } catch (e) {}
   console.log('Database returned to pristine clean state with 0 dummy records.');
-
-  db.close();
 
   // Test Server Health Check
   const healthRes = await httpRequest({

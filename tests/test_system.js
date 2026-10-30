@@ -118,3 +118,4 @@ if (passedTests === totalTests) {
 console.log('========================================================\n');
 
 db.close();
+

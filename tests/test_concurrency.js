@@ -55,7 +55,18 @@ for (let i = 1; i <= TOTAL_STUDENTS; i++) {
         console.log(`AVERAGE PER REQUEST: ${(duration / TOTAL_STUDENTS).toFixed(2)}ms`);
         console.log(`========================================\n`);
 
-        // Clean up test sessions
+        // Clean up test sessions from Supabase and SQLite
+        try {
+          require('dotenv').config();
+          if (process.env.SUPABASE_URL && process.env.SUPABASE_KEY) {
+            const { createClient } = require('@supabase/supabase-js');
+            const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
+            supabase.from('sessions').delete().ilike('student_name', '%StressTest%').then(() => {
+              console.log('Cleaned up stress test sessions from Supabase.');
+            });
+          }
+        } catch(e) {}
+
         try {
           const Database = require('better-sqlite3');
           const db = new Database(path.join(__dirname, '..', 'data', 'exam.db'));
@@ -79,3 +90,4 @@ for (let i = 1; i <= TOTAL_STUDENTS; i++) {
   req.write(postData);
   req.end();
 }
+

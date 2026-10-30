@@ -22,6 +22,26 @@ function shuffleArray(array) {
   return arr;
 }
 
+// High-speed In-Memory Question Cache for 100+ concurrent users
+let questionsMemoryCache = null;
+let cacheExpiry = 0;
+
+async function getAllQuestionsCached() {
+  const now = Date.now();
+  if (questionsMemoryCache && now < cacheExpiry) {
+    return questionsMemoryCache;
+  }
+  if (!supabase) return [];
+  const { data, error } = await supabase
+    .from('questions')
+    .select('*')
+    .order('question_order', { ascending: true });
+  if (error) throw error;
+  questionsMemoryCache = data || [];
+  cacheExpiry = now + 10 * 60 * 1000; // 10 minutes cache TTL
+  return questionsMemoryCache;
+}
+
 const db = {
   client: supabase,
   isConfigured: () => Boolean(supabase),
@@ -121,23 +141,20 @@ const db = {
     return data;
   },
 
-  // 7. Get 20 Aptitude Questions (10 Basic, 10 Medium)
+  // 7. Get 20 Aptitude Questions (10 Basic, 10 Medium) - Instant in-memory sampling
   async getAptitudeQuestions() {
     if (!supabase) return [];
-    const { data: allApt, error } = await supabase
-      .from('questions')
-      .select('*')
-      .eq('module_id', 'aptitude');
-    if (error) throw error;
+    const all = await getAllQuestionsCached();
+    const allApt = all.filter(q => q.module_id === 'aptitude');
 
-    const basicPool = shuffleArray((allApt || []).filter(q => (q.difficulty || '').toLowerCase() === 'basic'));
-    const mediumPool = shuffleArray((allApt || []).filter(q => (q.difficulty || '').toLowerCase() === 'medium'));
+    const basicPool = shuffleArray(allApt.filter(q => (q.difficulty || '').toLowerCase() === 'basic'));
+    const mediumPool = shuffleArray(allApt.filter(q => (q.difficulty || '').toLowerCase() === 'medium'));
 
     let selected = [];
     if (basicPool.length >= 10 && mediumPool.length >= 10) {
       selected = [...basicPool.slice(0, 10), ...mediumPool.slice(0, 10)];
     } else {
-      selected = shuffleArray(allApt || []).slice(0, 20);
+      selected = shuffleArray(allApt).slice(0, 20);
     }
     return shuffleArray(selected);
   },
@@ -182,35 +199,26 @@ const db = {
     return data;
   },
 
-  // 10. Get Questions by list of IDs
+  // 10. Get Questions by list of IDs - High speed in-memory map lookup
   async getQuestionsByIds(idArray) {
     if (!supabase || !idArray || idArray.length === 0) return [];
-    const { data, error } = await supabase
-      .from('questions')
-      .select('*')
-      .in('id', idArray);
-    if (error) throw error;
-
-    // Preserve the exact order specified in idArray
+    const all = await getAllQuestionsCached();
     const map = {};
-    (data || []).forEach(q => { map[q.id] = q; });
+    all.forEach(q => { map[q.id] = q; });
     return idArray.map(id => map[id]).filter(Boolean);
   },
 
-  // 11. Fetch dynamic Round 2 questions
+  // 11. Fetch dynamic Round 2 questions - Instant sampling with Fisher-Yates
   async getRound2Questions(topicAllocations) {
     if (!supabase) return [];
+    const all = await getAllQuestionsCached();
     let pool = [];
 
     for (const [modId, count] of Object.entries(topicAllocations)) {
-      const { data: modQuestions, error } = await supabase
-        .from('questions')
-        .select('*')
-        .eq('module_id', modId);
-      if (error) throw error;
+      const modQuestions = all.filter(q => q.module_id === modId);
 
-      const basicPool = shuffleArray((modQuestions || []).filter(q => (q.difficulty || '').toLowerCase() === 'basic'));
-      const mediumPool = shuffleArray((modQuestions || []).filter(q => (q.difficulty || '').toLowerCase() === 'medium'));
+      const basicPool = shuffleArray(modQuestions.filter(q => (q.difficulty || '').toLowerCase() === 'basic'));
+      const mediumPool = shuffleArray(modQuestions.filter(q => (q.difficulty || '').toLowerCase() === 'medium'));
 
       const halfBasic = Math.ceil(count / 2);
       const halfMed = count - halfBasic;
@@ -219,7 +227,7 @@ const db = {
       if (basicPool.length >= halfBasic && mediumPool.length >= halfMed) {
         picked = [...basicPool.slice(0, halfBasic), ...mediumPool.slice(0, halfMed)];
       } else {
-        picked = shuffleArray(modQuestions || []).slice(0, count);
+        picked = shuffleArray(modQuestions).slice(0, count);
       }
       pool.push(...picked);
     }
@@ -349,6 +357,7 @@ const db = {
       .from('questions')
       .insert(questionData);
     if (error) throw error;
+    questionsMemoryCache = null; // Invalidate cache so new question is immediately accessible
   }
 };
 
