@@ -1,5 +1,6 @@
 node_modules/
 .npm/
+package-lock.json
 *.log
 *.db-shm
 *.db-wal

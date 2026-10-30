@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "build": "node generators/load_all_to_db.js",
-    "postinstall": "node generators/load_all_to_db.js",
+    "build": "npm rebuild better-sqlite3 --build-from-source && node generators/load_all_to_db.js",
     "test": "node test_system.js"
   },
   "engines": {
