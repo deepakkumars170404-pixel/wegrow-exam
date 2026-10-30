@@ -216,6 +216,7 @@ function renderLeaderboardRows(list) {
     javascript: "JS",
     python: "Python",
     react: "React",
+    data_science: "Data Science",
     data_analytics: "DA"
   };
 
