@@ -2,13 +2,32 @@ const Database = require('better-sqlite3');
 const path = require('path');
 const fs = require('fs');
 
-const DB_PATH = path.join(__dirname, 'data', 'exam.db');
+console.log('[DB INIT] Initializing SQLite connection...');
 
-// Ensure data folder exists
-const dataDir = path.join(__dirname, 'data');
-if (!fs.existsSync(dataDir)) {
-  fs.mkdirSync(dataDir, { recursive: true });
+let DB_PATH = path.join(__dirname, 'data', 'exam.db');
+
+// In production (Linux / Render), /opt/render/project/src is read-only.
+// Use writable /tmp storage to prevent SIGSEGV 139 errors on Linux.
+if (process.platform === 'linux' || process.env.RENDER) {
+  try {
+    const tmpDataDir = path.join('/tmp', 'data');
+    if (!fs.existsSync(tmpDataDir)) {
+      fs.mkdirSync(tmpDataDir, { recursive: true });
+    }
+    const tmpDbPath = path.join(tmpDataDir, 'exam.db');
+    if (fs.existsSync(DB_PATH) && !fs.existsSync(tmpDbPath)) {
+      console.log('[DB INIT] Copying initial database to writable /tmp path...');
+      fs.copyFileSync(DB_PATH, tmpDbPath);
+    }
+    if (fs.existsSync(tmpDbPath)) {
+      DB_PATH = tmpDbPath;
+    }
+  } catch (err) {
+    console.warn('[DB INIT] Could not use /tmp path, falling back to local path:', err.message);
+  }
 }
+
+console.log('[DB INIT] Active DB Path:', DB_PATH);
 
 const db = new Database(DB_PATH);
 

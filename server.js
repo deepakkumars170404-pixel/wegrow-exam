@@ -1,3 +1,8 @@
+console.log('=======================================================');
+console.log('🚀 WEGROW Examination Platform Booting...');
+console.log('Node Version:', process.version, '| Platform:', process.platform, '| Arch:', process.arch);
+console.log('=======================================================');
+
 const express = require('express');
 const cors = require('cors');
 const path = require('path');

@@ -3,7 +3,7 @@ services:
     name: wegrow-exam
     env: node
     plan: free
-    buildCommand: npm install
+    buildCommand: npm install --force && npm rebuild better-sqlite3
     startCommand: node server.js
     envVars:
       - key: NODE_ENV
