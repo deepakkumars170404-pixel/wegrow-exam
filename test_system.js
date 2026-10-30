@@ -22,7 +22,7 @@ function assert(condition, message) {
 }
 
 // 1. Question Bank Counts
-console.log('\n--- Test Suite 1: Question Bank Verification in SQLite (850 Qs) ---');
+console.log('\n--- Test Suite 1: Question Bank Verification in SQLite (970 Qs) ---');
 const expectedCounts = {
   aptitude: 150,
   html: 100,
@@ -31,7 +31,8 @@ const expectedCounts = {
   javascript: 100,
   python: 100,
   react: 100,
-  data_analytics: 100
+  data_analytics: 100,
+  data_science: 120
 };
 
 let totalInDb = 0;
@@ -40,7 +41,7 @@ for (const [modId, expCount] of Object.entries(expectedCounts)) {
   assert(row.c === expCount, `Module '${modId}' contains exactly ${expCount} questions in DB (Found: ${row.c})`);
   totalInDb += row.c;
 }
-assert(totalInDb === 850, `Total questions across all modules in DB equals 850 (Found: ${totalInDb})`);
+assert(totalInDb === 970, `Total questions across all modules in DB equals 970 (Found: ${totalInDb})`);
 
 // 2. Check Difficulty Ordering
 console.log('\n--- Test Suite 2: Question Difficulty Progression ---');
@@ -82,19 +83,19 @@ const alloc5 = calculateDistribution(['html', 'css', 'bootstrap', 'python', 'rea
 const sum5 = Object.values(alloc5).reduce((a, b) => a + b, 0);
 assert(sum5 === 30 && alloc5.html === 6 && alloc5.python === 6, `5 Topics alloc = 6 each (Sum = ${sum5})`);
 
-// Case 3: 1 topic (Data Analytics) -> 30
-const alloc1 = calculateDistribution(['data_analytics']);
-assert(alloc1.data_analytics === 30, `1 Topic (Data Analytics) alloc = 30`);
+// Case 3: 1 topic (Data Science) -> 30
+const alloc1 = calculateDistribution(['data_science']);
+assert(alloc1.data_science === 30, `1 Topic (Data Science) alloc = 30`);
 
 // Case 4: 4 topics -> 8, 8, 7, 7 = 30
 const alloc4 = calculateDistribution(['html', 'css', 'javascript', 'python']);
 const sum4 = Object.values(alloc4).reduce((a, b) => a + b, 0);
 assert(sum4 === 30, `4 Topics alloc sum = 30 (Counts: ${JSON.stringify(alloc4)})`);
 
-// Case 5: 7 topics -> 5, 5, 4, 4, 4, 4, 4 = 30
-const alloc7 = calculateDistribution(['html', 'css', 'bootstrap', 'javascript', 'python', 'react', 'data_analytics']);
-const sum7 = Object.values(alloc7).reduce((a, b) => a + b, 0);
-assert(sum7 === 30, `7 Topics alloc sum = 30 (Counts: ${JSON.stringify(alloc7)})`);
+// Case 5: 8 topics -> exactly 30 total
+const alloc8 = calculateDistribution(['html', 'css', 'bootstrap', 'javascript', 'python', 'react', 'data_science', 'data_analytics']);
+const sum8 = Object.values(alloc8).reduce((a, b) => a + b, 0);
+assert(sum8 === 30, `8 Topics alloc sum = 30 (Counts: ${JSON.stringify(alloc8)})`);
 
 // 5. Check Admin Setup
 console.log('\n--- Test Suite 5: Admin Security & Config ---');

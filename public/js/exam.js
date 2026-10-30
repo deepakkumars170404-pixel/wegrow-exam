@@ -702,6 +702,7 @@ function updateTopicSelection() {
     javascript: "JavaScript",
     python: "Python",
     react: "React.js",
+    data_science: "Data Science (Python, NumPy, Pandas)",
     data_analytics: "Data Analytics"
   };
 

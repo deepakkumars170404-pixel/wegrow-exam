@@ -88,6 +88,15 @@ const modulesData = [
     total_questions: 100,
     duration_minutes: 30,
     badge_color: "bg-teal-600"
+  },
+  {
+    id: "data_science",
+    name: "Round 2: Data Science (Python, NumPy, Pandas)",
+    round: "Round 2 - Specialization Elective",
+    subtitle: "Python for Data Science, NumPy Arrays & Vectorization, Pandas DataFrames & Cleaning (120 Pool)",
+    total_questions: 120,
+    duration_minutes: 30,
+    badge_color: "bg-indigo-600"
   }
 ];
 
@@ -99,7 +108,8 @@ const fileMap = {
   javascript: 'javascript.json',
   python: 'python.json',
   react: 'react.json',
-  data_analytics: 'data_analytics.json'
+  data_analytics: 'data_analytics.json',
+  data_science: 'data_science.json'
 };
 
 async function seedSupabase() {
@@ -109,7 +119,7 @@ async function seedSupabase() {
   console.log('Target Project:', SUPABASE_URL);
 
   // 1. Upsert Modules
-  console.log('\n[1/3] Uploading 8 Exam Modules...');
+  console.log('\n[1/3] Uploading ' + modulesData.length + ' Exam Modules...');
   const { error: modErr } = await supabase
     .from('modules')
     .upsert(modulesData, { onConflict: 'id' });
@@ -118,10 +128,10 @@ async function seedSupabase() {
     console.error('❌ Failed inserting modules:', modErr.message);
     process.exit(1);
   }
-  console.log('✓ All 8 Modules upserted successfully.');
+  console.log('✓ All ' + modulesData.length + ' Modules upserted successfully.');
 
   // 2. Load and Upload Questions
-  console.log('\n[2/3] Reading and Uploading 850 Questions...');
+  console.log('\n[2/3] Reading and Uploading Questions (970 Total across 9 modules)...');
   let allQuestions = [];
 
   for (const [modId, fileName] of Object.entries(fileMap)) {

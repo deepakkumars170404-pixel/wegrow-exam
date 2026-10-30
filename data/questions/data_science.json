@@ -1,0 +1,1802 @@
+[
+  {
+    "id": "ds_1",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Basic",
+    "question": "Which of the following is an immutable sequence data type in Python?",
+    "options": [
+      "list",
+      "tuple",
+      "set",
+      "dict"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Tuples in Python are immutable, meaning their elements cannot be changed, added, or removed after creation."
+  },
+  {
+    "id": "ds_2",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Basic",
+    "question": "What is the output of the expression `type(4.5)` in Python?",
+    "options": [
+      "<class 'int'>",
+      "<class 'float'>",
+      "<class 'double'>",
+      "<class 'number'>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Numbers with decimal points are represented by the built-in 'float' class in Python."
+  },
+  {
+    "id": "ds_3",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Basic",
+    "question": "Which keyword is used to define an anonymous, one-line function in Python?",
+    "options": [
+      "def",
+      "func",
+      "lambda",
+      "inline"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The 'lambda' keyword creates anonymous, small inline functions in Python without requiring a formal 'def' statement."
+  },
+  {
+    "id": "ds_4",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Basic",
+    "question": "How do you access the last element of a Python list `nums = [10, 20, 30, 40]`?",
+    "options": [
+      "nums[last]",
+      "nums[len(nums)]",
+      "nums[-1]",
+      "nums[end]"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Python supports negative indexing where -1 refers to the last element of a sequence."
+  },
+  {
+    "id": "ds_5",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Basic",
+    "question": "What does the `len()` function return when applied to a dictionary with 5 key-value pairs?",
+    "options": [
+      "10 (keys + values)",
+      "5 (number of keys)",
+      "Error",
+      "None"
+    ],
+    "correctAnswer": 1,
+    "explanation": "len(dict) returns the count of unique keys (key-value entries) present in the dictionary."
+  },
+  {
+    "id": "ds_6",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Basic",
+    "question": "Which built-in collection data type does NOT allow duplicate elements and is unordered?",
+    "options": [
+      "list",
+      "tuple",
+      "set",
+      "dictionary"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A set in Python stores unique elements only, automatically discarding duplicates, and does not maintain insertion order."
+  },
+  {
+    "id": "ds_7",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Basic",
+    "question": "What is the result of the division operation `9 // 2` in Python?",
+    "options": [
+      "4.5",
+      "4",
+      "5",
+      "1"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The '//' operator performs floor division, rounding down the division quotient to the nearest integer (4)."
+  },
+  {
+    "id": "ds_8",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Basic",
+    "question": "Which method is used to add a single item to the end of an existing Python list?",
+    "options": [
+      "list.insert()",
+      "list.add()",
+      "list.append()",
+      "list.push()"
+    ],
+    "correctAnswer": 2,
+    "explanation": "list.append(x) places the element x at the end of the list in place."
+  },
+  {
+    "id": "ds_9",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Basic",
+    "question": "What is the output of `'python'[1:4]`?",
+    "options": [
+      "'pyt'",
+      "'yth'",
+      "'ytho'",
+      "'pyth'"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Slicing [start:stop] is zero-indexed and exclusive of stop index. Indices 1, 2, 3 correspond to 'y', 't', 'h'."
+  },
+  {
+    "id": "ds_10",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Basic",
+    "question": "Which operator is used to check if a specific key exists inside a Python dictionary?",
+    "options": [
+      "has_key()",
+      "exists",
+      "in",
+      "contains"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The 'in' operator checks membership: `'key' in my_dict` returns True if key exists."
+  },
+  {
+    "id": "ds_11",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Basic",
+    "question": "What block is used in Python to catch and handle runtime exceptions gracefully?",
+    "options": [
+      "try ... catch",
+      "try ... except",
+      "do ... catch",
+      "attempt ... handle"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Python uses 'try' to wrap hazardous code and 'except' to handle specific or general exceptions."
+  },
+  {
+    "id": "ds_12",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Basic",
+    "question": "What will `bool([])` evaluate to in Python?",
+    "options": [
+      "True",
+      "False",
+      "None",
+      "Error"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Empty collections (empty lists, tuples, sets, strings, dicts) evaluate to False (falsy) in boolean contexts."
+  },
+  {
+    "id": "ds_13",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Basic",
+    "question": "Which built-in function pairs elements from two iterables into a series of tuples?",
+    "options": [
+      "enumerate()",
+      "zip()",
+      "combine()",
+      "pair()"
+    ],
+    "correctAnswer": 1,
+    "explanation": "zip(list1, list2) aggregates corresponding elements from each iterable into pairs of tuples."
+  },
+  {
+    "id": "ds_14",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Medium",
+    "question": "What is the output of the list comprehension `[x**2 for x in range(5) if x % 2 == 1]`?",
+    "options": [
+      "[0, 1, 4, 9, 16]",
+      "[1, 9]",
+      "[1, 4, 9]",
+      "[0, 4, 16]"
+    ],
+    "correctAnswer": 1,
+    "explanation": "range(5) is [0, 1, 2, 3, 4]. The condition 'x % 2 == 1' filters odd numbers: 1 and 3. Their squares are 1 and 9."
+  },
+  {
+    "id": "ds_15",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Medium",
+    "question": "What does the `*args` syntax in a Python function definition allow you to do?",
+    "options": [
+      "Pass keyword arguments as a dictionary",
+      "Pass an arbitrary number of positional arguments as a tuple",
+      "Multiply arguments before passing",
+      "Enforce strictly typed arguments"
+    ],
+    "correctAnswer": 1,
+    "explanation": "*args allows a function to accept any number of positional arguments, which are packed into a tuple."
+  },
+  {
+    "id": "ds_16",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Medium",
+    "question": "What does `**kwargs` pack arguments into inside a Python function?",
+    "options": [
+      "A list",
+      "A tuple",
+      "A dictionary",
+      "A set"
+    ],
+    "correctAnswer": 2,
+    "explanation": "**kwargs captures arbitrary keyword arguments passed to the function as key-value pairs in a dictionary."
+  },
+  {
+    "id": "ds_17",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Medium",
+    "question": "What is the output of `list(map(lambda x: x * 2, [1, 2, 3]))`?",
+    "options": [
+      "[1, 2, 3]",
+      "[2, 4, 6]",
+      "[1, 2, 3, 1, 2, 3]",
+      "Error"
+    ],
+    "correctAnswer": 1,
+    "explanation": "map() applies the lambda function (multiplying each item by 2) across the list elements, yielding [2, 4, 6]."
+  },
+  {
+    "id": "ds_18",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Medium",
+    "question": "What is the output of `list(filter(lambda x: x > 10, [5, 12, 8, 20]))`?",
+    "options": [
+      "[5, 8]",
+      "[12, 20]",
+      "[False, True, False, True]",
+      "[5, 12, 8, 20]"
+    ],
+    "correctAnswer": 1,
+    "explanation": "filter() extracts only items for which the boolean function returns True (items strictly greater than 10: 12 and 20)."
+  },
+  {
+    "id": "ds_19",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Medium",
+    "question": "Consider: `a = [1, 2, 3]; b = a; b.append(4)`. What is `print(a)`?",
+    "options": [
+      "[1, 2, 3]",
+      "[1, 2, 3, 4]",
+      "Error",
+      "None"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Lists are mutable references. 'b = a' assigns the same memory reference, so mutating b also mutates a."
+  },
+  {
+    "id": "ds_20",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Medium",
+    "question": "How do you create an independent shallow copy of list `a` so modifying `b` does not affect `a`?",
+    "options": [
+      "b = a",
+      "b = a.copy() or b = a[:]",
+      "b = copy(a)",
+      "b = duplicate(a)"
+    ],
+    "correctAnswer": 1,
+    "explanation": "a.copy() or slicing a[:] creates a new shallow copy of list a with a different memory reference."
+  },
+  {
+    "id": "ds_21",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Medium",
+    "question": "What will the following dictionary comprehension create?\n`{x: x**3 for x in range(1, 4)}`",
+    "options": [
+      "{1: 1, 2: 8, 3: 27}",
+      "{1: 3, 2: 6, 3: 9}",
+      "[1, 8, 27]",
+      "{(1, 1), (2, 8), (3, 27)}"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The dictionary comprehension maps each number x from 1, 2, 3 to its cube x**3: {1: 1, 2: 8, 3: 27}."
+  },
+  {
+    "id": "ds_22",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Medium",
+    "question": "What is the proper way to open a file in Python so it automatically closes even if errors occur?",
+    "options": [
+      "open('data.csv', auto_close=True)",
+      "with open('data.csv', 'r') as f:",
+      "try: f = open('data.csv') close()",
+      "file = open('data.csv') -> lock"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The 'with' statement creates a context manager that guarantees the file descriptor is closed cleanly upon exiting the block."
+  },
+  {
+    "id": "ds_23",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Medium",
+    "question": "What does the built-in function `enumerate(iterable)` produce during a for loop?",
+    "options": [
+      "Only the element values",
+      "Pairs of (index, element)",
+      "A reversed copy of the list",
+      "The total count of elements"
+    ],
+    "correctAnswer": 1,
+    "explanation": "enumerate(seq) yields index and value tuples (0, seq[0]), (1, seq[1]), ... facilitating indexed iteration."
+  },
+  {
+    "id": "ds_24",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Medium",
+    "question": "What is the output of `sorted(['10', '2', '30'], key=int)`?",
+    "options": [
+      "['10', '2', '30']",
+      "['2', '10', '30']",
+      "['30', '10', '2']",
+      "[2, 10, 30]"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The key=int parameter compares string items by their integer value (2 < 10 < 30) while preserving the string types."
+  },
+  {
+    "id": "ds_25",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Medium",
+    "question": "What keyword is used in a Python function to turn it into a generator that yields values lazily?",
+    "options": [
+      "return",
+      "yield",
+      "generate",
+      "lazy"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The 'yield' statement produces values on the fly without loading all items in memory at once, creating a generator object."
+  },
+  {
+    "id": "ds_26",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Basic",
+    "question": "What is the standard alias used by data scientists when importing the NumPy library?",
+    "options": [
+      "import numpy as n",
+      "import numpy as np",
+      "import numpy as npy",
+      "import numpy as num"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'import numpy as np' is the universally accepted standard convention across the Python data science community."
+  },
+  {
+    "id": "ds_27",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Basic",
+    "question": "What core data structure does NumPy provide for high-performance scientific computing?",
+    "options": [
+      "DataFrame",
+      "ndarray (N-dimensional array)",
+      "LinkedList",
+      "MatrixTree"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The ndarray (homogeneous N-dimensional array) is NumPy's core data structure providing fast vectorized computation in C."
+  },
+  {
+    "id": "ds_28",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Basic",
+    "question": "Which attribute of a NumPy array reveals the dimensions or shape of the array (e.g., rows, columns)?",
+    "options": [
+      "arr.size",
+      "arr.ndim",
+      "arr.shape",
+      "arr.dtype"
+    ],
+    "correctAnswer": 2,
+    "explanation": "arr.shape returns a tuple of integers indicating the size of the array along each dimension."
+  },
+  {
+    "id": "ds_29",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Basic",
+    "question": "What does `arr.ndim` return for a 2-dimensional NumPy array?",
+    "options": [
+      "The total element count",
+      "2",
+      "The data type",
+      "The row count"
+    ],
+    "correctAnswer": 1,
+    "explanation": "arr.ndim indicates the number of axes (dimensions) of the array. For a 2D matrix, it returns 2."
+  },
+  {
+    "id": "ds_30",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Basic",
+    "question": "Which NumPy function creates an array filled entirely with zeros having shape (3, 4)?",
+    "options": [
+      "np.zeros((3, 4))",
+      "np.empty_zeros(3, 4)",
+      "np.zero_array(3, 4)",
+      "np.nulls((3, 4))"
+    ],
+    "correctAnswer": 0,
+    "explanation": "np.zeros(shape) creates a new array of given shape filled with zeros (float64 by default)."
+  },
+  {
+    "id": "ds_31",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Basic",
+    "question": "What is the output of `np.arange(1, 10, 2)`?",
+    "options": [
+      "array([1, 3, 5, 7, 9])",
+      "array([1, 2, 3, 4, 5, 6, 7, 8, 9])",
+      "array([2, 4, 6, 8])",
+      "array([1, 3, 5, 7, 9, 10])"
+    ],
+    "correctAnswer": 0,
+    "explanation": "np.arange(start, stop, step) generates values starting at 1, increasing by step 2, up to (exclusive) 10: [1, 3, 5, 7, 9]."
+  },
+  {
+    "id": "ds_32",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Basic",
+    "question": "How does NumPy differ from standard Python lists regarding stored data types?",
+    "options": [
+      "NumPy arrays store elements of homogeneous (same) data types",
+      "NumPy arrays can only store strings",
+      "Python lists are faster than NumPy arrays",
+      "NumPy arrays cannot store floating point numbers"
+    ],
+    "correctAnswer": 0,
+    "explanation": "NumPy arrays are homogeneous: all elements share the exact same data type (dtype), allowing continuous memory allocation and C-level speed."
+  },
+  {
+    "id": "ds_33",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Basic",
+    "question": "Which attribute tells you the data type of the elements inside a NumPy array?",
+    "options": [
+      "arr.type",
+      "arr.data_type",
+      "arr.dtype",
+      "arr.element_type"
+    ],
+    "correctAnswer": 2,
+    "explanation": "arr.dtype describes the format and byte size of elements in the array (e.g., int32, float64)."
+  },
+  {
+    "id": "ds_34",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Basic",
+    "question": "What is the output of `np.ones((2, 2))`?",
+    "options": [
+      "A 2x2 matrix of zeros",
+      "A 2x2 matrix containing 1.0 (float) in each position",
+      "An array of 2 ones: [1, 1]",
+      "Error"
+    ],
+    "correctAnswer": 1,
+    "explanation": "np.ones((2, 2)) creates a 2x2 2D array where every element is 1.0."
+  },
+  {
+    "id": "ds_35",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Basic",
+    "question": "What is the total number of elements in a NumPy array with shape `(4, 5)`?",
+    "options": [
+      "9",
+      "20",
+      "45",
+      "10"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The total size is the product of dimensions: 4 * 5 = 20 (accessible via arr.size)."
+  },
+  {
+    "id": "ds_36",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Basic",
+    "question": "Which function creates an identity matrix with ones on the main diagonal?",
+    "options": [
+      "np.diag()",
+      "np.identity_matrix()",
+      "np.eye()",
+      "np.ones_diag()"
+    ],
+    "correctAnswer": 2,
+    "explanation": "np.eye(N) creates a 2D array with 1s across the main diagonal and 0s elsewhere."
+  },
+  {
+    "id": "ds_37",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Basic",
+    "question": "What will `np.array([1, 2, 3]) + 5` output?",
+    "options": [
+      "array([6, 7, 8])",
+      "array([1, 2, 3, 5])",
+      "Error because scalar cannot add to array",
+      "array([5, 10, 15])"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Through scalar broadcasting, 5 is added element-wise to each value in the array, resulting in [6, 7, 8]."
+  },
+  {
+    "id": "ds_38",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Medium",
+    "question": "What is the difference between `np.linspace(0, 10, 5)` and `np.arange(0, 10, 5)`?",
+    "options": [
+      "linspace generates 5 evenly spaced values including stop (10); arange steps by 5",
+      "linspace is for integers only; arange is for floats only",
+      "Both generate the exact same array",
+      "arange includes the stop value while linspace excludes it"
+    ],
+    "correctAnswer": 0,
+    "explanation": "np.linspace(start, stop, num=5) generates 5 evenly spaced samples [0, 2.5, 5, 7.5, 10], whereas arange(start, stop, step=5) produces [0, 5]."
+  },
+  {
+    "id": "ds_39",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Medium",
+    "question": "If `arr = np.array([[10, 20, 30], [40, 50, 60]])`, how do you access the element 50?",
+    "options": [
+      "arr[50]",
+      "arr[1, 1]",
+      "arr[2, 2]",
+      "arr[1][2]"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Row index 1 and column index 1 corresponds to 50: arr[1, 1]."
+  },
+  {
+    "id": "ds_40",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Medium",
+    "question": "What method changes the shape of `arr = np.arange(6)` into 2 rows and 3 columns without altering its data?",
+    "options": [
+      "arr.transform(2, 3)",
+      "arr.reshape(2, 3)",
+      "arr.resize_view(2, 3)",
+      "arr.shape = (3, 2)"
+    ],
+    "correctAnswer": 1,
+    "explanation": "arr.reshape(2, 3) reorganizes the 6 elements into a 2x3 matrix without copying data."
+  },
+  {
+    "id": "ds_41",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Medium",
+    "question": "What does the -1 dimension mean in `arr.reshape(3, -1)` for an array of 12 elements?",
+    "options": [
+      "NumPy automatically infers the missing dimension as 4",
+      "It reverses the array",
+      "It throws an invalid dimension error",
+      "It deletes the last column"
+    ],
+    "correctAnswer": 0,
+    "explanation": "When reshaping, passing -1 allows NumPy to automatically calculate that axis size (12 / 3 = 4 columns)."
+  },
+  {
+    "id": "ds_42",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Medium",
+    "question": "For a 2D array `matrix`, what does `np.sum(matrix, axis=0)` calculate?",
+    "options": [
+      "The sum across rows for each column (column sums)",
+      "The sum across columns for each row (row sums)",
+      "The grand total of all numbers",
+      "The diagonal sum"
+    ],
+    "correctAnswer": 0,
+    "explanation": "axis=0 collapses the rows, computing the vertical sum for each column independently."
+  },
+  {
+    "id": "ds_43",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Medium",
+    "question": "What does `np.sum(matrix, axis=1)` compute for a 2D matrix?",
+    "options": [
+      "Column-wise sums",
+      "Row-wise sums (sum of each row)",
+      "Maximum of each column",
+      "Variance of the matrix"
+    ],
+    "correctAnswer": 1,
+    "explanation": "axis=1 collapses the columns, summing horizontally across each individual row."
+  },
+  {
+    "id": "ds_44",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Medium",
+    "question": "What is NumPy broadcasting?",
+    "options": [
+      "A way to send array data over network sockets",
+      "The mechanism that allows arithmetic operations between arrays of different shapes",
+      "Printing arrays to standard output",
+      "Converting lists to arrays"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Broadcasting allows NumPy to treat arrays with different shapes during arithmetic operations without making unnecessary copies."
+  },
+  {
+    "id": "ds_45",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Medium",
+    "question": "If `arr = np.array([12, 5, 23, 8, 30])`, what does `arr[arr > 10]` return?",
+    "options": [
+      "[True, False, True, False, True]",
+      "array([12, 23, 30])",
+      "[5, 8]",
+      "Error: cannot index with boolean condition"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Boolean masking filters the array, returning only the values where the condition evaluates to True: [12, 23, 30]."
+  },
+  {
+    "id": "ds_46",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Medium",
+    "question": "What function replaces values conditionally in NumPy, similar to Excel's IF formula?\n`np.where(arr > 0, 1, -1)`",
+    "options": [
+      "np.select()",
+      "np.where()",
+      "np.if_else()",
+      "np.condition()"
+    ],
+    "correctAnswer": 1,
+    "explanation": "np.where(condition, x, y) returns elements chosen from x or y depending on whether the condition is True or False."
+  },
+  {
+    "id": "ds_47",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Medium",
+    "question": "What is the difference between `arr.flatten()` and `arr.ravel()`?",
+    "options": [
+      "flatten() always returns a new deep copy; ravel() returns a flattened view whenever possible",
+      "flatten() returns a 2D array; ravel() returns a 1D array",
+      "There is no difference; they are aliases",
+      "ravel() only works on 3D arrays"
+    ],
+    "correctAnswer": 0,
+    "explanation": "arr.flatten() returns a copy of the array in 1D, while arr.ravel() returns a contiguous flattened view, saving memory."
+  },
+  {
+    "id": "ds_48",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Medium",
+    "question": "How do you compute the matrix dot product of two compatible 2D arrays A and B in modern Python?",
+    "options": [
+      "A * B",
+      "A @ B or np.dot(A, B)",
+      "A.product(B)",
+      "np.multiply_matrices(A, B)"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The '@' operator (introduced in Python 3.5) and np.dot(A, B) perform matrix multiplication, whereas '*' performs element-wise multiplication."
+  },
+  {
+    "id": "ds_49",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Medium",
+    "question": "Which function returns the indices that would sort an array rather than the sorted values themselves?",
+    "options": [
+      "np.sort()",
+      "np.argsort()",
+      "np.index_sort()",
+      "np.order()"
+    ],
+    "correctAnswer": 1,
+    "explanation": "np.argsort() returns an array of indices that partition and sort the input array along the specified axis."
+  },
+  {
+    "id": "ds_50",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Medium",
+    "question": "What will `np.std(arr)` calculate for a dataset array?",
+    "options": [
+      "The variance",
+      "The standard deviation",
+      "The standard error",
+      "The range"
+    ],
+    "correctAnswer": 1,
+    "explanation": "np.std(arr) calculates the standard deviation, measuring the dispersion of values around the mean."
+  },
+  {
+    "id": "ds_51",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Basic",
+    "question": "What is the standard convention to import the Pandas library?",
+    "options": [
+      "import pandas as p",
+      "import pandas as pd",
+      "import pandas as pds",
+      "import pandas as pan"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'import pandas as pd' is the universal standard convention in Python data analysis."
+  },
+  {
+    "id": "ds_52",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Basic",
+    "question": "What are the two primary foundational data structures in Pandas?",
+    "options": [
+      "List and Matrix",
+      "Series (1D) and DataFrame (2D)",
+      "Vector and Tensor",
+      "Row and Table"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Pandas provides Series (a labeled 1D array) and DataFrame (a 2D tabular data structure with labeled axes)."
+  },
+  {
+    "id": "ds_53",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Basic",
+    "question": "Which Pandas method reads a Comma-Separated Values file into a DataFrame?",
+    "options": [
+      "pd.read_file()",
+      "pd.open_csv()",
+      "pd.read_csv()",
+      "pd.load_csv()"
+    ],
+    "correctAnswer": 2,
+    "explanation": "pd.read_csv('filename.csv') parses CSV data directly into a structured DataFrame."
+  },
+  {
+    "id": "ds_54",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Basic",
+    "question": "By default, how many rows does `df.head()` display from the top of a DataFrame?",
+    "options": [
+      "10",
+      "5",
+      "1",
+      "20"
+    ],
+    "correctAnswer": 1,
+    "explanation": "df.head(n=5) returns the first 5 rows by default."
+  },
+  {
+    "id": "ds_55",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Basic",
+    "question": "Which method displays the last few rows of a DataFrame?",
+    "options": [
+      "df.bottom()",
+      "df.last()",
+      "df.tail()",
+      "df.end()"
+    ],
+    "correctAnswer": 2,
+    "explanation": "df.tail(n=5) displays the last 5 rows of a DataFrame."
+  },
+  {
+    "id": "ds_56",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Basic",
+    "question": "What attribute returns a tuple representing the number of rows and columns in `df`?",
+    "options": [
+      "df.size",
+      "df.shape",
+      "df.ndim",
+      "df.dimensions"
+    ],
+    "correctAnswer": 1,
+    "explanation": "df.shape returns a tuple (number of rows, number of columns)."
+  },
+  {
+    "id": "ds_57",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Basic",
+    "question": "Which DataFrame method prints a concise summary including column names, non-null counts, and data types?",
+    "options": [
+      "df.summary()",
+      "df.info()",
+      "df.details()",
+      "df.overview()"
+    ],
+    "correctAnswer": 1,
+    "explanation": "df.info() provides an essential structural audit of columns, non-null values, and memory usage."
+  },
+  {
+    "id": "ds_58",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Basic",
+    "question": "Which method generates descriptive summary statistics (count, mean, std, min, 25%, 50%, 75%, max) for numeric columns?",
+    "options": [
+      "df.stats()",
+      "df.describe()",
+      "df.aggregate()",
+      "df.calculate()"
+    ],
+    "correctAnswer": 1,
+    "explanation": "df.describe() computes 8 central descriptive statistics for all numeric columns in the DataFrame."
+  },
+  {
+    "id": "ds_59",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Basic",
+    "question": "How do you select a single column named `'Salary'` from a DataFrame `df`?",
+    "options": [
+      "df['Salary']",
+      "df.column('Salary')",
+      "df.select('Salary')",
+      "df.get_col('Salary')"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Bracket notation `df['Salary']` (or `df.Salary`) selects the column as a Pandas Series."
+  },
+  {
+    "id": "ds_60",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Basic",
+    "question": "How do you select multiple columns `'Name'` and `'Age'` from DataFrame `df`?",
+    "options": [
+      "df['Name', 'Age']",
+      "df[['Name', 'Age']]",
+      "df.cols('Name', 'Age')",
+      "df({'Name', 'Age'})"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Passing a Python list of column names inside outer brackets `df[['Name', 'Age']]` returns a sub-DataFrame."
+  },
+  {
+    "id": "ds_61",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Basic",
+    "question": "What attribute lists all the column labels of a DataFrame?",
+    "options": [
+      "df.labels",
+      "df.headers",
+      "df.columns",
+      "df.fields"
+    ],
+    "correctAnswer": 2,
+    "explanation": "df.columns returns an Index object containing all column names."
+  },
+  {
+    "id": "ds_62",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Basic",
+    "question": "How do you create a new column `'Bonus'` where each value is 10% of `'Salary'` in `df`?",
+    "options": [
+      "df.add_column('Bonus', df['Salary'] * 0.1)",
+      "df['Bonus'] = df['Salary'] * 0.1",
+      "df.create('Bonus' = df['Salary'] * 0.1)",
+      "df['Bonus'].append(df['Salary'] * 0.1)"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Assigning to a new column key `df['Bonus'] = df['Salary'] * 0.1` vectorially computes and appends the column."
+  },
+  {
+    "id": "ds_63",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Basic",
+    "question": "Which method is used to count the occurrences of each unique value in a Series?",
+    "options": [
+      "df['City'].unique()",
+      "df['City'].value_counts()",
+      "df['City'].count_unique()",
+      "df['City'].frequencies()"
+    ],
+    "correctAnswer": 1,
+    "explanation": "s.value_counts() returns a Series with counts of unique values in descending order."
+  },
+  {
+    "id": "ds_64",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Medium",
+    "question": "What is the crucial fundamental difference between `.loc[]` and `.iloc[]` in Pandas?",
+    "options": [
+      ".loc is label/name-based indexing; .iloc is integer-position based indexing",
+      ".loc is for rows only; .iloc is for columns only",
+      ".loc is faster; .iloc is slower",
+      ".loc takes numbers only; .iloc takes strings only"
+    ],
+    "correctAnswer": 0,
+    "explanation": ".loc selects data based on explicit row/column labels, whereas .iloc selects data based on integer indices (0 to length-1)."
+  },
+  {
+    "id": "ds_65",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Medium",
+    "question": "What does `df.iloc[0:3, 1:4]` select from a DataFrame?",
+    "options": [
+      "Rows 0 through 2, and columns 1 through 3",
+      "Rows 0 through 3, and columns 1 through 4",
+      "Rows with index labels '0' to '3'",
+      "Columns 0 to 3"
+    ],
+    "correctAnswer": 0,
+    "explanation": ".iloc follows standard Python slicing where the end index is exclusive: rows [0, 1, 2] and columns [1, 2, 3]."
+  },
+  {
+    "id": "ds_66",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Medium",
+    "question": "Unlike Python slices, what is special about slicing with `.loc['a':'c']` using labels?",
+    "options": [
+      "Both the start label and the stop label are INCLUDED in the output",
+      "The stop label is excluded",
+      "It only works on numerical indices",
+      "It reverses the row order"
+    ],
+    "correctAnswer": 0,
+    "explanation": "When slicing by label with .loc, both the start and stop labels are inclusive (endpoint included)."
+  },
+  {
+    "id": "ds_67",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Medium",
+    "question": "How do you filter a DataFrame `df` for employees where `Age > 30` AND `Department == 'IT'`?",
+    "options": [
+      "df[df['Age'] > 30 and df['Department'] == 'IT']",
+      "df[(df['Age'] > 30) & (df['Department'] == 'IT')]",
+      "df.filter(Age > 30 && Department == 'IT')",
+      "df[(df['Age'] > 30) && (df['Department'] == 'IT')]"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Pandas requires the bitwise '&' operator (with parentheses around each condition) for element-wise boolean operations."
+  },
+  {
+    "id": "ds_68",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Medium",
+    "question": "How do you drop a column named `'Temp'` from `df` permanently in place?",
+    "options": [
+      "df.drop('Temp', axis=1, inplace=True)",
+      "df.remove('Temp')",
+      "del df.columns['Temp']",
+      "df.drop_column('Temp')"
+    ],
+    "correctAnswer": 0,
+    "explanation": "df.drop('Temp', axis=1, inplace=True) drops the column along axis 1 and modifies the DataFrame directly without reassigning."
+  },
+  {
+    "id": "ds_69",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Medium",
+    "question": "Which method renames columns in a DataFrame using a dictionary mapping?",
+    "options": [
+      "df.rename(columns={'old_name': 'new_name'})",
+      "df.change_headers({'old_name': 'new_name'})",
+      "df.set_columns({'old_name': 'new_name'})",
+      "df.modify_col('old_name', 'new_name')"
+    ],
+    "correctAnswer": 0,
+    "explanation": "df.rename(columns={...}) accepts a dictionary mapping current column names to desired new column names."
+  },
+  {
+    "id": "ds_70",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Medium",
+    "question": "What does `df.reset_index(drop=True)` accomplish?",
+    "options": [
+      "Resets the index to 0, 1, 2... and discards the previous index column instead of adding it as a data column",
+      "Deletes the first row of data",
+      "Sorts the index in descending order",
+      "Drops all columns with NaN values"
+    ],
+    "correctAnswer": 0,
+    "explanation": "reset_index(drop=True) replaces the existing index with default integer index (0..n-1) and prevents the old index from becoming a column."
+  },
+  {
+    "id": "ds_71",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Medium",
+    "question": "How do you filter rows where `'City'` is either `'Chennai'`, `'Bangalore'`, or `'Hyderabad'`?",
+    "options": [
+      "df['City'].in(['Chennai', 'Bangalore', 'Hyderabad'])",
+      "df[df['City'].isin(['Chennai', 'Bangalore', 'Hyderabad'])]",
+      "df.filter_in('City', ['Chennai', 'Bangalore'])",
+      "df[df['City'] == ('Chennai' | 'Bangalore')]"
+    ],
+    "correctAnswer": 1,
+    "explanation": "df['City'].isin([...]) creates a boolean series checking if values belong to the given list of options."
+  },
+  {
+    "id": "ds_72",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Medium",
+    "question": "What method exports a DataFrame `df` to a new CSV file named `'output.csv'` without writing the row index numbers?",
+    "options": [
+      "df.save_csv('output.csv')",
+      "df.to_csv('output.csv', index=False)",
+      "df.write_csv('output.csv')",
+      "df.export('output.csv', no_index=True)"
+    ],
+    "correctAnswer": 1,
+    "explanation": "df.to_csv('output.csv', index=False) writes the table to disk and suppresses outputting the row index numbers."
+  },
+  {
+    "id": "ds_73",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Medium",
+    "question": "What does `df['Score'].nunique()` return?",
+    "options": [
+      "The list of unique scores",
+      "The count of distinct/unique values in the 'Score' column",
+      "The total number of non-null rows",
+      "True if all scores are unique"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Series.nunique() returns the integer number of unique elements present in the series."
+  },
+  {
+    "id": "ds_74",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Medium",
+    "question": "If a column contains strings, how do you convert all text to lowercase in Pandas?",
+    "options": [
+      "df['Name'].lower()",
+      "df['Name'].str.lower()",
+      "df['Name'].apply_lower()",
+      "lower(df['Name'])"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The `.str` accessor allows vectorized string methods: df['Name'].str.lower() converts all text elements to lowercase."
+  },
+  {
+    "id": "ds_75",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Medium",
+    "question": "How do you change the data type of column `df['Age']` from float to int?",
+    "options": [
+      "df['Age'].to_int()",
+      "df['Age'] = df['Age'].astype(int)",
+      "df['Age'].cast('int')",
+      "int(df['Age'])"
+    ],
+    "correctAnswer": 1,
+    "explanation": "df['col'].astype(int) or astype('int64') explicitly casts the series to the designated data type."
+  },
+  {
+    "id": "ds_76",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Basic",
+    "question": "Which method detects missing (NaN/null) values in a DataFrame, returning a boolean mask?",
+    "options": [
+      "df.missing()",
+      "df.isna() or df.isnull()",
+      "df.empty()",
+      "df.check_null()"
+    ],
+    "correctAnswer": 1,
+    "explanation": "df.isna() (or df.isnull()) returns a DataFrame of boolean values indicating where NaN values exist."
+  },
+  {
+    "id": "ds_77",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Basic",
+    "question": "How do you count the total number of missing (NaN) values in each column of `df`?",
+    "options": [
+      "df.count_nulls()",
+      "df.isna().sum()",
+      "df.isna().count()",
+      "df.missing_values()"
+    ],
+    "correctAnswer": 1,
+    "explanation": "df.isna().sum() sums the True boolean values (True=1, False=0) for each column, revealing missing value counts."
+  },
+  {
+    "id": "ds_78",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Basic",
+    "question": "Which method removes all rows containing at least one missing (NaN) value?",
+    "options": [
+      "df.remove_na()",
+      "df.dropna()",
+      "df.clean_nulls()",
+      "df.delete_missing()"
+    ],
+    "correctAnswer": 1,
+    "explanation": "df.dropna() (default axis=0, how='any') drops any row containing one or more missing values."
+  },
+  {
+    "id": "ds_79",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Basic",
+    "question": "Which method replaces missing (NaN) values with a specified replacement value (such as 0)?",
+    "options": [
+      "df.replace_na(0)",
+      "df.fillna(0)",
+      "df.impute(0)",
+      "df.set_default(0)"
+    ],
+    "correctAnswer": 1,
+    "explanation": "df.fillna(value) fills all missing values with the provided scalar, dictionary, or computed statistic."
+  },
+  {
+    "id": "ds_80",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Basic",
+    "question": "Which method identifies duplicate rows across a DataFrame?",
+    "options": [
+      "df.is_repeated()",
+      "df.duplicated()",
+      "df.find_duplicates()",
+      "df.clone()"
+    ],
+    "correctAnswer": 1,
+    "explanation": "df.duplicated() returns a boolean Series indicating whether each row is a duplicate of a previous row."
+  },
+  {
+    "id": "ds_81",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Basic",
+    "question": "Which method removes duplicate rows from a DataFrame?",
+    "options": [
+      "df.drop_duplicates()",
+      "df.remove_clones()",
+      "df.unique_rows()",
+      "df.distinct()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "df.drop_duplicates() discards duplicate rows, keeping the first occurrence by default."
+  },
+  {
+    "id": "ds_82",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Basic",
+    "question": "How do you sort a DataFrame `df` by the column `'Salary'` in descending order?",
+    "options": [
+      "df.sort('Salary', reverse=True)",
+      "df.sort_values(by='Salary', ascending=False)",
+      "df.order_by('Salary', desc=True)",
+      "df.arrange('Salary', high_to_low=True)"
+    ],
+    "correctAnswer": 1,
+    "explanation": "df.sort_values(by='col', ascending=False) sorts the DataFrame by the designated column in descending order."
+  },
+  {
+    "id": "ds_83",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Basic",
+    "question": "Which method groups data by unique values in one or more categorical columns, preparing it for aggregation?",
+    "options": [
+      "df.aggregate_by()",
+      "df.groupby()",
+      "df.split()",
+      "df.partition()"
+    ],
+    "correctAnswer": 1,
+    "explanation": "df.groupby('col') implements the split-apply-combine workflow for grouped operations."
+  },
+  {
+    "id": "ds_84",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Basic",
+    "question": "How do you compute the average `'Salary'` for each `'Department'` using groupby?",
+    "options": [
+      "df.groupby('Department')['Salary'].mean()",
+      "df.group('Department', avg('Salary'))",
+      "df.mean_by('Department', 'Salary')",
+      "df['Salary'].groupby('Department').average()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "df.groupby('Department')['Salary'].mean() groups rows by department and calculates the arithmetic mean of salaries for each."
+  },
+  {
+    "id": "ds_85",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Basic",
+    "question": "Which Pandas function stacks two DataFrames vertically (one below the other)?",
+    "options": [
+      "pd.stack()",
+      "pd.concat([df1, df2], axis=0)",
+      "pd.append_tables(df1, df2)",
+      "pd.union(df1, df2)"
+    ],
+    "correctAnswer": 1,
+    "explanation": "pd.concat([df1, df2], axis=0) concatenates multiple DataFrames row-wise (vertically)."
+  },
+  {
+    "id": "ds_86",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Basic",
+    "question": "What type of join in `pd.merge()` returns only matching rows that exist in BOTH DataFrames?",
+    "options": [
+      "outer join",
+      "inner join",
+      "left join",
+      "cross join"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An 'inner' join (how='inner', which is the default in pd.merge) retains only records with matching keys in both DataFrames."
+  },
+  {
+    "id": "ds_87",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Basic",
+    "question": "Which method fills missing values using the value immediately preceding it (forward fill)?",
+    "options": [
+      "df.fillna(method='ffill')",
+      "df.fillna(method='bfill')",
+      "df.forward_fill()",
+      "df.fill_prev()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "df.ffill() or df.fillna(method='ffill') carries the last valid observation forward to fill consecutive missing gaps."
+  },
+  {
+    "id": "ds_88",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Medium",
+    "question": "How do you fill missing values in column `'Age'` with the mean age of the dataset?",
+    "options": [
+      "df['Age'].fillna(df['Age'].mean(), inplace=True)",
+      "df['Age'].impute_mean()",
+      "df['Age'] = mean(df['Age'])",
+      "df.fillna_mean('Age')"
+    ],
+    "correctAnswer": 0,
+    "explanation": "df['Age'].fillna(df['Age'].mean(), inplace=True) calculates the column mean and replaces NaN entries in place."
+  },
+  {
+    "id": "ds_89",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Medium",
+    "question": "How do you apply multiple aggregation functions (e.g. min, max, mean) simultaneously after grouping?",
+    "options": [
+      "df.groupby('Dept')['Salary'].agg(['min', 'max', 'mean'])",
+      "df.groupby('Dept')['Salary'].multiple('min', 'max', 'mean')",
+      "df.groupby('Dept').calculate(min, max, mean)",
+      "df.agg_multi('Dept', 'Salary')"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The `.agg(['min', 'max', 'mean'])` method executes multiple aggregation routines over the grouped subsets simultaneously."
+  },
+  {
+    "id": "ds_90",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Medium",
+    "question": "What is the result of a LEFT join (`pd.merge(df1, df2, on='id', how='left')`)?",
+    "options": [
+      "All rows from df1 are kept; matching data from df2 is joined, with NaN where no match exists",
+      "All rows from df2 are kept; df1 matches are joined",
+      "Only rows present in both tables are kept",
+      "All rows from both tables are kept (full union)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A left join retains all records from the left DataFrame (df1) regardless of matches in df2, filling missing right fields with NaN."
+  },
+  {
+    "id": "ds_91",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Medium",
+    "question": "Which method applies a custom Python function or lambda element-wise or row-wise across a DataFrame column?",
+    "options": [
+      "df['col'].run()",
+      "df['col'].apply()",
+      "df['col'].execute()",
+      "df['col'].map_func()"
+    ],
+    "correctAnswer": 1,
+    "explanation": "df['col'].apply(function) passes each element of the Series to the user-supplied function."
+  },
+  {
+    "id": "ds_92",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Medium",
+    "question": "How do you search for rows where the `'Email'` column ends with `'@gmail.com'`?",
+    "options": [
+      "df[df['Email'].endswith('@gmail.com')]",
+      "df[df['Email'].str.endswith('@gmail.com')]",
+      "df[df['Email'] == '*@gmail.com']",
+      "df.filter_text('Email', '@gmail.com')"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The vectorized string accessor `.str.endswith('@gmail.com')` evaluates suffix matches across the entire text column."
+  },
+  {
+    "id": "ds_93",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Medium",
+    "question": "What does the parameter `how='all'` do in `df.dropna(how='all')`?",
+    "options": [
+      "Drops rows where ALL values in that row are NaN",
+      "Drops rows if ANY single value is NaN",
+      "Drops all columns",
+      "Drops rows with more than 50% NaN"
+    ],
+    "correctAnswer": 0,
+    "explanation": "how='all' only deletes a row if every single column value in that specific row is NaN."
+  },
+  {
+    "id": "ds_94",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Medium",
+    "question": "How do you sort a DataFrame by `'Department'` alphabetically, and then by `'Salary'` descending within each department?",
+    "options": [
+      "df.sort_values(by=['Department', 'Salary'], ascending=[True, False])",
+      "df.sort_values('Department').then_sort('Salary', False)",
+      "df.sort(['Department', 'Salary'], order=['ASC', 'DESC'])",
+      "df.order_by(['Department', 'Salary'])"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Passing lists to both 'by' and 'ascending' enables multi-column sorting with distinct sorting directions per column."
+  },
+  {
+    "id": "ds_95",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Medium",
+    "question": "What method reshapes a DataFrame into a two-dimensional spreadsheet-style pivot summary table?",
+    "options": [
+      "df.pivot_table()",
+      "df.crosstab_view()",
+      "df.matrix_summary()",
+      "df.reshape_grid()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "df.pivot_table(values=..., index=..., columns=..., aggfunc=...) generates multidimensional aggregation tables."
+  },
+  {
+    "id": "ds_96",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Medium",
+    "question": "How do you calculate the correlation matrix between all numeric columns in a DataFrame?",
+    "options": [
+      "df.correlate()",
+      "df.corr()",
+      "df.covariance_matrix()",
+      "df.r_value()"
+    ],
+    "correctAnswer": 1,
+    "explanation": "df.corr() calculates Pearson pairwise correlation coefficients between numeric columns."
+  },
+  {
+    "id": "ds_97",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Medium",
+    "question": "How do you convert a string column containing date representations (e.g. '2026-03-15') into Pandas datetime objects?",
+    "options": [
+      "df['Date'] = pd.to_datetime(df['Date'])",
+      "df['Date'] = df['Date'].as_date()",
+      "df['Date'] = datetime(df['Date'])",
+      "df['Date'].convert_to_timestamp()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "pd.to_datetime() parses heterogeneous date string representations into standard datetime64[ns] objects."
+  },
+  {
+    "id": "ds_98",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Medium",
+    "question": "If `df['Date']` is a datetime column, how do you extract the month number into a new column?",
+    "options": [
+      "df['Month'] = df['Date'].dt.month",
+      "df['Month'] = df['Date'].month()",
+      "df['Month'] = month(df['Date'])",
+      "df['Month'] = df['Date'].get_month()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The `.dt` accessor exposes datetime properties such as year, month, day, dayofweek, and hour."
+  },
+  {
+    "id": "ds_99",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Medium",
+    "question": "What method unpivots a DataFrame from wide format to long format (the opposite of pivot)?",
+    "options": [
+      "pd.unpivot()",
+      "pd.melt()",
+      "pd.flatten_table()",
+      "pd.expand()"
+    ],
+    "correctAnswer": 1,
+    "explanation": "pd.melt() unpivots a DataFrame from wide format to long format, gathering columns into identifier and value rows."
+  },
+  {
+    "id": "ds_100",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Medium",
+    "question": "What does the `thresh` parameter control in `df.dropna(thresh=N)`?",
+    "options": [
+      "Requires at least N non-null values for the row/column to be kept",
+      "Drops the row if it contains N or more nulls",
+      "Sets the percentage threshold of missing values",
+      "Limits the operation to N rows"
+    ],
+    "correctAnswer": 0,
+    "explanation": "thresh=N keeps only rows (or columns) that possess at least N non-null (valid) observations."
+  },
+  {
+    "id": "ds_101",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Basic",
+    "question": "Which built-in Python function returns both the index and the item during a loop iteration?",
+    "options": [
+      "enumerate()",
+      "zip()",
+      "items()",
+      "range()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "enumerate(iterable) yields pairs of (index, element), which is the standard Pythonic way to track the index during loop iterations."
+  },
+  {
+    "id": "ds_102",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Basic",
+    "question": "What will list(range(2, 10, 3)) produce in Python?",
+    "options": [
+      "[2, 5, 8]",
+      "[2, 4, 6, 8]",
+      "[3, 6, 9]",
+      "[2, 5, 8, 11]"
+    ],
+    "correctAnswer": 0,
+    "explanation": "range(start, stop, step) starts at 2, steps forward by 3, generating 2, 5, 8 (stopping strictly before reaching 10)."
+  },
+  {
+    "id": "ds_103",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Medium",
+    "question": "What is the output of the dictionary comprehension {x: x**2 for x in [1, 2, 3] if x % 2 != 0}?",
+    "options": [
+      "{1: 1, 3: 9}",
+      "{1: 1, 2: 4, 3: 9}",
+      "{2: 4}",
+      "[1, 9]"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The comprehension filters only odd numbers (1 and 3) and maps each to its square: 1: 1 and 3: 9."
+  },
+  {
+    "id": "ds_104",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Medium",
+    "question": "In Python functions, what do *args and **kwargs allow a function to accept?",
+    "options": [
+      "Arbitrary positional arguments (*args) and arbitrary keyword arguments (**kwargs)",
+      "Pointers and memory references",
+      "Only tuples and sets",
+      "Fixed-length arrays"
+    ],
+    "correctAnswer": 0,
+    "explanation": "*args bundles extra positional arguments into a tuple, while **kwargs bundles extra keyword arguments into a dictionary."
+  },
+  {
+    "id": "ds_105",
+    "category": "Data Science",
+    "topic": "Python for Data Science",
+    "difficulty": "Medium",
+    "question": "What will sorted([\"10\", \"2\", \"30\", \"4\"]) return in Python?",
+    "options": [
+      "[\"10\", \"2\", \"30\", \"4\"]",
+      "[\"2\", \"4\", \"10\", \"30\"]",
+      "[\"10\", \"30\", \"2\", \"4\"]",
+      "[\"4\", \"30\", \"2\", \"10\"]"
+    ],
+    "correctAnswer": 0,
+    "explanation": "String sorting uses lexicographical (alphabetical) comparison where \"10\" starts with \"1\", \"2\" starts with \"2\", \"30\" starts with \"3\", and \"4\" starts with \"4\"."
+  },
+  {
+    "id": "ds_106",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Basic",
+    "question": "Which NumPy attribute returns the total number of elements present across all dimensions of an array?",
+    "options": [
+      "arr.size",
+      "arr.length",
+      "arr.itemsize",
+      "arr.shape"
+    ],
+    "correctAnswer": 0,
+    "explanation": "arr.size returns the total count of elements (equal to the product of shape dimensions)."
+  },
+  {
+    "id": "ds_107",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Basic",
+    "question": "What is the output of np.ones((2, 3)) in NumPy?",
+    "options": [
+      "A 2-row, 3-column 2D matrix filled with floating-point 1.0",
+      "A 1D array of 6 ones",
+      "A 3-row, 2-column matrix of integer 1s",
+      "A syntax error"
+    ],
+    "correctAnswer": 0,
+    "explanation": "np.ones((2, 3)) creates a 2-row, 3-column 2D array of ones with default dtype float64."
+  },
+  {
+    "id": "ds_108",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Basic",
+    "question": "Which NumPy function generates an array of 5 evenly spaced numbers between 0 and 10 (inclusive)?",
+    "options": [
+      "np.linspace(0, 10, 5)",
+      "np.arange(0, 10, 5)",
+      "np.space(0, 10, 5)",
+      "np.interval(0, 10, 5)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "np.linspace(start, stop, num) generates num evenly spaced values including the stop endpoint by default (0.0, 2.5, 5.0, 7.5, 10.0)."
+  },
+  {
+    "id": "ds_109",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Medium",
+    "question": "Given arr = np.array([10, 20, 30, 40, 50]), what does np.where(arr > 25, 1, 0) return?",
+    "options": [
+      "array([0, 0, 1, 1, 1])",
+      "array([30, 40, 50])",
+      "array([2, 3, 4])",
+      "array([True, True, True])"
+    ],
+    "correctAnswer": 0,
+    "explanation": "np.where(condition, x, y) yields x where condition is True, and y where False. For elements > 25 (30, 40, 50) it returns 1, otherwise 0."
+  },
+  {
+    "id": "ds_110",
+    "category": "Data Science",
+    "topic": "NumPy Array Essentials",
+    "difficulty": "Medium",
+    "question": "If array A has shape (4, 1) and array B has shape (1, 3), what is the shape of A + B according to NumPy broadcasting?",
+    "options": [
+      "(4, 3)",
+      "(1, 1)",
+      "(4, 1)",
+      "ValueError"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Under NumPy broadcasting, dimensions of size 1 stretch to match the other array. Dimension 0 matches to 4, dimension 1 matches to 3, yielding (4, 3)."
+  },
+  {
+    "id": "ds_111",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Basic",
+    "question": "Which Pandas attribute returns the column names of a DataFrame as an Index object?",
+    "options": [
+      "df.columns",
+      "df.names",
+      "df.headers",
+      "df.keys()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "df.columns returns the labels of the DataFrame columns."
+  },
+  {
+    "id": "ds_112",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Basic",
+    "question": "How do you select the first 3 rows of a DataFrame df using integer-location indexing?",
+    "options": [
+      "df.iloc[0:3]",
+      "df.loc[0:3]",
+      "df.take(3)",
+      "df.get(3)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "df.iloc[0:3] slices rows by 0-based integer position up to index 3 (exclusive), returning rows 0, 1, and 2."
+  },
+  {
+    "id": "ds_113",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Medium",
+    "question": "What is the critical behavioral difference between df.loc[\"a\":\"c\"] and df.iloc[0:2] regarding slice endpoints?",
+    "options": [
+      "df.loc includes the stop endpoint \"c\", whereas df.iloc excludes the stop integer 2",
+      "Both exclude the stop endpoint",
+      "Both include the stop endpoint",
+      "df.iloc includes the stop endpoint while df.loc excludes it"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Label-based slicing (.loc) in Pandas includes both start and stop boundaries. Integer-based slicing (.iloc) strictly excludes the stop position like standard Python slices."
+  },
+  {
+    "id": "ds_114",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Medium",
+    "question": "Which statement correctly filters rows in DataFrame df where \"Age\" is greater than 21 AND \"City\" is \"Chennai\"?",
+    "options": [
+      "df[(df[\"Age\"] > 21) & (df[\"City\"] == \"Chennai\")]",
+      "df[df[\"Age\"] > 21 and df[\"City\"] == \"Chennai\"]",
+      "df.filter(Age > 21, City == \"Chennai\")",
+      "df.query(\"Age > 21 && City == Chennai\")"
+    ],
+    "correctAnswer": 0,
+    "explanation": "In Pandas boolean indexing, the bitwise \"&\" operator must be used with parentheses surrounding each condition because the Python \"and\" keyword cannot evaluate truth values of Series."
+  },
+  {
+    "id": "ds_115",
+    "category": "Data Science",
+    "topic": "Pandas Series & DataFrames",
+    "difficulty": "Medium",
+    "question": "How can you rename the column \"old_score\" to \"final_score\" in DataFrame df permanently in-place?",
+    "options": [
+      "df.rename(columns={\"old_score\": \"final_score\"}, inplace=True)",
+      "df.columns[\"old_score\"] = \"final_score\"",
+      "df.set_column(\"old_score\", \"final_score\")",
+      "df.replace(\"old_score\", \"final_score\")"
+    ],
+    "correctAnswer": 0,
+    "explanation": "df.rename(columns={\"old_name\": \"new_name\"}, inplace=True) modifies column names directly without assigning to a new variable."
+  },
+  {
+    "id": "ds_116",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Basic",
+    "question": "Which method fills all NaN/missing values in DataFrame df with the number 0?",
+    "options": [
+      "df.fillna(0)",
+      "df.replace_na(0)",
+      "df.impute(0)",
+      "df.clean(0)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "df.fillna(value) fills NA/NaN values with specified scalar values or imputation strategies."
+  },
+  {
+    "id": "ds_117",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Basic",
+    "question": "Which Pandas method removes duplicate rows from a DataFrame?",
+    "options": [
+      "df.drop_duplicates()",
+      "df.distinct()",
+      "df.unique()",
+      "df.remove_repeats()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "df.drop_duplicates() returns a DataFrame with duplicate rows removed, keeping the first occurrence by default."
+  },
+  {
+    "id": "ds_118",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Basic",
+    "question": "Which Series method returns the counts of unique values in descending order?",
+    "options": [
+      "s.value_counts()",
+      "s.count_unique()",
+      "s.frequency()",
+      "s.distinct_counts()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "s.value_counts() computes the frequency of each unique value in a Series in descending frequency order."
+  },
+  {
+    "id": "ds_119",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Medium",
+    "question": "In Pandas, how do you compute both the mean and maximum of \"Salary\" grouped by \"Department\"?",
+    "options": [
+      "df.groupby(\"Department\")[\"Salary\"].agg([\"mean\", \"max\"])",
+      "df.groupby(\"Department\")[\"Salary\"].combine(\"mean\", \"max\")",
+      "df.aggregate(\"Department\", Salary=[\"mean\", \"max\"])",
+      "df.groupby(\"Department\").calc(mean, max)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The .agg() (or .aggregate()) method with a list of aggregation function strings computes multiple statistics on grouped data."
+  },
+  {
+    "id": "ds_120",
+    "category": "Data Science",
+    "topic": "Pandas Data Cleaning & Aggregation",
+    "difficulty": "Medium",
+    "question": "What is the default join type when merging two DataFrames using pd.merge(df1, df2, on=\"id\")?",
+    "options": [
+      "'inner' join",
+      "'outer' join",
+      "'left' join",
+      "'cross' join"
+    ],
+    "correctAnswer": 0,
+    "explanation": "pd.merge() defaults to how=\"inner\", keeping only records where the merge key exists in both DataFrames."
+  }
+]

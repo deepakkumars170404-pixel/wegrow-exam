@@ -103,6 +103,7 @@ function renderResultSummary(res) {
     javascript: "JavaScript",
     python: "Python",
     react: "React",
+    data_science: "Data Science (Python, NumPy, Pandas)",
     data_analytics: "Data Analytics"
   };
   const topics = (res.selectedTopics || []).map(t => topicMap[t] || t);

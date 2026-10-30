@@ -265,6 +265,15 @@ const modulesData = [
     total_questions: 100,
     duration_minutes: 30,
     badge_color: "bg-teal-600"
+  },
+  {
+    id: "data_science",
+    name: "Round 2: Data Science (Python, NumPy, Pandas)",
+    round: "Round 2 - Specialization Elective",
+    subtitle: "Python for Data Science, NumPy Arrays & Vectorization, Pandas DataFrames & Cleaning (120 Pool)",
+    total_questions: 120,
+    duration_minutes: 30,
+    badge_color: "bg-indigo-600"
   }
 ];
 

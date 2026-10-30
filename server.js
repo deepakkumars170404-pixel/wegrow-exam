@@ -424,7 +424,7 @@ app.post('/api/exam/start-round2', async (req, res) => {
       return res.status(400).json({ success: false, message: "Please select at least one topic for Round 2." });
     }
 
-    const allowed = ['html', 'css', 'bootstrap', 'javascript', 'python', 'react', 'data_analytics'];
+    const allowed = ['html', 'css', 'bootstrap', 'javascript', 'python', 'react', 'data_analytics', 'data_science'];
     const validModules = selectedModules.filter(m => allowed.includes(m));
 
     if (validModules.length === 0) {
