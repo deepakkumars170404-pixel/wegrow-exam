@@ -51,8 +51,25 @@ document.addEventListener('DOMContentLoaded', () => {
   questions = JSON.parse(rawQ);
   timeRemainingSeconds = durationMinutes * 60;
 
+  // Restore any previous in-progress answers if page was refreshed
+  const savedAnswers = sessionStorage.getItem(`answers_${currentSessionId}_r${currentRound}`);
+  if (savedAnswers) {
+    try {
+      studentAnswers = JSON.parse(savedAnswers);
+    } catch(e) {}
+  }
+
   // Initialize statuses
   resetQuestionStatuses();
+
+  // Re-sync answered statuses from restored answers
+  if (Object.keys(studentAnswers).length > 0) {
+    questions.forEach((q, idx) => {
+      if (studentAnswers[q.id] !== undefined) {
+        questionStatuses[idx] = 'answered';
+      }
+    });
+  }
 
   // Set UI Headers
   updateRoundHeaderUI();
@@ -79,6 +96,15 @@ document.addEventListener('DOMContentLoaded', () => {
   checkFullscreenTakeover();
 
   if (window.lucide) window.lucide.createIcons();
+});
+
+// Prevent accidental tab close or page reload during exam
+window.addEventListener('beforeunload', (e) => {
+  if (!isSubmitting) {
+    e.preventDefault();
+    e.returnValue = 'Your exam is currently in progress. Are you sure you want to leave?';
+    return e.returnValue;
+  }
 });
 
 function resetQuestionStatuses() {
@@ -218,6 +244,9 @@ function loadQuestion(index) {
 function selectOption(optionIndex) {
   const q = questions[currentIndex];
   studentAnswers[q.id] = optionIndex;
+  try {
+    sessionStorage.setItem(`answers_${currentSessionId}_r${currentRound}`, JSON.stringify(studentAnswers));
+  } catch(e) {}
 
   if (questionStatuses[currentIndex] === 'review' || questionStatuses[currentIndex] === 'review-answered') {
     questionStatuses[currentIndex] = 'review-answered';
@@ -231,6 +260,9 @@ function selectOption(optionIndex) {
 function clearCurrentSelection() {
   const q = questions[currentIndex];
   delete studentAnswers[q.id];
+  try {
+    sessionStorage.setItem(`answers_${currentSessionId}_r${currentRound}`, JSON.stringify(studentAnswers));
+  } catch(e) {}
 
   if (questionStatuses[currentIndex] === 'review-answered') {
     questionStatuses[currentIndex] = 'review';
