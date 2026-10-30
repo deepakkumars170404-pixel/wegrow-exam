@@ -1,0 +1,1502 @@
+[
+  {
+    "id": "py_q_1",
+    "category": "Python",
+    "topic": "Syntax & Data Types",
+    "difficulty": "Basic",
+    "question": "How are code blocks (such as inside functions or if statements) delimited in Python?",
+    "options": [
+      "Curly braces { }",
+      "Consistent Indentation (whitespace/tabs)",
+      "Keywords begin and end",
+      "Semicolons"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Python enforces block scoping through indentation (conventionally 4 spaces) rather than curly braces."
+  },
+  {
+    "id": "py_q_2",
+    "category": "Python",
+    "topic": "Syntax & Data Types",
+    "difficulty": "Basic",
+    "question": "What is the data type of the value returned by the built-in input() function in Python 3?",
+    "options": [
+      "int",
+      "float",
+      "str (string)",
+      "Depends on what user inputs"
+    ],
+    "correctAnswer": 2,
+    "explanation": "In Python 3, input() always returns user input as a string (str)."
+  },
+  {
+    "id": "py_q_3",
+    "category": "Python",
+    "topic": "Syntax & Data Types",
+    "difficulty": "Basic",
+    "question": "Which built-in function returns the data type of an object in Python?",
+    "options": [
+      "typeof()",
+      "type()",
+      "dataType()",
+      "instance()"
+    ],
+    "correctAnswer": 1,
+    "explanation": "type(object) returns the class type of the passed object."
+  },
+  {
+    "id": "py_q_4",
+    "category": "Python",
+    "topic": "Syntax & Data Types",
+    "difficulty": "Basic",
+    "question": "Which of the following is an IMMUTABLE data type in Python?",
+    "options": [
+      "List",
+      "Dictionary",
+      "Tuple",
+      "Set"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Tuples, Strings, Numbers, and Frozensets are immutable; Lists, Dictionaries, and Sets are mutable."
+  },
+  {
+    "id": "py_q_5",
+    "category": "Python",
+    "topic": "Syntax & Data Types",
+    "difficulty": "Basic",
+    "question": "What is the result of evaluating: type(5 / 2) in Python 3?",
+    "options": [
+      "<class 'int'>",
+      "<class 'float'>",
+      "<class 'number'>",
+      "<class 'double'>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In Python 3, the standard division operator '/' always returns a float (2.5)."
+  },
+  {
+    "id": "py_q_6",
+    "category": "Python",
+    "topic": "Syntax & Data Types",
+    "difficulty": "Basic",
+    "question": "What is the result of evaluating: 17 // 4 in Python?",
+    "options": [
+      "4.25",
+      "4",
+      "4.0",
+      "1"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'//' is the floor division operator which returns the integer floor quotient: 17 // 4 = 4."
+  },
+  {
+    "id": "py_q_7",
+    "category": "Python",
+    "topic": "Syntax & Data Types",
+    "difficulty": "Basic",
+    "question": "What is the result of evaluating: 17 % 4 in Python?",
+    "options": [
+      "4",
+      "1",
+      "0.25",
+      "2"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'%' is the modulus operator returning the integer remainder of division: 17 % 4 = 1."
+  },
+  {
+    "id": "py_q_8",
+    "category": "Python",
+    "topic": "Syntax & Data Types",
+    "difficulty": "Basic",
+    "question": "What does the '**' operator perform in Python (e.g. 2 ** 3)?",
+    "options": [
+      "Multiplication twice",
+      "Exponentiation (2 raised to the power 3 = 8)",
+      "Bitwise pointer",
+      "Matrix product"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'**' is the power/exponentiation operator: 2 ** 3 = 8."
+  },
+  {
+    "id": "py_q_9",
+    "category": "Python",
+    "topic": "Syntax & Data Types",
+    "difficulty": "Basic",
+    "question": "What is the output of: print(3 * 'Python ')?",
+    "options": [
+      "Python Python Python ",
+      "TypeError",
+      "9",
+      "'Python ' 3"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Multiplying a string by an integer performs string repetition in Python."
+  },
+  {
+    "id": "py_q_10",
+    "category": "Python",
+    "topic": "Syntax & Data Types",
+    "difficulty": "Basic",
+    "question": "Which operator checks if two variables point to the EXACT same object in memory?",
+    "options": [
+      "==",
+      "is",
+      "equals",
+      "==="
+    ],
+    "correctAnswer": 1,
+    "explanation": "'is' checks memory identity (id(a) == id(b)); '==' checks equality of values."
+  },
+  {
+    "id": "py_q_11",
+    "category": "Python",
+    "topic": "Syntax & Data Types",
+    "difficulty": "Basic",
+    "question": "What will bool([]) and bool([0]) evaluate to in Python?",
+    "options": [
+      "False and True",
+      "True and False",
+      "False and False",
+      "True and True"
+    ],
+    "correctAnswer": 0,
+    "explanation": "An empty list [] is falsy (False); a list with elements (even [0]) is truthy (True)."
+  },
+  {
+    "id": "py_q_12",
+    "category": "Python",
+    "topic": "Syntax & Data Types",
+    "difficulty": "Basic",
+    "question": "How do you write a single-line comment in Python?",
+    "options": [
+      "// Comment",
+      "# Comment",
+      "/* Comment */",
+      "<!-- Comment -->"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'#' starts a single-line comment in Python."
+  },
+  {
+    "id": "py_q_13",
+    "category": "Python",
+    "topic": "Syntax & Data Types",
+    "difficulty": "Basic",
+    "question": "Which character is used to continue a long Python statement across multiple lines?",
+    "options": [
+      "\\ (backslash)",
+      "&",
+      ";",
+      "->"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The backslash '\\' serves as the explicit line continuation character."
+  },
+  {
+    "id": "py_q_14",
+    "category": "Python",
+    "topic": "Syntax & Data Types",
+    "difficulty": "Basic",
+    "question": "What is the output of: int(float('3.8')) in Python?",
+    "options": [
+      "3.8",
+      "3",
+      "4",
+      "ValueError"
+    ],
+    "correctAnswer": 1,
+    "explanation": "float('3.8') yields 3.8; int(3.8) truncates decimal part to integer 3."
+  },
+  {
+    "id": "py_q_15",
+    "category": "Python",
+    "topic": "Syntax & Data Types",
+    "difficulty": "Basic",
+    "question": "What occurs if you execute: int('3.8') directly in Python?",
+    "options": [
+      "Returns 3",
+      "Returns 4",
+      "Throws ValueError: invalid literal for int()",
+      "Returns 3.8"
+    ],
+    "correctAnswer": 2,
+    "explanation": "int() cannot directly parse float-formatted strings; it must be converted via float() first."
+  },
+  {
+    "id": "py_q_16",
+    "category": "Python",
+    "topic": "Syntax & Data Types",
+    "difficulty": "Basic",
+    "question": "What keyword is used in Python for 'else if' in conditional ladders?",
+    "options": [
+      "else if",
+      "elseif",
+      "elif",
+      "elsif"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Python uses 'elif' for chained conditional branching."
+  },
+  {
+    "id": "py_q_17",
+    "category": "Python",
+    "topic": "Syntax & Data Types",
+    "difficulty": "Basic",
+    "question": "What will this code print?\nx = 10\nif x > 15:\n    print('A')\nelif x > 5:\n    print('B')\nelse:\n    print('C')",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "B and C"
+    ],
+    "correctAnswer": 1,
+    "explanation": "10 > 15 is False. 10 > 5 is True, so 'B' is printed and the ladder exits."
+  },
+  {
+    "id": "py_q_18",
+    "category": "Python",
+    "topic": "Syntax & Data Types",
+    "difficulty": "Basic",
+    "question": "What is the result of: True and False or not False?",
+    "options": [
+      "True",
+      "False",
+      "None",
+      "Error"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Precedence: 'not' then 'and' then 'or'. (True and False) -> False. (not False) -> True. False or True -> True."
+  },
+  {
+    "id": "py_q_19",
+    "category": "Python",
+    "topic": "Syntax & Data Types",
+    "difficulty": "Basic",
+    "question": "What does short-circuit evaluation mean for the 'and' operator?",
+    "options": [
+      "If the first operand is False, Python returns it immediately without evaluating the second operand",
+      "Both operands are always evaluated",
+      "Short-circuits throw errors",
+      "Runs in background"
+    ],
+    "correctAnswer": 0,
+    "explanation": "If the left-hand operand is False, 'and' short-circuits and skips evaluating the right-hand operand."
+  },
+  {
+    "id": "py_q_20",
+    "category": "Python",
+    "topic": "Syntax & Data Types",
+    "difficulty": "Basic",
+    "question": "What is the output of: print(0 or 'Default') in Python?",
+    "options": [
+      "0",
+      "'Default'",
+      "True",
+      "False"
+    ],
+    "correctAnswer": 1,
+    "explanation": "0 is falsy, so 'or' evaluates and returns the right operand: 'Default'."
+  },
+  {
+    "id": "py_q_21",
+    "category": "Python",
+    "topic": "Syntax & Data Types",
+    "difficulty": "Basic",
+    "question": "What is the output of: print(10 and 'Apple') in Python?",
+    "options": [
+      "10",
+      "'Apple'",
+      "True",
+      "False"
+    ],
+    "correctAnswer": 1,
+    "explanation": "10 is truthy, so 'and' evaluates and returns the second operand: 'Apple'."
+  },
+  {
+    "id": "py_q_22",
+    "category": "Python",
+    "topic": "Syntax & Data Types",
+    "difficulty": "Basic",
+    "question": "What is the syntax for Python's ternary conditional expression?",
+    "options": [
+      "x if condition else y",
+      "condition ? x : y",
+      "if condition then x else y",
+      "x ? condition : y"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Python's inline conditional expression syntax is: 'value_if_true if condition else value_if_false'."
+  },
+  {
+    "id": "py_q_23",
+    "category": "Python",
+    "topic": "Syntax & Data Types",
+    "difficulty": "Basic",
+    "question": "What does the 'pass' keyword do inside an empty if block?",
+    "options": [
+      "Exits the program",
+      "Serves as a syntactic placeholder that does nothing",
+      "Skips to else",
+      "Prints None"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'pass' is a null statement used where code is syntactically required but no action is needed."
+  },
+  {
+    "id": "py_q_24",
+    "category": "Python",
+    "topic": "Syntax & Data Types",
+    "difficulty": "Basic",
+    "question": "What will this print?\nage = 20\nstatus = 'Adult' if age >= 18 else 'Minor'\nprint(status)",
+    "options": [
+      "Adult",
+      "Minor",
+      "True",
+      "SyntaxError"
+    ],
+    "correctAnswer": 0,
+    "explanation": "20 >= 18 is True, so status evaluates to 'Adult'."
+  },
+  {
+    "id": "py_q_25",
+    "category": "Python",
+    "topic": "Syntax & Data Types",
+    "difficulty": "Basic",
+    "question": "What is the output of:\nx = 5\nif 1 < x < 10:\n    print('In range')",
+    "options": [
+      "In range",
+      "TypeError",
+      "False",
+      "SyntaxError"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Python natively supports chained comparisons: '1 < x < 10' evaluates as '1 < x and x < 10' (True)."
+  },
+  {
+    "id": "py_q_26",
+    "category": "Python",
+    "topic": "Conditionals & Strings",
+    "difficulty": "Basic",
+    "question": "Which of the following values evaluates to False in a boolean context?",
+    "options": [
+      "None",
+      "0 and 0.0",
+      "Empty string '', list [], dict {}",
+      "All of the above"
+    ],
+    "correctAnswer": 3,
+    "explanation": "None, numeric zeroes, and empty collections are all falsy in Python."
+  },
+  {
+    "id": "py_q_27",
+    "category": "Python",
+    "topic": "Conditionals & Strings",
+    "difficulty": "Basic",
+    "question": "What will this print?\nx = []\nif x:\n    print('NotEmpty')\nelse:\n    print('Empty')",
+    "options": [
+      "NotEmpty",
+      "Empty",
+      "None",
+      "Error"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Empty list [] evaluates to False, so the else branch prints 'Empty'."
+  },
+  {
+    "id": "py_q_28",
+    "category": "Python",
+    "topic": "Conditionals & Strings",
+    "difficulty": "Basic",
+    "question": "What is the output of: not not 'Hello'?",
+    "options": [
+      "True",
+      "False",
+      "'Hello'",
+      "None"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'Hello' is truthy. not 'Hello' is False. not False is True."
+  },
+  {
+    "id": "py_q_29",
+    "category": "Python",
+    "topic": "Conditionals & Strings",
+    "difficulty": "Basic",
+    "question": "What will this nested condition print?\na, b = 5, 10\nif a > 2:\n    if b < 8:\n        print('1')\n    else:\n        print('2')\nelse:\n    print('3')",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "None"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Outer condition 5 > 2 is True. Inner condition 10 < 8 is False, executing the inner else: '2'."
+  },
+  {
+    "id": "py_q_30",
+    "category": "Python",
+    "topic": "Conditionals & Strings",
+    "difficulty": "Basic",
+    "question": "Which membership operator tests whether an element is present in a collection (list, string, tuple)?",
+    "options": [
+      "has",
+      "in",
+      "contains",
+      "exists"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'in' (and 'not in') tests membership: 'a' in 'cat' returns True."
+  },
+  {
+    "id": "py_q_31",
+    "category": "Python",
+    "topic": "Conditionals & Strings",
+    "difficulty": "Basic",
+    "question": "What is the output of string slicing: 'Antigravity'[0:4]?",
+    "options": [
+      "'Anti'",
+      "'Antig'",
+      "'ntig'",
+      "'Ant'"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Slice [0:4] extracts characters from index 0 up to (but not including) index 4: 'Anti'."
+  },
+  {
+    "id": "py_q_32",
+    "category": "Python",
+    "topic": "Conditionals & Strings",
+    "difficulty": "Basic",
+    "question": "What does negative indexing 'Python'[-1] return?",
+    "options": [
+      "'P'",
+      "'n'",
+      "IndexError",
+      "'o'"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Negative indices count backwards from the end: -1 accesses the last character 'n'."
+  },
+  {
+    "id": "py_q_33",
+    "category": "Python",
+    "topic": "Conditionals & Strings",
+    "difficulty": "Basic",
+    "question": "What does slice 'Python'[::-1] accomplish?",
+    "options": [
+      "Returns string unchanged",
+      "Reverses the entire string ('nohtyP')",
+      "Returns first and last char",
+      "Throws error"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Step of -1 slices the sequence in reverse order: 'nohtyP'."
+  },
+  {
+    "id": "py_q_34",
+    "category": "Python",
+    "topic": "Conditionals & Strings",
+    "difficulty": "Basic",
+    "question": "Which method eliminates leading and trailing whitespace from a string?",
+    "options": [
+      "clean()",
+      "strip()",
+      "trim()",
+      "cut()"
+    ],
+    "correctAnswer": 1,
+    "explanation": "str.strip() removes leading and trailing whitespace characters."
+  },
+  {
+    "id": "py_q_35",
+    "category": "Python",
+    "topic": "Conditionals & Strings",
+    "difficulty": "Basic",
+    "question": "What does 'a,b,c'.split(',') return?",
+    "options": [
+      "['a', 'b', 'c']",
+      "('a', 'b', 'c')",
+      "'abc'",
+      "['a,b,c']"
+    ],
+    "correctAnswer": 0,
+    "explanation": "str.split(delimiter) splits a string into a list of substrings."
+  },
+  {
+    "id": "py_q_36",
+    "category": "Python",
+    "topic": "Conditionals & Strings",
+    "difficulty": "Basic",
+    "question": "How do you join a list of strings ['A', 'B', 'C'] with hyphens?",
+    "options": [
+      "'-'.join(['A', 'B', 'C'])",
+      "['A', 'B', 'C'].join('-')",
+      "join('-', ['A', 'B', 'C'])",
+      "concat('-', ['A', 'B', 'C'])"
+    ],
+    "correctAnswer": 0,
+    "explanation": "separator.join(iterable) is Python's string joining idiom: '-'.join(...) -> 'A-B-C'."
+  },
+  {
+    "id": "py_q_37",
+    "category": "Python",
+    "topic": "Conditionals & Strings",
+    "difficulty": "Basic",
+    "question": "What does 'data'.upper() return?",
+    "options": [
+      "'DATA'",
+      "'Data'",
+      "'data'",
+      "Error"
+    ],
+    "correctAnswer": 0,
+    "explanation": "str.upper() converts all characters to uppercase."
+  },
+  {
+    "id": "py_q_38",
+    "category": "Python",
+    "topic": "Conditionals & Strings",
+    "difficulty": "Basic",
+    "question": "Which modern string formatting syntax was introduced in Python 3.6?",
+    "options": [
+      "f-strings (e.g. f'Hello {name}')",
+      "% formatting",
+      "str.format()",
+      "Template strings"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Formatted string literals (f-strings) provide concise, readable inline expression evaluation."
+  },
+  {
+    "id": "py_q_39",
+    "category": "Python",
+    "topic": "Conditionals & Strings",
+    "difficulty": "Basic",
+    "question": "What will 'banana'.count('a') return?",
+    "options": [
+      "2",
+      "3",
+      "1",
+      "6"
+    ],
+    "correctAnswer": 1,
+    "explanation": "str.count('a') counts occurrences: 'a' appears 3 times in 'banana'."
+  },
+  {
+    "id": "py_q_40",
+    "category": "Python",
+    "topic": "Conditionals & Strings",
+    "difficulty": "Basic",
+    "question": "What does 'hello'.find('z') return when the substring is not found?",
+    "options": [
+      "-1",
+      "False",
+      "None",
+      "ValueError"
+    ],
+    "correctAnswer": 0,
+    "explanation": "str.find() returns -1 if substring is missing; str.index() throws ValueError."
+  },
+  {
+    "id": "py_q_41",
+    "category": "Python",
+    "topic": "Conditionals & Strings",
+    "difficulty": "Basic",
+    "question": "What is the output of 'Hello World'.replace('World', 'Python')?",
+    "options": [
+      "'Hello Python'",
+      "'World Python'",
+      "'Hello World'",
+      "Error"
+    ],
+    "correctAnswer": 0,
+    "explanation": "str.replace(old, new) returns a new string with replacements applied."
+  },
+  {
+    "id": "py_q_42",
+    "category": "Python",
+    "topic": "Conditionals & Strings",
+    "difficulty": "Basic",
+    "question": "Can strings be mutated in-place in Python (e.g. s[0] = 'X')?",
+    "options": [
+      "Yes",
+      "No, strings are immutable and will raise a TypeError",
+      "Only in Python 2",
+      "Only with mutable flag"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Strings are immutable; attempting assignment to string indices raises a TypeError."
+  },
+  {
+    "id": "py_q_43",
+    "category": "Python",
+    "topic": "Conditionals & Strings",
+    "difficulty": "Basic",
+    "question": "Which method checks if a string contains only digits?",
+    "options": [
+      "isdigit()",
+      "isnumeric()",
+      "isdecimal()",
+      "All of the above can check digit strings"
+    ],
+    "correctAnswer": 3,
+    "explanation": "isdigit(), isnumeric(), and isdecimal() return True for ASCII digit strings."
+  },
+  {
+    "id": "py_q_44",
+    "category": "Python",
+    "topic": "Conditionals & Strings",
+    "difficulty": "Basic",
+    "question": "What does 'hello'.startswith('he') return?",
+    "options": [
+      "True",
+      "False",
+      "0",
+      "1"
+    ],
+    "correctAnswer": 0,
+    "explanation": "startswith() returns True if the string begins with the specified prefix."
+  },
+  {
+    "id": "py_q_45",
+    "category": "Python",
+    "topic": "Conditionals & Strings",
+    "difficulty": "Basic",
+    "question": "What is the length of len('Python\\n')?",
+    "options": [
+      "6",
+      "7",
+      "8",
+      "5"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'Python' has 6 chars and '\\n' is a single escape newline character, total 7."
+  },
+  {
+    "id": "py_q_46",
+    "category": "Python",
+    "topic": "Conditionals & Strings",
+    "difficulty": "Basic",
+    "question": "What does list(range(1, 6)) produce in Python?",
+    "options": [
+      "[1, 2, 3, 4, 5, 6]",
+      "[1, 2, 3, 4, 5]",
+      "[0, 1, 2, 3, 4, 5]",
+      "[2, 3, 4, 5]"
+    ],
+    "correctAnswer": 1,
+    "explanation": "range(start, stop) includes start (1) up to stop-1 (5): [1, 2, 3, 4, 5]."
+  },
+  {
+    "id": "py_q_47",
+    "category": "Python",
+    "topic": "Conditionals & Strings",
+    "difficulty": "Basic",
+    "question": "What will list(range(0, 10, 2)) generate?",
+    "options": [
+      "[0, 2, 4, 6, 8]",
+      "[0, 2, 4, 6, 8, 10]",
+      "[2, 4, 6, 8]",
+      "[0, 1, 2, 4, 6, 8]"
+    ],
+    "correctAnswer": 0,
+    "explanation": "range(0, 10, 2) starts at 0 with step of 2 up to 8: [0, 2, 4, 6, 8]."
+  },
+  {
+    "id": "py_q_48",
+    "category": "Python",
+    "topic": "Conditionals & Strings",
+    "difficulty": "Basic",
+    "question": "What does the 'break' statement do in a loop?",
+    "options": [
+      "Skips to the next iteration",
+      "Terminates the loop immediately and resumes execution at the next statement",
+      "Pauses execution",
+      "Restarts the loop"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'break' halts and exits the current innermost loop entirely."
+  },
+  {
+    "id": "py_q_49",
+    "category": "Python",
+    "topic": "Conditionals & Strings",
+    "difficulty": "Basic",
+    "question": "What does the 'continue' statement do in a loop?",
+    "options": [
+      "Terminates the loop",
+      "Skips the rest of the current iteration and jumps to the next loop iteration",
+      "Resets loop variables",
+      "Exits program"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'continue' discards the remainder of current iteration and proceeds with the next cycle."
+  },
+  {
+    "id": "py_q_50",
+    "category": "Python",
+    "topic": "Conditionals & Strings",
+    "difficulty": "Basic",
+    "question": "When does an 'else' block attached to a for or while loop execute?",
+    "options": [
+      "Always on every iteration",
+      "Only if the loop terminates normally without encountering a 'break' statement",
+      "Only if the loop condition is False initially",
+      "Never"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Loop 'else' blocks execute only when the loop completes naturally without being halted by 'break'."
+  },
+  {
+    "id": "py_q_51",
+    "category": "Python",
+    "topic": "Loops & Collections",
+    "difficulty": "Medium",
+    "question": "What will this code print?\nfor i in range(3):\n    if i == 1: break\nelse:\n    print('Done')",
+    "options": [
+      "Done",
+      "Nothing is printed",
+      "1",
+      "0"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The loop was terminated by 'break', so the loop's 'else' block is skipped entirely."
+  },
+  {
+    "id": "py_q_52",
+    "category": "Python",
+    "topic": "Loops & Collections",
+    "difficulty": "Medium",
+    "question": "Which built-in function returns both the index and the element during loop iteration?",
+    "options": [
+      "enumerate()",
+      "zip()",
+      "index()",
+      "counter()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "for idx, val in enumerate(items) provides both the 0-based index and value."
+  },
+  {
+    "id": "py_q_53",
+    "category": "Python",
+    "topic": "Loops & Collections",
+    "difficulty": "Medium",
+    "question": "What does the zip() function do in Python?",
+    "options": [
+      "Compresses files to .zip",
+      "Pairs corresponding elements from two or more iterables into tuples",
+      "Encrypts strings",
+      "Zips memory"
+    ],
+    "correctAnswer": 1,
+    "explanation": "zip([1, 2], ['a', 'b']) pairs elements into (1, 'a'), (2, 'b')."
+  },
+  {
+    "id": "py_q_54",
+    "category": "Python",
+    "topic": "Loops & Collections",
+    "difficulty": "Medium",
+    "question": "What will happen if a while loop's condition never becomes False and contains no break?",
+    "options": [
+      "Python terminates it after 100 cycles",
+      "Infinite loop running indefinitely until interrupted",
+      "Memory overflow error",
+      "Automatic garbage collection"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An unsatisfied condition results in an infinite loop requiring manual termination (Ctrl+C)."
+  },
+  {
+    "id": "py_q_55",
+    "category": "Python",
+    "topic": "Loops & Collections",
+    "difficulty": "Medium",
+    "question": "How many times will this loop execute?\ncount = 5\nwhile count > 0:\n    count -= 2",
+    "options": [
+      "2 times",
+      "3 times",
+      "4 times",
+      "5 times"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Iteration 1: count becomes 3; Iteration 2: count becomes 1; Iteration 3: count becomes -1 (stops). Total 3 times."
+  },
+  {
+    "id": "py_q_56",
+    "category": "Python",
+    "topic": "Loops & Collections",
+    "difficulty": "Medium",
+    "question": "What does 'for _ in range(5):' indicate in idiomatic Python?",
+    "options": [
+      "A syntax error",
+      "The throwaway variable '_' indicates loop index is intentionally unused",
+      "Infinite loop",
+      "Runs in reverse"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'_' is the Python convention for a throwaway loop variable that is not needed inside the loop body."
+  },
+  {
+    "id": "py_q_57",
+    "category": "Python",
+    "topic": "Loops & Collections",
+    "difficulty": "Medium",
+    "question": "What is the output of: sum([i for i in range(4)])?",
+    "options": [
+      "4",
+      "6",
+      "10",
+      "3"
+    ],
+    "correctAnswer": 1,
+    "explanation": "range(4) produces 0, 1, 2, 3. Sum = 0 + 1 + 2 + 3 = 6."
+  },
+  {
+    "id": "py_q_58",
+    "category": "Python",
+    "topic": "Loops & Collections",
+    "difficulty": "Medium",
+    "question": "What will this print?\nfor char in 'Cat':\n    pass\nprint(char)",
+    "options": [
+      "'C'",
+      "'a'",
+      "'t'",
+      "NameError"
+    ],
+    "correctAnswer": 2,
+    "explanation": "In Python, for loop variables remain accessible in the enclosing scope after the loop finishes ('t')."
+  },
+  {
+    "id": "py_q_59",
+    "category": "Python",
+    "topic": "Loops & Collections",
+    "difficulty": "Medium",
+    "question": "Can a while loop iterate over an empty collection?",
+    "options": [
+      "Yes, once",
+      "No, while requires a boolean condition expression",
+      "Only with next()",
+      "Only with list"
+    ],
+    "correctAnswer": 1,
+    "explanation": "while evaluates a condition expression (e.g. while items:), stopping when falsy."
+  },
+  {
+    "id": "py_q_60",
+    "category": "Python",
+    "topic": "Loops & Collections",
+    "difficulty": "Medium",
+    "question": "What will list(reversed([1, 2, 3])) produce?",
+    "options": [
+      "[3, 2, 1]",
+      "[1, 2, 3]",
+      "None",
+      "Error"
+    ],
+    "correctAnswer": 0,
+    "explanation": "reversed() returns a reverse iterator; list() turns it into [3, 2, 1]."
+  },
+  {
+    "id": "py_q_61",
+    "category": "Python",
+    "topic": "Loops & Collections",
+    "difficulty": "Medium",
+    "question": "Which list method adds an item to the very END of the list in-place?",
+    "options": [
+      "append()",
+      "extend()",
+      "insert()",
+      "push()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "list.append(x) appends element x to the end of the list."
+  },
+  {
+    "id": "py_q_62",
+    "category": "Python",
+    "topic": "Loops & Collections",
+    "difficulty": "Medium",
+    "question": "What is the difference between list.append([4, 5]) and list.extend([4, 5])?",
+    "options": [
+      "append adds the nested list as a single element; extend unrolls and adds each element individually",
+      "They are identical",
+      "extend is deprecated",
+      "append only works on numbers"
+    ],
+    "correctAnswer": 0,
+    "explanation": "append([4, 5]) adds one item: [..., [4, 5]]. extend([4, 5]) unpacks: [..., 4, 5]."
+  },
+  {
+    "id": "py_q_63",
+    "category": "Python",
+    "topic": "Loops & Collections",
+    "difficulty": "Medium",
+    "question": "Which method removes and returns the element at the specified index (or last item by default)?",
+    "options": [
+      "remove()",
+      "pop()",
+      "delete()",
+      "discard()"
+    ],
+    "correctAnswer": 1,
+    "explanation": "list.pop([index]) removes and returns the item at index (defaulting to the last item)."
+  },
+  {
+    "id": "py_q_64",
+    "category": "Python",
+    "topic": "Loops & Collections",
+    "difficulty": "Medium",
+    "question": "How does list.remove(x) behave?",
+    "options": [
+      "Removes item at index x",
+      "Removes the FIRST occurrence of value x from the list (raises ValueError if not found)",
+      "Removes all occurrences of x",
+      "Deletes the list"
+    ],
+    "correctAnswer": 1,
+    "explanation": "list.remove(value) searches and deletes the first matching value."
+  },
+  {
+    "id": "py_q_65",
+    "category": "Python",
+    "topic": "Loops & Collections",
+    "difficulty": "Medium",
+    "question": "What is a List Comprehension in Python?",
+    "options": [
+      "A tool to compress lists",
+      "A concise syntactic construct for creating new lists from iterables based on an expression and optional condition",
+      "A sorting algorithm",
+      "A debugger"
+    ],
+    "correctAnswer": 1,
+    "explanation": "[x*2 for x in nums if x > 0] is a concise, idiomatic list comprehension."
+  },
+  {
+    "id": "py_q_66",
+    "category": "Python",
+    "topic": "Loops & Collections",
+    "difficulty": "Medium",
+    "question": "What is the output of: [x for x in [1, 2, 3, 4] if x % 2 == 0]?",
+    "options": [
+      "[1, 3]",
+      "[2, 4]",
+      "[2]",
+      "[4]"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Filters even numbers, producing [2, 4]."
+  },
+  {
+    "id": "py_q_67",
+    "category": "Python",
+    "topic": "Loops & Collections",
+    "difficulty": "Medium",
+    "question": "How do you define a single-element tuple in Python?",
+    "options": [
+      "(5)",
+      "(5,)",
+      "tuple(5)",
+      "[5,]"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A trailing comma is mandatory for a single-element tuple: '(5,)'. '(5)' is treated simply as integer 5 in parentheses."
+  },
+  {
+    "id": "py_q_68",
+    "category": "Python",
+    "topic": "Loops & Collections",
+    "difficulty": "Medium",
+    "question": "What occurs if you attempt to mutate a tuple: t = (1, 2); t[0] = 99?",
+    "options": [
+      "Tuple is modified",
+      "Raises TypeError: 'tuple' object does not support item assignment",
+      "Converts to list",
+      "Silent failure"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Tuples are immutable; index assignment raises a TypeError."
+  },
+  {
+    "id": "py_q_69",
+    "category": "Python",
+    "topic": "Loops & Collections",
+    "difficulty": "Medium",
+    "question": "How do you safely retrieve a value from a dictionary 'd' with a fallback default if key 'k' is missing?",
+    "options": [
+      "d[k]",
+      "d.get(k, default)",
+      "d.fetch(k)",
+      "d.search(k)"
+    ],
+    "correctAnswer": 1,
+    "explanation": "dict.get(key, default) avoids KeyError exceptions by returning the default value if the key does not exist."
+  },
+  {
+    "id": "py_q_70",
+    "category": "Python",
+    "topic": "Loops & Collections",
+    "difficulty": "Medium",
+    "question": "What method returns a view of all [key, value] pairs in a dictionary as tuples?",
+    "options": [
+      "dict.pairs()",
+      "dict.items()",
+      "dict.entries()",
+      "dict.tuples()"
+    ],
+    "correctAnswer": 1,
+    "explanation": "dict.items() yields (key, value) pairs during iteration."
+  },
+  {
+    "id": "py_q_71",
+    "category": "Python",
+    "topic": "Loops & Collections",
+    "difficulty": "Medium",
+    "question": "What is unique about a Python Set (set)?",
+    "options": [
+      "Maintains insertion order strictly",
+      "Stores only UNIQUE elements and provides fast O(1) membership lookups",
+      "Allows duplicate keys",
+      "Is indexed by numbers"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Sets store unique elements, automatically eliminating duplicates."
+  },
+  {
+    "id": "py_q_72",
+    "category": "Python",
+    "topic": "Loops & Collections",
+    "difficulty": "Medium",
+    "question": "How do you remove duplicates from a list 'nums = [1, 2, 2, 3]'?",
+    "options": [
+      "list(set(nums))",
+      "nums.unique()",
+      "nums.dedup()",
+      "set.list(nums)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Passing a list through set() removes duplicates: list(set(nums))."
+  },
+  {
+    "id": "py_q_73",
+    "category": "Python",
+    "topic": "Loops & Collections",
+    "difficulty": "Medium",
+    "question": "What does the set intersection operator '&' return (e.g. {1, 2} & {2, 3})?",
+    "options": [
+      "{1, 2, 3}",
+      "{2}",
+      "{1, 3}",
+      "set()"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'&' returns common elements present in both sets: {2}."
+  },
+  {
+    "id": "py_q_74",
+    "category": "Python",
+    "topic": "Loops & Collections",
+    "difficulty": "Medium",
+    "question": "What is the output of len({'a': 1, 'a': 2})?",
+    "options": [
+      "1",
+      "2",
+      "TypeError",
+      "0"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Dictionary keys must be unique. The second 'a': 2 overwrites the first, leaving 1 key-value pair."
+  },
+  {
+    "id": "py_q_75",
+    "category": "Python",
+    "topic": "Loops & Collections",
+    "difficulty": "Medium",
+    "question": "Can a mutable list be used as a key in a dictionary?",
+    "options": [
+      "Yes",
+      "No, dictionary keys must be hashable and immutable (raises TypeError: unhashable type: 'list')",
+      "Only if empty",
+      "Only in Python 3.10+"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Lists are mutable and unhashable, so they cannot be dictionary keys. Tuples can be used if they contain only hashables."
+  },
+  {
+    "id": "py_q_76",
+    "category": "Python",
+    "topic": "Functions & Exceptions",
+    "difficulty": "Medium",
+    "question": "Which keyword is used to declare a function in Python?",
+    "options": [
+      "function",
+      "def",
+      "func",
+      "declare"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'def function_name(params):' declares a function."
+  },
+  {
+    "id": "py_q_77",
+    "category": "Python",
+    "topic": "Functions & Exceptions",
+    "difficulty": "Medium",
+    "question": "What does '*args' in a function signature allow?",
+    "options": [
+      "Passing keyword arguments",
+      "Accepting an arbitrary number of positional arguments collected as a tuple",
+      "Pointers to memory",
+      "Mandatory arguments"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'*args' packages variable positional arguments into a tuple."
+  },
+  {
+    "id": "py_q_78",
+    "category": "Python",
+    "topic": "Functions & Exceptions",
+    "difficulty": "Medium",
+    "question": "What does '**kwargs' in a function signature allow?",
+    "options": [
+      "Accepting arbitrary keyword (named) arguments collected as a dictionary",
+      "Double multiplication",
+      "Global variables",
+      "Array arguments"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'**kwargs' packages variable keyword arguments into a dictionary."
+  },
+  {
+    "id": "py_q_79",
+    "category": "Python",
+    "topic": "Functions & Exceptions",
+    "difficulty": "Medium",
+    "question": "What is a 'lambda' function in Python?",
+    "options": [
+      "An anonymous, small inline function defined using the 'lambda' keyword",
+      "A threading module",
+      "A database query",
+      "A class method"
+    ],
+    "correctAnswer": 0,
+    "explanation": "lambda args: expression creates an anonymous single-expression function."
+  },
+  {
+    "id": "py_q_80",
+    "category": "Python",
+    "topic": "Functions & Exceptions",
+    "difficulty": "Medium",
+    "question": "What will this print: (lambda x, y: x * y)(4, 5)?",
+    "options": [
+      "9",
+      "20",
+      "45",
+      "Error"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The lambda multiplies arguments 4 and 5, returning 20."
+  },
+  {
+    "id": "py_q_81",
+    "category": "Python",
+    "topic": "Functions & Exceptions",
+    "difficulty": "Medium",
+    "question": "What is the danger of using a mutable default argument like 'def func(items=[])'?",
+    "options": [
+      "Syntax error",
+      "The default list is created once at function definition and persists across all calls, mutating unexpectedly",
+      "Compiler crash",
+      "Memory leak"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Default arguments are evaluated once when the function is defined; mutable defaults accumulate changes across calls."
+  },
+  {
+    "id": "py_q_82",
+    "category": "Python",
+    "topic": "Functions & Exceptions",
+    "difficulty": "Medium",
+    "question": "What is the recommended idiom for optional default arguments that should be mutable?",
+    "options": [
+      "def func(items=None): if items is None: items = []",
+      "def func(items=list):",
+      "def func(items=mutable):",
+      "def func(items=copy):"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Using 'items=None' and initializing 'items = []' inside the body ensures a fresh list on every call."
+  },
+  {
+    "id": "py_q_83",
+    "category": "Python",
+    "topic": "Functions & Exceptions",
+    "difficulty": "Medium",
+    "question": "What keyword allows modifying a variable defined in the global scope from inside a function?",
+    "options": [
+      "nonlocal",
+      "global",
+      "extern",
+      "var"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'global var_name' declares that the function intends to rebind a global variable."
+  },
+  {
+    "id": "py_q_84",
+    "category": "Python",
+    "topic": "Functions & Exceptions",
+    "difficulty": "Medium",
+    "question": "What keyword allows modifying a variable in an outer enclosing (non-global) function scope?",
+    "options": [
+      "global",
+      "nonlocal",
+      "outer",
+      "parent"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'nonlocal' binds to the nearest enclosing scope variable in nested functions."
+  },
+  {
+    "id": "py_q_85",
+    "category": "Python",
+    "topic": "Functions & Exceptions",
+    "difficulty": "Medium",
+    "question": "Can a Python function return multiple values separated by commas?",
+    "options": [
+      "No, only one",
+      "Yes, Python automatically packs them into a single tuple (e.g. return a, b)",
+      "Only in lists",
+      "Only with pointers"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'return a, b' packages values into a tuple (a, b) which can be unpacked by the caller."
+  },
+  {
+    "id": "py_q_86",
+    "category": "Python",
+    "topic": "Functions & Exceptions",
+    "difficulty": "Medium",
+    "question": "What does the map() built-in function do?",
+    "options": [
+      "Creates visual maps",
+      "Applies a given function to all items in an iterable, returning an iterator",
+      "Filters numbers",
+      "Finds coordinates"
+    ],
+    "correctAnswer": 1,
+    "explanation": "map(func, iterable) maps the function across each element."
+  },
+  {
+    "id": "py_q_87",
+    "category": "Python",
+    "topic": "Functions & Exceptions",
+    "difficulty": "Medium",
+    "question": "What does the filter() built-in function do?",
+    "options": [
+      "Filters elements where the predicate function returns True",
+      "Sorts items",
+      "Deletes empty strings",
+      "Reverses list"
+    ],
+    "correctAnswer": 0,
+    "explanation": "filter(func, iterable) yields items for which func(item) evaluates to truthy."
+  },
+  {
+    "id": "py_q_88",
+    "category": "Python",
+    "topic": "Functions & Exceptions",
+    "difficulty": "Medium",
+    "question": "What will sorted(['apple', 'banana', 'kiwi'], key=len) return?",
+    "options": [
+      "['kiwi', 'apple', 'banana']",
+      "['apple', 'banana', 'kiwi']",
+      "['banana', 'apple', 'kiwi']",
+      "Error"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Sorting by key=len orders by length: 'kiwi' (4), 'apple' (5), 'banana' (6)."
+  },
+  {
+    "id": "py_q_89",
+    "category": "Python",
+    "topic": "Functions & Exceptions",
+    "difficulty": "Medium",
+    "question": "What is a Docstring in Python?",
+    "options": [
+      "A string comment on line 1",
+      "A string literal appearing as the first statement in a module, function, or class used for documentation (accessible via .__doc__)",
+      "A file format",
+      "A print function"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Tripled-quoted string at the top of a function/class serves as its official docstring."
+  },
+  {
+    "id": "py_q_90",
+    "category": "Python",
+    "topic": "Functions & Exceptions",
+    "difficulty": "Medium",
+    "question": "What is recursion in Python?",
+    "options": [
+      "A loop that never stops",
+      "A function calling itself to solve smaller subproblems until a base condition is reached",
+      "Calling another file",
+      "Importing modules"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Recursion is when a function calls itself, terminating at a base case."
+  },
+  {
+    "id": "py_q_91",
+    "category": "Python",
+    "topic": "Functions & Exceptions",
+    "difficulty": "Medium",
+    "question": "Which blocks are used to catch and handle exceptions in Python?",
+    "options": [
+      "try ... catch",
+      "try ... except",
+      "catch ... throw",
+      "attempt ... rescue"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Python uses 'try ... except' blocks to intercept runtime exceptions."
+  },
+  {
+    "id": "py_q_92",
+    "category": "Python",
+    "topic": "Functions & Exceptions",
+    "difficulty": "Medium",
+    "question": "When does the 'finally' block execute in a try-except statement?",
+    "options": [
+      "Only if an error was caught",
+      "Only if no error occurred",
+      "Always, regardless of whether an exception occurred or was handled",
+      "Only if manually raised"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The 'finally' block is guaranteed to execute for cleanup operations."
+  },
+  {
+    "id": "py_q_93",
+    "category": "Python",
+    "topic": "Functions & Exceptions",
+    "difficulty": "Medium",
+    "question": "When does the 'else' block execute in a try-except statement?",
+    "options": [
+      "Only if NO exception was raised in the try block",
+      "Always",
+      "When an exception occurs",
+      "Only on syntax errors"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The 'else' block in try-except executes only if the try block succeeded without exceptions."
+  },
+  {
+    "id": "py_q_94",
+    "category": "Python",
+    "topic": "Functions & Exceptions",
+    "difficulty": "Medium",
+    "question": "Which keyword manually raises an exception in Python?",
+    "options": [
+      "throw",
+      "raise",
+      "error",
+      "except"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'raise ValueError('Invalid value')' explicitly triggers an exception."
+  },
+  {
+    "id": "py_q_95",
+    "category": "Python",
+    "topic": "Functions & Exceptions",
+    "difficulty": "Medium",
+    "question": "What is the recommended idiom for safely opening files so they close automatically?",
+    "options": [
+      "with open('file.txt') as f:",
+      "f = open('file.txt')",
+      "open.file('file.txt')",
+      "try f = open('file.txt')"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The 'with' context manager ensures files are automatically closed even if exceptions occur."
+  },
+  {
+    "id": "py_q_96",
+    "category": "Python",
+    "topic": "Functions & Exceptions",
+    "difficulty": "Medium",
+    "question": "Which mode in open('data.txt', 'r') opens a file for reading in text mode?",
+    "options": [
+      "'r'",
+      "'w'",
+      "'a'",
+      "'x'"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'r' opens for reading text; 'w' truncates and writes; 'a' appends."
+  },
+  {
+    "id": "py_q_97",
+    "category": "Python",
+    "topic": "Functions & Exceptions",
+    "difficulty": "Medium",
+    "question": "What does the file method f.readlines() return?",
+    "options": [
+      "A single string",
+      "A list of strings where each element is a line from the file",
+      "An integer line count",
+      "A generator"
+    ],
+    "correctAnswer": 1,
+    "explanation": "f.readlines() reads all lines into a Python list of strings."
+  },
+  {
+    "id": "py_q_98",
+    "category": "Python",
+    "topic": "Functions & Exceptions",
+    "difficulty": "Medium",
+    "question": "Which exception is raised when attempting to access a non-existent key in a dictionary using d[key]?",
+    "options": [
+      "IndexError",
+      "KeyError",
+      "LookupError",
+      "ValueError"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Accessing missing keys directly via square brackets raises a KeyError."
+  },
+  {
+    "id": "py_q_99",
+    "category": "Python",
+    "topic": "Functions & Exceptions",
+    "difficulty": "Medium",
+    "question": "Which exception is raised when dividing a number by zero in Python?",
+    "options": [
+      "DivisionError",
+      "ZeroDivisionError",
+      "MathError",
+      "ArithmeticZero"
+    ],
+    "correctAnswer": 1,
+    "explanation": "ZeroDivisionError is thrown on division or modulo by 0."
+  },
+  {
+    "id": "py_q_100",
+    "category": "Python",
+    "topic": "Functions & Exceptions",
+    "difficulty": "Medium",
+    "question": "Which built-in function returns the absolute value of a number (e.g. abs(-15))?",
+    "options": [
+      "abs()",
+      "absolute()",
+      "math.abs()",
+      "val()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "abs(-15) evaluates to 15."
+  }
+]

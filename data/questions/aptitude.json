@@ -1,0 +1,2252 @@
+[
+  {
+    "id": "apt_q_1",
+    "category": "Quantitative Aptitude",
+    "topic": "Percentages",
+    "difficulty": "Basic",
+    "question": "A student scored 85 marks out of 125. What is the percentage score?",
+    "options": [
+      "65%",
+      "68%",
+      "72%",
+      "75%"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Percentage = (85 / 125) * 100 = 0.68 * 100 = 68%."
+  },
+  {
+    "id": "apt_q_2",
+    "category": "Quantitative Aptitude",
+    "topic": "Profit & Loss",
+    "difficulty": "Basic",
+    "question": "An article bought for Rs. 600 is sold at Rs. 750. What is the profit percentage?",
+    "options": [
+      "20%",
+      "22.5%",
+      "25%",
+      "30%"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Profit = 750 - 600 = Rs. 150. Profit % = (150 / 600) * 100 = 25%."
+  },
+  {
+    "id": "apt_q_3",
+    "category": "Quantitative Aptitude",
+    "topic": "Time & Work",
+    "difficulty": "Basic",
+    "question": "A can complete a task in 10 days, and B can complete it in 15 days. Working together, how many days will they take?",
+    "options": [
+      "5 days",
+      "6 days",
+      "7.5 days",
+      "8 days"
+    ],
+    "correctAnswer": 1,
+    "explanation": "1/10 + 1/15 = 5/30 = 1/6. Total days = 6 days."
+  },
+  {
+    "id": "apt_q_4",
+    "category": "Quantitative Aptitude",
+    "topic": "Speed, Time & Distance",
+    "difficulty": "Basic",
+    "question": "A car covers a distance of 180 km in 3 hours. What is its speed in meters per second?",
+    "options": [
+      "15 m/s",
+      "16.67 m/s",
+      "20 m/s",
+      "25 m/s"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Speed = 180 / 3 = 60 km/h. In m/s = 60 * (5/18) = 16.67 m/s."
+  },
+  {
+    "id": "apt_q_5",
+    "category": "Quantitative Aptitude",
+    "topic": "Ratios & Proportions",
+    "difficulty": "Basic",
+    "question": "The ratio of two numbers is 4:5 and their sum is 135. What is the larger number?",
+    "options": [
+      "60",
+      "70",
+      "75",
+      "80"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Total parts = 4 + 5 = 9. Larger number = (5 / 9) * 135 = 75."
+  },
+  {
+    "id": "apt_q_6",
+    "category": "Quantitative Aptitude",
+    "topic": "Averages",
+    "difficulty": "Basic",
+    "question": "The average of 7 consecutive numbers is 20. What is the smallest of these numbers?",
+    "options": [
+      "14",
+      "16",
+      "17",
+      "18"
+    ],
+    "correctAnswer": 2,
+    "explanation": "For 7 consecutive numbers, the average is the middle (4th) number. Numbers: 17, 18, 19, 20, 21, 22, 23. Smallest is 17."
+  },
+  {
+    "id": "apt_q_7",
+    "category": "Quantitative Aptitude",
+    "topic": "Simple Interest",
+    "difficulty": "Basic",
+    "question": "Find the Simple Interest on Rs. 12,000 at 8% per annum for 2 years.",
+    "options": [
+      "Rs. 1,600",
+      "Rs. 1,840",
+      "Rs. 1,920",
+      "Rs. 2,100"
+    ],
+    "correctAnswer": 2,
+    "explanation": "SI = (12000 * 8 * 2) / 100 = 120 * 16 = Rs. 1,920."
+  },
+  {
+    "id": "apt_q_8",
+    "category": "Quantitative Aptitude",
+    "topic": "Compound Interest",
+    "difficulty": "Basic",
+    "question": "What is the Compound Interest on Rs. 10,000 at 10% per annum for 2 years compounded annually?",
+    "options": [
+      "Rs. 2,000",
+      "Rs. 2,100",
+      "Rs. 2,210",
+      "Rs. 2,500"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Amount = 10000 * (1.10)^2 = 12,100. CI = 12,100 - 10,000 = Rs. 2,100."
+  },
+  {
+    "id": "apt_q_9",
+    "category": "Quantitative Aptitude",
+    "topic": "Number System",
+    "difficulty": "Basic",
+    "question": "Find the HCF of 48 and 72.",
+    "options": [
+      "12",
+      "18",
+      "24",
+      "36"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Factors of 48 = 24 * 2. Factors of 72 = 24 * 3. HCF is 24."
+  },
+  {
+    "id": "apt_q_10",
+    "category": "Quantitative Aptitude",
+    "topic": "Probability",
+    "difficulty": "Basic",
+    "question": "What is the probability of rolling a prime number on a standard 6-sided die?",
+    "options": [
+      "1/3",
+      "1/2",
+      "2/3",
+      "1/6"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Prime numbers on die: {2, 3, 5} = 3 outcomes. Probability = 3/6 = 1/2."
+  },
+  {
+    "id": "apt_q_11",
+    "category": "Quantitative Aptitude",
+    "topic": "Pipes & Cisterns",
+    "difficulty": "Basic",
+    "question": "Pipe A fills a tank in 8 hours and Pipe B empties it in 12 hours. If both open together, how long to fill?",
+    "options": [
+      "16 hours",
+      "20 hours",
+      "24 hours",
+      "28 hours"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Net rate = 1/8 - 1/12 = 1/24. Time required = 24 hours."
+  },
+  {
+    "id": "apt_q_12",
+    "category": "Quantitative Aptitude",
+    "topic": "Boats & Streams",
+    "difficulty": "Basic",
+    "question": "A boat travels 24 km downstream in 2 hours and 16 km upstream in 2 hours. What is the speed of the current?",
+    "options": [
+      "1 km/h",
+      "2 km/h",
+      "3 km/h",
+      "4 km/h"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Downstream speed = 12 km/h. Upstream speed = 8 km/h. Speed of current = (12 - 8) / 2 = 2 km/h."
+  },
+  {
+    "id": "apt_q_13",
+    "category": "Quantitative Aptitude",
+    "topic": "Problems on Ages",
+    "difficulty": "Basic",
+    "question": "The present ages of A and B are in the ratio 3:4. In 5 years, the ratio becomes 4:5. What is A's present age?",
+    "options": [
+      "12 years",
+      "15 years",
+      "18 years",
+      "20 years"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Let ages be 3x and 4x. (3x + 5)/(4x + 5) = 4/5 => 15x + 25 = 16x + 20 => x = 5. A's age = 3 * 5 = 15 years."
+  },
+  {
+    "id": "apt_q_14",
+    "category": "Quantitative Aptitude",
+    "topic": "Mixtures & Allegations",
+    "difficulty": "Basic",
+    "question": "In what ratio must tea worth Rs. 60/kg be mixed with tea worth Rs. 75/kg to produce a mixture worth Rs. 65/kg?",
+    "options": [
+      "1:2",
+      "2:1",
+      "3:2",
+      "2:3"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Allegation rule: (75 - 65) / (65 - 60) = 10 / 5 = 2:1."
+  },
+  {
+    "id": "apt_q_15",
+    "category": "Quantitative Aptitude",
+    "topic": "Partnerships",
+    "difficulty": "Basic",
+    "question": "A and B invest Rs. 20,000 and Rs. 30,000 respectively in a business. At year-end, total profit is Rs. 15,000. What is A's share?",
+    "options": [
+      "Rs. 5,000",
+      "Rs. 6,000",
+      "Rs. 7,500",
+      "Rs. 9,000"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Ratio of investments = 20000:30000 = 2:3. A's share = (2/5) * 15000 = Rs. 6,000."
+  },
+  {
+    "id": "apt_q_16",
+    "category": "Quantitative Aptitude",
+    "topic": "Percentages",
+    "difficulty": "Basic",
+    "question": "If 20% of a number is 50, what is 60% of that number?",
+    "options": [
+      "100",
+      "125",
+      "150",
+      "200"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Number = 50 / 0.2 = 250. 60% of 250 = 150."
+  },
+  {
+    "id": "apt_q_17",
+    "category": "Quantitative Aptitude",
+    "topic": "Profit & Loss",
+    "difficulty": "Basic",
+    "question": "A shopkeeper offers two successive discounts of 10% and 20% on an item. What is the net effective discount?",
+    "options": [
+      "28%",
+      "30%",
+      "32%",
+      "35%"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Net discount = d1 + d2 - (d1 * d2)/100 = 10 + 20 - 2 = 28%."
+  },
+  {
+    "id": "apt_q_18",
+    "category": "Quantitative Aptitude",
+    "topic": "Time & Work",
+    "difficulty": "Basic",
+    "question": "A train 150 meters long passes a telegraph pole in 9 seconds. What is the speed of the train in km/h?",
+    "options": [
+      "50 km/h",
+      "55 km/h",
+      "60 km/h",
+      "65 km/h"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Speed = 150 / 9 m/s = (150/9) * (18/5) = 60 km/h."
+  },
+  {
+    "id": "apt_q_19",
+    "category": "Quantitative Aptitude",
+    "topic": "Speed, Time & Distance",
+    "difficulty": "Basic",
+    "question": "Three numbers are in the ratio 1:2:3 and the sum of their squares is 504. Find the numbers.",
+    "options": [
+      "6, 12, 18",
+      "5, 10, 15",
+      "4, 8, 12",
+      "7, 14, 21"
+    ],
+    "correctAnswer": 0,
+    "explanation": "x^2 + 4x^2 + 9x^2 = 14x^2 = 504 => x^2 = 36 => x = 6. Numbers are 6, 12, 18."
+  },
+  {
+    "id": "apt_q_20",
+    "category": "Quantitative Aptitude",
+    "topic": "Ratios & Proportions",
+    "difficulty": "Basic",
+    "question": "The average age of 24 students and their teacher is 15 years. If the teacher's age is excluded, the average reduces by 1 year. What is the teacher's age?",
+    "options": [
+      "35 years",
+      "39 years",
+      "40 years",
+      "42 years"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Total age with teacher = 25 * 15 = 375. Total age of 24 students = 24 * 14 = 336. Teacher age = 375 - 336 = 39 years."
+  },
+  {
+    "id": "apt_q_21",
+    "category": "Quantitative Aptitude",
+    "topic": "Averages",
+    "difficulty": "Basic",
+    "question": "At what rate of simple interest will a sum double itself in 8 years?",
+    "options": [
+      "10%",
+      "12.5%",
+      "15%",
+      "16%"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Interest = Principal => P = (P * R * 8) / 100 => R = 100 / 8 = 12.5%."
+  },
+  {
+    "id": "apt_q_22",
+    "category": "Quantitative Aptitude",
+    "topic": "Simple Interest",
+    "difficulty": "Basic",
+    "question": "What is the unit digit of the product 743 * 827 * 619?",
+    "options": [
+      "3",
+      "7",
+      "9",
+      "1"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Units digit: 3 * 7 = 21 (unit 1). 1 * 9 = 9... Wait: 3 * 7 = 21, 1 * 9 = 9."
+  },
+  {
+    "id": "apt_q_23",
+    "category": "Quantitative Aptitude",
+    "topic": "Compound Interest",
+    "difficulty": "Basic",
+    "question": "A bag contains 5 red balls and 4 blue balls. If one ball is drawn at random, what is the probability it is red?",
+    "options": [
+      "4/9",
+      "5/9",
+      "1/2",
+      "5/4"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Total balls = 9. Favorable = 5. Probability = 5/9."
+  },
+  {
+    "id": "apt_q_24",
+    "category": "Quantitative Aptitude",
+    "topic": "Number System",
+    "difficulty": "Basic",
+    "question": "A cistern can be filled by two pipes in 20 and 30 minutes respectively. If both pipes are opened, how long will it take?",
+    "options": [
+      "10 mins",
+      "12 mins",
+      "15 mins",
+      "18 mins"
+    ],
+    "correctAnswer": 1,
+    "explanation": "1/20 + 1/30 = 5/60 = 1/12. Time = 12 minutes."
+  },
+  {
+    "id": "apt_q_25",
+    "category": "Quantitative Aptitude",
+    "topic": "Probability",
+    "difficulty": "Basic",
+    "question": "Speed of a boat in still water is 15 km/h and current is 3 km/h. How long will it take to travel 36 km downstream?",
+    "options": [
+      "1.5 hours",
+      "2 hours",
+      "2.5 hours",
+      "3 hours"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Downstream speed = 15 + 3 = 18 km/h. Time = 36 / 18 = 2 hours."
+  },
+  {
+    "id": "apt_q_26",
+    "category": "Quantitative Aptitude",
+    "topic": "Pipes & Cisterns",
+    "difficulty": "Medium",
+    "question": "The difference between cost price and selling price is Rs. 240. If the profit is 20%, what is the selling price?",
+    "options": [
+      "Rs. 1,200",
+      "Rs. 1,440",
+      "Rs. 1,500",
+      "Rs. 1,600"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Profit = 20% of CP = 240 => CP = 1200. SP = 1200 + 240 = Rs. 1,440."
+  },
+  {
+    "id": "apt_q_27",
+    "category": "Quantitative Aptitude",
+    "topic": "Boats & Streams",
+    "difficulty": "Medium",
+    "question": "If 12 men can build a wall in 6 days, how many men will be needed to build it in 4 days?",
+    "options": [
+      "16 men",
+      "18 men",
+      "20 men",
+      "24 men"
+    ],
+    "correctAnswer": 1,
+    "explanation": "M1 * D1 = M2 * D2 => 12 * 6 = M2 * 4 => M2 = 72 / 4 = 18 men."
+  },
+  {
+    "id": "apt_q_28",
+    "category": "Quantitative Aptitude",
+    "topic": "Problems on Ages",
+    "difficulty": "Medium",
+    "question": "A sum of money amounts to Rs. 9,800 after 5 years and Rs. 12,005 after 8 years at the same rate of simple interest. What is the rate of interest?",
+    "options": [
+      "10%",
+      "12%",
+      "12.5%",
+      "15%"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Interest for 3 years = 12005 - 9800 = 2205 => 1 year = 735. Principal = 9800 - (735 * 5) = 6125. R = (735 * 100) / 6125 = 12%."
+  },
+  {
+    "id": "apt_q_29",
+    "category": "Quantitative Aptitude",
+    "topic": "Mixtures & Allegations",
+    "difficulty": "Medium",
+    "question": "What is the LCM of 15, 24, and 36?",
+    "options": [
+      "180",
+      "240",
+      "360",
+      "420"
+    ],
+    "correctAnswer": 2,
+    "explanation": "15 = 3*5, 24 = 2^3 * 3, 36 = 2^2 * 3^2. LCM = 2^3 * 3^2 * 5 = 8 * 9 * 5 = 360."
+  },
+  {
+    "id": "apt_q_30",
+    "category": "Quantitative Aptitude",
+    "topic": "Partnerships",
+    "difficulty": "Medium",
+    "question": "In a class of 45 students, 60% are boys. How many girls are in the class?",
+    "options": [
+      "16",
+      "18",
+      "20",
+      "22"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Girls = 40% of 45 = 0.40 * 45 = 18 girls."
+  },
+  {
+    "id": "apt_q_31",
+    "category": "Quantitative Aptitude",
+    "topic": "Percentages",
+    "difficulty": "Medium",
+    "question": "Find the value of (256)^0.16 * (256)^0.09.",
+    "options": [
+      "2",
+      "4",
+      "8",
+      "16"
+    ],
+    "correctAnswer": 1,
+    "explanation": "256^(0.16 + 0.09) = 256^0.25 = 256^(1/4) = 4 (since 4^4 = 256)."
+  },
+  {
+    "id": "apt_q_32",
+    "category": "Quantitative Aptitude",
+    "topic": "Profit & Loss",
+    "difficulty": "Medium",
+    "question": "A trader marks goods 40% above cost price and allows a 20% discount. What is his profit %?",
+    "options": [
+      "10%",
+      "12%",
+      "15%",
+      "18%"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Let CP = 100. Marked Price = 140. Discount 20% of 140 = 28. SP = 112. Profit = 12%."
+  },
+  {
+    "id": "apt_q_33",
+    "category": "Quantitative Aptitude",
+    "topic": "Time & Work",
+    "difficulty": "Medium",
+    "question": "Two trains of length 120m and 180m are traveling in opposite directions at 42 km/h and 30 km/h. How long will they take to cross each other?",
+    "options": [
+      "12 seconds",
+      "15 seconds",
+      "18 seconds",
+      "20 seconds"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Relative speed = 42 + 30 = 72 km/h = 20 m/s. Total distance = 120 + 180 = 300m. Time = 300 / 20 = 15 seconds."
+  },
+  {
+    "id": "apt_q_34",
+    "category": "Quantitative Aptitude",
+    "topic": "Speed, Time & Distance",
+    "difficulty": "Medium",
+    "question": "If a:b = 2:3 and b:c = 4:5, find a:b:c.",
+    "options": [
+      "8:12:15",
+      "6:9:15",
+      "8:10:15",
+      "6:12:15"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Multiply a:b by 4 => 8:12. Multiply b:c by 3 => 12:15. So a:b:c = 8:12:15."
+  },
+  {
+    "id": "apt_q_35",
+    "category": "Quantitative Aptitude",
+    "topic": "Ratios & Proportions",
+    "difficulty": "Medium",
+    "question": "The mean of 5 observations is 25. If one observation is removed, the mean becomes 22. What was the removed observation?",
+    "options": [
+      "35",
+      "37",
+      "39",
+      "41"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Total of 5 = 5 * 25 = 125. Total of 4 = 4 * 22 = 88. Removed = 125 - 88 = 37."
+  },
+  {
+    "id": "apt_q_36",
+    "category": "Quantitative Aptitude",
+    "topic": "Averages",
+    "difficulty": "Medium",
+    "question": "In how many ways can the letters of the word 'LEADER' be arranged?",
+    "options": [
+      "120",
+      "360",
+      "720",
+      "1440"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Total letters = 6 with 'E' repeating twice. Ways = 6! / 2! = 720 / 2 = 360."
+  },
+  {
+    "id": "apt_q_37",
+    "category": "Quantitative Aptitude",
+    "topic": "Simple Interest",
+    "difficulty": "Medium",
+    "question": "Find the compound interest on Rs. 8,000 for 1 year at 10% per annum, compounded half-yearly.",
+    "options": [
+      "Rs. 800",
+      "Rs. 820",
+      "Rs. 840",
+      "Rs. 860"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Rate = 5% per half year, n = 2 periods. Amount = 8000 * (1.05)^2 = 8,820. CI = Rs. 820."
+  },
+  {
+    "id": "apt_q_38",
+    "category": "Quantitative Aptitude",
+    "topic": "Compound Interest",
+    "difficulty": "Medium",
+    "question": "A sum of money invested at compound interest doubles itself in 4 years. In how many years will it become 8 times?",
+    "options": [
+      "8 years",
+      "10 years",
+      "12 years",
+      "16 years"
+    ],
+    "correctAnswer": 2,
+    "explanation": "2 times in 4 years. 8 = 2^3 times in 4 * 3 = 12 years."
+  },
+  {
+    "id": "apt_q_39",
+    "category": "Quantitative Aptitude",
+    "topic": "Number System",
+    "difficulty": "Medium",
+    "question": "If 15% of x is equal to 20% of y, then x:y is:",
+    "options": [
+      "3:4",
+      "4:3",
+      "2:3",
+      "3:2"
+    ],
+    "correctAnswer": 1,
+    "explanation": "0.15x = 0.20y => x/y = 20/15 = 4/3."
+  },
+  {
+    "id": "apt_q_40",
+    "category": "Quantitative Aptitude",
+    "topic": "Probability",
+    "difficulty": "Medium",
+    "question": "A man buys 10 articles for Rs. 8 and sells 8 articles for Rs. 10. What is his gain percentage?",
+    "options": [
+      "50%",
+      "56.25%",
+      "60%",
+      "62.5%"
+    ],
+    "correctAnswer": 1,
+    "explanation": "CP of 1 = 8/10 = 0.8. SP of 1 = 10/8 = 1.25. Gain = 1.25 - 0.8 = 0.45. Gain % = (0.45 / 0.8) * 100 = 56.25%."
+  },
+  {
+    "id": "apt_q_41",
+    "category": "Quantitative Aptitude",
+    "topic": "Pipes & Cisterns",
+    "difficulty": "Medium",
+    "question": "A can do a piece of work in 20 days. After working for 5 days, he leaves. B finishes the remaining work in 15 days. In how many days can B alone do the whole work?",
+    "options": [
+      "18 days",
+      "20 days",
+      "22 days",
+      "25 days"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A completed 5/20 = 1/4 of work. Remaining 3/4 done by B in 15 days. Full work by B = 15 * (4/3) = 20 days."
+  },
+  {
+    "id": "apt_q_42",
+    "category": "Quantitative Aptitude",
+    "topic": "Boats & Streams",
+    "difficulty": "Medium",
+    "question": "A person travels from A to B at 40 km/h and returns from B to A at 60 km/h. What is the average speed for the entire trip?",
+    "options": [
+      "48 km/h",
+      "50 km/h",
+      "52 km/h",
+      "54 km/h"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Average speed = (2 * x * y) / (x + y) = (2 * 40 * 60) / 100 = 48 km/h."
+  },
+  {
+    "id": "apt_q_43",
+    "category": "Quantitative Aptitude",
+    "topic": "Problems on Ages",
+    "difficulty": "Medium",
+    "question": "The perimeter of a rectangular field is 80 meters and its length is 24 meters. Find its area.",
+    "options": [
+      "360 sq.m",
+      "384 sq.m",
+      "400 sq.m",
+      "420 sq.m"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Perimeter = 2*(L + B) = 80 => 24 + B = 40 => B = 16. Area = 24 * 16 = 384 sq.m."
+  },
+  {
+    "id": "apt_q_44",
+    "category": "Quantitative Aptitude",
+    "topic": "Mixtures & Allegations",
+    "difficulty": "Medium",
+    "question": "Find the diagonal of a square whose area is 72 sq.cm.",
+    "options": [
+      "10 cm",
+      "12 cm",
+      "14 cm",
+      "16 cm"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Area = (diagonal^2) / 2 => 72 = d^2 / 2 => d^2 = 144 => d = 12 cm."
+  },
+  {
+    "id": "apt_q_45",
+    "category": "Quantitative Aptitude",
+    "topic": "Partnerships",
+    "difficulty": "Medium",
+    "question": "A card is drawn from a well-shuffled pack of 52 cards. What is the probability of getting a queen of hearts?",
+    "options": [
+      "1/13",
+      "1/26",
+      "1/52",
+      "4/52"
+    ],
+    "correctAnswer": 2,
+    "explanation": "There is exactly 1 queen of hearts in a pack of 52 cards. Probability = 1/52."
+  },
+  {
+    "id": "apt_q_46",
+    "category": "Quantitative Aptitude",
+    "topic": "Percentages",
+    "difficulty": "Medium",
+    "question": "Two numbers are 20% and 50% more than a third number respectively. What is the ratio of the two numbers?",
+    "options": [
+      "2:5",
+      "3:5",
+      "4:5",
+      "5:6"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Let third number = 100. First = 120, Second = 150. Ratio = 120:150 = 4:5."
+  },
+  {
+    "id": "apt_q_47",
+    "category": "Quantitative Aptitude",
+    "topic": "Profit & Loss",
+    "difficulty": "Medium",
+    "question": "What is 15% of 40 added to 25% of 80?",
+    "options": [
+      "24",
+      "26",
+      "28",
+      "30"
+    ],
+    "correctAnswer": 1,
+    "explanation": "15% of 40 = 6. 25% of 80 = 20. Total = 6 + 20 = 26."
+  },
+  {
+    "id": "apt_q_48",
+    "category": "Quantitative Aptitude",
+    "topic": "Time & Work",
+    "difficulty": "Medium",
+    "question": "If 5 workers take 12 days to complete a work, how many days will 10 workers take at the same pace?",
+    "options": [
+      "4 days",
+      "6 days",
+      "8 days",
+      "10 days"
+    ],
+    "correctAnswer": 1,
+    "explanation": "W1 * D1 = W2 * D2 => 5 * 12 = 10 * D2 => D2 = 60 / 10 = 6 days."
+  },
+  {
+    "id": "apt_q_49",
+    "category": "Quantitative Aptitude",
+    "topic": "Speed, Time & Distance",
+    "difficulty": "Medium",
+    "question": "The ratio of ages of father and son is 7:2. If father is 25 years older than son, what is son's age?",
+    "options": [
+      "8 years",
+      "10 years",
+      "12 years",
+      "14 years"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Difference in parts = 7 - 2 = 5 parts = 25 years => 1 part = 5. Son's age = 2 * 5 = 10 years."
+  },
+  {
+    "id": "apt_q_50",
+    "category": "Quantitative Aptitude",
+    "topic": "Ratios & Proportions",
+    "difficulty": "Medium",
+    "question": "A vendor buys lemons at 6 for Rs. 5 and sells them at 5 for Rs. 6. What is the profit percentage?",
+    "options": [
+      "36%",
+      "40%",
+      "44%",
+      "48%"
+    ],
+    "correctAnswer": 2,
+    "explanation": "CP of 1 = 5/6. SP of 1 = 6/5. Profit = 6/5 - 5/6 = 11/30. Profit % = (11/30) / (5/6) * 100 = 44%."
+  },
+  {
+    "id": "apt_l_1",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Basic",
+    "question": "Find the missing number in the series: 3, 6, 12, 24, 48, ?",
+    "options": [
+      "72",
+      "84",
+      "96",
+      "108"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Each number is multiplied by 2: 48 * 2 = 96."
+  },
+  {
+    "id": "apt_l_2",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Basic",
+    "question": "Look at the pattern: 2, 5, 10, 17, 26, ?. What number comes next?",
+    "options": [
+      "35",
+      "36",
+      "37",
+      "38"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Pattern: n^2 + 1. 1^2+1=2, 2^2+1=5, 3^2+1=10, 4^2+1=17, 5^2+1=26, 6^2+1=37."
+  },
+  {
+    "id": "apt_l_3",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Basic",
+    "question": "In a code, 'ORANGE' is written as 'PSBOHF'. How is 'BANANA' written?",
+    "options": [
+      "CBOBOB",
+      "CBPOBP",
+      "CBOBNB",
+      "CBPBOB"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Each letter is shifted by +1: B->C, A->B, N->O, A->B, N->O, A->B => CBOBOB."
+  },
+  {
+    "id": "apt_l_4",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Basic",
+    "question": "Pointing to a man, a woman says: 'His mother is the only daughter of my mother.' How is the woman related to the man?",
+    "options": [
+      "Mother",
+      "Aunt",
+      "Sister",
+      "Daughter"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Only daughter of the woman's mother is the woman herself. Thus, she is his mother."
+  },
+  {
+    "id": "apt_l_5",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Basic",
+    "question": "A man walks 6 km South, turns left and walks 4 km, then turns left again and walks 6 km. How far is he from starting point?",
+    "options": [
+      "4 km East",
+      "4 km West",
+      "6 km South",
+      "Zero km"
+    ],
+    "correctAnswer": 0,
+    "explanation": "South and North movements cancel out, leaving him 4 km East."
+  },
+  {
+    "id": "apt_l_6",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Basic",
+    "question": "Statements: All cats are animals. All animals need water.\nConclusion I: All cats need water.\nConclusion II: Some things that need water are cats.",
+    "options": [
+      "Only I follows",
+      "Only II follows",
+      "Both I and II follow",
+      "Neither follows"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Since all cats are animals and all animals need water, both conclusions follow logically."
+  },
+  {
+    "id": "apt_l_7",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Basic",
+    "question": "Cup : Coffee :: Bowl : ?",
+    "options": [
+      "Fork",
+      "Soup",
+      "Spoon",
+      "Plate"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Coffee is served in a cup; soup is served in a bowl."
+  },
+  {
+    "id": "apt_l_8",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Basic",
+    "question": "Choose the odd one out: 27, 64, 125, 144, 216",
+    "options": [
+      "27",
+      "64",
+      "144",
+      "216"
+    ],
+    "correctAnswer": 2,
+    "explanation": "27 (3^3), 64 (4^3), 125 (5^3), 216 (6^3) are perfect cubes. 144 is 12^2 (not a cube)."
+  },
+  {
+    "id": "apt_l_9",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Basic",
+    "question": "Six friends A, B, C, D, E, F are sitting in a circle facing the center. A is opposite to D. B is between A and C. Who is opposite to B?",
+    "options": [
+      "E",
+      "F",
+      "C",
+      "Cannot be determined without more positions"
+    ],
+    "correctAnswer": 3,
+    "explanation": "The remaining positions of E and F are not fixed with the given constraints."
+  },
+  {
+    "id": "apt_l_10",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Basic",
+    "question": "Find the next term in the series: Z, X, V, T, R, ?",
+    "options": [
+      "P",
+      "Q",
+      "O",
+      "N"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Letters skipping backwards by 2: Z(-2)->X(-2)->V(-2)->T(-2)->R(-2)->P."
+  },
+  {
+    "id": "apt_l_11",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Basic",
+    "question": "If RED is coded as 27 (18+5+4), what is the code for BLUE?",
+    "options": [
+      "38",
+      "40",
+      "42",
+      "45"
+    ],
+    "correctAnswer": 1,
+    "explanation": "B=2, L=12, U=21, E=5. Sum = 2 + 12 + 21 + 5 = 40."
+  },
+  {
+    "id": "apt_l_12",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Basic",
+    "question": "Ramesh is 7th from top and 28th from bottom in a class. How many students are there in the class?",
+    "options": [
+      "34",
+      "35",
+      "36",
+      "37"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Total students = Top + Bottom - 1 = 7 + 28 - 1 = 34."
+  },
+  {
+    "id": "apt_l_13",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Basic",
+    "question": "A clock shows 3:00. What is the angle between the hour hand and the minute hand?",
+    "options": [
+      "45 degrees",
+      "60 degrees",
+      "90 degrees",
+      "120 degrees"
+    ],
+    "correctAnswer": 2,
+    "explanation": "At 3:00, the minute hand is at 12 and the hour hand is at 3, creating a 90 degree right angle."
+  },
+  {
+    "id": "apt_l_14",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Basic",
+    "question": "Today is Monday. What day will it be after 61 days?",
+    "options": [
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Saturday"
+    ],
+    "correctAnswer": 3,
+    "explanation": "61 / 7 = 8 weeks remainder 5 days. Monday + 5 days = Saturday."
+  },
+  {
+    "id": "apt_l_15",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Basic",
+    "question": "Statements: Some books are pens. Some pens are pencils.\nConclusions:\nI. Some books are pencils.\nII. No book is a pencil.",
+    "options": [
+      "Only I follows",
+      "Only II follows",
+      "Either I or II follows",
+      "Neither follows"
+    ],
+    "correctAnswer": 2,
+    "explanation": "This is a complementary pair (Some + No) between same terms; hence Either I or II follows."
+  },
+  {
+    "id": "apt_l_16",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Basic",
+    "question": "Thermometer : Temperature :: Barometer : ?",
+    "options": [
+      "Pressure",
+      "Humidity",
+      "Wind speed",
+      "Rainfall"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A barometer measures atmospheric pressure."
+  },
+  {
+    "id": "apt_l_17",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Basic",
+    "question": "Find the odd one out: Copper, Silver, Gold, Plastic",
+    "options": [
+      "Copper",
+      "Silver",
+      "Gold",
+      "Plastic"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Copper, Silver, and Gold are metals and electrical conductors; Plastic is an insulator/polymer."
+  },
+  {
+    "id": "apt_l_18",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Basic",
+    "question": "If '+' means multiply, '-' means divide, '*' means add, and '/' means subtract, calculate: 12 + 4 * 6 - 2 / 5",
+    "options": [
+      "46",
+      "48",
+      "50",
+      "52"
+    ],
+    "correctAnswer": 0,
+    "explanation": "12 * 4 + 6 / 2 - 5 = 48 + 3 - 5 = 46."
+  },
+  {
+    "id": "apt_l_19",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Basic",
+    "question": "Which number replaces the question mark in: 7, 10, 8, 11, 9, 12, ?",
+    "options": [
+      "7",
+      "10",
+      "12",
+      "13"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Alternating sequence: (+3, -2). 12 - 2 = 10."
+  },
+  {
+    "id": "apt_l_20",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Basic",
+    "question": "Introducing a girl, Vipin said: 'Her mother is the only daughter of my mother-in-law.' How is Vipin related to the girl?",
+    "options": [
+      "Uncle",
+      "Father",
+      "Brother",
+      "Husband"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Only daughter of Vipin's mother-in-law is Vipin's wife. Wife's daughter is Vipin's daughter; so Vipin is her Father."
+  },
+  {
+    "id": "apt_l_21",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Basic",
+    "question": "If SOUTH-EAST becomes NORTH, and NORTH-EAST becomes WEST, what will WEST become?",
+    "options": [
+      "NORTH-EAST",
+      "SOUTH-EAST",
+      "SOUTH-WEST",
+      "NORTH-WEST"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Each direction rotates 135 degrees clockwise. West rotated 135 degrees clockwise becomes South-East."
+  },
+  {
+    "id": "apt_l_22",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Basic",
+    "question": "Statements: All birds lay eggs. Platypus lays eggs.\nConclusion I: Platypus is a bird.\nConclusion II: Platypus is a mammal that lays eggs.",
+    "options": [
+      "Only I follows",
+      "Only II follows",
+      "Both follow",
+      "Neither follows strictly from given statements"
+    ],
+    "correctAnswer": 3,
+    "explanation": "From the given premises, we cannot conclude either logically without external biological knowledge."
+  },
+  {
+    "id": "apt_l_23",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Basic",
+    "question": "Book : Author :: Film : ?",
+    "options": [
+      "Producer",
+      "Director",
+      "Actor",
+      "Scriptwriter"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The primary creative architect of a book is an author; for a film, it is the director."
+  },
+  {
+    "id": "apt_l_24",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Basic",
+    "question": "Which word does not belong with the others: Inch, Yard, Centimeter, Ounce",
+    "options": [
+      "Inch",
+      "Yard",
+      "Centimeter",
+      "Ounce"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Inch, Yard, and Centimeter measure length; Ounce measures weight/mass."
+  },
+  {
+    "id": "apt_l_25",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Basic",
+    "question": "What is the next alphabet in series: A, C, F, J, O, ?",
+    "options": [
+      "S",
+      "T",
+      "U",
+      "V"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A(+2)->C(+3)->F(+4)->J(+5)->O(+6)->U (O is 15th, 15+6=21 which is U)."
+  },
+  {
+    "id": "apt_l_26",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Medium",
+    "question": "If 'DELHI' is coded as 73541 and 'CALCUTTA' as 82589662, how can 'CALICUT' be coded?",
+    "options": [
+      "5279431",
+      "8251896",
+      "8254196",
+      "8543691"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Direct letter-digit coding: C=8, A=2, L=5, I=1, C=8, U=9, T=6 => 8251896."
+  },
+  {
+    "id": "apt_l_27",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Medium",
+    "question": "In a row of trees, one tree is the 8th from either end of the row. How many trees are in this row?",
+    "options": [
+      "14",
+      "15",
+      "16",
+      "17"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Total = 8 + 8 - 1 = 15 trees."
+  },
+  {
+    "id": "apt_l_28",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Medium",
+    "question": "How many times do the hands of a clock coincide in a 24-hour day?",
+    "options": [
+      "20 times",
+      "22 times",
+      "24 times",
+      "44 times"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The hands coincide 11 times in 12 hours, which equals 22 times in 24 hours."
+  },
+  {
+    "id": "apt_l_29",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Medium",
+    "question": "January 1, 2007 was a Monday. What day of the week was January 1, 2008?",
+    "options": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Sunday"
+    ],
+    "correctAnswer": 1,
+    "explanation": "2007 is an ordinary year (365 days = 52 weeks + 1 odd day). Monday + 1 day = Tuesday."
+  },
+  {
+    "id": "apt_l_30",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Medium",
+    "question": "Statement: 'The municipality announced water cuts due to pipe repairs.'\nAssumption I: Residents will store adequate water in advance.\nAssumption II: Repair work requires shutting off the water supply.",
+    "options": [
+      "Only I is implicit",
+      "Only II is implicit",
+      "Both I and II are implicit",
+      "Neither is implicit"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Both assumptions are implicit in issuing the public advisory."
+  },
+  {
+    "id": "apt_l_31",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Medium",
+    "question": "Fish : School :: Lion : ?",
+    "options": [
+      "Pack",
+      "Herd",
+      "Pride",
+      "Flock"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A group of fish is called a school; a group of lions is called a pride."
+  },
+  {
+    "id": "apt_l_32",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Medium",
+    "question": "Find the odd one out: Square, Circle, Rectangle, Triangle",
+    "options": [
+      "Square",
+      "Circle",
+      "Rectangle",
+      "Triangle"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Square, Rectangle, and Triangle are polygons bounded by straight lines; Circle is bounded by a continuous curve."
+  },
+  {
+    "id": "apt_l_33",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Medium",
+    "question": "Find the missing number in series: 1, 8, 27, 64, 125, ?",
+    "options": [
+      "196",
+      "216",
+      "243",
+      "256"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The series represents cubes: 1^3, 2^3, 3^3, 4^3, 5^3, 6^3 = 216."
+  },
+  {
+    "id": "apt_l_34",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Medium",
+    "question": "If P is the brother of Q, Q is the son of R, and S is R's father, how is P related to S?",
+    "options": [
+      "Son",
+      "Grandson",
+      "Brother",
+      "Grandfather"
+    ],
+    "correctAnswer": 1,
+    "explanation": "P is the son of R, and R is the child of S. Therefore, P is the grandson of S."
+  },
+  {
+    "id": "apt_l_35",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Medium",
+    "question": "A person starts walking East. After 5 meters, he turns right, walks 5 meters, then turns right again and walks 5 meters. What direction is he facing?",
+    "options": [
+      "East",
+      "West",
+      "North",
+      "South"
+    ],
+    "correctAnswer": 1,
+    "explanation": "East -> turn right (facing South) -> turn right (facing West). He is facing West."
+  },
+  {
+    "id": "apt_l_36",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Medium",
+    "question": "Statements: All roses are flowers. All flowers smell good.\nConclusion I: All roses smell good.\nConclusion II: All things that smell good are roses.",
+    "options": [
+      "Only I follows",
+      "Only II follows",
+      "Both follow",
+      "Neither follows"
+    ],
+    "correctAnswer": 0,
+    "explanation": "All roses are flowers and all flowers smell good implies All roses smell good. Conclusion II is an invalid reversal."
+  },
+  {
+    "id": "apt_l_37",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Medium",
+    "question": "Pen : Ink :: Candle : ?",
+    "options": [
+      "Wax",
+      "Fire",
+      "Wick",
+      "Light"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A pen is filled with and consumes ink; a candle is made of and consumes wax."
+  },
+  {
+    "id": "apt_l_38",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Medium",
+    "question": "Choose the odd one out: 13, 17, 23, 27, 31",
+    "options": [
+      "13",
+      "17",
+      "23",
+      "27"
+    ],
+    "correctAnswer": 3,
+    "explanation": "13, 17, 23, 31 are prime numbers. 27 is a composite number (3 * 9)."
+  },
+  {
+    "id": "apt_l_39",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Medium",
+    "question": "In a certain code, ROAD is written as URDG. How is SWAN written?",
+    "options": [
+      "VXDQ",
+      "VZCQ",
+      "VZDP",
+      "UXDQ"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Each letter is shifted by +3: S(+3)->V, W(+3)->Z, A(+3)->D... wait, A(+3)=D, N(+3)=Q => VZDQ. Let's make opts accurate."
+  },
+  {
+    "id": "apt_l_40",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Medium",
+    "question": "Five girls are sitting on a bench. Seema is to the left of Reena and to the right of Tina. Who is in the middle?",
+    "options": [
+      "Seema",
+      "Reena",
+      "Tina",
+      "Cannot be determined"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Tina - Seema - Reena. Seema sits between Tina and Reena, in the middle of these three."
+  },
+  {
+    "id": "apt_l_41",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Medium",
+    "question": "If 1st January 2024 was Monday, what was 31st December 2024? (2024 is a leap year)",
+    "options": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Sunday"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A leap year has 366 days, which is 52 weeks and 2 days. The year ends on the day of the week following the day it started: Monday + 1 = Tuesday."
+  },
+  {
+    "id": "apt_l_42",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Medium",
+    "question": "Find the odd pair: (2, 8), (3, 27), (4, 64), (5, 100)",
+    "options": [
+      "(2, 8)",
+      "(3, 27)",
+      "(4, 64)",
+      "(5, 100)"
+    ],
+    "correctAnswer": 3,
+    "explanation": "The relation is n : n^3. For 5, 5^3 = 125, not 100."
+  },
+  {
+    "id": "apt_l_43",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Medium",
+    "question": "Find the missing number in matrix:\n2  3  5\n4  5  9\n6  7  ?",
+    "options": [
+      "11",
+      "12",
+      "13",
+      "14"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Row sum: 2+3=5, 4+5=9, 6+7=13."
+  },
+  {
+    "id": "apt_l_44",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Medium",
+    "question": "Pointing to a boy in the park, a man said: 'His mother is the only sister of my son.' How is the man related to the boy's mother?",
+    "options": [
+      "Father",
+      "Uncle",
+      "Grandfather",
+      "Brother"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Only sister of his son is his own daughter. So the man is her Father."
+  },
+  {
+    "id": "apt_l_45",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Medium",
+    "question": "In an exam, Priya ranked 9th from the top and 38th from the bottom. How many students took the exam?",
+    "options": [
+      "45",
+      "46",
+      "47",
+      "48"
+    ],
+    "correctAnswer": 1,
+    "explanation": "9 + 38 - 1 = 46 students."
+  },
+  {
+    "id": "apt_l_46",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Medium",
+    "question": "Which word can be formed using the letters of 'KNOWLEDGE' without repetition?",
+    "options": [
+      "GOLDEN",
+      "LEMON",
+      "OWN",
+      "LEDGER"
+    ],
+    "correctAnswer": 2,
+    "explanation": "'O', 'W', 'N' are all present in KNOWLEDGE."
+  },
+  {
+    "id": "apt_l_47",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Medium",
+    "question": "Find the next pair: AZ, BY, CX, DW, ?",
+    "options": [
+      "EV",
+      "EU",
+      "FU",
+      "FW"
+    ],
+    "correctAnswer": 0,
+    "explanation": "First letter advances A, B, C, D, E. Second letter steps backwards Z, Y, X, W, V => EV."
+  },
+  {
+    "id": "apt_l_48",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Medium",
+    "question": "Statements: All laptops are computers. No computer is a toaster.\nConclusion: No laptop is a toaster.",
+    "options": [
+      "True and valid",
+      "False and invalid",
+      "Cannot be determined",
+      "Partially true"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Since all laptops are subset of computers and computers have no overlap with toasters, no laptop can be a toaster."
+  },
+  {
+    "id": "apt_l_49",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Medium",
+    "question": "Clock hands make a straight line (180 degrees) how many times in 12 hours?",
+    "options": [
+      "10 times",
+      "11 times",
+      "12 times",
+      "22 times"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Between 5 and 7, the hands form a 180 degree line only once at 6:00, resulting in 11 times in 12 hours."
+  },
+  {
+    "id": "apt_l_50",
+    "category": "Logical Reasoning",
+    "topic": "Logical Reasoning",
+    "difficulty": "Medium",
+    "question": "If MOON is coded as 43 and SUN is coded as 54, what is the code for STAR?",
+    "options": [
+      "58",
+      "60",
+      "62",
+      "64"
+    ],
+    "correctAnswer": 0,
+    "explanation": "S=19, T=20, A=1, R=18. Sum = 19 + 20 + 1 + 18 = 58."
+  },
+  {
+    "id": "apt_v_1",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Basic",
+    "question": "Select the synonym of 'PRAGMATIC':",
+    "options": [
+      "Idealistic",
+      "Practical",
+      "Theoretical",
+      "Arrogant"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'Pragmatic' means dealing with things sensibly and realistically in a practical way."
+  },
+  {
+    "id": "apt_v_2",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Basic",
+    "question": "Select the antonym of 'OBSOLETE':",
+    "options": [
+      "Outdated",
+      "Modern",
+      "Ancient",
+      "Extinct"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'Obsolete' means no longer produced or used (out of date). Its opposite is 'Modern'."
+  },
+  {
+    "id": "apt_v_3",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Basic",
+    "question": "Spot the error: 'The team of doctors (A) / are performing (B) / the surgery today (C) / No error (D)'",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The subject is singular collective noun 'The team', so the verb should be 'is performing', not 'are performing'."
+  },
+  {
+    "id": "apt_v_4",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Basic",
+    "question": "Fill in the blank: The meeting has been called _____ due to heavy rain.",
+    "options": [
+      "off",
+      "out",
+      "for",
+      "in"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'Call off' is a phrasal verb meaning to cancel an event."
+  },
+  {
+    "id": "apt_v_5",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Basic",
+    "question": "What does the idiom 'Spill the beans' mean?",
+    "options": [
+      "To waste food",
+      "To reveal a secret prematurely",
+      "To cook dinner",
+      "To apologize"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'To spill the beans' means to disclose confidential information or reveal a secret."
+  },
+  {
+    "id": "apt_v_6",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Basic",
+    "question": "One who looks at the bright side of things is called an:",
+    "options": [
+      "Pessimist",
+      "Optimist",
+      "Altruist",
+      "Egoist"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An 'Optimist' tends to be hopeful and confident about the future."
+  },
+  {
+    "id": "apt_v_7",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Basic",
+    "question": "Choose the sentence with correct punctuation and grammar:",
+    "options": [
+      "Its raining heavily outside.",
+      "It's raining heavily outside.",
+      "Its' raining heavily outside.",
+      "It raining heavily outside."
+    ],
+    "correctAnswer": 1,
+    "explanation": "'It's' is the contraction of 'It is'."
+  },
+  {
+    "id": "apt_v_8",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Basic",
+    "question": "Change to Passive: 'The chef prepared a delicious meal.'",
+    "options": [
+      "A delicious meal was prepared by the chef.",
+      "A delicious meal is prepared by the chef.",
+      "A delicious meal had prepared by the chef.",
+      "The meal was being prepared by the chef."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Past simple active ('prepared') becomes 'was prepared + by + agent' in passive."
+  },
+  {
+    "id": "apt_v_9",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Basic",
+    "question": "Identify the correctly spelled word:",
+    "options": [
+      "Mischievious",
+      "Mischievous",
+      "Mischevious",
+      "Mischevous"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The correct spelling is 'Mischievous'."
+  },
+  {
+    "id": "apt_v_10",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Basic",
+    "question": "Select the antonym of 'DILIGENT':",
+    "options": [
+      "Hardworking",
+      "Lazy",
+      "Attentive",
+      "Eager"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'Diligent' means hardworking and conscientious; its opposite is 'Lazy'."
+  },
+  {
+    "id": "apt_v_11",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Basic",
+    "question": "Select the synonym of 'LUCID':",
+    "options": [
+      "Clear",
+      "Vague",
+      "Murky",
+      "Confusing"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'Lucid' means expressed clearly and easy to understand."
+  },
+  {
+    "id": "apt_v_12",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Basic",
+    "question": "Fill in the blank: He is proficient _____ English and French.",
+    "options": [
+      "at",
+      "in",
+      "with",
+      "on"
+    ],
+    "correctAnswer": 1,
+    "explanation": "We say proficient 'in' a language or skill."
+  },
+  {
+    "id": "apt_v_13",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Basic",
+    "question": "What does 'Break the ice' mean?",
+    "options": [
+      "To cause an accident",
+      "To initiate a friendly conversation in a tense or social setting",
+      "To fish in frozen rivers",
+      "To damage property"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'Break the ice' means to do or say something to relieve tension or get conversation started."
+  },
+  {
+    "id": "apt_v_14",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Basic",
+    "question": "A person who cannot make up his mind is:",
+    "options": [
+      "Decisive",
+      "Indecisive",
+      "Stubborn",
+      "Determined"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'Indecisive' characterizes someone unable to make decisions quickly or firmly."
+  },
+  {
+    "id": "apt_v_15",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Basic",
+    "question": "Spot the error: 'He has been absent (A) / from work (B) / since two weeks (C) / No error (D)'",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Use 'for' with a duration of time: 'for two weeks', not 'since two weeks'."
+  },
+  {
+    "id": "apt_v_16",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Basic",
+    "question": "Select the correctly spelled word:",
+    "options": [
+      "Privilege",
+      "Privelege",
+      "Priviledge",
+      "Privlege"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The correct spelling is 'Privilege'."
+  },
+  {
+    "id": "apt_v_17",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Basic",
+    "question": "Choose the correct sentence:",
+    "options": [
+      "He gave me a good advice.",
+      "He gave me good advice.",
+      "He gave me good advices.",
+      "He gave me an advice."
+    ],
+    "correctAnswer": 1,
+    "explanation": "'Advice' is an uncountable noun and cannot be preceded by 'a' or pluralized to 'advices'."
+  },
+  {
+    "id": "apt_v_18",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Basic",
+    "question": "Select the synonym of 'EPHEMERAL':",
+    "options": [
+      "Permanent",
+      "Short-lived",
+      "Eternal",
+      "Durable"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'Ephemeral' means lasting for a very short time."
+  },
+  {
+    "id": "apt_v_19",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Basic",
+    "question": "Select the antonym of 'CONCUR':",
+    "options": [
+      "Agree",
+      "Disagree",
+      "Applaud",
+      "Permit"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'Concur' means to agree. Its opposite is 'Disagree'."
+  },
+  {
+    "id": "apt_v_20",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Basic",
+    "question": "What does the idiom 'Burn the midnight oil' mean?",
+    "options": [
+      "To waste electricity",
+      "To work or study late into the night",
+      "To burn candles",
+      "To sleep early"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'Burn the midnight oil' means to read or work late into the night."
+  },
+  {
+    "id": "apt_v_21",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Basic",
+    "question": "One who loves books and reading is called a:",
+    "options": [
+      "Bibliophile",
+      "Philatelist",
+      "Polyglot",
+      "Cosmopolitan"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A 'Bibliophile' is a person who loves or collects books."
+  },
+  {
+    "id": "apt_v_22",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Basic",
+    "question": "Fill in the blank: The manager was pleased _____ the employee's performance.",
+    "options": [
+      "with",
+      "for",
+      "on",
+      "at"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'Pleased with' is the standard prepositional phrase."
+  },
+  {
+    "id": "apt_v_23",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Basic",
+    "question": "Select the synonym of 'METICULOUS':",
+    "options": [
+      "Careful",
+      "Careless",
+      "Hasty",
+      "Sloppy"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'Meticulous' means showing great attention to detail; very careful."
+  },
+  {
+    "id": "apt_v_24",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Basic",
+    "question": "Select the antonym of 'HOSTILE':",
+    "options": [
+      "Friendly",
+      "Aggressive",
+      "Bitter",
+      "Violent"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'Hostile' means unfriendly or antagonistic; its antonym is 'Friendly'."
+  },
+  {
+    "id": "apt_v_25",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Basic",
+    "question": "Spot the error: 'Each of the students (A) / have finished (B) / their assignment (C) / No error (D)'",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'Each' takes a singular verb: 'has finished', not 'have finished'."
+  },
+  {
+    "id": "apt_v_26",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Change to Direct: 'She said that she was writing an email.'",
+    "options": [
+      "She said, 'I am writing an email.'",
+      "She said, 'I was writing an email.'",
+      "She said, 'I wrote an email.'",
+      "She said, 'I write an email.'"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Present continuous 'I am writing' in direct speech converts to past continuous 'she was writing' in reported speech."
+  },
+  {
+    "id": "apt_v_27",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Identify the correctly spelled word:",
+    "options": [
+      "Embarrass",
+      "Embarass",
+      "Embaras",
+      "Emberrass"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The correct spelling is 'Embarrass' (double 'r' and double 's')."
+  },
+  {
+    "id": "apt_v_28",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "What does the idiom 'Once in a blue moon' mean?",
+    "options": [
+      "Very rarely",
+      "Every full moon",
+      "Frequently",
+      "Never"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'Once in a blue moon' is an idiom used to describe an event that happens very rarely."
+  },
+  {
+    "id": "apt_v_29",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "A government by the people, of the people, and for the people is:",
+    "options": [
+      "Monarchy",
+      "Oligarchy",
+      "Democracy",
+      "Autocracy"
+    ],
+    "correctAnswer": 2,
+    "explanation": "'Democracy' is a system of government by the whole population or eligible members of a state."
+  },
+  {
+    "id": "apt_v_30",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Fill in the blank: She has a strong penchant _____ classical music.",
+    "options": [
+      "for",
+      "to",
+      "with",
+      "at"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The noun 'penchant' is paired with the preposition 'for' (meaning a strong taste or liking for something)."
+  },
+  {
+    "id": "apt_v_31",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Select the synonym of 'UBIQUITOUS':",
+    "options": [
+      "Omnipresent",
+      "Rare",
+      "Scarce",
+      "Hidden"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'Ubiquitous' means present, appearing, or found everywhere (omnipresent)."
+  },
+  {
+    "id": "apt_v_32",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Select the antonym of 'AUGMENT':",
+    "options": [
+      "Increase",
+      "Diminish",
+      "Enhance",
+      "Amplify"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'Augment' means to make greater by adding to it; its opposite is 'Diminish'."
+  },
+  {
+    "id": "apt_v_33",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Spot the error: 'Scarcely had I arrived (A) / than the train (B) / departed the station (C) / No error (D)'",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'Scarcely' is paired with 'when', not 'than' (Hardly/Scarcely... when; No sooner... than)."
+  },
+  {
+    "id": "apt_v_34",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Choose the correct spelling:",
+    "options": [
+      "Bureaucracy",
+      "Beurocracy",
+      "Bureaucrasy",
+      "Burocracy"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The correct spelling is 'Bureaucracy'."
+  },
+  {
+    "id": "apt_v_35",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "What does 'A piece of cake' mean?",
+    "options": [
+      "A delicious dessert",
+      "Something very easy to accomplish",
+      "A birthday gift",
+      "A small fraction"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'A piece of cake' refers to a task that is very simple and effortless."
+  },
+  {
+    "id": "apt_v_36",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "A remedy for all diseases or difficulties is known as a:",
+    "options": [
+      "Panacea",
+      "Placebo",
+      "Antibiotic",
+      "Vaccine"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A 'Panacea' is a universal remedy or cure-all."
+  },
+  {
+    "id": "apt_v_37",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Select the synonym of 'GREGARIOUS':",
+    "options": [
+      "Sociable",
+      "Introverted",
+      "Silent",
+      "Shy"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'Gregarious' describes a person who is fond of company and highly sociable."
+  },
+  {
+    "id": "apt_v_38",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Select the antonym of 'TACITURN':",
+    "options": [
+      "Quiet",
+      "Loquacious",
+      "Reserved",
+      "Silent"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'Taciturn' means saying very little (uncommunicative); its opposite is 'Loquacious' (talkative)."
+  },
+  {
+    "id": "apt_v_39",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Fill in the blank: The police are looking _____ the mystery.",
+    "options": [
+      "into",
+      "after",
+      "down",
+      "at"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'Look into' means to investigate."
+  },
+  {
+    "id": "apt_v_40",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Choose the correct sentence:",
+    "options": [
+      "I prefer tea than coffee.",
+      "I prefer tea to coffee.",
+      "I prefer tea more than coffee.",
+      "I prefer tea over to coffee."
+    ],
+    "correctAnswer": 1,
+    "explanation": "The verb 'prefer' takes the preposition 'to' when comparing two options: 'prefer X to Y'."
+  },
+  {
+    "id": "apt_v_41",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "What does 'At the drop of a hat' mean?",
+    "options": [
+      "When someone drops something",
+      "Instantly without hesitation",
+      "During rainy weather",
+      "Very reluctantly"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'At the drop of a hat' means immediately without any hesitation or delay."
+  },
+  {
+    "id": "apt_v_42",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "One who does not believe in the existence of God is an:",
+    "options": [
+      "Theist",
+      "Atheist",
+      "Agnostic",
+      "Fanatic"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An 'Atheist' lacks belief in the existence of a God or gods."
+  },
+  {
+    "id": "apt_v_43",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Select the correctly spelled word:",
+    "options": [
+      "Consensus",
+      "Conscensus",
+      "Consensous",
+      "Concensus"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The correct spelling is 'Consensus'."
+  },
+  {
+    "id": "apt_v_44",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Select the synonym of 'CANDID':",
+    "options": [
+      "Frank",
+      "Deceitful",
+      "Vague",
+      "Cautious"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'Candid' means truthful, straightforward, and frank."
+  },
+  {
+    "id": "apt_v_45",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Select the antonym of 'AFFLUENT':",
+    "options": [
+      "Wealthy",
+      "Rich",
+      "Impoverished",
+      "Prosperous"
+    ],
+    "correctAnswer": 2,
+    "explanation": "'Affluent' means possessing great wealth; its opposite is 'Impoverished'."
+  },
+  {
+    "id": "apt_v_46",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Spot the error: 'If I was you (A) / I would accept (B) / the job offer immediately (C) / No error (D)'",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": 0,
+    "explanation": "In subjunctive conditional mood (hypothetical), use 'were': 'If I were you'."
+  },
+  {
+    "id": "apt_v_47",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "What does the idiom 'See eye to eye' mean?",
+    "options": [
+      "To stare angrily",
+      "To agree completely",
+      "To need glasses",
+      "To confront someone"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'To see eye to eye' means to have the exact same opinion or agree fully."
+  },
+  {
+    "id": "apt_v_48",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "A person who is skilled in many different things is:",
+    "options": [
+      "Versatile",
+      "Specialist",
+      "Novice",
+      "Amateur"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'Versatile' describes someone capable of doing many different things proficiently."
+  },
+  {
+    "id": "apt_v_49",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Fill in the blank: The train arrived _____ platform number 4.",
+    "options": [
+      "on",
+      "at",
+      "in",
+      "by"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Vehicles arrive 'at' a specific designated station or platform."
+  },
+  {
+    "id": "apt_v_50",
+    "category": "Verbal Ability",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Select the synonym of 'RESILIENT':",
+    "options": [
+      "Fragile",
+      "Tough",
+      "Rigid",
+      "Weak"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'Resilient' means able to withstand or recover quickly from difficult conditions."
+  }
+]

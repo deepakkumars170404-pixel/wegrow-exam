@@ -1,0 +1,1502 @@
+[
+  {
+    "id": "react_1",
+    "category": "React",
+    "topic": "React Basics & JSX",
+    "difficulty": "Basic",
+    "question": "What is React primarily categorized as in web development?",
+    "options": [
+      "A complete back-end server framework",
+      "An open-source JavaScript library for building user interfaces",
+      "A relational database management system",
+      "A CSS styling preprocessor"
+    ],
+    "correctAnswer": 1,
+    "explanation": "React is a front-end JavaScript library developed by Facebook (Meta) specifically designed for building declarative, component-based user interfaces."
+  },
+  {
+    "id": "react_2",
+    "category": "React",
+    "topic": "React Basics & JSX",
+    "difficulty": "Basic",
+    "question": "Who originally developed and open-sourced React?",
+    "options": [
+      "Google",
+      "Meta (Facebook)",
+      "Microsoft",
+      "Twitter"
+    ],
+    "correctAnswer": 1,
+    "explanation": "React was created by Jordan Walke, a software engineer at Facebook (now Meta), and open-sourced in 2013."
+  },
+  {
+    "id": "react_3",
+    "category": "React",
+    "topic": "React Basics & JSX",
+    "difficulty": "Basic",
+    "question": "What is a Single Page Application (SPA)?",
+    "options": [
+      "A website containing only one paragraph of text",
+      "A web application that interacts with the user by dynamically rewriting the current web page rather than loading entire new pages from the server",
+      "A website that does not require JavaScript",
+      "A web page that only works on desktop monitors"
+    ],
+    "correctAnswer": 1,
+    "explanation": "SPAs load a single HTML document and update portions of the page dynamically via JavaScript as user interactions occur, eliminating full-page reloads."
+  },
+  {
+    "id": "react_4",
+    "category": "React",
+    "topic": "React Basics & JSX",
+    "difficulty": "Basic",
+    "question": "What does JSX stand for in React?",
+    "options": [
+      "JavaScript XML",
+      "Java Syntax Extension",
+      "JSON Style X-code",
+      "JavaScript X-Engine"
+    ],
+    "correctAnswer": 0,
+    "explanation": "JSX stands for JavaScript XML. It is a syntax extension to JavaScript that allows developers to write HTML-like markup inside JavaScript files."
+  },
+  {
+    "id": "react_5",
+    "category": "React",
+    "topic": "React Basics & JSX",
+    "difficulty": "Basic",
+    "question": "Can web browsers directly understand and execute JSX code natively?",
+    "options": [
+      "Yes, all modern browsers natively execute JSX without tools",
+      "No, JSX must be transpiled into standard JavaScript (using tools like Babel) before browsers can run it",
+      "Only Google Chrome can run JSX natively",
+      "Yes, if the file extension is .jsx"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Browsers only understand standard JavaScript. Transpilers like Babel or SWC compile JSX into React.createElement() calls."
+  },
+  {
+    "id": "react_6",
+    "category": "React",
+    "topic": "React Basics & JSX",
+    "difficulty": "Basic",
+    "question": "Which attribute must be used in JSX to assign CSS classes to an HTML element instead of the traditional 'class' attribute?",
+    "options": [
+      "class",
+      "className",
+      "styleClass",
+      "classList"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In JavaScript, 'class' is a reserved keyword for ES6 classes. Therefore, JSX uses 'className' for HTML classes."
+  },
+  {
+    "id": "react_7",
+    "category": "React",
+    "topic": "React Basics & JSX",
+    "difficulty": "Basic",
+    "question": "Which attribute is used in JSX instead of HTML's 'for' attribute in `<label>` elements?",
+    "options": [
+      "htmlFor",
+      "labelFor",
+      "forElement",
+      "targetFor"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Because 'for' is a reserved keyword in JavaScript (used for loops), JSX uses 'htmlFor' to associate a label with an input."
+  },
+  {
+    "id": "react_8",
+    "category": "React",
+    "topic": "React Basics & JSX",
+    "difficulty": "Basic",
+    "question": "How do you embed a dynamic JavaScript variable or expression inside JSX markup?",
+    "options": [
+      "Wrap it in double curly braces: {{ variable }}",
+      "Wrap it in single curly braces: { variable }",
+      "Wrap it in quotes: 'variable'",
+      "Wrap it in angle brackets: <variable>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In JSX, any valid JavaScript expression can be placed between single curly braces { expression }."
+  },
+  {
+    "id": "react_9",
+    "category": "React",
+    "topic": "React Basics & JSX",
+    "difficulty": "Basic",
+    "question": "What rule must be followed regarding the root return element of a React component's JSX?",
+    "options": [
+      "A component must return multiple unparented sibling elements",
+      "A component must return a single root element (or a Fragment)",
+      "A component cannot return any HTML tags",
+      "A component must return an array of 5 elements minimum"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A React component must return a single parent root element, or wrap multiple sibling elements inside a React Fragment (<>...</>)."
+  },
+  {
+    "id": "react_10",
+    "category": "React",
+    "topic": "React Basics & JSX",
+    "difficulty": "Basic",
+    "question": "What is a React Fragment used for?",
+    "options": [
+      "To group multiple elements together without adding an extra node to the browser DOM",
+      "To break a component into multiple server files",
+      "To create 3D animations in canvas",
+      "To store data in local storage"
+    ],
+    "correctAnswer": 0,
+    "explanation": "React Fragments (<React.Fragment> or shorthand <>...</>) group a list of children without adding unnecessary wrapper divs to the real DOM."
+  },
+  {
+    "id": "react_11",
+    "category": "React",
+    "topic": "React Basics & JSX",
+    "difficulty": "Basic",
+    "question": "What is the short syntax for a React Fragment?",
+    "options": [
+      "<fragment>...</fragment>",
+      "<>...</>",
+      "[...]",
+      "<!-- -->"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The shorthand syntax for React.Fragment is empty tags: <> and </>."
+  },
+  {
+    "id": "react_12",
+    "category": "React",
+    "topic": "React Basics & JSX",
+    "difficulty": "Basic",
+    "question": "How must void/self-closing elements (such as `<img>`, `<input>`, `<br>`) be written in JSX?",
+    "options": [
+      "They do not need to be closed: <img>",
+      "They must be explicitly closed with a slash: <img /> or <br />",
+      "They must be wrapped in a string: 'img'",
+      "They are not supported in React"
+    ],
+    "correctAnswer": 1,
+    "explanation": "JSX follows XML rules strictly; all tags, including self-closing tags like <img />, <input />, and <br />, must be closed."
+  },
+  {
+    "id": "react_13",
+    "category": "React",
+    "topic": "React Basics & JSX",
+    "difficulty": "Basic",
+    "question": "How are inline styles applied to JSX elements?",
+    "options": [
+      "As a standard CSS string: style='color: red; margin: 10px'",
+      "As a JavaScript object with camelCase properties: style={{ color: 'red', margin: '10px' }}",
+      "As a stylesheet file path: style='style.css'",
+      "Inline styles are prohibited in React"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Inline styles in JSX are written as JavaScript objects with camelCase property names (e.g., style={{ backgroundColor: 'blue', fontSize: '16px' }})."
+  },
+  {
+    "id": "react_14",
+    "category": "React",
+    "topic": "React Basics & JSX",
+    "difficulty": "Basic",
+    "question": "How do you write comments inside JSX markup?",
+    "options": [
+      "<!-- This is a comment -->",
+      "{/* This is a comment */}",
+      "// This is a comment",
+      "/* This is a comment */"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Inside JSX expressions, comments must be enclosed in curly braces with standard multi-line comment syntax: {/* comment */}."
+  },
+  {
+    "id": "react_15",
+    "category": "React",
+    "topic": "React Basics & JSX",
+    "difficulty": "Basic",
+    "question": "What naming convention must be followed for custom React component names?",
+    "options": [
+      "They must start with a lowercase letter (e.g., myButton)",
+      "They must start with an uppercase PascalCase letter (e.g., MyButton)",
+      "They must start with an underscore (e.g., _button)",
+      "They must all be in ALLCAPS"
+    ],
+    "correctAnswer": 1,
+    "explanation": "React treats elements starting with lowercase letters as standard built-in HTML tags (like <div>). Custom components must start with an uppercase letter."
+  },
+  {
+    "id": "react_16",
+    "category": "React",
+    "topic": "React Basics & JSX",
+    "difficulty": "Basic",
+    "question": "In modern React (React 18+), how do you render the root React application into the browser DOM element `<div id='root'></div>`?",
+    "options": [
+      "ReactDOM.render(<App />, document.getElementById('root'))",
+      "const root = ReactDOM.createRoot(document.getElementById('root')); root.render(<App />);",
+      "document.getElementById('root').innerHTML = <App />",
+      "React.mount(<App />, '#root')"
+    ],
+    "correctAnswer": 1,
+    "explanation": "React 18 introduced createRoot: const root = ReactDOM.createRoot(container); root.render(<App />); which replaces the deprecated ReactDOM.render."
+  },
+  {
+    "id": "react_17",
+    "category": "React",
+    "topic": "React Basics & JSX",
+    "difficulty": "Basic",
+    "question": "What is the Virtual DOM in React?",
+    "options": [
+      "A copy of the browser's operating system memory",
+      "A lightweight, in-memory JavaScript representation of the real DOM",
+      "A cloud database used by Meta",
+      "A physical hardware graphics chip"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Virtual DOM is a lightweight JavaScript object representation of the real DOM. React updates this in memory and diffs it before touching the slower real DOM."
+  },
+  {
+    "id": "react_18",
+    "category": "React",
+    "topic": "React Basics & JSX",
+    "difficulty": "Basic",
+    "question": "What is the main performance benefit of using the Virtual DOM in React?",
+    "options": [
+      "It completely eliminates the need for JavaScript",
+      "It minimizes expensive browser repaints and reflows by calculating changes in memory and batch-updating only what changed",
+      "It encrypts the HTML source code from viewers",
+      "It increases internet download speed"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Direct DOM manipulation is slow due to layout reflows. React diffs the Virtual DOM and updates only the modified DOM nodes in the real browser DOM."
+  },
+  {
+    "id": "react_19",
+    "category": "React",
+    "topic": "React Basics & JSX",
+    "difficulty": "Basic",
+    "question": "What is the process of comparing the new Virtual DOM tree with the previous Virtual DOM tree called?",
+    "options": [
+      "Reconciliation / Diffing",
+      "Compiling",
+      "Parsing",
+      "Minification"
+    ],
+    "correctAnswer": 0,
+    "explanation": "React's diffing algorithm compares the current Virtual DOM with the previous snapshot to identify differences; this overall process is called Reconciliation."
+  },
+  {
+    "id": "react_20",
+    "category": "React",
+    "topic": "React Basics & JSX",
+    "difficulty": "Basic",
+    "question": "What data flow model does React follow between parent and child components?",
+    "options": [
+      "Two-way automatic data binding",
+      "Unidirectional (one-way) data flow from parent to child",
+      "Circular random data flow",
+      "Child-to-parent only data flow"
+    ],
+    "correctAnswer": 1,
+    "explanation": "React utilizes unidirectional data flow: data is passed down from top-level parent components to child components via props."
+  },
+  {
+    "id": "react_21",
+    "category": "React",
+    "topic": "React Basics & JSX",
+    "difficulty": "Basic",
+    "question": "What is a Functional Component in React?",
+    "options": [
+      "A JavaScript function that accepts props as an argument and returns JSX markup",
+      "A function that only executes mathematical formulas",
+      "A function that cannot display UI",
+      "A database stored procedure"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A functional component is simply a JavaScript function that takes optional props and returns JSX elements describing what should appear on screen."
+  },
+  {
+    "id": "react_22",
+    "category": "React",
+    "topic": "React Basics & JSX",
+    "difficulty": "Basic",
+    "question": "Which tool is commonly used today to quickly scaffold a modern, lightning-fast React application setup?",
+    "options": [
+      "Vite",
+      "Wordpress",
+      "Photoshop",
+      "Apache Ant"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Vite (along with Create React App) is a widely used modern build tool that quickly initializes and bundles React applications."
+  },
+  {
+    "id": "react_23",
+    "category": "React",
+    "topic": "React Basics & JSX",
+    "difficulty": "Basic",
+    "question": "What does the expression `{isLoggedIn ? <UserGreeting /> : <GuestGreeting />}` do in React JSX?",
+    "options": [
+      "It renders both components simultaneously",
+      "It conditionally renders UserGreeting if isLoggedIn is true, otherwise GuestGreeting",
+      "It causes a runtime error because ternary operators are not allowed in JSX",
+      "It deletes the isLoggedIn variable"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Ternary operators are valid JavaScript expressions; if isLoggedIn is truthy, <UserGreeting /> renders; otherwise <GuestGreeting /> renders."
+  },
+  {
+    "id": "react_24",
+    "category": "React",
+    "topic": "React Basics & JSX",
+    "difficulty": "Basic",
+    "question": "What happens if a JavaScript expression in JSX evaluates to `false`, `null`, `undefined`, or `true`?",
+    "options": [
+      "The string 'false' or 'null' is printed onto the screen",
+      "Nothing is rendered to the screen (they are ignored)",
+      "The application crashes",
+      "An alert dialog pops up"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Booleans (true/false), null, and undefined are valid children in JSX that simply render nothing. This makes `{hasNewMessage && <Badge />}` possible."
+  },
+  {
+    "id": "react_25",
+    "category": "React",
+    "topic": "React Basics & JSX",
+    "difficulty": "Basic",
+    "question": "What will `{messages.length > 0 && <p>You have messages</p>}` render when messages.length is 0?",
+    "options": [
+      "Nothing at all",
+      "0 (the number zero)",
+      "You have messages",
+      "undefined"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In JavaScript, 0 && <p> evaluates to 0 because 0 is falsy, and React renders the number 0. To avoid this, write: `messages.length > 0 ? <p>...</p> : null`."
+  },
+  {
+    "id": "react_26",
+    "category": "React",
+    "topic": "Props, State & Architecture",
+    "difficulty": "Basic",
+    "question": "What are 'props' in React?",
+    "options": [
+      "Private variables that only the component itself can modify",
+      "Inputs or arguments passed from a parent component to a child component",
+      "CSS style property sheets",
+      "Database connection strings"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Props (short for properties) are read-only attributes passed from parent to child components to configure or pass data into them."
+  },
+  {
+    "id": "react_27",
+    "category": "React",
+    "topic": "Props, State & Architecture",
+    "difficulty": "Basic",
+    "question": "Are props in React mutable (can a child component modify its own props directly)?",
+    "options": [
+      "Yes, a child component can modify props anytime: props.title = 'New'",
+      "No, props are read-only and immutable; a component must never modify its own props",
+      "Yes, but only if props are numbers",
+      "Yes, if using modern React"
+    ],
+    "correctAnswer": 1,
+    "explanation": "All React components must act like pure functions with respect to their props. A component must never mutate the props it receives."
+  },
+  {
+    "id": "react_28",
+    "category": "React",
+    "topic": "Props, State & Architecture",
+    "difficulty": "Basic",
+    "question": "How can you destructure props in a functional component: `function UserCard(props)`?",
+    "options": [
+      "function UserCard({ name, age })",
+      "function UserCard(name, age)",
+      "function UserCard([ name, age ])",
+      "function UserCard(props: { name, age })"
+    ],
+    "correctAnswer": 0,
+    "explanation": "ES6 parameter destructuring `function UserCard({ name, age })` allows direct access to `name` and `age` without typing `props.name`."
+  },
+  {
+    "id": "react_29",
+    "category": "React",
+    "topic": "Props, State & Architecture",
+    "difficulty": "Basic",
+    "question": "What is `props.children` in React?",
+    "options": [
+      "A list of all sub-components installed via npm",
+      "A special prop that represents the content placed between the opening and closing tags of a component: `<Card>Hello</Card>`",
+      "The age of the user's children",
+      "An array of database child tables"
+    ],
+    "correctAnswer": 1,
+    "explanation": "props.children contains whatever JSX elements or text are nested inside the component invocation: `<Parent><Child /></Parent>`."
+  },
+  {
+    "id": "react_30",
+    "category": "React",
+    "topic": "Props, State & Architecture",
+    "difficulty": "Basic",
+    "question": "What is 'State' in React?",
+    "options": [
+      "A geographical territory in the country",
+      "An internal data store managed inside a component that can change over time and causes the component to re-render when updated",
+      "A static global CSS file",
+      "The URL address of the website"
+    ],
+    "correctAnswer": 1,
+    "explanation": "State represents the dynamic memory of a component. When state changes, React automatically re-renders the component to reflect new UI."
+  },
+  {
+    "id": "react_31",
+    "category": "React",
+    "topic": "Props, State & Architecture",
+    "difficulty": "Basic",
+    "question": "Which React Hook is used to declare state variables in functional components?",
+    "options": [
+      "useEffect()",
+      "useState()",
+      "useContext()",
+      "useReducer()"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The useState hook allows functional components to declare and maintain local state."
+  },
+  {
+    "id": "react_32",
+    "category": "React",
+    "topic": "Props, State & Architecture",
+    "difficulty": "Basic",
+    "question": "What does the `useState` hook return?",
+    "options": [
+      "Only the current state value",
+      "An array with exactly two elements: the current state value and a function to update it",
+      "An object with get and set methods",
+      "A callback function"
+    ],
+    "correctAnswer": 1,
+    "explanation": "useState returns a two-element array: [currentState, setStateFunction]. We typically unpack it using array destructuring: const [count, setCount] = useState(0);"
+  },
+  {
+    "id": "react_33",
+    "category": "React",
+    "topic": "Props, State & Architecture",
+    "difficulty": "Basic",
+    "question": "In the line: `const [count, setCount] = useState(10);`, what does the argument `10` represent?",
+    "options": [
+      "The maximum allowed value of count",
+      "The initial state value on the first render",
+      "The number of times the component can re-render",
+      "The delay in milliseconds"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The argument passed to useState(initialValue) sets the initial state value during the component's initial mount."
+  },
+  {
+    "id": "react_34",
+    "category": "React",
+    "topic": "Props, State & Architecture",
+    "difficulty": "Basic",
+    "question": "What happens if you update state directly without calling the setter function, e.g., `count = count + 1`?",
+    "options": [
+      "React updates the screen immediately",
+      "The variable changes in memory, but React does NOT know about it and will NOT re-render the UI",
+      "The browser displays a red syntax error",
+      "The component resets to zero"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Directly mutating a state variable bypasses React's change detection; the component will not re-render and the UI will remain outdated."
+  },
+  {
+    "id": "react_35",
+    "category": "React",
+    "topic": "Props, State & Architecture",
+    "difficulty": "Basic",
+    "question": "If a new state value depends on the previous state value, what is the recommended way to call the setter function?",
+    "options": [
+      "setCount(count + 1)",
+      "setCount(prevCount => prevCount + 1)",
+      "count++",
+      "setCount(1 + 1)"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Passing an updater function `setCount(prev => prev + 1)` ensures you are working with the most up-to-date state, avoiding stale state issues during batching."
+  },
+  {
+    "id": "react_36",
+    "category": "React",
+    "topic": "Props, State & Architecture",
+    "difficulty": "Basic",
+    "question": "What is the primary difference between State and Props?",
+    "options": [
+      "Props are internal and managed by the component; State is passed from outside",
+      "State is internal and managed within the component; Props are external and passed down from parent components",
+      "Props can be changed by the component; State is permanent and immutable",
+      "There is no difference"
+    ],
+    "correctAnswer": 1,
+    "explanation": "State is owned and managed privately by the component itself. Props are external configuration passed in from a parent component."
+  },
+  {
+    "id": "react_37",
+    "category": "React",
+    "topic": "Props, State & Architecture",
+    "difficulty": "Basic",
+    "question": "How do you toggle a boolean state variable `const [isOpen, setIsOpen] = useState(false);`?",
+    "options": [
+      "setIsOpen(!isOpen) or setIsOpen(prev => !prev)",
+      "isOpen = !isOpen",
+      "setIsOpen(reverse)",
+      "setIsOpen(toggle())"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Calling `setIsOpen(prev => !prev)` flips the boolean value between true and false cleanly."
+  },
+  {
+    "id": "react_38",
+    "category": "React",
+    "topic": "Props, State & Architecture",
+    "difficulty": "Basic",
+    "question": "How do you correctly add a new item to an array stored in state: `const [items, setItems] = useState(['Apple', 'Banana']);`?",
+    "options": [
+      "items.push('Orange'); setItems(items);",
+      "setItems([...items, 'Orange'])",
+      "setItems(items.append('Orange'))",
+      "items[2] = 'Orange'; setItems(items);"
+    ],
+    "correctAnswer": 1,
+    "explanation": "State must be treated as immutable. `items.push()` mutates the original array in place. `setItems([...items, 'Orange'])` creates a new array with the item added."
+  },
+  {
+    "id": "react_39",
+    "category": "React",
+    "topic": "Props, State & Architecture",
+    "difficulty": "Basic",
+    "question": "How do you update a single field `age` in an object stored in state: `const [user, setUser] = useState({ name: 'Alex', age: 20 });`?",
+    "options": [
+      "user.age = 21; setUser(user);",
+      "setUser({ ...user, age: 21 })",
+      "setUser(age = 21)",
+      "setUser({ age: 21 })"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Using the object spread syntax `{ ...user, age: 21 }` copies all existing user properties and overwrites only the `age` property immutably."
+  },
+  {
+    "id": "react_40",
+    "category": "React",
+    "topic": "Props, State & Architecture",
+    "difficulty": "Basic",
+    "question": "What is meant by 'Lifting State Up' in React?",
+    "options": [
+      "Uploading state to a remote cloud server",
+      "Moving shared state to the closest common parent of components that need to share it",
+      "Converting local state into global CSS variables",
+      "Deleting state to make components faster"
+    ],
+    "correctAnswer": 1,
+    "explanation": "When two sibling components need to share the same data, you lift the state up to their nearest common parent and pass it down as props."
+  },
+  {
+    "id": "react_41",
+    "category": "React",
+    "topic": "Props, State & Architecture",
+    "difficulty": "Basic",
+    "question": "Can a parent component pass a function down to a child component as a prop?",
+    "options": [
+      "No, props can only be strings or numbers",
+      "Yes, parent functions can be passed as callback props, allowing the child to communicate back to the parent",
+      "Only in class components",
+      "No, functions cannot be passed in JavaScript"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Passing callback functions as props allows child components to notify parent components of events (e.g. `<Button onClick={handleClick} />`)."
+  },
+  {
+    "id": "react_42",
+    "category": "React",
+    "topic": "Props, State & Architecture",
+    "difficulty": "Basic",
+    "question": "What causes a React component to re-render?",
+    "options": [
+      "Only when the browser window is resized",
+      "When its state changes or when its props change",
+      "Only when a page refresh button is clicked",
+      "Every 5 seconds automatically"
+    ],
+    "correctAnswer": 1,
+    "explanation": "React components re-render automatically whenever their internal state updates or when new props are passed to them by their parent."
+  },
+  {
+    "id": "react_43",
+    "category": "React",
+    "topic": "Props, State & Architecture",
+    "difficulty": "Basic",
+    "question": "What is a 'Pure Component' or pure function in React?",
+    "options": [
+      "A component written entirely in HTML without JavaScript",
+      "A component that given the same props and state, always renders the exact same output without side effects",
+      "A component that has no styles",
+      "A component with zero lines of code"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A pure component produces identical UI output whenever given identical props and state, and has no hidden side effects."
+  },
+  {
+    "id": "react_44",
+    "category": "React",
+    "topic": "Props, State & Architecture",
+    "difficulty": "Basic",
+    "question": "Can a React component have more than one `useState` hook call?",
+    "options": [
+      "No, only one useState call is allowed per component",
+      "Yes, you can call useState as many times as needed for different independent pieces of state",
+      "Only up to a maximum of 2 calls",
+      "Yes, but they must all share the same data type"
+    ],
+    "correctAnswer": 1,
+    "explanation": "You can declare multiple state variables using multiple useState calls (e.g., const [name, setName] = useState(''); const [age, setAge] = useState(0);)."
+  },
+  {
+    "id": "react_45",
+    "category": "React",
+    "topic": "Props, State & Architecture",
+    "difficulty": "Basic",
+    "question": "What is the default value of a prop if you pass it as `<MyComponent isFeatured />` without specifying `= {true}`?",
+    "options": [
+      "false",
+      "true",
+      "undefined",
+      "null"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In JSX, passing a prop without a value (e.g. `<TextInput disabled />`) defaults its value to boolean `true`."
+  },
+  {
+    "id": "react_46",
+    "category": "React",
+    "topic": "Props, State & Architecture",
+    "difficulty": "Basic",
+    "question": "How can you specify default values for props using modern ES6 JavaScript in functional components?",
+    "options": [
+      "function Greeting({ name = 'Guest' })",
+      "function Greeting(name: default 'Guest')",
+      "Greeting.propDefaults = { name: 'Guest' }",
+      "function Greeting(default name = 'Guest')"
+    ],
+    "correctAnswer": 0,
+    "explanation": "ES6 parameter default values `function Greeting({ name = 'Guest' })` provide a clean and standard way to assign default props."
+  },
+  {
+    "id": "react_47",
+    "category": "React",
+    "topic": "Props, State & Architecture",
+    "difficulty": "Basic",
+    "question": "What happens if a component renders another component inside it: `function App() { return <Header />; }`?",
+    "options": [
+      "Header replaces App completely",
+      "App is the parent component and Header is the child component nested inside App's tree",
+      "A syntax error is thrown",
+      "Header is ignored by React"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In React's component hierarchy, App acts as the parent component that composes and renders child components like Header."
+  },
+  {
+    "id": "react_48",
+    "category": "React",
+    "topic": "Props, State & Architecture",
+    "difficulty": "Basic",
+    "question": "What does the term 'Composition' mean in React?",
+    "options": [
+      "Writing music inside JavaScript",
+      "Building complex UIs by combining smaller, independent, and reusable components together",
+      "Compressing code files before deployment",
+      "Compiling TypeScript into JavaScript"
+    ],
+    "correctAnswer": 1,
+    "explanation": "React favors composition over inheritance: components can contain other components, allowing flexible and reusable UI architecture."
+  },
+  {
+    "id": "react_49",
+    "category": "React",
+    "topic": "Props, State & Architecture",
+    "difficulty": "Basic",
+    "question": "Can state in React be initialized with a function?",
+    "options": [
+      "No, initial state must always be a hardcoded number or string",
+      "Yes, passing a function `useState(() => expensiveCalculation())` runs the function only once on initial mount (Lazy Initial State)",
+      "Yes, but it runs on every single render",
+      "Only in Node.js"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Passing an initializer function to useState is called lazy initialization; React only calls it once during the initial render."
+  },
+  {
+    "id": "react_50",
+    "category": "React",
+    "topic": "Props, State & Architecture",
+    "difficulty": "Basic",
+    "question": "Where should business logic and state that impacts multiple components generally reside?",
+    "options": [
+      "In the deepest child component",
+      "In the common ancestor component of those components",
+      "In index.html directly",
+      "In a CSS file"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Sharing state across multiple components is done by keeping the state in their common parent and passing data and handlers down as props."
+  },
+  {
+    "id": "react_51",
+    "category": "React",
+    "topic": "Events, Forms & Lists",
+    "difficulty": "Medium",
+    "question": "How are event names formatted in React JSX compared to standard HTML?",
+    "options": [
+      "All lowercase: onclick, onchange, onsubmit",
+      "camelCase: onClick, onChange, onSubmit",
+      "kebab-case: on-click, on-change",
+      "UPPERCASE: ONCLICK, ONCHANGE"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In JSX, event handlers are named using camelCase (e.g., onClick, onSubmit, onChange) rather than lowercase."
+  },
+  {
+    "id": "react_52",
+    "category": "React",
+    "topic": "Events, Forms & Lists",
+    "difficulty": "Medium",
+    "question": "Which is the correct way to pass an event handler function to a button in React?",
+    "options": [
+      "<button onClick={handleClick}>Click</button>",
+      "<button onClick={handleClick()}>Click</button>",
+      "<button onClick='handleClick()'>Click</button>",
+      "<button onclick='handleClick'>Click</button>"
+    ],
+    "correctAnswer": 0,
+    "explanation": "You pass the function reference `<button onClick={handleClick}>`. Adding parentheses `handleClick()` executes the function immediately during rendering."
+  },
+  {
+    "id": "react_53",
+    "category": "React",
+    "topic": "Events, Forms & Lists",
+    "difficulty": "Medium",
+    "question": "If you need to pass an argument `id` to an event handler `handleDelete(id)`, how do you write the JSX?",
+    "options": [
+      "<button onClick={handleDelete(id)}>Delete</button>",
+      "<button onClick={() => handleDelete(id)}>Delete</button>",
+      "<button onClick={handleDelete:id}>Delete</button>",
+      "<button onClick='handleDelete(id)'>Delete</button>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Wrapping the call in an arrow function `<button onClick={() => handleDelete(id)}>` ensures the function only runs when the button is clicked."
+  },
+  {
+    "id": "react_54",
+    "category": "React",
+    "topic": "Events, Forms & Lists",
+    "difficulty": "Medium",
+    "question": "What does `e.preventDefault()` do inside an onSubmit form event handler in React?",
+    "options": [
+      "It disables all form inputs permanently",
+      "It prevents the default browser behavior of submitting an HTTP request and reloading the entire page",
+      "It resets all form fields to blank",
+      "It prints the form to a physical printer"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In standard HTML, submitting a form refreshes the page. Calling `e.preventDefault()` halts this reload, allowing React to handle the submission in JavaScript."
+  },
+  {
+    "id": "react_55",
+    "category": "React",
+    "topic": "Events, Forms & Lists",
+    "difficulty": "Medium",
+    "question": "What is a 'SyntheticEvent' in React?",
+    "options": [
+      "An automated bot testing event",
+      "A cross-browser wrapper around the browser's native event to ensure identical behavior across all browsers",
+      "An event that only triggers on mobile phones",
+      "A fake simulated keystroke"
+    ],
+    "correctAnswer": 1,
+    "explanation": "React wraps native browser DOM events in SyntheticEvent objects so that event handling behaves identically across Chrome, Firefox, Safari, and Edge."
+  },
+  {
+    "id": "react_56",
+    "category": "React",
+    "topic": "Events, Forms & Lists",
+    "difficulty": "Medium",
+    "question": "What is a 'Controlled Component' in React forms?",
+    "options": [
+      "An input field whose value is controlled by React state and updated via an onChange event handler",
+      "An input field that cannot be edited by the user",
+      "A component protected by a password",
+      "An input field whose value is stored directly in the DOM"
+    ],
+    "correctAnswer": 0,
+    "explanation": "In a controlled component, the input element's value is bound to a React state variable, and user typing updates that state via onChange."
+  },
+  {
+    "id": "react_57",
+    "category": "React",
+    "topic": "Events, Forms & Lists",
+    "difficulty": "Medium",
+    "question": "In a controlled text input: `<input type='text' value={name} onChange={handleChange} />`, how do you extract the typed text inside handleChange?",
+    "options": [
+      "e.target.value",
+      "e.target.text",
+      "e.value.input",
+      "e.current.data"
+    ],
+    "correctAnswer": 0,
+    "explanation": "`e.target.value` accesses the current string value of the input DOM element that triggered the change event."
+  },
+  {
+    "id": "react_58",
+    "category": "React",
+    "topic": "Events, Forms & Lists",
+    "difficulty": "Medium",
+    "question": "How do you capture the checked status of a controlled checkbox input?",
+    "options": [
+      "e.target.value",
+      "e.target.checked",
+      "e.target.selected",
+      "e.target.status"
+    ],
+    "correctAnswer": 1,
+    "explanation": "For checkboxes, `e.target.checked` returns a boolean indicating whether the checkbox is currently checked."
+  },
+  {
+    "id": "react_59",
+    "category": "React",
+    "topic": "Events, Forms & Lists",
+    "difficulty": "Medium",
+    "question": "What is an 'Uncontrolled Component' in React forms?",
+    "options": [
+      "A broken component with infinite loops",
+      "A form input whose current value is handled directly by the browser DOM rather than React state, typically accessed via a `ref`",
+      "A component without CSS styling",
+      "A form with no submit button"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In an uncontrolled component, form data is stored in the DOM itself. Developers access its value imperatively using a React ref (e.g., inputRef.current.value)."
+  },
+  {
+    "id": "react_60",
+    "category": "React",
+    "topic": "Events, Forms & Lists",
+    "difficulty": "Medium",
+    "question": "Which JavaScript array method is commonly used in React to transform an array of data into an array of JSX elements for rendering?",
+    "options": [
+      ".forEach()",
+      ".map()",
+      ".filter()",
+      ".reduce()"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The `.map()` method returns a new array of JSX elements for each item in the original data array, making it the standard tool for list rendering."
+  },
+  {
+    "id": "react_61",
+    "category": "React",
+    "topic": "Events, Forms & Lists",
+    "difficulty": "Medium",
+    "question": "Why does `.forEach()` not work for rendering lists directly inside JSX like `{items.forEach(...)}`?",
+    "options": [
+      "forEach is deprecated in JavaScript",
+      "forEach returns undefined instead of returning an array of elements",
+      "forEach only works with strings",
+      "forEach causes memory leaks"
+    ],
+    "correctAnswer": 1,
+    "explanation": "`.forEach()` simply executes a callback for each element and returns `undefined`. JSX needs an array of elements returned, which `.map()` provides."
+  },
+  {
+    "id": "react_62",
+    "category": "React",
+    "topic": "Events, Forms & Lists",
+    "difficulty": "Medium",
+    "question": "When rendering a list of elements using `.map()`, why does React require each item to have a unique `key` prop?",
+    "options": [
+      "Keys are used for styling elements with CSS",
+      "Keys help React identify which items have changed, been added, or been removed, optimizing re-rendering and DOM updates",
+      "Keys are required by HTML5 standards",
+      "Keys encrypt list items"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The `key` prop gives elements a stable identity across renders, allowing React to diff list changes efficiently rather than re-creating the entire list."
+  },
+  {
+    "id": "react_63",
+    "category": "React",
+    "topic": "Events, Forms & Lists",
+    "difficulty": "Medium",
+    "question": "What is the best practice for choosing a value for the `key` prop in a list of items?",
+    "options": [
+      "A unique, stable identifier from your data (such as a database id: `item.id`)",
+      "A randomly generated number like `Math.random()` on every render",
+      "The index of the array in every situation",
+      "The word 'key'"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Using a unique, persistent ID (such as `item.id`) is recommended. Using random numbers breaks reconciliation, and array indices can cause issues if items are reordered or filtered."
+  },
+  {
+    "id": "react_64",
+    "category": "React",
+    "topic": "Events, Forms & Lists",
+    "difficulty": "Medium",
+    "question": "Why can using the array index as the `key` prop (e.g. `items.map((item, index) => <li key={index}>)`) cause UI bugs?",
+    "options": [
+      "Array indices are not supported by JavaScript",
+      "If the list is sorted, filtered, or items are inserted/deleted, indices change, causing React to incorrectly associate component state with the wrong items",
+      "It makes the page render in black and white",
+      "It converts all numbers to strings"
+    ],
+    "correctAnswer": 1,
+    "explanation": "When the order of items changes, an item's index changes. This confuses React's diffing algorithm and can lead to bugs with input focus or local component state."
+  },
+  {
+    "id": "react_65",
+    "category": "React",
+    "topic": "Events, Forms & Lists",
+    "difficulty": "Medium",
+    "question": "Where must the `key` prop be placed when rendering items in a list?",
+    "options": [
+      "On the outermost element returned inside the `.map()` callback",
+      "On every single child tag inside the item",
+      "Inside the parent `<ul>` tag only",
+      "In the CSS file"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The `key` prop must be applied to the topmost, outermost JSX tag returned directly inside the `.map()` iteration."
+  },
+  {
+    "id": "react_66",
+    "category": "React",
+    "topic": "Events, Forms & Lists",
+    "difficulty": "Medium",
+    "question": "How do you conditionally apply a CSS class based on a boolean `isActive` in React JSX?",
+    "options": [
+      "className={isActive ? 'nav-item active' : 'nav-item'}",
+      "class={isActive && 'active'}",
+      "style={if isActive 'active'}",
+      "className: active"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Using a JavaScript template literal or ternary operator `className={isActive ? 'nav-item active' : 'nav-item'}` dynamically sets the CSS class."
+  },
+  {
+    "id": "react_67",
+    "category": "React",
+    "topic": "Events, Forms & Lists",
+    "difficulty": "Medium",
+    "question": "How can you filter a list of products before rendering them in JSX?",
+    "options": [
+      "products.filter(p => p.price < 50).map(p => <ProductCard key={p.id} product={p} />)",
+      "products.delete(p => p.price >= 50)",
+      "products.slice(0, 10)",
+      "products.remove()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Chaining `.filter()` followed by `.map()` is the idiomatic way to display a subset of data matching a criterion in React."
+  },
+  {
+    "id": "react_68",
+    "category": "React",
+    "topic": "Events, Forms & Lists",
+    "difficulty": "Medium",
+    "question": "In React, how do you handle multiple input fields in a single form using one state object?",
+    "options": [
+      "You cannot use one state object for multiple inputs",
+      "Give each input a `name` attribute matching the state property and use `[e.target.name]: e.target.value` in the change handler",
+      "Use document.getElementById for each input",
+      "Create 50 different handler functions"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Using computed property names: `setFormData({ ...formData, [e.target.name]: e.target.value })` allows a single handler to update any input field by its `name` attribute."
+  },
+  {
+    "id": "react_69",
+    "category": "React",
+    "topic": "Events, Forms & Lists",
+    "difficulty": "Medium",
+    "question": "How do you handle a `<textarea>` element in React compared to traditional HTML?",
+    "options": [
+      "In React, `<textarea>` uses a `value` prop instead of placing text between tags `<textarea>text</textarea>`",
+      "Textareas are not supported in React",
+      "Textareas must use `<input type='textarea'>`",
+      "Textareas must be read-only"
+    ],
+    "correctAnswer": 0,
+    "explanation": "In HTML, `<textarea>` holds text as children. In React, `<textarea value={text} onChange={handleChange} />` uses the `value` prop just like a text input."
+  },
+  {
+    "id": "react_70",
+    "category": "React",
+    "topic": "Events, Forms & Lists",
+    "difficulty": "Medium",
+    "question": "How is a `<select>` dropdown menu managed as a controlled component in React?",
+    "options": [
+      "By adding `selected` attributes to each individual `<option>`",
+      "By passing the `value` prop to the parent `<select>` element: `<select value={selectedVal} onChange={handleChange}>`",
+      "By using radio buttons instead",
+      "By writing custom C++ scripts"
+    ],
+    "correctAnswer": 1,
+    "explanation": "React simplifies dropdowns: you place the `value` prop directly on the `<select>` tag rather than marking `selected` on options."
+  },
+  {
+    "id": "react_71",
+    "category": "React",
+    "topic": "Events, Forms & Lists",
+    "difficulty": "Medium",
+    "question": "What happens if you provide a `value` prop to an `<input>` without an `onChange` handler?",
+    "options": [
+      "The input becomes editable as normal",
+      "The input becomes read-only and React prints a console warning",
+      "The browser closes automatically",
+      "The text disappears on typing"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A controlled input with a `value` but no `onChange` handler cannot be changed by user keystrokes because React forces the value to match the unchanged state."
+  },
+  {
+    "id": "react_72",
+    "category": "React",
+    "topic": "Events, Forms & Lists",
+    "difficulty": "Medium",
+    "question": "How can you specify an uncontrolled input's initial default value without making it controlled?",
+    "options": [
+      "Use `defaultValue` instead of `value`",
+      "Use `initialValue`",
+      "Use `valueDefault`",
+      "Use `startText`"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The `defaultValue` prop sets the initial text for an uncontrolled input while allowing the user to type freely without React managing every keystroke."
+  },
+  {
+    "id": "react_73",
+    "category": "React",
+    "topic": "Events, Forms & Lists",
+    "difficulty": "Medium",
+    "question": "What is event bubbling in React?",
+    "options": [
+      "Events pop like physical bubbles on the screen",
+      "An event triggered on an innermost child element propagates upwards through its parent elements in the DOM tree",
+      "Events that only work on button clicks",
+      "A memory overflow error"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Event bubbling is standard DOM behavior where events propagate up the component hierarchy. You can stop it using `e.stopPropagation()`."
+  },
+  {
+    "id": "react_74",
+    "category": "React",
+    "topic": "Events, Forms & Lists",
+    "difficulty": "Medium",
+    "question": "How do you stop an event from propagating up to parent elements in React?",
+    "options": [
+      "e.stopPropagation()",
+      "e.preventDefault()",
+      "e.halt()",
+      "e.stop()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "`e.stopPropagation()` stops the event from bubbling up to ancestor DOM nodes and parent event handlers."
+  },
+  {
+    "id": "react_75",
+    "category": "React",
+    "topic": "Events, Forms & Lists",
+    "difficulty": "Medium",
+    "question": "Which event is triggered in React when an input field loses focus?",
+    "options": [
+      "onBlur",
+      "onFocus",
+      "onLeave",
+      "onExit"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The `onBlur` event fires when an element loses keyboard focus (the opposite of `onFocus`)."
+  },
+  {
+    "id": "react_76",
+    "category": "React",
+    "topic": "Hooks, Lifecycle & Router",
+    "difficulty": "Medium",
+    "question": "What is the primary purpose of the `useEffect` hook in React?",
+    "options": [
+      "To perform side effects in functional components, such as data fetching, subscriptions, timers, or DOM manipulation",
+      "To write CSS styles inside JavaScript",
+      "To declare local state variables",
+      "To create HTML tables"
+    ],
+    "correctAnswer": 0,
+    "explanation": "useEffect allows you to run side effects in functional components after React has rendered and painted the DOM."
+  },
+  {
+    "id": "react_77",
+    "category": "React",
+    "topic": "Hooks, Lifecycle & Router",
+    "difficulty": "Medium",
+    "question": "When does a `useEffect` hook run if NO dependency array is provided at all: `useEffect(() => { ... })`?",
+    "options": [
+      "Only once when the component mounts",
+      "After every single render of the component",
+      "Never",
+      "Only when the browser window closes"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Without a dependency array, useEffect executes after the initial mount and after every subsequent update/render."
+  },
+  {
+    "id": "react_78",
+    "category": "React",
+    "topic": "Hooks, Lifecycle & Router",
+    "difficulty": "Medium",
+    "question": "When does a `useEffect` hook run if an EMPTY dependency array `[]` is provided: `useEffect(() => { ... }, [])`?",
+    "options": [
+      "After every render",
+      "Only once after the component's initial mount (render)",
+      "Whenever any state variable in the component changes",
+      "Only when the component is about to unmount"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An empty dependency array `[]` tells React that the effect doesn't depend on any props or state, so it runs only once after the component mounts."
+  },
+  {
+    "id": "react_79",
+    "category": "React",
+    "topic": "Hooks, Lifecycle & Router",
+    "difficulty": "Medium",
+    "question": "When does `useEffect(() => { ... }, [userId])` run?",
+    "options": [
+      "Only on mount",
+      "On mount, and whenever the `userId` prop or state value changes between renders",
+      "Only when userId is equal to 0",
+      "Every millisecond"
+    ],
+    "correctAnswer": 1,
+    "explanation": "React checks the items in the dependency array. If any item (like userId) has changed since the last render, the effect re-runs."
+  },
+  {
+    "id": "react_80",
+    "category": "React",
+    "topic": "Hooks, Lifecycle & Router",
+    "difficulty": "Medium",
+    "question": "How do you specify a cleanup function in `useEffect` (e.g. to clear a timer or unsubscribe from an event)?",
+    "options": [
+      "Call useEffect.cleanup()",
+      "Return a cleanup function from inside the effect callback: `return () => { clearInterval(timer); }`",
+      "Pass a second function parameter to useEffect",
+      "Add a 'clean' prop to the component"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Returning a function from useEffect specifies the cleanup logic. React runs it before re-running the effect and when the component unmounts."
+  },
+  {
+    "id": "react_81",
+    "category": "React",
+    "topic": "Hooks, Lifecycle & Router",
+    "difficulty": "Medium",
+    "question": "What are the two fundamental 'Rules of Hooks' in React?",
+    "options": [
+      "1. Only call hooks at the top level of your component (not inside loops, conditions, or nested functions). 2. Only call hooks from React function components or custom hooks.",
+      "1. Hooks must only be used in class components. 2. Hooks must be written in TypeScript.",
+      "1. You can only call one hook per file. 2. Hooks must return strings.",
+      "There are no rules for hooks in React."
+    ],
+    "correctAnswer": 0,
+    "explanation": "React relies on the call order of hooks across renders to preserve state. Therefore, hooks must never be nested inside loops, if-statements, or nested functions."
+  },
+  {
+    "id": "react_82",
+    "category": "React",
+    "topic": "Hooks, Lifecycle & Router",
+    "difficulty": "Medium",
+    "question": "Why can't you place a React Hook inside an `if` condition (e.g. `if (isLoggedIn) useState(...)`)?",
+    "options": [
+      "Because if statements are illegal in React",
+      "Because React relies on hooks being called in the exact same order on every render; conditional calls change the order and corrupt state tracking",
+      "Because it slows down computer fans",
+      "Because hooks only work with switch statements"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Hooks must be called in the exact same sequence on every render so React can correctly match state variables to their corresponding hook calls."
+  },
+  {
+    "id": "react_83",
+    "category": "React",
+    "topic": "Hooks, Lifecycle & Router",
+    "difficulty": "Medium",
+    "question": "What is the primary use case for the `useRef` hook in React?",
+    "options": [
+      "To access and interact directly with a real DOM element (like focusing an input), or to hold a mutable value that does not trigger a re-render when changed",
+      "To fetch data from backend servers",
+      "To create global CSS animations",
+      "To reload the web browser"
+    ],
+    "correctAnswer": 0,
+    "explanation": "useRef returns a mutable object with a `.current` property. It's commonly used to hold direct references to DOM nodes (e.g. `inputRef.current.focus()`)."
+  },
+  {
+    "id": "react_84",
+    "category": "React",
+    "topic": "Hooks, Lifecycle & Router",
+    "difficulty": "Medium",
+    "question": "Does changing the value of `ref.current` cause the React component to re-render?",
+    "options": [
+      "Yes, modifying ref.current always triggers a re-render just like setState",
+      "No, mutating ref.current does NOT cause a component re-render",
+      "Yes, but only if the value is a number",
+      "Only in production mode"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Unlike state, updating `ref.current` is a silent in-memory mutation that does not trigger a component re-render."
+  },
+  {
+    "id": "react_85",
+    "category": "React",
+    "topic": "Hooks, Lifecycle & Router",
+    "difficulty": "Medium",
+    "question": "What naming convention must all Custom Hooks follow in React?",
+    "options": [
+      "They must start with the prefix 'use' (e.g., `useFetch`, `useAuth`, `useLocalStorage`)",
+      "They must end with 'Hook' (e.g., `fetchHook`)",
+      "They must be named in ALLCAPS",
+      "They must start with an underscore `_`"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Custom hooks must start with the word 'use' (camelCase). This convention allows React and linter plugins to automatically verify the Rules of Hooks."
+  },
+  {
+    "id": "react_86",
+    "category": "React",
+    "topic": "Hooks, Lifecycle & Router",
+    "difficulty": "Medium",
+    "question": "Can a Custom Hook call other built-in React hooks like `useState` and `useEffect`?",
+    "options": [
+      "No, custom hooks cannot use any built-in hooks",
+      "Yes, the core purpose of custom hooks is to extract and share reusable stateful logic that uses built-in hooks",
+      "Only in React class components",
+      "Only if authorized by Redux"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Custom hooks allow developers to extract component logic into reusable functions that compose built-in hooks like useState and useEffect."
+  },
+  {
+    "id": "react_87",
+    "category": "React",
+    "topic": "Hooks, Lifecycle & Router",
+    "difficulty": "Medium",
+    "question": "If two separate components call the exact same custom hook `useCounter()`, do they share the same state data?",
+    "options": [
+      "Yes, custom hooks create a global singleton state shared by all components",
+      "No, each component that calls a custom hook gets its own completely independent instance of state",
+      "Yes, if they are rendered on the same web page",
+      "Only if they have the same CSS class"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Custom hooks share stateful logic, not state itself. Each component calling the hook creates its own isolated, independent state."
+  },
+  {
+    "id": "react_88",
+    "category": "React",
+    "topic": "Hooks, Lifecycle & Router",
+    "difficulty": "Medium",
+    "question": "What is the purpose of the `useContext` hook in React?",
+    "options": [
+      "To subscribe to and consume data from a React Context without passing props manually down every level of the component tree (solving 'prop drilling')",
+      "To connect directly to MySQL databases",
+      "To translate text into different spoken languages",
+      "To compile JSX into HTML"
+    ],
+    "correctAnswer": 0,
+    "explanation": "React Context provides a way to pass data (like themes or authenticated user info) through the component tree without manually passing props at every level."
+  },
+  {
+    "id": "react_89",
+    "category": "React",
+    "topic": "Hooks, Lifecycle & Router",
+    "difficulty": "Medium",
+    "question": "What problem does React Context and `useContext` primarily solve?",
+    "options": [
+      "Prop Drilling (passing props down through many layers of intermediate components that don't need them)",
+      "Slow internet connections",
+      "Syntax errors in CSS",
+      "Browser compatibility with Internet Explorer 6"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'Prop drilling' occurs when props must be passed through multiple intermediary components just to reach a deeply nested child. Context avoids this by providing direct access."
+  },
+  {
+    "id": "react_90",
+    "category": "React",
+    "topic": "Hooks, Lifecycle & Router",
+    "difficulty": "Medium",
+    "question": "In React Router (v6), which component wraps your application to enable client-side routing?",
+    "options": [
+      "<BrowserRouter>",
+      "<PageRouter>",
+      "<AppRouter>",
+      "<UrlProvider>"
+    ],
+    "correctAnswer": 0,
+    "explanation": "`<BrowserRouter>` wraps the app and uses the HTML5 History API to synchronize your UI with the browser URL."
+  },
+  {
+    "id": "react_91",
+    "category": "React",
+    "topic": "Hooks, Lifecycle & Router",
+    "difficulty": "Medium",
+    "question": "Which component in React Router should be used for user navigation links instead of the standard HTML `<a href='...'>` tag?",
+    "options": [
+      "<Link to='...'>",
+      "<Hyperlink href='...'>",
+      "<NavAnchor to='...'>",
+      "<RouteLink url='...'>"
+    ],
+    "correctAnswer": 0,
+    "explanation": "`<Link to='/about'>` intercepts the browser's default link behavior and navigates client-side without a full page refresh."
+  },
+  {
+    "id": "react_92",
+    "category": "React",
+    "topic": "Hooks, Lifecycle & Router",
+    "difficulty": "Medium",
+    "question": "Which hook in React Router v6 is used to extract dynamic URL parameters (e.g. reading `:id` from `/users/:id`)?",
+    "options": [
+      "useParams()",
+      "useQuery()",
+      "useUrl()",
+      "useRouteParams()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The `useParams()` hook returns an object of key/value pairs of dynamic URL parameters defined in route paths."
+  },
+  {
+    "id": "react_93",
+    "category": "React",
+    "topic": "Hooks, Lifecycle & Router",
+    "difficulty": "Medium",
+    "question": "Which hook in React Router v6 is used to programmatically navigate the user to another page (e.g. after a form submission)?",
+    "options": [
+      "useNavigate()",
+      "useHistory()",
+      "useRedirect()",
+      "usePush()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "In React Router v6, `const navigate = useNavigate();` is used to programmatically redirect users (e.g., `navigate('/dashboard')`)."
+  },
+  {
+    "id": "react_94",
+    "category": "React",
+    "topic": "Hooks, Lifecycle & Router",
+    "difficulty": "Medium",
+    "question": "What are the three main phases of a React component's lifecycle?",
+    "options": [
+      "Mounting (creation), Updating (growth), and Unmounting (removal)",
+      "Downloading, Compiling, and Running",
+      "Opening, Typing, and Closing",
+      "Input, Process, and Output"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A component's lifecycle consists of: Mounting (inserted into DOM), Updating (re-rendered due to state/prop changes), and Unmounting (removed from DOM)."
+  },
+  {
+    "id": "react_95",
+    "category": "React",
+    "topic": "Hooks, Lifecycle & Router",
+    "difficulty": "Medium",
+    "question": "Which hook cleanup in functional components corresponds to the unmounting phase (componentWillUnmount)?",
+    "options": [
+      "The cleanup function returned inside `useEffect(() => { return () => { ... } }, [])`",
+      "The useState setter",
+      "The return statement containing JSX",
+      "The useRef hook"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The function returned by an effect with an empty dependency array `[]` executes when the component unmounts from the DOM."
+  },
+  {
+    "id": "react_96",
+    "category": "React",
+    "topic": "Hooks, Lifecycle & Router",
+    "difficulty": "Medium",
+    "question": "What is React's `<React.StrictMode>` component used for during development?",
+    "options": [
+      "It activates additional checks, warnings, and double-invokes lifecycles/effects in development to help detect unintended side effects and deprecated APIs",
+      "It prevents users from right-clicking on the webpage",
+      "It forces TypeScript type checking on the server",
+      "It encrypts all React components"
+    ],
+    "correctAnswer": 0,
+    "explanation": "StrictMode is a development-only tool that highlights potential problems, legacy code, and unexpected side effects without rendering visible UI."
+  },
+  {
+    "id": "react_97",
+    "category": "React",
+    "topic": "Hooks, Lifecycle & Router",
+    "difficulty": "Medium",
+    "question": "What is a major advantage of splitting a large React application into multiple small, modular components?",
+    "options": [
+      "Components become easier to read, test, debug, and reuse across different parts of the application",
+      "It decreases the number of lines of JavaScript to zero",
+      "It eliminates the need for HTML and CSS entirely",
+      "It makes the application incompatible with mobile browsers"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Modular components improve code maintainability, separation of concerns, testability, and reusability."
+  },
+  {
+    "id": "react_98",
+    "category": "React",
+    "topic": "Hooks, Lifecycle & Router",
+    "difficulty": "Medium",
+    "question": "What is the recommended file naming convention for React component files?",
+    "options": [
+      "PascalCase, matching the component name (e.g., `Button.jsx`, `UserProfile.jsx`)",
+      "ALLCAPS (e.g., `BUTTON.JSX`)",
+      "kebab-case with numbers only",
+      "lowercase without extensions"
+    ],
+    "correctAnswer": 0,
+    "explanation": "By widespread convention, React component files are named in PascalCase (e.g., `Navbar.jsx`, `UserProfile.jsx`) matching the component's name."
+  },
+  {
+    "id": "react_99",
+    "category": "React",
+    "topic": "Hooks, Lifecycle & Router",
+    "difficulty": "Medium",
+    "question": "What browser extension is officially provided by the React team to inspect component hierarchies, props, and state in real-time?",
+    "options": [
+      "React Developer Tools (React DevTools)",
+      "Redux Inspector",
+      "Chrome Element Inspector",
+      "Firebug React"
+    ],
+    "correctAnswer": 0,
+    "explanation": "React Developer Tools is an official browser extension that lets you inspect the React component tree, props, and state inside browser DevTools."
+  },
+  {
+    "id": "react_100",
+    "category": "React",
+    "topic": "Hooks, Lifecycle & Router",
+    "difficulty": "Medium",
+    "question": "Which command in package.json is typically used to launch the local development server in a standard React project?",
+    "options": [
+      "npm run dev or npm start",
+      "npm push",
+      "npm build --production",
+      "npm deploy"
+    ],
+    "correctAnswer": 0,
+    "explanation": "In Create React App projects `npm start` is used; in Vite-based React projects `npm run dev` starts the local development server."
+  }
+]

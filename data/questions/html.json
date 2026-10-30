@@ -1,0 +1,1502 @@
+[
+  {
+    "id": "html_1",
+    "category": "HTML",
+    "topic": "HTML Structure, Headings & Text",
+    "difficulty": "Basic",
+    "question": "What does HTML stand for?",
+    "options": [
+      "Hyper Text Markup Language",
+      "High Text Machine Language",
+      "Hyper Tool Multi Language",
+      "Hyperlinks and Text Management Language"
+    ],
+    "correctAnswer": 0,
+    "explanation": "HTML stands for Hyper Text Markup Language, the standard markup language for creating web pages."
+  },
+  {
+    "id": "html_2",
+    "category": "HTML",
+    "topic": "HTML Structure, Headings & Text",
+    "difficulty": "Basic",
+    "question": "What is the correct declaration to specify HTML5 document standard mode?",
+    "options": [
+      "<!DOCTYPE html>",
+      "<doctype html5>",
+      "<?xml version='1.0'?>",
+      "<html version='5'>"
+    ],
+    "correctAnswer": 0,
+    "explanation": "<!DOCTYPE html> is the standard declaration that tells web browsers the document is written in HTML5."
+  },
+  {
+    "id": "html_3",
+    "category": "HTML",
+    "topic": "HTML Structure, Headings & Text",
+    "difficulty": "Basic",
+    "question": "Which HTML element is the root element that encloses all other page content?",
+    "options": [
+      "<root>",
+      "<body>",
+      "<html>",
+      "<head>"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The <html> tag is the root container of an HTML document."
+  },
+  {
+    "id": "html_4",
+    "category": "HTML",
+    "topic": "HTML Structure, Headings & Text",
+    "difficulty": "Basic",
+    "question": "Inside which HTML element are metadata tags like <title>, <meta>, and <link> placed?",
+    "options": [
+      "<header>",
+      "<head>",
+      "<body>",
+      "<meta>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The <head> section contains machine-readable metadata and links to styles/scripts, not visible in the page body."
+  },
+  {
+    "id": "html_5",
+    "category": "HTML",
+    "topic": "HTML Structure, Headings & Text",
+    "difficulty": "Basic",
+    "question": "Which HTML tag is used to define the title of the webpage displayed on the browser tab?",
+    "options": [
+      "<meta>",
+      "<title>",
+      "<head>",
+      "<name>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<title> defines the title that appears in the browser tab and search engine results."
+  },
+  {
+    "id": "html_6",
+    "category": "HTML",
+    "topic": "HTML Structure, Headings & Text",
+    "difficulty": "Basic",
+    "question": "Where does the visible content of a web page (headings, text, images, tables) reside?",
+    "options": [
+      "<head>",
+      "<body>",
+      "<main-page>",
+      "<content>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The <body> element holds all user-visible document structure and media."
+  },
+  {
+    "id": "html_7",
+    "category": "HTML",
+    "topic": "HTML Structure, Headings & Text",
+    "difficulty": "Basic",
+    "question": "How many levels of standard headings are available in HTML?",
+    "options": [
+      "4 (h1 to h4)",
+      "5 (h1 to h5)",
+      "6 (h1 to h6)",
+      "8 (h1 to h8)"
+    ],
+    "correctAnswer": 2,
+    "explanation": "HTML provides 6 levels of headings, ranging from <h1> (most prominent) to <h6> (least prominent)."
+  },
+  {
+    "id": "html_8",
+    "category": "HTML",
+    "topic": "HTML Structure, Headings & Text",
+    "difficulty": "Basic",
+    "question": "Which tag defines the most important, highest-level heading on a web page?",
+    "options": [
+      "<h6>",
+      "<head>",
+      "<h1>",
+      "<header>"
+    ],
+    "correctAnswer": 2,
+    "explanation": "<h1> represents the top-level main heading on a page."
+  },
+  {
+    "id": "html_9",
+    "category": "HTML",
+    "topic": "HTML Structure, Headings & Text",
+    "difficulty": "Basic",
+    "question": "Which tag defines the smallest, least prominent standard heading in HTML?",
+    "options": [
+      "<h1>",
+      "<h3>",
+      "<h6>",
+      "<small>"
+    ],
+    "correctAnswer": 2,
+    "explanation": "<h6> is the lowest level heading in HTML."
+  },
+  {
+    "id": "html_10",
+    "category": "HTML",
+    "topic": "HTML Structure, Headings & Text",
+    "difficulty": "Basic",
+    "question": "Which HTML tag is used to create a standard paragraph of text?",
+    "options": [
+      "<para>",
+      "<p>",
+      "<text>",
+      "<paragraph>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The <p> tag is used for paragraphs, automatically adding vertical spacing before and after."
+  },
+  {
+    "id": "html_11",
+    "category": "HTML",
+    "topic": "HTML Structure, Headings & Text",
+    "difficulty": "Basic",
+    "question": "Which HTML tag inserts a single line break without starting a new paragraph?",
+    "options": [
+      "<lb>",
+      "<break>",
+      "<br>",
+      "<newline>"
+    ],
+    "correctAnswer": 2,
+    "explanation": "<br> produces a line break in text (it is a self-closing/empty tag)."
+  },
+  {
+    "id": "html_12",
+    "category": "HTML",
+    "topic": "HTML Structure, Headings & Text",
+    "difficulty": "Basic",
+    "question": "Which HTML tag inserts a horizontal thematic break or dividing line?",
+    "options": [
+      "<hr>",
+      "<line>",
+      "<divider>",
+      "<border>"
+    ],
+    "correctAnswer": 0,
+    "explanation": "<hr> inserts a horizontal rule across the page."
+  },
+  {
+    "id": "html_13",
+    "category": "HTML",
+    "topic": "HTML Structure, Headings & Text",
+    "difficulty": "Basic",
+    "question": "How do you write a comment in HTML that is ignored by web browsers?",
+    "options": [
+      "// This is a comment",
+      "/* This is a comment */",
+      "<!-- This is a comment -->",
+      "# This is a comment"
+    ],
+    "correctAnswer": 2,
+    "explanation": "HTML comments use the syntax <!-- comment text -->."
+  },
+  {
+    "id": "html_14",
+    "category": "HTML",
+    "topic": "HTML Structure, Headings & Text",
+    "difficulty": "Basic",
+    "question": "Which tag makes text bold purely for visual presentation?",
+    "options": [
+      "<b>",
+      "<bold>",
+      "<fat>",
+      "<dark>"
+    ],
+    "correctAnswer": 0,
+    "explanation": "<b> renders text bold without conveying any extra semantic importance."
+  },
+  {
+    "id": "html_15",
+    "category": "HTML",
+    "topic": "HTML Structure, Headings & Text",
+    "difficulty": "Basic",
+    "question": "Which tag renders text bold AND indicates strong semantic importance for accessibility?",
+    "options": [
+      "<b>",
+      "<strong>",
+      "<important>",
+      "<em>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<strong> indicates that its contents have strong importance, seriousness, or urgency."
+  },
+  {
+    "id": "html_16",
+    "category": "HTML",
+    "topic": "HTML Structure, Headings & Text",
+    "difficulty": "Basic",
+    "question": "Which tag renders text in italic font purely for visual styling?",
+    "options": [
+      "<italic>",
+      "<i>",
+      "<em>",
+      "<slant>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<i> renders text in italic without extra semantic importance."
+  },
+  {
+    "id": "html_17",
+    "category": "HTML",
+    "topic": "HTML Structure, Headings & Text",
+    "difficulty": "Basic",
+    "question": "Which tag renders text in italics to indicate verbal stress emphasis?",
+    "options": [
+      "<i>",
+      "<em>",
+      "<slant>",
+      "<stress>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<em> represents stressed emphasis that changes the meaning of a sentence."
+  },
+  {
+    "id": "html_18",
+    "category": "HTML",
+    "topic": "HTML Structure, Headings & Text",
+    "difficulty": "Basic",
+    "question": "Which tag underlines text in HTML?",
+    "options": [
+      "<underline>",
+      "<ul>",
+      "<u>",
+      "<line>"
+    ],
+    "correctAnswer": 2,
+    "explanation": "<u> renders text with an underline."
+  },
+  {
+    "id": "html_19",
+    "category": "HTML",
+    "topic": "HTML Structure, Headings & Text",
+    "difficulty": "Basic",
+    "question": "Which tag renders text with a strikethrough (cross-out line through text)?",
+    "options": [
+      "<s> or <del>",
+      "<strike-text>",
+      "<cross>",
+      "<cut>"
+    ],
+    "correctAnswer": 0,
+    "explanation": "<s> and <del> render text struck through."
+  },
+  {
+    "id": "html_20",
+    "category": "HTML",
+    "topic": "HTML Structure, Headings & Text",
+    "difficulty": "Basic",
+    "question": "Which tag creates subscript text (like the '2' in H₂O)?",
+    "options": [
+      "<sup>",
+      "<sub>",
+      "<down>",
+      "<below>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<sub> creates subscript text rendered below the baseline."
+  },
+  {
+    "id": "html_21",
+    "category": "HTML",
+    "topic": "HTML Structure, Headings & Text",
+    "difficulty": "Basic",
+    "question": "Which tag creates superscript text (like the '2' in x²)?",
+    "options": [
+      "<sub>",
+      "<sup>",
+      "<up>",
+      "<top>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<sup> creates superscript text rendered above the baseline."
+  },
+  {
+    "id": "html_22",
+    "category": "HTML",
+    "topic": "HTML Structure, Headings & Text",
+    "difficulty": "Basic",
+    "question": "Which tag displays preformatted text where spaces and line breaks are preserved exactly as typed?",
+    "options": [
+      "<code>",
+      "<pre>",
+      "<text>",
+      "<format>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<pre> renders text in a fixed-width font and preserves all whitespace and newlines."
+  },
+  {
+    "id": "html_23",
+    "category": "HTML",
+    "topic": "HTML Structure, Headings & Text",
+    "difficulty": "Basic",
+    "question": "Which tag displays inline computer code snippets with a monospace font?",
+    "options": [
+      "<code>",
+      "<var>",
+      "<kbd>",
+      "<pre>"
+    ],
+    "correctAnswer": 0,
+    "explanation": "<code> is used to indicate a fragment of computer code."
+  },
+  {
+    "id": "html_24",
+    "category": "HTML",
+    "topic": "HTML Structure, Headings & Text",
+    "difficulty": "Basic",
+    "question": "Which tag highlights text with a default yellow background in modern HTML5?",
+    "options": [
+      "<highlight>",
+      "<mark>",
+      "<yellow>",
+      "<b>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<mark> marks text as highlighted for reference purposes."
+  },
+  {
+    "id": "html_25",
+    "category": "HTML",
+    "topic": "HTML Structure, Headings & Text",
+    "difficulty": "Basic",
+    "question": "Which HTML tag defines a short inline quotation?",
+    "options": [
+      "<quote>",
+      "<q>",
+      "<blockquote>",
+      "<cite>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<q> defines an inline quotation, automatically adding quotation marks in most browsers."
+  },
+  {
+    "id": "html_26",
+    "category": "HTML",
+    "topic": "Links, Images & Lists",
+    "difficulty": "Basic",
+    "question": "Which tag is used to create a hyperlink in HTML?",
+    "options": [
+      "<link>",
+      "<a>",
+      "<href>",
+      "<url>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The <a> (anchor) tag creates hyperlinks connecting to other pages, files, or locations."
+  },
+  {
+    "id": "html_27",
+    "category": "HTML",
+    "topic": "Links, Images & Lists",
+    "difficulty": "Basic",
+    "question": "Which attribute of the <a> tag specifies the destination URL of a link?",
+    "options": [
+      "src",
+      "url",
+      "href",
+      "link"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The 'href' (hypertext reference) attribute specifies the destination web address."
+  },
+  {
+    "id": "html_28",
+    "category": "HTML",
+    "topic": "Links, Images & Lists",
+    "difficulty": "Basic",
+    "question": "Which attribute makes a hyperlink open in a new browser tab or window?",
+    "options": [
+      "target='_blank'",
+      "target='_new'",
+      "open='tab'",
+      "window='new'"
+    ],
+    "correctAnswer": 0,
+    "explanation": "target='_blank' instructs the browser to open the link in a new tab."
+  },
+  {
+    "id": "html_29",
+    "category": "HTML",
+    "topic": "Links, Images & Lists",
+    "difficulty": "Basic",
+    "question": "How do you create an email link that opens the user's default email program?",
+    "options": [
+      "<a href='email:info@example.com'>",
+      "<a href='mailto:info@example.com'>",
+      "<a href='send:info@example.com'>",
+      "<a to='info@example.com'>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "mailto:info@example.com creates an email link."
+  },
+  {
+    "id": "html_30",
+    "category": "HTML",
+    "topic": "Links, Images & Lists",
+    "difficulty": "Basic",
+    "question": "How do you link to an element with id='contact' on the same webpage?",
+    "options": [
+      "<a href='@contact'>",
+      "<a href='#contact'>",
+      "<a href='id:contact'>",
+      "<a to='contact'>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "href='#contact' creates an in-page anchor jump to the element with id='contact'."
+  },
+  {
+    "id": "html_31",
+    "category": "HTML",
+    "topic": "Links, Images & Lists",
+    "difficulty": "Basic",
+    "question": "Which tag is used to display an image on a webpage?",
+    "options": [
+      "<picture>",
+      "<image>",
+      "<img>",
+      "<src>"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The <img> tag embeds images on web pages (it is an empty/void element)."
+  },
+  {
+    "id": "html_32",
+    "category": "HTML",
+    "topic": "Links, Images & Lists",
+    "difficulty": "Basic",
+    "question": "Which attribute specifies the image file path or URL in an <img> tag?",
+    "options": [
+      "href",
+      "src",
+      "url",
+      "path"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'src' (source) points to the file location of the image."
+  },
+  {
+    "id": "html_33",
+    "category": "HTML",
+    "topic": "Links, Images & Lists",
+    "difficulty": "Basic",
+    "question": "Why is the 'alt' attribute mandatory on <img> tags?",
+    "options": [
+      "It changes image color",
+      "It provides alternative text if the image fails to load and for screen readers used by visually impaired users",
+      "It sets image dimensions",
+      "It links the image to Google"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'alt' text is essential for web accessibility (screen readers) and displays if image loading fails."
+  },
+  {
+    "id": "html_34",
+    "category": "HTML",
+    "topic": "Links, Images & Lists",
+    "difficulty": "Basic",
+    "question": "Which attributes are used to set the width and height of an image in pixels?",
+    "options": [
+      "size and scale",
+      "width and height",
+      "w and h",
+      "x and y"
+    ],
+    "correctAnswer": 1,
+    "explanation": "width='300' height='200' set pixel dimensions on images."
+  },
+  {
+    "id": "html_35",
+    "category": "HTML",
+    "topic": "Links, Images & Lists",
+    "difficulty": "Basic",
+    "question": "Which tag creates an UNORDERED (bulleted) list?",
+    "options": [
+      "<ol>",
+      "<ul>",
+      "<list>",
+      "<dl>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<ul> (unordered list) creates a list with bullet points."
+  },
+  {
+    "id": "html_36",
+    "category": "HTML",
+    "topic": "Links, Images & Lists",
+    "difficulty": "Basic",
+    "question": "Which tag creates an ORDERED (numbered) list?",
+    "options": [
+      "<ul>",
+      "<ol>",
+      "<nl>",
+      "<dl>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<ol> (ordered list) creates a numbered list (1, 2, 3...)."
+  },
+  {
+    "id": "html_37",
+    "category": "HTML",
+    "topic": "Links, Images & Lists",
+    "difficulty": "Basic",
+    "question": "Which tag is used to define individual list items inside either <ul> or <ol>?",
+    "options": [
+      "<item>",
+      "<li>",
+      "<ul>",
+      "<dt>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<li> (list item) represents individual entries inside lists."
+  },
+  {
+    "id": "html_38",
+    "category": "HTML",
+    "topic": "Links, Images & Lists",
+    "difficulty": "Basic",
+    "question": "Which attribute changes the numbering type of an ordered list (e.g., A, B, C or I, II, III)?",
+    "options": [
+      "number",
+      "type",
+      "style",
+      "format"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The 'type' attribute (e.g. type='A', type='I', type='1') specifies numbering style."
+  },
+  {
+    "id": "html_39",
+    "category": "HTML",
+    "topic": "Links, Images & Lists",
+    "difficulty": "Basic",
+    "question": "Which tag creates a description list (glossary of terms and definitions)?",
+    "options": [
+      "<list>",
+      "<dl>",
+      "<glossary>",
+      "<dd>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<dl> creates a description list containing term (<dt>) and description (<dd>) pairs."
+  },
+  {
+    "id": "html_40",
+    "category": "HTML",
+    "topic": "Links, Images & Lists",
+    "difficulty": "Basic",
+    "question": "Which tag defines the term/name in a description list?",
+    "options": [
+      "<dt>",
+      "<dd>",
+      "<dl>",
+      "<term>"
+    ],
+    "correctAnswer": 0,
+    "explanation": "<dt> (description term) defines the concept or name."
+  },
+  {
+    "id": "html_41",
+    "category": "HTML",
+    "topic": "Links, Images & Lists",
+    "difficulty": "Basic",
+    "question": "Which tag defines the explanation/definition of a term in a description list?",
+    "options": [
+      "<dt>",
+      "<dd>",
+      "<desc>",
+      "<info>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<dd> (description definition) provides the details of the term."
+  },
+  {
+    "id": "html_42",
+    "category": "HTML",
+    "topic": "Links, Images & Lists",
+    "difficulty": "Basic",
+    "question": "Which global attribute assigns a unique identifier to an HTML element (must be unique per page)?",
+    "options": [
+      "class",
+      "id",
+      "name",
+      "key"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The 'id' attribute must be unique within an HTML document."
+  },
+  {
+    "id": "html_43",
+    "category": "HTML",
+    "topic": "Links, Images & Lists",
+    "difficulty": "Basic",
+    "question": "Which global attribute allows multiple elements to share the same styling or classification?",
+    "options": [
+      "id",
+      "class",
+      "group",
+      "tag"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The 'class' attribute groups multiple elements for CSS styling and JS selection."
+  },
+  {
+    "id": "html_44",
+    "category": "HTML",
+    "topic": "Links, Images & Lists",
+    "difficulty": "Basic",
+    "question": "Which attribute provides extra advisory information displayed as a tooltip on hover?",
+    "options": [
+      "alt",
+      "tooltip",
+      "title",
+      "info"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The global 'title' attribute displays advisory text when hovering over an element."
+  },
+  {
+    "id": "html_45",
+    "category": "HTML",
+    "topic": "Links, Images & Lists",
+    "difficulty": "Basic",
+    "question": "Which attribute specifies inline CSS styles directly on an element?",
+    "options": [
+      "css",
+      "style",
+      "design",
+      "format"
+    ],
+    "correctAnswer": 1,
+    "explanation": "style='color: red; font-size: 16px;' applies inline CSS styling."
+  },
+  {
+    "id": "html_46",
+    "category": "HTML",
+    "topic": "Links, Images & Lists",
+    "difficulty": "Basic",
+    "question": "Which attribute sets the human language of an element or document?",
+    "options": [
+      "lang",
+      "language",
+      "locale",
+      "speech"
+    ],
+    "correctAnswer": 0,
+    "explanation": "lang='en' or lang='ta' specifies the primary language of the content."
+  },
+  {
+    "id": "html_47",
+    "category": "HTML",
+    "topic": "Links, Images & Lists",
+    "difficulty": "Basic",
+    "question": "Is HTML tag syntax case-sensitive (e.g., is <P> the same as <p>)?",
+    "options": [
+      "Yes, uppercase throws syntax errors",
+      "No, HTML is case-insensitive, but lowercase is standard best practice",
+      "Yes, only in Chrome",
+      "Case only matters for headings"
+    ],
+    "correctAnswer": 1,
+    "explanation": "HTML is case-insensitive, but lowercase is the universal W3C standard best practice."
+  },
+  {
+    "id": "html_48",
+    "category": "HTML",
+    "topic": "Links, Images & Lists",
+    "difficulty": "Basic",
+    "question": "What is an 'empty' or 'void' element in HTML?",
+    "options": [
+      "An element with no CSS applied",
+      "An element that has no closing tag and cannot contain child content (e.g. <br>, <img>, <hr>, <input>)",
+      "A deleted tag",
+      "A tag containing only spaces"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Void elements like <img>, <br>, <hr>, and <input> do not require closing tags."
+  },
+  {
+    "id": "html_49",
+    "category": "HTML",
+    "topic": "Links, Images & Lists",
+    "difficulty": "Basic",
+    "question": "Which tag is used to connect an external CSS stylesheet into an HTML page?",
+    "options": [
+      "<style src='...'>",
+      "<link rel='stylesheet' href='...'>",
+      "<css href='...'>",
+      "<stylesheet>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<link rel='stylesheet' href='style.css'> links external stylesheets."
+  },
+  {
+    "id": "html_50",
+    "category": "HTML",
+    "topic": "Links, Images & Lists",
+    "difficulty": "Basic",
+    "question": "Which tag is used to write internal CSS directly inside an HTML file?",
+    "options": [
+      "<css>",
+      "<script>",
+      "<style>",
+      "<design>"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The <style> tag embeds CSS rules directly inside the <head> of an HTML document."
+  },
+  {
+    "id": "html_51",
+    "category": "HTML",
+    "topic": "Tables & Forms",
+    "difficulty": "Medium",
+    "question": "Which tag defines an HTML table?",
+    "options": [
+      "<grid>",
+      "<table>",
+      "<tabular>",
+      "<data-sheet>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The <table> tag creates a tabular grid of rows and columns."
+  },
+  {
+    "id": "html_52",
+    "category": "HTML",
+    "topic": "Tables & Forms",
+    "difficulty": "Medium",
+    "question": "Which tag defines a table row in an HTML table?",
+    "options": [
+      "<td>",
+      "<th>",
+      "<tr>",
+      "<row>"
+    ],
+    "correctAnswer": 2,
+    "explanation": "<tr> stands for table row."
+  },
+  {
+    "id": "html_53",
+    "category": "HTML",
+    "topic": "Tables & Forms",
+    "difficulty": "Medium",
+    "question": "Which tag defines a standard table data cell?",
+    "options": [
+      "<tr>",
+      "<td>",
+      "<th>",
+      "<cell>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<td> stands for table data (cell)."
+  },
+  {
+    "id": "html_54",
+    "category": "HTML",
+    "topic": "Tables & Forms",
+    "difficulty": "Medium",
+    "question": "Which tag defines a table header cell (with default bold, centered text)?",
+    "options": [
+      "<head>",
+      "<th>",
+      "<td>",
+      "<header-cell>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<th> stands for table header."
+  },
+  {
+    "id": "html_55",
+    "category": "HTML",
+    "topic": "Tables & Forms",
+    "difficulty": "Medium",
+    "question": "Which table attribute merges a cell across 2 or more columns horizontally?",
+    "options": [
+      "rowspan",
+      "colspan",
+      "col-merge",
+      "span"
+    ],
+    "correctAnswer": 1,
+    "explanation": "colspan='2' merges a cell across 2 columns horizontally."
+  },
+  {
+    "id": "html_56",
+    "category": "HTML",
+    "topic": "Tables & Forms",
+    "difficulty": "Medium",
+    "question": "Which table attribute merges a cell across 2 or more rows vertically?",
+    "options": [
+      "colspan",
+      "rowspan",
+      "row-merge",
+      "height"
+    ],
+    "correctAnswer": 1,
+    "explanation": "rowspan='2' merges a cell across 2 rows vertically."
+  },
+  {
+    "id": "html_57",
+    "category": "HTML",
+    "topic": "Tables & Forms",
+    "difficulty": "Medium",
+    "question": "Which tag adds an optional title or caption to an HTML table?",
+    "options": [
+      "<title>",
+      "<caption>",
+      "<header>",
+      "<label>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<caption> defines a table caption, positioned directly after the <table> opening tag."
+  },
+  {
+    "id": "html_58",
+    "category": "HTML",
+    "topic": "Tables & Forms",
+    "difficulty": "Medium",
+    "question": "Which tags group the header, body, and footer of an HTML table?",
+    "options": [
+      "<thead>, <tbody>, <tfoot>",
+      "<top>, <center>, <bottom>",
+      "<th-group>, <td-group>, <tf-group>",
+      "<start>, <mid>, <end>"
+    ],
+    "correctAnswer": 0,
+    "explanation": "<thead>, <tbody>, and <tfoot> semantically group table rows."
+  },
+  {
+    "id": "html_59",
+    "category": "HTML",
+    "topic": "Tables & Forms",
+    "difficulty": "Medium",
+    "question": "Which tag creates an interactive HTML form to collect user inputs?",
+    "options": [
+      "<input-group>",
+      "<form>",
+      "<fieldset>",
+      "<submit>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The <form> element defines an HTML form for collecting user inputs."
+  },
+  {
+    "id": "html_60",
+    "category": "HTML",
+    "topic": "Tables & Forms",
+    "difficulty": "Medium",
+    "question": "Which attribute of <form> specifies the destination URL where submitted form data is sent?",
+    "options": [
+      "method",
+      "action",
+      "target",
+      "href"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The 'action' attribute specifies the URL where the form data is submitted."
+  },
+  {
+    "id": "html_61",
+    "category": "HTML",
+    "topic": "Tables & Forms",
+    "difficulty": "Medium",
+    "question": "Which attribute of <form> specifies the HTTP request method used (GET or POST)?",
+    "options": [
+      "action",
+      "method",
+      "type",
+      "protocol"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The 'method' attribute specifies GET (visible in URL) or POST (sent in HTTP body)."
+  },
+  {
+    "id": "html_62",
+    "category": "HTML",
+    "topic": "Tables & Forms",
+    "difficulty": "Medium",
+    "question": "Which input type creates a single-line text input field?",
+    "options": [
+      "<input type='string'>",
+      "<input type='text'>",
+      "<input type='line'>",
+      "<input type='name'>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<input type='text'> creates a standard single-line text input field."
+  },
+  {
+    "id": "html_63",
+    "category": "HTML",
+    "topic": "Tables & Forms",
+    "difficulty": "Medium",
+    "question": "Which input type masks characters with dots or stars for password entry?",
+    "options": [
+      "<input type='secret'>",
+      "<input type='password'>",
+      "<input type='hidden'>",
+      "<input type='mask'>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<input type='password'> obscures entered text for security."
+  },
+  {
+    "id": "html_64",
+    "category": "HTML",
+    "topic": "Tables & Forms",
+    "difficulty": "Medium",
+    "question": "Which input type creates a clickable button to send form data to the server?",
+    "options": [
+      "<input type='button'>",
+      "<input type='send'>",
+      "<input type='submit'>",
+      "<input type='post'>"
+    ],
+    "correctAnswer": 2,
+    "explanation": "<input type='submit'> or <button type='submit'> submits form data."
+  },
+  {
+    "id": "html_65",
+    "category": "HTML",
+    "topic": "Tables & Forms",
+    "difficulty": "Medium",
+    "question": "Which input type allows a user to select exactly ONE option from a group of choices?",
+    "options": [
+      "checkbox",
+      "radio",
+      "select",
+      "check"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<input type='radio'> allows selecting only one option from a group sharing the same 'name'."
+  },
+  {
+    "id": "html_66",
+    "category": "HTML",
+    "topic": "Tables & Forms",
+    "difficulty": "Medium",
+    "question": "Which input type allows selecting ZERO, ONE, or MULTIPLE independent choices?",
+    "options": [
+      "radio",
+      "checkbox",
+      "button",
+      "text"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<input type='checkbox'> lets users select multiple independent options."
+  },
+  {
+    "id": "html_67",
+    "category": "HTML",
+    "topic": "Tables & Forms",
+    "difficulty": "Medium",
+    "question": "Which attribute ensures an input field must be filled in before form submission?",
+    "options": [
+      "validate",
+      "required",
+      "mandatory",
+      "not-null"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The boolean 'required' attribute prevents form submission if the field is empty."
+  },
+  {
+    "id": "html_68",
+    "category": "HTML",
+    "topic": "Tables & Forms",
+    "difficulty": "Medium",
+    "question": "Which attribute displays grey hint text inside an input box before typing begins?",
+    "options": [
+      "hint",
+      "placeholder",
+      "label",
+      "value"
+    ],
+    "correctAnswer": 1,
+    "explanation": "placeholder='Enter name' provides temporary guide text."
+  },
+  {
+    "id": "html_69",
+    "category": "HTML",
+    "topic": "Tables & Forms",
+    "difficulty": "Medium",
+    "question": "Which attribute sets the initial pre-filled value of a text input field?",
+    "options": [
+      "default",
+      "value",
+      "text",
+      "initial"
+    ],
+    "correctAnswer": 1,
+    "explanation": "value='Hello' sets the initial content of an input element."
+  },
+  {
+    "id": "html_70",
+    "category": "HTML",
+    "topic": "Tables & Forms",
+    "difficulty": "Medium",
+    "question": "Which tag is used for multi-line text input (e.g. feedback, comments)?",
+    "options": [
+      "<multiline>",
+      "<textarea>",
+      "<input type='text-block'>",
+      "<textbox>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<textarea> creates a multi-line input box."
+  },
+  {
+    "id": "html_71",
+    "category": "HTML",
+    "topic": "Tables & Forms",
+    "difficulty": "Medium",
+    "question": "Which tag creates a drop-down selection list?",
+    "options": [
+      "<dropdown>",
+      "<select>",
+      "<list>",
+      "<menu>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The <select> element creates a drop-down list."
+  },
+  {
+    "id": "html_72",
+    "category": "HTML",
+    "topic": "Tables & Forms",
+    "difficulty": "Medium",
+    "question": "Which tag defines individual selectable choices inside a <select> dropdown?",
+    "options": [
+      "<choice>",
+      "<item>",
+      "<option>",
+      "<select-item>"
+    ],
+    "correctAnswer": 2,
+    "explanation": "<option> elements represent individual choices within a <select> list."
+  },
+  {
+    "id": "html_73",
+    "category": "HTML",
+    "topic": "Tables & Forms",
+    "difficulty": "Medium",
+    "question": "Which tag associates a descriptive text label with a form control for better accessibility?",
+    "options": [
+      "<desc>",
+      "<label>",
+      "<title>",
+      "<span>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<label for='email'> links descriptive text to an input field."
+  },
+  {
+    "id": "html_74",
+    "category": "HTML",
+    "topic": "Tables & Forms",
+    "difficulty": "Medium",
+    "question": "Which input type allows selecting a date from a calendar picker in HTML5?",
+    "options": [
+      "<input type='calendar'>",
+      "<input type='date'>",
+      "<input type='day'>",
+      "<input type='time'>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<input type='date'> displays a native calendar date picker."
+  },
+  {
+    "id": "html_75",
+    "category": "HTML",
+    "topic": "Tables & Forms",
+    "difficulty": "Medium",
+    "question": "Which input type displays a color palette picker?",
+    "options": [
+      "<input type='color'>",
+      "<input type='palette'>",
+      "<input type='rgb'>",
+      "<input type='picker'>"
+    ],
+    "correctAnswer": 0,
+    "explanation": "<input type='color'> provides a color picker interface."
+  },
+  {
+    "id": "html_76",
+    "category": "HTML",
+    "topic": "Semantic HTML5, Media & Block/Inline",
+    "difficulty": "Medium",
+    "question": "Which semantic tag represents major website navigation links?",
+    "options": [
+      "<navigate>",
+      "<nav>",
+      "<links>",
+      "<menu>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<nav> wraps navigation links (e.g. Home, About, Contact)."
+  },
+  {
+    "id": "html_77",
+    "category": "HTML",
+    "topic": "Semantic HTML5, Media & Block/Inline",
+    "difficulty": "Medium",
+    "question": "Which semantic tag represents introductory content or logo/navigation at the top of a page?",
+    "options": [
+      "<top>",
+      "<header>",
+      "<head>",
+      "<heading>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<header> holds introductory content, branding, or search bars."
+  },
+  {
+    "id": "html_78",
+    "category": "HTML",
+    "topic": "Semantic HTML5, Media & Block/Inline",
+    "difficulty": "Medium",
+    "question": "Which semantic tag represents footer content (copyright, contact, privacy) at the bottom?",
+    "options": [
+      "<bottom>",
+      "<footer>",
+      "<end>",
+      "<footnote>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<footer> represents the footer of a document or section."
+  },
+  {
+    "id": "html_79",
+    "category": "HTML",
+    "topic": "Semantic HTML5, Media & Block/Inline",
+    "difficulty": "Medium",
+    "question": "Which semantic tag defines an independent, self-contained article or blog post?",
+    "options": [
+      "<section>",
+      "<article>",
+      "<aside>",
+      "<main>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<article> represents a self-contained composition that makes sense on its own."
+  },
+  {
+    "id": "html_80",
+    "category": "HTML",
+    "topic": "Semantic HTML5, Media & Block/Inline",
+    "difficulty": "Medium",
+    "question": "Which semantic tag groups related thematic content, usually with its own heading?",
+    "options": [
+      "<section>",
+      "<div>",
+      "<part>",
+      "<group>"
+    ],
+    "correctAnswer": 0,
+    "explanation": "<section> groups thematic content together."
+  },
+  {
+    "id": "html_81",
+    "category": "HTML",
+    "topic": "Semantic HTML5, Media & Block/Inline",
+    "difficulty": "Medium",
+    "question": "Which semantic tag represents sidebars or content tangentially related to the main content?",
+    "options": [
+      "<sidebar>",
+      "<aside>",
+      "<subcontent>",
+      "<float>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<aside> represents auxiliary content like sidebars, ads, or author bios."
+  },
+  {
+    "id": "html_82",
+    "category": "HTML",
+    "topic": "Semantic HTML5, Media & Block/Inline",
+    "difficulty": "Medium",
+    "question": "Which semantic tag represents the dominant, primary central content of the page?",
+    "options": [
+      "<content>",
+      "<main>",
+      "<center>",
+      "<body>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<main> wraps the unique central content of the document."
+  },
+  {
+    "id": "html_83",
+    "category": "HTML",
+    "topic": "Semantic HTML5, Media & Block/Inline",
+    "difficulty": "Medium",
+    "question": "What is the primary difference between a block-level element and an inline element?",
+    "options": [
+      "Block elements always start on a new line and take full width; inline elements only take as much width as necessary",
+      "Block elements can only have numbers; inline can have text",
+      "Block elements are deprecated",
+      "There is no difference"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Block elements (<div>, <p>, <h1>) start on a new line; inline elements (<span>, <a>, <b>) stay on the same line."
+  },
+  {
+    "id": "html_84",
+    "category": "HTML",
+    "topic": "Semantic HTML5, Media & Block/Inline",
+    "difficulty": "Medium",
+    "question": "Which of the following is a generic BLOCK-level container with no special visual styling?",
+    "options": [
+      "<span>",
+      "<div>",
+      "<a>",
+      "<b>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<div> (division) is the standard generic block-level container."
+  },
+  {
+    "id": "html_85",
+    "category": "HTML",
+    "topic": "Semantic HTML5, Media & Block/Inline",
+    "difficulty": "Medium",
+    "question": "Which of the following is a generic INLINE container used to style parts of text?",
+    "options": [
+      "<div>",
+      "<p>",
+      "<span>",
+      "<section>"
+    ],
+    "correctAnswer": 2,
+    "explanation": "<span> is a generic inline container used to style or script text segments."
+  },
+  {
+    "id": "html_86",
+    "category": "HTML",
+    "topic": "Semantic HTML5, Media & Block/Inline",
+    "difficulty": "Medium",
+    "question": "Which of the following elements is an INLINE element by default?",
+    "options": [
+      "<p>",
+      "<div>",
+      "<a>",
+      "<h1>"
+    ],
+    "correctAnswer": 2,
+    "explanation": "<a> (hyperlink) is an inline element."
+  },
+  {
+    "id": "html_87",
+    "category": "HTML",
+    "topic": "Semantic HTML5, Media & Block/Inline",
+    "difficulty": "Medium",
+    "question": "Which of the following elements is a BLOCK element by default?",
+    "options": [
+      "<img>",
+      "<span>",
+      "<div>",
+      "<strong>"
+    ],
+    "correctAnswer": 2,
+    "explanation": "<div> is a block-level element."
+  },
+  {
+    "id": "html_88",
+    "category": "HTML",
+    "topic": "Semantic HTML5, Media & Block/Inline",
+    "difficulty": "Medium",
+    "question": "Which tag is used to embed and play audio files natively in HTML5?",
+    "options": [
+      "<sound>",
+      "<audio>",
+      "<music>",
+      "<media>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The <audio> element embeds sound files without external plugins."
+  },
+  {
+    "id": "html_89",
+    "category": "HTML",
+    "topic": "Semantic HTML5, Media & Block/Inline",
+    "difficulty": "Medium",
+    "question": "Which attribute adds play, pause, and volume controls to an <audio> or <video> tag?",
+    "options": [
+      "controls",
+      "playbar",
+      "buttons",
+      "panel"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The boolean 'controls' attribute adds native playback buttons."
+  },
+  {
+    "id": "html_90",
+    "category": "HTML",
+    "topic": "Semantic HTML5, Media & Block/Inline",
+    "difficulty": "Medium",
+    "question": "Which tag is used to embed and play video clips natively in HTML5?",
+    "options": [
+      "<movie>",
+      "<video>",
+      "<media>",
+      "<film>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The <video> tag embeds video files (MP4, WebM) natively."
+  },
+  {
+    "id": "html_91",
+    "category": "HTML",
+    "topic": "Semantic HTML5, Media & Block/Inline",
+    "difficulty": "Medium",
+    "question": "Which attribute specifies a preview thumbnail image shown before a video starts playing?",
+    "options": [
+      "thumb",
+      "poster",
+      "preview",
+      "cover"
+    ],
+    "correctAnswer": 1,
+    "explanation": "poster='thumbnail.jpg' sets the preview image before video playback."
+  },
+  {
+    "id": "html_92",
+    "category": "HTML",
+    "topic": "Semantic HTML5, Media & Block/Inline",
+    "difficulty": "Medium",
+    "question": "Which tag is used inside <audio> or <video> to provide multiple alternative file formats?",
+    "options": [
+      "<file>",
+      "<source>",
+      "<format>",
+      "<track>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<source src='...' type='...'> provides fallback formats."
+  },
+  {
+    "id": "html_93",
+    "category": "HTML",
+    "topic": "Semantic HTML5, Media & Block/Inline",
+    "difficulty": "Medium",
+    "question": "Which attribute makes an audio or video file start playing automatically upon page load?",
+    "options": [
+      "start",
+      "autoplay",
+      "run",
+      "live"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'autoplay' instructs the media to start playing as soon as ready."
+  },
+  {
+    "id": "html_94",
+    "category": "HTML",
+    "topic": "Semantic HTML5, Media & Block/Inline",
+    "difficulty": "Medium",
+    "question": "Which attribute makes an audio or video repeat from the beginning when it finishes?",
+    "options": [
+      "repeat",
+      "loop",
+      "cycle",
+      "continuous"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'loop' makes media replay automatically."
+  },
+  {
+    "id": "html_95",
+    "category": "HTML",
+    "topic": "Semantic HTML5, Media & Block/Inline",
+    "difficulty": "Medium",
+    "question": "Which tag embeds another independent webpage inside the current webpage?",
+    "options": [
+      "<frame>",
+      "<iframe>",
+      "<embed-page>",
+      "<window>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<iframe> (inline frame) embeds another document inside the current HTML page."
+  },
+  {
+    "id": "html_96",
+    "category": "HTML",
+    "topic": "Semantic HTML5, Media & Block/Inline",
+    "difficulty": "Medium",
+    "question": "Which HTML5 element provides a drawable bitmap surface scripted with JavaScript?",
+    "options": [
+      "<svg>",
+      "<canvas>",
+      "<draw>",
+      "<graphic>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<canvas> creates a raster bitmap canvas for JS animation and drawing."
+  },
+  {
+    "id": "html_97",
+    "category": "HTML",
+    "topic": "Semantic HTML5, Media & Block/Inline",
+    "difficulty": "Medium",
+    "question": "Which HTML5 tag is used to draw vector graphics using XML tags (scalable without quality loss)?",
+    "options": [
+      "<canvas>",
+      "<svg>",
+      "<vector>",
+      "<shape>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<svg> (Scalable Vector Graphics) renders resolution-independent vector shapes."
+  },
+  {
+    "id": "html_98",
+    "category": "HTML",
+    "topic": "Semantic HTML5, Media & Block/Inline",
+    "difficulty": "Medium",
+    "question": "Which input type restricts user entry strictly to numbers on mobile keyboards?",
+    "options": [
+      "<input type='number'>",
+      "<input type='integer'>",
+      "<input type='digits'>",
+      "<input type='calc'>"
+    ],
+    "correctAnswer": 0,
+    "explanation": "<input type='number'> opens a numeric keypad and restricts input to numbers."
+  },
+  {
+    "id": "html_99",
+    "category": "HTML",
+    "topic": "Semantic HTML5, Media & Block/Inline",
+    "difficulty": "Medium",
+    "question": "Which input type provides built-in email address syntax validation?",
+    "options": [
+      "<input type='text'>",
+      "<input type='email'>",
+      "<input type='mail'>",
+      "<input type='address'>"
+    ],
+    "correctAnswer": 1,
+    "explanation": "<input type='email'> verifies that the value conforms to standard email format."
+  },
+  {
+    "id": "html_100",
+    "category": "HTML",
+    "topic": "Semantic HTML5, Media & Block/Inline",
+    "difficulty": "Medium",
+    "question": "What is the default method attribute of an HTML <form> if not explicitly specified?",
+    "options": [
+      "POST",
+      "GET",
+      "PUT",
+      "REQUEST"
+    ],
+    "correctAnswer": 1,
+    "explanation": "If omitted, the default form submission method is GET."
+  }
+]

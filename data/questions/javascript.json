@@ -1,0 +1,1502 @@
+[
+  {
+    "id": "javascript_1",
+    "category": "JavaScript",
+    "topic": "Variables, Data Types & Operators",
+    "difficulty": "Basic",
+    "question": "Which keyword is used to declare a block-scoped variable that CAN be reassigned in JavaScript?",
+    "options": [
+      "var",
+      "let",
+      "const",
+      "static"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'let' declares a block-scoped local variable whose value can be reassigned."
+  },
+  {
+    "id": "javascript_2",
+    "category": "JavaScript",
+    "topic": "Variables, Data Types & Operators",
+    "difficulty": "Basic",
+    "question": "Which keyword declares a variable whose value CANNOT be reassigned after initialization?",
+    "options": [
+      "var",
+      "let",
+      "const",
+      "fixed"
+    ],
+    "correctAnswer": 2,
+    "explanation": "'const' creates a read-only, block-scoped constant reference that cannot be reassigned."
+  },
+  {
+    "id": "javascript_3",
+    "category": "JavaScript",
+    "topic": "Variables, Data Types & Operators",
+    "difficulty": "Basic",
+    "question": "Which keyword was historically used to declare variables in JavaScript before ES6 (function-scoped)?",
+    "options": [
+      "var",
+      "let",
+      "dim",
+      "val"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'var' was the original variable keyword in JavaScript prior to ES6 (2015)."
+  },
+  {
+    "id": "javascript_4",
+    "category": "JavaScript",
+    "topic": "Variables, Data Types & Operators",
+    "difficulty": "Basic",
+    "question": "Which of the following is a primitive data type in JavaScript?",
+    "options": [
+      "Number",
+      "String",
+      "Boolean",
+      "All of the above"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Number, String, Boolean, Undefined, Null, Symbol, and BigInt are all primitive types."
+  },
+  {
+    "id": "javascript_5",
+    "category": "JavaScript",
+    "topic": "Variables, Data Types & Operators",
+    "difficulty": "Basic",
+    "question": "Which operator is used to find the data type of a variable in JavaScript?",
+    "options": [
+      "type()",
+      "typeof",
+      "instanceof",
+      "datatype"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The 'typeof' operator returns a string indicating the type of the operand (e.g. typeof 42 returns 'number')."
+  },
+  {
+    "id": "javascript_6",
+    "category": "JavaScript",
+    "topic": "Variables, Data Types & Operators",
+    "difficulty": "Basic",
+    "question": "What does evaluating: typeof 'Hello World' return?",
+    "options": [
+      "'string'",
+      "'text'",
+      "'char'",
+      "'str'"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'Hello World' is a string primitive, so typeof returns 'string'."
+  },
+  {
+    "id": "javascript_7",
+    "category": "JavaScript",
+    "topic": "Variables, Data Types & Operators",
+    "difficulty": "Basic",
+    "question": "What does evaluating: typeof 123 return in JavaScript?",
+    "options": [
+      "'integer'",
+      "'number'",
+      "'float'",
+      "'int'"
+    ],
+    "correctAnswer": 1,
+    "explanation": "JavaScript treats all numeric values (both integers and decimals) under the single 'number' type."
+  },
+  {
+    "id": "javascript_8",
+    "category": "JavaScript",
+    "topic": "Variables, Data Types & Operators",
+    "difficulty": "Basic",
+    "question": "What does evaluating: typeof true return in JavaScript?",
+    "options": [
+      "'boolean'",
+      "'bool'",
+      "'binary'",
+      "'logical'"
+    ],
+    "correctAnswer": 0,
+    "explanation": "true and false belong to the 'boolean' data type."
+  },
+  {
+    "id": "javascript_9",
+    "category": "JavaScript",
+    "topic": "Variables, Data Types & Operators",
+    "difficulty": "Basic",
+    "question": "What is the value of an uninitialized variable declared with 'let x;'?",
+    "options": [
+      "0",
+      "null",
+      "undefined",
+      "false"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Variables declared without an initial value automatically default to 'undefined'."
+  },
+  {
+    "id": "javascript_10",
+    "category": "JavaScript",
+    "topic": "Variables, Data Types & Operators",
+    "difficulty": "Basic",
+    "question": "What is the historical return value of 'typeof null' in JavaScript?",
+    "options": [
+      "'null'",
+      "'undefined'",
+      "'object'",
+      "'boolean'"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Due to a legacy bug in the original implementation of JS, typeof null returns 'object'."
+  },
+  {
+    "id": "javascript_11",
+    "category": "JavaScript",
+    "topic": "Variables, Data Types & Operators",
+    "difficulty": "Basic",
+    "question": "What is the difference between '==' (loose equality) and '===' (strict equality)?",
+    "options": [
+      "'==' compares values with type conversion; '===' compares both value and type without conversion",
+      "'===' is only for strings",
+      "They are completely identical",
+      "'==' is faster"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'==' performs automatic type coercion; '===' checks both data type and value strictly."
+  },
+  {
+    "id": "javascript_12",
+    "category": "JavaScript",
+    "topic": "Variables, Data Types & Operators",
+    "difficulty": "Basic",
+    "question": "What does the expression 5 == '5' evaluate to in JavaScript?",
+    "options": [
+      "true",
+      "false",
+      "undefined",
+      "TypeError"
+    ],
+    "correctAnswer": 0,
+    "explanation": "5 == '5' is true because '==' coerces the string '5' into the number 5 before comparison."
+  },
+  {
+    "id": "javascript_13",
+    "category": "JavaScript",
+    "topic": "Variables, Data Types & Operators",
+    "difficulty": "Basic",
+    "question": "What does the expression 5 === '5' evaluate to in JavaScript?",
+    "options": [
+      "true",
+      "false",
+      "NaN",
+      "TypeError"
+    ],
+    "correctAnswer": 1,
+    "explanation": "5 === '5' is false because their data types differ (number vs string)."
+  },
+  {
+    "id": "javascript_14",
+    "category": "JavaScript",
+    "topic": "Variables, Data Types & Operators",
+    "difficulty": "Basic",
+    "question": "What does the expression 10 != '10' evaluate to?",
+    "options": [
+      "true",
+      "false",
+      "NaN",
+      "undefined"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'!=' coerces types: 10 equals 10, so 10 != '10' evaluates to false."
+  },
+  {
+    "id": "javascript_15",
+    "category": "JavaScript",
+    "topic": "Variables, Data Types & Operators",
+    "difficulty": "Basic",
+    "question": "What does the expression 10 !== '10' evaluate to?",
+    "options": [
+      "true",
+      "false",
+      "null",
+      "undefined"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'!==' is strict inequality. Since number 10 is not of the same type as string '10', it evaluates to true."
+  },
+  {
+    "id": "javascript_16",
+    "category": "JavaScript",
+    "topic": "Variables, Data Types & Operators",
+    "difficulty": "Basic",
+    "question": "What is the output of: console.log(10 % 3)?",
+    "options": [
+      "3",
+      "1",
+      "0.33",
+      "0"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'%' is the modulus operator returning the integer remainder of division: 10 / 3 = 3 remainder 1."
+  },
+  {
+    "id": "javascript_17",
+    "category": "JavaScript",
+    "topic": "Variables, Data Types & Operators",
+    "difficulty": "Basic",
+    "question": "What is the output of: console.log('5' + 2)?",
+    "options": [
+      "7",
+      "'52'",
+      "NaN",
+      "TypeError"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The '+' operator with a string triggers string concatenation, resulting in '52'."
+  },
+  {
+    "id": "javascript_18",
+    "category": "JavaScript",
+    "topic": "Variables, Data Types & Operators",
+    "difficulty": "Basic",
+    "question": "What is the output of: console.log('5' - 2)?",
+    "options": [
+      "3",
+      "'52'",
+      "NaN",
+      "'3'"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The '-' operator is purely arithmetic, converting '5' to a number: 5 - 2 = 3."
+  },
+  {
+    "id": "javascript_19",
+    "category": "JavaScript",
+    "topic": "Variables, Data Types & Operators",
+    "difficulty": "Basic",
+    "question": "What does the logical AND operator (&&) return if BOTH conditions are true?",
+    "options": [
+      "true",
+      "false",
+      "null",
+      "undefined"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The '&&' operator returns true if and only if both operands are true."
+  },
+  {
+    "id": "javascript_20",
+    "category": "JavaScript",
+    "topic": "Variables, Data Types & Operators",
+    "difficulty": "Basic",
+    "question": "What does the logical OR operator (||) return if at least ONE condition is true?",
+    "options": [
+      "false",
+      "true",
+      "null",
+      "NaN"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The '||' operator returns true if at least one operand evaluates to true."
+  },
+  {
+    "id": "javascript_21",
+    "category": "JavaScript",
+    "topic": "Variables, Data Types & Operators",
+    "difficulty": "Basic",
+    "question": "What does the logical NOT operator (!) do in JavaScript?",
+    "options": [
+      "Doubles a number",
+      "Reverses / inverts the boolean value (e.g. !true becomes false)",
+      "Deletes a variable",
+      "Checks equality"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The '!' operator negates a boolean: !true is false, !false is true."
+  },
+  {
+    "id": "javascript_22",
+    "category": "JavaScript",
+    "topic": "Variables, Data Types & Operators",
+    "difficulty": "Basic",
+    "question": "What will x equal after: let x = 5; x++;?",
+    "options": [
+      "5",
+      "6",
+      "7",
+      "4"
+    ],
+    "correctAnswer": 1,
+    "explanation": "x++ increments x by 1, making it 6."
+  },
+  {
+    "id": "javascript_23",
+    "category": "JavaScript",
+    "topic": "Variables, Data Types & Operators",
+    "difficulty": "Basic",
+    "question": "What will x equal after: let x = 10; x += 5;?",
+    "options": [
+      "10",
+      "5",
+      "15",
+      "50"
+    ],
+    "correctAnswer": 2,
+    "explanation": "x += 5 is shorthand for x = x + 5 (10 + 5 = 15)."
+  },
+  {
+    "id": "javascript_24",
+    "category": "JavaScript",
+    "topic": "Variables, Data Types & Operators",
+    "difficulty": "Basic",
+    "question": "Which quotation character is used in modern JavaScript for Template Literals (string interpolation)?",
+    "options": [
+      "Single quotes (' ')",
+      "Double quotes (\" \")",
+      "Backticks (` `)",
+      "Forward slashes (/ /)"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Template literals are enclosed in backticks (` `) and allow embedded expressions like `${variable}`."
+  },
+  {
+    "id": "javascript_25",
+    "category": "JavaScript",
+    "topic": "Variables, Data Types & Operators",
+    "difficulty": "Basic",
+    "question": "What will `Hello ${'World'}` produce?",
+    "options": [
+      "Hello ${'World'}",
+      "Hello World",
+      "Hello",
+      "Error"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expressions inside `${}` in template literals are evaluated and inserted into the string."
+  },
+  {
+    "id": "javascript_26",
+    "category": "JavaScript",
+    "topic": "Conditionals & Loops",
+    "difficulty": "Basic",
+    "question": "What is the correct syntax for a simple 'if' statement in JavaScript?",
+    "options": [
+      "if (condition) { /* code */ }",
+      "if condition then { /* code */ }",
+      "if [condition] ( /* code */ )",
+      "if {condition} then /* code */"
+    ],
+    "correctAnswer": 0,
+    "explanation": "In JavaScript, conditions are enclosed in parentheses: if (condition) { ... }."
+  },
+  {
+    "id": "javascript_27",
+    "category": "JavaScript",
+    "topic": "Conditionals & Loops",
+    "difficulty": "Basic",
+    "question": "What will this code print?\nlet score = 85;\nif (score >= 90) {\n    console.log('A');\n} else if (score >= 75) {\n    console.log('B');\n} else {\n    console.log('C');\n}",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "A and B"
+    ],
+    "correctAnswer": 1,
+    "explanation": "score is 85. 85 >= 90 is false. 85 >= 75 is true, so 'B' is printed."
+  },
+  {
+    "id": "javascript_28",
+    "category": "JavaScript",
+    "topic": "Conditionals & Loops",
+    "difficulty": "Basic",
+    "question": "What is the syntax for JavaScript's ternary conditional operator?",
+    "options": [
+      "condition ? exprIfTrue : exprIfFalse",
+      "condition : exprIfTrue ? exprIfFalse",
+      "if condition then expr1 else expr2",
+      "condition -> expr1, expr2"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Ternary operator syntax is: condition ? valueIfTrue : valueIfFalse."
+  },
+  {
+    "id": "javascript_29",
+    "category": "JavaScript",
+    "topic": "Conditionals & Loops",
+    "difficulty": "Basic",
+    "question": "What will result equal?\nlet age = 20;\nlet result = age >= 18 ? 'Adult' : 'Minor';",
+    "options": [
+      "'Adult'",
+      "'Minor'",
+      "true",
+      "undefined"
+    ],
+    "correctAnswer": 0,
+    "explanation": "20 >= 18 is true, so result becomes 'Adult'."
+  },
+  {
+    "id": "javascript_30",
+    "category": "JavaScript",
+    "topic": "Conditionals & Loops",
+    "difficulty": "Basic",
+    "question": "Which statement is used to execute different code blocks based on matching different case values?",
+    "options": [
+      "if-else",
+      "switch",
+      "loop",
+      "match"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The 'switch' statement tests an expression against multiple 'case' values."
+  },
+  {
+    "id": "javascript_31",
+    "category": "JavaScript",
+    "topic": "Conditionals & Loops",
+    "difficulty": "Basic",
+    "question": "What keyword is used inside a 'switch' case block to prevent code from falling through to the next case?",
+    "options": [
+      "exit",
+      "break",
+      "stop",
+      "return"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'break' terminates the switch block, preventing execution from falling into subsequent cases."
+  },
+  {
+    "id": "javascript_32",
+    "category": "JavaScript",
+    "topic": "Conditionals & Loops",
+    "difficulty": "Basic",
+    "question": "Which keyword specifies the fallback code in a 'switch' statement if no cases match?",
+    "options": [
+      "fallback:",
+      "else:",
+      "default:",
+      "otherwise:"
+    ],
+    "correctAnswer": 2,
+    "explanation": "'default:' executes if none of the switch case values match the expression."
+  },
+  {
+    "id": "javascript_33",
+    "category": "JavaScript",
+    "topic": "Conditionals & Loops",
+    "difficulty": "Basic",
+    "question": "What are the three parts of a standard 'for' loop header: for (A; B; C)?",
+    "options": [
+      "initialization; condition; increment/decrement",
+      "condition; loop; break",
+      "start; stop; jump",
+      "first; second; third"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Standard for loop syntax is: for (initialization; condition; update) { ... }."
+  },
+  {
+    "id": "javascript_34",
+    "category": "JavaScript",
+    "topic": "Conditionals & Loops",
+    "difficulty": "Basic",
+    "question": "How many times will this loop execute?\nfor (let i = 0; i < 5; i++) { ... }",
+    "options": [
+      "4 times",
+      "5 times (for i = 0, 1, 2, 3, 4)",
+      "6 times",
+      "Infinite times"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The loop runs for i = 0, 1, 2, 3, and 4 (stopping when i becomes 5), executing 5 times."
+  },
+  {
+    "id": "javascript_35",
+    "category": "JavaScript",
+    "topic": "Conditionals & Loops",
+    "difficulty": "Basic",
+    "question": "What is the output of this code?\nlet total = 0;\nfor (let i = 1; i <= 3; i++) {\n    total += i;\n}\nconsole.log(total);",
+    "options": [
+      "3",
+      "6",
+      "5",
+      "0"
+    ],
+    "correctAnswer": 1,
+    "explanation": "total = 1 + 2 + 3 = 6."
+  },
+  {
+    "id": "javascript_36",
+    "category": "JavaScript",
+    "topic": "Conditionals & Loops",
+    "difficulty": "Basic",
+    "question": "What does a 'while' loop do?",
+    "options": [
+      "Executes a block of code repeatedly as long as a specified condition evaluates to true",
+      "Executes only once always",
+      "Runs code backwards",
+      "Runs code on the server"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A 'while' loop checks its condition before every iteration and runs while the condition remains true."
+  },
+  {
+    "id": "javascript_37",
+    "category": "JavaScript",
+    "topic": "Conditionals & Loops",
+    "difficulty": "Basic",
+    "question": "What is the primary difference between a 'while' loop and a 'do-while' loop?",
+    "options": [
+      "A do-while loop always executes its code block AT LEAST ONCE before testing the condition",
+      "A while loop is faster",
+      "A do-while loop can never be stopped",
+      "There is no difference"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'do-while' evaluates the condition after executing the body, guaranteeing at least one execution."
+  },
+  {
+    "id": "javascript_38",
+    "category": "JavaScript",
+    "topic": "Conditionals & Loops",
+    "difficulty": "Basic",
+    "question": "What does the 'break' statement do inside a loop?",
+    "options": [
+      "Pauses the loop for 1 second",
+      "Immediately terminates and exits the loop entirely",
+      "Skips to the next iteration",
+      "Restarts the loop from 0"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'break' immediately terminates the current loop."
+  },
+  {
+    "id": "javascript_39",
+    "category": "JavaScript",
+    "topic": "Conditionals & Loops",
+    "difficulty": "Basic",
+    "question": "What does the 'continue' statement do inside a loop?",
+    "options": [
+      "Exits the program",
+      "Skips the rest of the current iteration and jumps directly to the next iteration",
+      "Clears the console",
+      "Doubles loop speed"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'continue' stops the current iteration and moves immediately to the next cycle."
+  },
+  {
+    "id": "javascript_40",
+    "category": "JavaScript",
+    "topic": "Conditionals & Loops",
+    "difficulty": "Basic",
+    "question": "What will this loop output?\nfor (let i = 1; i <= 5; i++) {\n    if (i === 3) continue;\n    console.log(i);\n}",
+    "options": [
+      "1, 2, 3, 4, 5",
+      "1, 2, 4, 5 (skipping 3)",
+      "1, 2",
+      "3, 4, 5"
+    ],
+    "correctAnswer": 1,
+    "explanation": "When i is 3, 'continue' skips printing and moves to i = 4, printing: 1, 2, 4, 5."
+  },
+  {
+    "id": "javascript_41",
+    "category": "JavaScript",
+    "topic": "Conditionals & Loops",
+    "difficulty": "Basic",
+    "question": "What will this loop output?\nfor (let i = 1; i <= 5; i++) {\n    if (i === 3) break;\n    console.log(i);\n}",
+    "options": [
+      "1, 2",
+      "1, 2, 3",
+      "1, 2, 4, 5",
+      "3, 4, 5"
+    ],
+    "correctAnswer": 0,
+    "explanation": "When i is 3, 'break' halts the loop completely, so only 1 and 2 are printed."
+  },
+  {
+    "id": "javascript_42",
+    "category": "JavaScript",
+    "topic": "Conditionals & Loops",
+    "difficulty": "Basic",
+    "question": "Which of the following values is considered FALSY in a JavaScript conditional statement?",
+    "options": [
+      "0",
+      "Empty string (\"\")",
+      "null and undefined",
+      "All of the above"
+    ],
+    "correctAnswer": 3,
+    "explanation": "In JavaScript, false, 0, -0, \"\", null, undefined, and NaN are all falsy."
+  },
+  {
+    "id": "javascript_43",
+    "category": "JavaScript",
+    "topic": "Conditionals & Loops",
+    "difficulty": "Basic",
+    "question": "What will this code print?\nif ('') {\n    console.log('True');\n} else {\n    console.log('False');\n}",
+    "options": [
+      "True",
+      "False",
+      "undefined",
+      "Error"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An empty string '' is falsy, so the else block executes and prints 'False'."
+  },
+  {
+    "id": "javascript_44",
+    "category": "JavaScript",
+    "topic": "Conditionals & Loops",
+    "difficulty": "Basic",
+    "question": "What will this code print?\nif ('Hello') {\n    console.log('True');\n} else {\n    console.log('False');\n}",
+    "options": [
+      "True",
+      "False",
+      "null",
+      "Error"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Any non-empty string is truthy, so the if block executes and prints 'True'."
+  },
+  {
+    "id": "javascript_45",
+    "category": "JavaScript",
+    "topic": "Conditionals & Loops",
+    "difficulty": "Basic",
+    "question": "What will this code print?\nlet count = 0;\nwhile (count < 3) {\n    count++;\n}\nconsole.log(count);",
+    "options": [
+      "0",
+      "2",
+      "3",
+      "4"
+    ],
+    "correctAnswer": 2,
+    "explanation": "count increments from 0 to 1, then 2, then 3. When count reaches 3, 3 < 3 is false, and the loop stops."
+  },
+  {
+    "id": "javascript_46",
+    "category": "JavaScript",
+    "topic": "Conditionals & Loops",
+    "difficulty": "Basic",
+    "question": "What causes an 'infinite loop' in programming?",
+    "options": [
+      "Using too many variables",
+      "A loop whose terminating condition is never met (always evaluates to true)",
+      "Writing loops inside functions",
+      "Using the 'break' statement"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An infinite loop occurs when the loop condition never becomes false, freezing the browser."
+  },
+  {
+    "id": "javascript_47",
+    "category": "JavaScript",
+    "topic": "Conditionals & Loops",
+    "difficulty": "Basic",
+    "question": "What is the result of: Boolean(0) vs Boolean(1)?",
+    "options": [
+      "false and true",
+      "true and false",
+      "true and true",
+      "false and false"
+    ],
+    "correctAnswer": 0,
+    "explanation": "0 is falsy (false); any non-zero number like 1 is truthy (true)."
+  },
+  {
+    "id": "javascript_48",
+    "category": "JavaScript",
+    "topic": "Conditionals & Loops",
+    "difficulty": "Basic",
+    "question": "What is the result of: Boolean(null)?",
+    "options": [
+      "true",
+      "false",
+      "null",
+      "undefined"
+    ],
+    "correctAnswer": 1,
+    "explanation": "null is a falsy value, returning false."
+  },
+  {
+    "id": "javascript_49",
+    "category": "JavaScript",
+    "topic": "Conditionals & Loops",
+    "difficulty": "Basic",
+    "question": "What is the result of: Boolean([]) (an empty array)?",
+    "options": [
+      "false",
+      "true",
+      "null",
+      "undefined"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In JavaScript, all objects and arrays (even empty arrays []) are truthy."
+  },
+  {
+    "id": "javascript_50",
+    "category": "JavaScript",
+    "topic": "Conditionals & Loops",
+    "difficulty": "Basic",
+    "question": "What does evaluating: !0 return in JavaScript?",
+    "options": [
+      "0",
+      "1",
+      "true",
+      "false"
+    ],
+    "correctAnswer": 2,
+    "explanation": "0 is falsy, so negating it with '!' returns boolean true."
+  },
+  {
+    "id": "javascript_51",
+    "category": "JavaScript",
+    "topic": "Functions, Scope & Strings",
+    "difficulty": "Medium",
+    "question": "What keyword is used to declare a standard function in JavaScript?",
+    "options": [
+      "def",
+      "func",
+      "function",
+      "fn"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The 'function' keyword declares a standard function (e.g. function greet() { ... })."
+  },
+  {
+    "id": "javascript_52",
+    "category": "JavaScript",
+    "topic": "Functions, Scope & Strings",
+    "difficulty": "Medium",
+    "question": "How do you invoke (call) a function named 'sayHello'?",
+    "options": [
+      "call sayHello;",
+      "sayHello();",
+      "run sayHello;",
+      "sayHello[];"
+    ],
+    "correctAnswer": 1,
+    "explanation": "You execute a function by appending parentheses to its name: sayHello();."
+  },
+  {
+    "id": "javascript_53",
+    "category": "JavaScript",
+    "topic": "Functions, Scope & Strings",
+    "difficulty": "Medium",
+    "question": "What does the 'return' statement do inside a function?",
+    "options": [
+      "Restarts the function",
+      "Stops execution of the function and sends a value back to the caller",
+      "Prints the value to screen",
+      "Deletes variables"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'return' exits the function and passes the specified value back to where it was called."
+  },
+  {
+    "id": "javascript_54",
+    "category": "JavaScript",
+    "topic": "Functions, Scope & Strings",
+    "difficulty": "Medium",
+    "question": "What value does a function return if it has no explicit 'return' statement?",
+    "options": [
+      "0",
+      "null",
+      "undefined",
+      "false"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Functions in JavaScript that do not specify a return value implicitly return 'undefined'."
+  },
+  {
+    "id": "javascript_55",
+    "category": "JavaScript",
+    "topic": "Functions, Scope & Strings",
+    "difficulty": "Medium",
+    "question": "What is the output of this code?\nfunction multiply(a, b) {\n    return a * b;\n}\nconsole.log(multiply(4, 5));",
+    "options": [
+      "9",
+      "20",
+      "45",
+      "undefined"
+    ],
+    "correctAnswer": 1,
+    "explanation": "multiply(4, 5) computes 4 * 5 = 20."
+  },
+  {
+    "id": "javascript_56",
+    "category": "JavaScript",
+    "topic": "Functions, Scope & Strings",
+    "difficulty": "Medium",
+    "question": "What is the concise ES6 syntax for an arrow function that adds two numbers?",
+    "options": [
+      "const add = (a, b) => a + b;",
+      "const add = function(a, b) -> a + b;",
+      "const add = a + b => (a, b);",
+      "arrow add(a, b) { a + b }"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Arrow function syntax: const add = (a, b) => a + b;."
+  },
+  {
+    "id": "javascript_57",
+    "category": "JavaScript",
+    "topic": "Functions, Scope & Strings",
+    "difficulty": "Medium",
+    "question": "What is a 'parameter' in a function definition?",
+    "options": [
+      "The value returned by the function",
+      "A variable listed in the function definition parentheses that accepts incoming values",
+      "A CSS style",
+      "A syntax error"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Parameters are placeholders declared in the function signature: function greet(name) { ... }."
+  },
+  {
+    "id": "javascript_58",
+    "category": "JavaScript",
+    "topic": "Functions, Scope & Strings",
+    "difficulty": "Medium",
+    "question": "What is an 'argument' in a function call?",
+    "options": [
+      "The actual real value passed into the function when calling it",
+      "A parameter definition",
+      "A disagreement between developers",
+      "A return statement"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Arguments are real values supplied to the function call: greet('Alice')."
+  },
+  {
+    "id": "javascript_59",
+    "category": "JavaScript",
+    "topic": "Functions, Scope & Strings",
+    "difficulty": "Medium",
+    "question": "What is the scope of a variable declared inside a function with 'let' or 'const'?",
+    "options": [
+      "Global scope (accessible anywhere)",
+      "Local scope (accessible only inside that specific function)",
+      "External scope",
+      "Window scope"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Variables declared inside a function have local function scope and cannot be accessed outside."
+  },
+  {
+    "id": "javascript_60",
+    "category": "JavaScript",
+    "topic": "Functions, Scope & Strings",
+    "difficulty": "Medium",
+    "question": "Can code inside a function access global variables declared outside the function?",
+    "options": [
+      "Yes, functions can access outer and global variables",
+      "No, functions are completely isolated",
+      "Only if variables are numbers",
+      "Only in strict mode"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Inner functions have access to variables declared in their outer parent/global scopes."
+  },
+  {
+    "id": "javascript_61",
+    "category": "JavaScript",
+    "topic": "Functions, Scope & Strings",
+    "difficulty": "Medium",
+    "question": "Which property returns the total number of characters in a string?",
+    "options": [
+      "str.count",
+      "str.size",
+      "str.length",
+      "str.chars"
+    ],
+    "correctAnswer": 2,
+    "explanation": "'str.length' returns the count of characters in a string: 'Hello'.length is 5."
+  },
+  {
+    "id": "javascript_62",
+    "category": "JavaScript",
+    "topic": "Functions, Scope & Strings",
+    "difficulty": "Medium",
+    "question": "What is the output of: 'javascript'.toUpperCase()?",
+    "options": [
+      "'JAVASCRIPT'",
+      "'Javascript'",
+      "'javascript'",
+      "Error"
+    ],
+    "correctAnswer": 0,
+    "explanation": "toUpperCase() converts all characters in a string to capital letters."
+  },
+  {
+    "id": "javascript_63",
+    "category": "JavaScript",
+    "topic": "Functions, Scope & Strings",
+    "difficulty": "Medium",
+    "question": "What is the output of: 'HELLO'.toLowerCase()?",
+    "options": [
+      "'hello'",
+      "'Hello'",
+      "'HELLO'",
+      "undefined"
+    ],
+    "correctAnswer": 0,
+    "explanation": "toLowerCase() converts all characters in a string to small letters."
+  },
+  {
+    "id": "javascript_64",
+    "category": "JavaScript",
+    "topic": "Functions, Scope & Strings",
+    "difficulty": "Medium",
+    "question": "What does 'Apple,Banana,Orange'.split(',') return?",
+    "options": [
+      "['Apple', 'Banana', 'Orange']",
+      "'AppleBananaOrange'",
+      "An object",
+      "A number 3"
+    ],
+    "correctAnswer": 0,
+    "explanation": "str.split(',') splits a string into an array of substrings using the delimiter."
+  },
+  {
+    "id": "javascript_65",
+    "category": "JavaScript",
+    "topic": "Functions, Scope & Strings",
+    "difficulty": "Medium",
+    "question": "What does '  hello  '.trim() do?",
+    "options": [
+      "Removes all letters",
+      "Removes whitespace from both the beginning and end of the string",
+      "Adds spaces",
+      "Capitalizes text"
+    ],
+    "correctAnswer": 1,
+    "explanation": "trim() strips leading and trailing whitespace from strings."
+  },
+  {
+    "id": "javascript_66",
+    "category": "JavaScript",
+    "topic": "Functions, Scope & Strings",
+    "difficulty": "Medium",
+    "question": "What does 'Hello World'.includes('World') return?",
+    "options": [
+      "true",
+      "false",
+      "0",
+      "1"
+    ],
+    "correctAnswer": 0,
+    "explanation": "includes('substring') returns true if the substring is found inside the string."
+  },
+  {
+    "id": "javascript_67",
+    "category": "JavaScript",
+    "topic": "Functions, Scope & Strings",
+    "difficulty": "Medium",
+    "question": "What does 'cat'.indexOf('a') return?",
+    "options": [
+      "0",
+      "1",
+      "2",
+      "-1"
+    ],
+    "correctAnswer": 1,
+    "explanation": "String indexes are 0-based: 'c' is at 0, 'a' is at index 1."
+  },
+  {
+    "id": "javascript_68",
+    "category": "JavaScript",
+    "topic": "Functions, Scope & Strings",
+    "difficulty": "Medium",
+    "question": "What does str.indexOf('z') return if 'z' is NOT found in the string?",
+    "options": [
+      "null",
+      "false",
+      "-1",
+      "undefined"
+    ],
+    "correctAnswer": 2,
+    "explanation": "indexOf() returns -1 if the search string is not found."
+  },
+  {
+    "id": "javascript_69",
+    "category": "JavaScript",
+    "topic": "Functions, Scope & Strings",
+    "difficulty": "Medium",
+    "question": "What is the output of 'Frontend'.slice(0, 5)?",
+    "options": [
+      "'Front'",
+      "'Fron'",
+      "'Frontend'",
+      "'onten'"
+    ],
+    "correctAnswer": 0,
+    "explanation": "slice(0, 5) extracts characters from index 0 up to (but not including) index 5: 'Front'."
+  },
+  {
+    "id": "javascript_70",
+    "category": "JavaScript",
+    "topic": "Functions, Scope & Strings",
+    "difficulty": "Medium",
+    "question": "What does 'Hello World'.replace('World', 'India') return?",
+    "options": [
+      "'Hello India'",
+      "'World India'",
+      "'Hello World'",
+      "Error"
+    ],
+    "correctAnswer": 0,
+    "explanation": "replace('World', 'India') replaces the first occurrence of 'World' with 'India'."
+  },
+  {
+    "id": "javascript_71",
+    "category": "JavaScript",
+    "topic": "Functions, Scope & Strings",
+    "difficulty": "Medium",
+    "question": "What is the index of the very first character in a JavaScript string or array?",
+    "options": [
+      "1",
+      "0",
+      "-1",
+      "null"
+    ],
+    "correctAnswer": 1,
+    "explanation": "JavaScript uses zero-based indexing: the first item is always at index 0."
+  },
+  {
+    "id": "javascript_72",
+    "category": "JavaScript",
+    "topic": "Functions, Scope & Strings",
+    "difficulty": "Medium",
+    "question": "How do you access the first character of string 'React'?",
+    "options": [
+      "str[0] or str.charAt(0)",
+      "str[1]",
+      "str.first()",
+      "str.start()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "str[0] or str.charAt(0) accesses the first character 'R'."
+  },
+  {
+    "id": "javascript_73",
+    "category": "JavaScript",
+    "topic": "Functions, Scope & Strings",
+    "difficulty": "Medium",
+    "question": "How do you define a function with a default parameter value in ES6?",
+    "options": [
+      "function greet(name = 'Guest') { ... }",
+      "function greet(name : 'Guest') { ... }",
+      "function greet(default name 'Guest') { ... }",
+      "function greet(name || 'Guest') { ... }"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Default parameters use the syntax: function greet(name = 'Guest')."
+  },
+  {
+    "id": "javascript_74",
+    "category": "JavaScript",
+    "topic": "Functions, Scope & Strings",
+    "difficulty": "Medium",
+    "question": "What is printed if you call greet() where: function greet(name = 'Guest') { return name; }?",
+    "options": [
+      "'Guest'",
+      "undefined",
+      "null",
+      "Error"
+    ],
+    "correctAnswer": 0,
+    "explanation": "If no argument is passed, the parameter takes its default value 'Guest'."
+  },
+  {
+    "id": "javascript_75",
+    "category": "JavaScript",
+    "topic": "Functions, Scope & Strings",
+    "difficulty": "Medium",
+    "question": "Can a JavaScript function take another function as an argument?",
+    "options": [
+      "Yes, functions are first-class citizens in JavaScript",
+      "No, functions only accept numbers and strings",
+      "Only in Node.js",
+      "Only if marked async"
+    ],
+    "correctAnswer": 0,
+    "explanation": "In JS, functions are first-class objects and can be passed as arguments (callbacks) to other functions."
+  },
+  {
+    "id": "javascript_76",
+    "category": "JavaScript",
+    "topic": "Arrays, Objects, Math & DOM",
+    "difficulty": "Medium",
+    "question": "How do you create an array of fruits in JavaScript?",
+    "options": [
+      "let fruits = ['Apple', 'Banana', 'Mango'];",
+      "let fruits = {'Apple', 'Banana', 'Mango'};",
+      "let fruits = ('Apple', 'Banana', 'Mango');",
+      "let fruits = <'Apple', 'Banana'>;"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Square brackets [ ] declare an array in JavaScript."
+  },
+  {
+    "id": "javascript_77",
+    "category": "JavaScript",
+    "topic": "Arrays, Objects, Math & DOM",
+    "difficulty": "Medium",
+    "question": "Which property returns the total number of items in an array?",
+    "options": [
+      "arr.size",
+      "arr.length",
+      "arr.count",
+      "arr.total"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'arr.length' returns the total element count in an array."
+  },
+  {
+    "id": "javascript_78",
+    "category": "JavaScript",
+    "topic": "Arrays, Objects, Math & DOM",
+    "difficulty": "Medium",
+    "question": "Which array method ADDS one or more elements to the END of an array?",
+    "options": [
+      "push()",
+      "pop()",
+      "shift()",
+      "unshift()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "arr.push(item) appends a new element to the end of the array."
+  },
+  {
+    "id": "javascript_79",
+    "category": "JavaScript",
+    "topic": "Arrays, Objects, Math & DOM",
+    "difficulty": "Medium",
+    "question": "Which array method REMOVES the LAST element from an array?",
+    "options": [
+      "shift()",
+      "pop()",
+      "push()",
+      "delete()"
+    ],
+    "correctAnswer": 1,
+    "explanation": "arr.pop() removes and returns the last element of the array."
+  },
+  {
+    "id": "javascript_80",
+    "category": "JavaScript",
+    "topic": "Arrays, Objects, Math & DOM",
+    "difficulty": "Medium",
+    "question": "Which array method REMOVES the FIRST element from an array?",
+    "options": [
+      "shift()",
+      "pop()",
+      "unshift()",
+      "slice()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "arr.shift() removes the first element at index 0 and shifts all other elements down."
+  },
+  {
+    "id": "javascript_81",
+    "category": "JavaScript",
+    "topic": "Arrays, Objects, Math & DOM",
+    "difficulty": "Medium",
+    "question": "Which array method ADDS one or more elements to the very BEGINNING of an array?",
+    "options": [
+      "unshift()",
+      "push()",
+      "shift()",
+      "insert()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "arr.unshift(item) inserts new items at the start of an array."
+  },
+  {
+    "id": "javascript_82",
+    "category": "JavaScript",
+    "topic": "Arrays, Objects, Math & DOM",
+    "difficulty": "Medium",
+    "question": "Which array method executes a provided callback function once for EACH array item?",
+    "options": [
+      "forEach()",
+      "loop()",
+      "iterate()",
+      "all()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "arr.forEach((item) => { ... }) executes a callback for every item in the array."
+  },
+  {
+    "id": "javascript_83",
+    "category": "JavaScript",
+    "topic": "Arrays, Objects, Math & DOM",
+    "difficulty": "Medium",
+    "question": "Which array method creates a BRAND NEW array by applying a function to every element?",
+    "options": [
+      "map()",
+      "forEach()",
+      "filter()",
+      "transform()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "arr.map() returns a new array containing the results of calling a function on every element."
+  },
+  {
+    "id": "javascript_84",
+    "category": "JavaScript",
+    "topic": "Arrays, Objects, Math & DOM",
+    "difficulty": "Medium",
+    "question": "What will [1, 2, 3].map(x => x * 2) return?",
+    "options": [
+      "[2, 4, 6]",
+      "[1, 2, 3]",
+      "6",
+      "[2, 2, 2]"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Every element is multiplied by 2, returning [2, 4, 6]."
+  },
+  {
+    "id": "javascript_85",
+    "category": "JavaScript",
+    "topic": "Arrays, Objects, Math & DOM",
+    "difficulty": "Medium",
+    "question": "Which array method creates a new array containing only elements that pass a test condition?",
+    "options": [
+      "filter()",
+      "find()",
+      "search()",
+      "slice()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "arr.filter(predicate) creates a new array with all elements that pass the test."
+  },
+  {
+    "id": "javascript_86",
+    "category": "JavaScript",
+    "topic": "Arrays, Objects, Math & DOM",
+    "difficulty": "Medium",
+    "question": "What will [10, 25, 5, 30].filter(x => x > 15) return?",
+    "options": [
+      "[25, 30]",
+      "[10, 5]",
+      "[10, 25, 5, 30]",
+      "25"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Only 25 and 30 are greater than 15, returning [25, 30]."
+  },
+  {
+    "id": "javascript_87",
+    "category": "JavaScript",
+    "topic": "Arrays, Objects, Math & DOM",
+    "difficulty": "Medium",
+    "question": "How do you access the value of 'name' from the object: let person = { name: 'Raj', age: 22 };?",
+    "options": [
+      "person.name or person['name']",
+      "person(name)",
+      "person->name",
+      "person::name"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Object properties are accessed using dot notation (person.name) or bracket notation (person['name'])."
+  },
+  {
+    "id": "javascript_88",
+    "category": "JavaScript",
+    "topic": "Arrays, Objects, Math & DOM",
+    "difficulty": "Medium",
+    "question": "What does Math.round(4.7) return?",
+    "options": [
+      "4",
+      "5",
+      "4.7",
+      "5.0"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Math.round() rounds to the nearest integer: 4.7 rounds up to 5."
+  },
+  {
+    "id": "javascript_89",
+    "category": "JavaScript",
+    "topic": "Arrays, Objects, Math & DOM",
+    "difficulty": "Medium",
+    "question": "What does Math.floor(4.9) return?",
+    "options": [
+      "4",
+      "5",
+      "4.0",
+      "NaN"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Math.floor() always rounds DOWN to the nearest whole integer: 4.9 becomes 4."
+  },
+  {
+    "id": "javascript_90",
+    "category": "JavaScript",
+    "topic": "Arrays, Objects, Math & DOM",
+    "difficulty": "Medium",
+    "question": "What does Math.ceil(4.1) return?",
+    "options": [
+      "4",
+      "5",
+      "4.5",
+      "NaN"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Math.ceil() always rounds UP to the next integer: 4.1 becomes 5."
+  },
+  {
+    "id": "javascript_91",
+    "category": "JavaScript",
+    "topic": "Arrays, Objects, Math & DOM",
+    "difficulty": "Medium",
+    "question": "What range of numbers does Math.random() return in JavaScript?",
+    "options": [
+      "A pseudo-random number from 0 (inclusive) up to but not including 1",
+      "An integer from 1 to 100",
+      "Any positive integer",
+      "0 or 1 only"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Math.random() generates a floating-point number in the range [0, 1)."
+  },
+  {
+    "id": "javascript_92",
+    "category": "JavaScript",
+    "topic": "Arrays, Objects, Math & DOM",
+    "difficulty": "Medium",
+    "question": "What does DOM stand for in web development?",
+    "options": [
+      "Document Object Model",
+      "Data Oriented Management",
+      "Digital Order Method",
+      "Document Online Module"
+    ],
+    "correctAnswer": 0,
+    "explanation": "DOM stands for Document Object Model—the browser's tree representation of HTML elements."
+  },
+  {
+    "id": "javascript_93",
+    "category": "JavaScript",
+    "topic": "Arrays, Objects, Math & DOM",
+    "difficulty": "Medium",
+    "question": "Which method selects an HTML element by its unique ID in the DOM?",
+    "options": [
+      "document.getElementById('demo')",
+      "document.selectId('demo')",
+      "document.findId('demo')",
+      "document.id('demo')"
+    ],
+    "correctAnswer": 0,
+    "explanation": "document.getElementById('demo') returns the DOM element matching the ID."
+  },
+  {
+    "id": "javascript_94",
+    "category": "JavaScript",
+    "topic": "Arrays, Objects, Math & DOM",
+    "difficulty": "Medium",
+    "question": "Which method selects the FIRST element matching a CSS selector (e.g. '.btn' or '#main')?",
+    "options": [
+      "document.querySelector()",
+      "document.find()",
+      "document.selectFirst()",
+      "document.getCss()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "document.querySelector('selector') returns the first matching element using standard CSS syntax."
+  },
+  {
+    "id": "javascript_95",
+    "category": "JavaScript",
+    "topic": "Arrays, Objects, Math & DOM",
+    "difficulty": "Medium",
+    "question": "Which property is used to change the HTML content (including tags) inside an element?",
+    "options": [
+      "innerHTML",
+      "textContent",
+      "innerText",
+      "htmlContent"
+    ],
+    "correctAnswer": 0,
+    "explanation": "element.innerHTML = '<b>Hello</b>'; sets or parses HTML markup inside the element."
+  },
+  {
+    "id": "javascript_96",
+    "category": "JavaScript",
+    "topic": "Arrays, Objects, Math & DOM",
+    "difficulty": "Medium",
+    "question": "Which property is used to change only the plain text content inside an element?",
+    "options": [
+      "innerText or textContent",
+      "innerHTML",
+      "textOnly",
+      "plainText"
+    ],
+    "correctAnswer": 0,
+    "explanation": "element.innerText or textContent changes text content safely without interpreting HTML tags."
+  },
+  {
+    "id": "javascript_97",
+    "category": "JavaScript",
+    "topic": "Arrays, Objects, Math & DOM",
+    "difficulty": "Medium",
+    "question": "How do you change the background color of an element named 'box' to yellow in JavaScript?",
+    "options": [
+      "box.style.backgroundColor = 'yellow';",
+      "box.color = 'yellow';",
+      "box.css.background = 'yellow';",
+      "box.background('yellow');"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Inline styles are set via element.style, using camelCase property names (backgroundColor)."
+  },
+  {
+    "id": "javascript_98",
+    "category": "JavaScript",
+    "topic": "Arrays, Objects, Math & DOM",
+    "difficulty": "Medium",
+    "question": "Which method attaches an event handler function (e.g. click event) to an element?",
+    "options": [
+      "element.addEventListener('click', handler);",
+      "element.attachEvent('click');",
+      "element.onClick(handler);",
+      "element.listen('click');"
+    ],
+    "correctAnswer": 0,
+    "explanation": "element.addEventListener('click', myFunction); registers an event listener cleanly."
+  },
+  {
+    "id": "javascript_99",
+    "category": "JavaScript",
+    "topic": "Arrays, Objects, Math & DOM",
+    "difficulty": "Medium",
+    "question": "Which browser popup function displays a simple message dialog with an 'OK' button?",
+    "options": [
+      "alert('Hello!')",
+      "prompt('Hello!')",
+      "confirm('Hello!')",
+      "msg('Hello!')"
+    ],
+    "correctAnswer": 0,
+    "explanation": "alert('Message') displays a simple notification popup modal with an OK button."
+  },
+  {
+    "id": "javascript_100",
+    "category": "JavaScript",
+    "topic": "Arrays, Objects, Math & DOM",
+    "difficulty": "Medium",
+    "question": "Which browser popup asks the user for text input and returns the typed string?",
+    "options": [
+      "prompt()",
+      "alert()",
+      "confirm()",
+      "input()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "prompt('Enter your name:') opens a dialog with a text input field and OK/Cancel buttons."
+  }
+]

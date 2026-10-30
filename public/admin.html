@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instructor Portal | Deepak Kumar - WEGROW Exam</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col justify-between">
+
+  <!-- ADMIN LOGIN MODAL (Shown if not authenticated) -->
+  <div id="adminLoginModal" class="fixed inset-0 bg-slate-900/90 backdrop-blur-md z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-8 shadow-2xl border border-slate-200">
+      
+      <div class="text-center mb-6">
+        <div class="w-14 h-14 rounded-2xl bg-blue-600 text-white flex items-center justify-center mx-auto mb-3 shadow-lg shadow-blue-500/20 font-bold text-2xl">
+          W
+        </div>
+        <h2 class="text-xl font-bold text-slate-900">Instructor Dashboard Login</h2>
+        <p class="text-xs text-slate-500 mt-1">Authorized for Deepak Kumar (deepakkumars170404@gmail.com)</p>
+      </div>
+
+      <form id="adminLoginForm" onsubmit="handleAdminLogin(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+            Instructor Email Address
+          </label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+            </div>
+            <input 
+              type="email" 
+              id="adminEmailInput" 
+              required
+              value="deepakkumars170404@gmail.com"
+              class="block w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm font-medium text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+            Security PIN / Password
+          </label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+              <i data-lucide="lock" class="w-4 h-4"></i>
+            </div>
+            <input 
+              type="password" 
+              id="adminPinInput" 
+              required
+              placeholder="Enter PIN (Default: wegrow2026)"
+              class="block w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm font-medium text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+          </div>
+          <p class="text-[11px] text-slate-400 mt-1">Default PIN: <code class="font-bold text-blue-600">wegrow2026</code></p>
+        </div>
+
+        <div id="loginErrorMsg" class="hidden text-xs text-red-600 p-2.5 bg-red-50 rounded-xl border border-red-200">
+        </div>
+
+        <button 
+          type="submit" 
+          id="loginSubmitBtn"
+          class="w-full py-3 px-4 rounded-xl text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-500/20 transition flex items-center justify-center space-x-2 cursor-pointer"
+        >
+          <i data-lucide="unlock" class="w-4 h-4"></i>
+          <span>Authenticate & Access Dashboard</span>
+        </button>
+
+        <div class="text-center pt-2">
+          <a href="index.html" class="text-xs text-slate-500 hover:text-slate-800 underline">
+            &larr; Return to Student Portal
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- AUTHENTICATED ADMIN INTERFACE -->
+  <div id="adminApp" class="flex-grow flex flex-col hidden">
+    
+    <!-- Top Navbar -->
+    <header class="bg-slate-900 text-white sticky top-0 z-40 border-b border-slate-800 shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center font-bold text-white text-xl">
+            W
+          </div>
+          <div>
+            <div class="flex items-center space-x-2">
+              <span class="text-lg font-bold text-white">WEGROW Instructor HQ</span>
+              <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30">Admin</span>
+            </div>
+            <p class="text-[11px] text-slate-400">Deepak Kumar (<span class="text-blue-400">deepakkumars170404@gmail.com</span>)</p>
+          </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <nav class="hidden md:flex items-center space-x-1 bg-slate-800 p-1 rounded-xl text-xs font-semibold">
+          <button onclick="switchTab('leaderboard')" id="tab-btn-leaderboard" class="tab-btn px-4 py-2 rounded-lg bg-blue-600 text-white shadow-sm flex items-center space-x-1.5 cursor-pointer">
+            <i data-lucide="trophy" class="w-4 h-4"></i>
+            <span>Leaderboard</span>
+          </button>
+          <button onclick="switchTab('reexam')" id="tab-btn-reexam" class="tab-btn px-4 py-2 rounded-lg text-slate-400 hover:text-white flex items-center space-x-1.5 cursor-pointer">
+            <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+            <span>Re-Exam Manager</span>
+          </button>
+          <button onclick="switchTab('questions')" id="tab-btn-questions" class="tab-btn px-4 py-2 rounded-lg text-slate-400 hover:text-white flex items-center space-x-1.5 cursor-pointer">
+            <i data-lucide="key" class="w-4 h-4"></i>
+            <span>Master Answer Keys (850 Qs)</span>
+          </button>
+          <button onclick="switchTab('live')" id="tab-btn-live" class="tab-btn px-4 py-2 rounded-lg text-slate-400 hover:text-white flex items-center space-x-1.5 cursor-pointer">
+            <i data-lucide="activity" class="w-4 h-4"></i>
+            <span>Live Monitor</span>
+          </button>
+        </nav>
+
+        <!-- Right: Actions -->
+        <div class="flex items-center space-x-2">
+          <a href="index.html" target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 border border-slate-700 flex items-center">
+            <i data-lucide="external-link" class="w-3.5 h-3.5 mr-1"></i> Student View
+          </a>
+          <button onclick="handleAdminLogout()" class="px-3 py-1.5 rounded-lg bg-rose-600/20 text-rose-300 hover:bg-rose-600/30 text-xs font-semibold border border-rose-500/30 flex items-center cursor-pointer">
+            <i data-lucide="log-out" class="w-3.5 h-3.5 mr-1"></i> Logout
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Mobile Tab Bar -->
+      <div class="md:hidden flex items-center justify-around border-t border-slate-800 p-2 bg-slate-900 text-xs">
+        <button onclick="switchTab('leaderboard')" class="text-blue-400 font-bold p-1">Leaderboard</button>
+        <button onclick="switchTab('reexam')" class="text-slate-400 p-1">Re-Exam</button>
+        <button onclick="switchTab('questions')" class="text-slate-400 p-1">Master Keys</button>
+        <button onclick="switchTab('live')" class="text-slate-400 p-1">Live</button>
+      </div>
+    </header>
+
+    <!-- CONTENT WRAPPER -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-grow">
+      
+      <!-- TAB 1: LEADERBOARD -->
+      <section id="tab-leaderboard" class="tab-content space-y-6">
+        
+        <!-- Top Stats Overview Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wider text-slate-400">Total Submissions</p>
+              <h3 id="statTotalSubmissions" class="text-2xl font-black text-slate-900 mt-1">0</h3>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+              <i data-lucide="users" class="w-6 h-6"></i>
+            </div>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wider text-slate-400">Batch Average %</p>
+              <h3 id="statAveragePercentage" class="text-2xl font-black text-indigo-600 mt-1">0.0%</h3>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center">
+              <i data-lucide="trending-up" class="w-6 h-6"></i>
+            </div>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wider text-slate-400">Highest Score</p>
+              <h3 id="statHighestScore" class="text-2xl font-black text-emerald-600 mt-1">0 / 50</h3>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+              <i data-lucide="award" class="w-6 h-6"></i>
+            </div>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wider text-slate-400">Active Live Tests</p>
+              <h3 id="statActiveSessions" class="text-2xl font-black text-amber-500 mt-1">0</h3>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
+              <i data-lucide="radio" class="w-6 h-6"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Leaderboard Table Container -->
+        <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+          
+          <!-- Filter & Search Controls Header -->
+          <div class="p-5 border-b border-slate-200 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h2 class="text-lg font-bold text-slate-900 flex items-center">
+                <i data-lucide="trophy" class="w-5 h-5 text-amber-500 mr-2"></i>
+                Official Leaderboard: Top Mark to Low Mark
+              </h2>
+              <p class="text-xs text-slate-500 mt-0.5">Ranked automatically by Highest Combined Score (/50), Percentage, and Time Taken.</p>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2">
+              <!-- Search by Candidate Name -->
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                  <i data-lucide="search" class="w-3.5 h-3.5"></i>
+                </div>
+                <input 
+                  type="text" 
+                  id="searchStudentInput" 
+                  oninput="filterLeaderboardTable()"
+                  placeholder="Search candidate name..." 
+                  class="pl-9 pr-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs font-medium text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+              </div>
+
+              <!-- Export CSV Button -->
+              <a 
+                id="exportCsvBtn" 
+                href="/api/admin/export-csv?adminEmail=deepakkumars170404@gmail.com&adminPin=wegrow2026" 
+                download
+                class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center space-x-1.5 shadow-sm transition"
+              >
+                <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                <span>Export CSV</span>
+              </a>
+
+              <!-- Refresh Button -->
+              <button 
+                onclick="loadLeaderboard()" 
+                class="p-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl border border-slate-300 transition cursor-pointer"
+                title="Refresh Table"
+              >
+                <i data-lucide="rotate-cw" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Top 3 Podium Cards (If entries exist) -->
+          <div id="podiumSection" class="p-6 bg-slate-50/50 border-b border-slate-200 hidden">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 text-center">Top 3 Rank Holders</h4>
+            <div id="podiumCardsContainer" class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+              <!-- Dynamically rendered -->
+            </div>
+          </div>
+
+          <!-- Leaderboard Table -->
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead class="bg-slate-50 text-slate-500 uppercase font-bold text-[10px] tracking-wider border-b border-slate-200">
+                <tr>
+                  <th class="py-3.5 px-4">Rank</th>
+                  <th class="py-3.5 px-4">Candidate Name</th>
+                  <th class="py-3.5 px-4 text-center">Round 1 (Aptitude /20)</th>
+                  <th class="py-3.5 px-4 text-center">Round 2 (Technical /30)</th>
+                  <th class="py-3.5 px-4 text-center font-black">Total Score (/50)</th>
+                  <th class="py-3.5 px-4 text-center">Percentage</th>
+                  <th class="py-3.5 px-4">Selected Topics</th>
+                  <th class="py-3.5 px-4 text-center">Strikes</th>
+                  <th class="py-3.5 px-4 text-center">Time</th>
+                  <th class="py-3.5 px-4">Submitted At</th>
+                  <th class="py-3.5 px-4 text-right">Instructor Actions</th>
+                </tr>
+              </thead>
+              <tbody id="leaderboardTbody" class="divide-y divide-slate-100 text-slate-700 font-medium">
+                <tr>
+                  <td colspan="11" class="p-8 text-center text-slate-400">Loading student rankings...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- TAB 2: RE-EXAM & UNLOCK MANAGER -->
+      <section id="tab-reexam" class="tab-content hidden space-y-6">
+        
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+          <div class="max-w-2xl">
+            <h2 class="text-lg font-bold text-slate-900 flex items-center">
+              <i data-lucide="refresh-cw" class="w-5 h-5 text-blue-600 mr-2"></i>
+              Candidate Re-Exam Authorization Center
+            </h2>
+            <p class="text-xs text-slate-500 mt-1">
+              If a student mistakenly closed their browser tab, lost connection, or got locked out due to proctoring strikes, grant permission below to allow them to re-write the exam.
+            </p>
+          </div>
+
+          <form onsubmit="handleGrantReexam(event)" class="mt-6 max-w-xl space-y-4 p-5 bg-slate-50 rounded-2xl border border-slate-200">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                Student Full Name <span class="text-red-500">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="reexamStudentNameInput" 
+                required
+                placeholder="Enter candidate's exact registered name"
+                class="w-full px-4 py-2.5 bg-white border border-slate-300 rounded-xl text-xs font-medium focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              >
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                Reason for Re-Exam Authorization (Optional)
+              </label>
+              <input 
+                type="text" 
+                id="reexamReasonInput" 
+                placeholder="e.g. Accidental tab closure / Power issue"
+                class="w-full px-4 py-2.5 bg-white border border-slate-300 rounded-xl text-xs font-medium focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              >
+            </div>
+
+            <div class="flex items-center space-x-2 pt-1">
+              <input type="checkbox" id="reexamClearPrevCheck" class="w-4 h-4 rounded text-blue-600 border-slate-300">
+              <label for="reexamClearPrevCheck" class="text-xs text-slate-600 font-medium cursor-pointer">
+                Delete previous submitted score record (Fresh start on leaderboard)
+              </label>
+            </div>
+
+            <button 
+              type="submit" 
+              class="w-full py-3 px-4 rounded-xl text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-500/20 transition flex items-center justify-center space-x-2 cursor-pointer"
+            >
+              <i data-lucide="check" class="w-4 h-4"></i>
+              <span>Grant Re-Exam Permission & Unlock Session</span>
+            </button>
+          </form>
+
+        </div>
+
+      </section>
+
+      <!-- TAB 3: MASTER QUESTIONS & ANSWERS KEY (DEEPAK ONLY) -->
+      <section id="tab-questions" class="tab-content hidden space-y-6">
+        
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+          
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-slate-200 pb-5">
+            <div>
+              <div class="flex items-center space-x-2">
+                <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold uppercase">Confidential Master Key</span>
+                <span class="text-xs text-slate-400">Deepak Kumar Only</span>
+              </div>
+              <h2 class="text-xl font-black text-slate-900 mt-1">
+                Question Bank & Answer Solutions (850 Total Pool)
+              </h2>
+              <p class="text-xs text-slate-500 mt-0.5">
+                Complete question repository across all 8 modules (150 Aptitude, 100 HTML, 100 CSS, 100 Bootstrap, 100 JS, 100 Python, 100 React, 100 DA) with verified solutions.
+              </p>
+            </div>
+
+            <!-- Module Switcher & Actions for Master Key -->
+            <div class="flex flex-wrap items-center gap-2">
+              <select 
+                id="masterModuleSelect" 
+                onchange="loadMasterQuestions()"
+                class="px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs font-bold text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              >
+                <option value="aptitude">Round 1: MNC Aptitude (150 Pool)</option>
+                <option value="html">Round 2: HTML Core to Medium (100 Pool)</option>
+                <option value="css">Round 2: CSS Core to Medium (100 Pool)</option>
+                <option value="bootstrap">Round 2: Bootstrap 5 (100 Pool)</option>
+                <option value="javascript">Round 2: JavaScript Mastery (100 Pool)</option>
+                <option value="python">Round 2: Python Programming (100 Pool)</option>
+                <option value="react">Round 2: React.js Essentials (100 Pool)</option>
+                <option value="data_analytics">Round 2: Data Analytics & Python (100 Pool)</option>
+              </select>
+
+              <!-- ADD QUESTION BUTTON (FOR DEEPAK) -->
+              <button 
+                onclick="openAddQuestionModal()" 
+                class="px-3.5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-xl shadow-sm transition flex items-center space-x-1.5 cursor-pointer"
+              >
+                <i data-lucide="plus-circle" class="w-4 h-4"></i>
+                <span>Add Question</span>
+              </button>
+
+              <button 
+                onclick="window.print()" 
+                class="px-3 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl border border-slate-300 flex items-center space-x-1 cursor-pointer"
+              >
+                <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+                <span>Print Master Sheet</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Questions List -->
+          <div id="masterQuestionsContainer" class="mt-6 space-y-4">
+            <div class="p-8 text-center text-slate-400 text-xs">Loading questions bank...</div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- TAB 4: LIVE MONITOR -->
+      <section id="tab-live" class="tab-content hidden space-y-6">
+        
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+          <div class="flex items-center justify-between pb-4 border-b border-slate-200">
+            <div>
+              <h2 class="text-lg font-bold text-slate-900 flex items-center">
+                <i data-lucide="radio" class="w-5 h-5 text-emerald-600 mr-2 animate-pulse"></i>
+                Live Active Test Monitor
+              </h2>
+              <p class="text-xs text-slate-500 mt-0.5">Real-time status of candidates currently writing Round 1 or Round 2.</p>
+            </div>
+            <button 
+              onclick="loadLiveSessions()" 
+              class="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-slate-700 border border-slate-300 flex items-center cursor-pointer"
+            >
+              <i data-lucide="rotate-cw" class="w-3.5 h-3.5 mr-1"></i> Refresh Feed
+            </button>
+          </div>
+
+          <div id="liveSessionsContainer" class="mt-6">
+            <div class="p-8 text-center text-slate-400 text-xs">Checking active candidates...</div>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-4 mt-8 print:hidden">
+      <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500">
+        &copy; 2026 WEGROW Assessment Headquarters. Lead Instructor: Deepak Kumar (<a href="mailto:deepakkumars170404@gmail.com" class="text-blue-600 hover:underline">deepakkumars170404@gmail.com</a>).
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- MODAL: MANUALLY ADD QUESTION (FOR DEEPAK) -->
+  <div id="addQuestionModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 my-8">
+      
+      <div class="flex items-center justify-between pb-4 border-b border-slate-200">
+        <div class="flex items-center space-x-2">
+          <div class="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-sm">
+            <i data-lucide="plus" class="w-4 h-4"></i>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-slate-900">Add New Exam Question</h3>
+            <p class="text-xs text-slate-500">Insert directly into SQLite Database (Deepak Only)</p>
+          </div>
+        </div>
+        <button onclick="closeAddQuestionModal()" class="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg hover:bg-slate-100 cursor-pointer">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="addQuestionForm" onsubmit="handleSaveCustomQuestion(event)" class="mt-4 space-y-4">
+        
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div>
+            <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">
+              Target Module <span class="text-red-500">*</span>
+            </label>
+            <select id="newQModule" required class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs font-semibold">
+              <option value="aptitude">Round 1: MNC Aptitude</option>
+              <option value="html">Round 2: HTML</option>
+              <option value="css">Round 2: CSS</option>
+              <option value="bootstrap">Round 2: Bootstrap 5</option>
+              <option value="javascript">Round 2: JavaScript</option>
+              <option value="python">Round 2: Python</option>
+              <option value="react">Round 2: React.js</option>
+              <option value="data_analytics">Round 2: Data Analytics</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">
+              Difficulty Level <span class="text-red-500">*</span>
+            </label>
+            <select id="newQDifficulty" required class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs font-semibold">
+              <option value="Basic">Basic (Appears in first half)</option>
+              <option value="Medium">Medium (Appears in second half)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">
+              Category / Topic
+            </label>
+            <input type="text" id="newQTopic" placeholder="e.g. Flexbox / VLOOKUP" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs font-medium">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">
+            Question Statement <span class="text-red-500">*</span>
+          </label>
+          <textarea id="newQText" rows="3" required placeholder="Type the question statement here. You can include code snippets." class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs font-medium focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
+        </div>
+
+        <div class="space-y-2">
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-700">
+            Four Options & Correct Answer Selection <span class="text-red-500">*</span>
+          </label>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+            <div class="flex items-center space-x-2 p-2 rounded-xl border border-slate-200 bg-slate-50">
+              <input type="radio" name="newQCorrect" value="0" required class="w-4 h-4 text-emerald-600">
+              <span class="font-bold text-slate-600">A:</span>
+              <input type="text" id="newQOpt0" required placeholder="Option A text" class="flex-1 bg-white border border-slate-300 rounded-lg px-2 py-1 text-xs">
+            </div>
+
+            <div class="flex items-center space-x-2 p-2 rounded-xl border border-slate-200 bg-slate-50">
+              <input type="radio" name="newQCorrect" value="1" required class="w-4 h-4 text-emerald-600">
+              <span class="font-bold text-slate-600">B:</span>
+              <input type="text" id="newQOpt1" required placeholder="Option B text" class="flex-1 bg-white border border-slate-300 rounded-lg px-2 py-1 text-xs">
+            </div>
+
+            <div class="flex items-center space-x-2 p-2 rounded-xl border border-slate-200 bg-slate-50">
+              <input type="radio" name="newQCorrect" value="2" required class="w-4 h-4 text-emerald-600">
+              <span class="font-bold text-slate-600">C:</span>
+              <input type="text" id="newQOpt2" required placeholder="Option C text" class="flex-1 bg-white border border-slate-300 rounded-lg px-2 py-1 text-xs">
+            </div>
+
+            <div class="flex items-center space-x-2 p-2 rounded-xl border border-slate-200 bg-slate-50">
+              <input type="radio" name="newQCorrect" value="3" required class="w-4 h-4 text-emerald-600">
+              <span class="font-bold text-slate-600">D:</span>
+              <input type="text" id="newQOpt3" required placeholder="Option D text" class="flex-1 bg-white border border-slate-300 rounded-lg px-2 py-1 text-xs">
+            </div>
+          </div>
+          <p class="text-[10px] text-slate-400">Click the radio button corresponding to the correct answer choice.</p>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">
+            Explanation / Solution Justification <span class="text-red-500">*</span>
+          </label>
+          <textarea id="newQExplanation" rows="2" required placeholder="Explain why this answer is correct (shown to students upon test completion and in admin master key)." class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs font-medium focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
+        </div>
+
+        <div class="flex items-center space-x-3 pt-2">
+          <button type="button" onclick="closeAddQuestionModal()" class="flex-1 py-2.5 px-4 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-300 transition cursor-pointer">
+            Cancel
+          </button>
+          <button type="submit" id="saveQuestionBtn" class="flex-1 py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-500/20 transition flex items-center justify-center space-x-1.5 cursor-pointer">
+            <i data-lucide="check" class="w-4 h-4"></i>
+            <span>Save Question to Database</span>
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

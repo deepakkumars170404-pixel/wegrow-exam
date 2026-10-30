@@ -1,0 +1,1502 @@
+[
+  {
+    "id": "bootstrap_1",
+    "category": "Bootstrap",
+    "topic": "Bootstrap 5 Basics, Containers & Breakpoints",
+    "difficulty": "Basic",
+    "question": "What is Bootstrap?",
+    "options": [
+      "A popular open-source front-end CSS framework for building responsive, mobile-first websites",
+      "A backend relational database management system",
+      "A JavaScript compiler like Babel",
+      "A web hosting platform"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Bootstrap is an open-source front-end framework developed by Twitter containing CSS and JS components for responsive design."
+  },
+  {
+    "id": "bootstrap_2",
+    "category": "Bootstrap",
+    "topic": "Bootstrap 5 Basics, Containers & Breakpoints",
+    "difficulty": "Basic",
+    "question": "What design philosophy does Bootstrap follow by default?",
+    "options": [
+      "Desktop-first",
+      "Mobile-first",
+      "Tablet-only",
+      "Print-first"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Bootstrap uses mobile-first design, writing base styles for small screens and expanding upwards with min-width media queries."
+  },
+  {
+    "id": "bootstrap_3",
+    "category": "Bootstrap",
+    "topic": "Bootstrap 5 Basics, Containers & Breakpoints",
+    "difficulty": "Basic",
+    "question": "Which version of Bootstrap completely removed the dependency on jQuery in favor of modern vanilla JavaScript?",
+    "options": [
+      "Bootstrap 3",
+      "Bootstrap 4",
+      "Bootstrap 5",
+      "Bootstrap 2"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Bootstrap 5 eliminated the jQuery dependency, rewriting all interactive plugins in pure vanilla JavaScript."
+  },
+  {
+    "id": "bootstrap_4",
+    "category": "Bootstrap",
+    "topic": "Bootstrap 5 Basics, Containers & Breakpoints",
+    "difficulty": "Basic",
+    "question": "Which HTML <meta> tag in the <head> is essential for Bootstrap responsive behavior?",
+    "options": [
+      "<meta name='viewport' content='width=device-width, initial-scale=1'>",
+      "<meta name='responsive' content='true'>",
+      "<meta name='mobile' content='enabled'>",
+      "<meta name='screen' content='fluid'>"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The viewport meta tag ensures appropriate rendering touch-zoom and width scaling on mobile screens."
+  },
+  {
+    "id": "bootstrap_5",
+    "category": "Bootstrap",
+    "topic": "Bootstrap 5 Basics, Containers & Breakpoints",
+    "difficulty": "Basic",
+    "question": "What is the simplest way to include Bootstrap in an HTML page without downloading files locally?",
+    "options": [
+      "Via a Content Delivery Network (CDN) link",
+      "Through an FTP connection",
+      "Using a Python script",
+      "By copying binary code"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Using a public CDN (Content Delivery Network) link in <link> and <script> tags is the fastest way to load Bootstrap."
+  },
+  {
+    "id": "bootstrap_6",
+    "category": "Bootstrap",
+    "topic": "Bootstrap 5 Basics, Containers & Breakpoints",
+    "difficulty": "Basic",
+    "question": "Which container class creates a responsive, fixed-width container with centered automatic margins at each breakpoint?",
+    "options": [
+      ".container",
+      ".container-fluid",
+      ".container-fixed",
+      ".container-center"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.container' provides a fixed-width container whose max-width changes responsively at each screen breakpoint."
+  },
+  {
+    "id": "bootstrap_7",
+    "category": "Bootstrap",
+    "topic": "Bootstrap 5 Basics, Containers & Breakpoints",
+    "difficulty": "Basic",
+    "question": "Which container class creates a full-width container that always spans 100% of the viewport width across all screens?",
+    "options": [
+      ".container-100",
+      ".container-fluid",
+      ".container-full",
+      ".container-wide"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'.container-fluid' spans 100% of the viewport width at all screen sizes."
+  },
+  {
+    "id": "bootstrap_8",
+    "category": "Bootstrap",
+    "topic": "Bootstrap 5 Basics, Containers & Breakpoints",
+    "difficulty": "Basic",
+    "question": "How many columns are there in the standard Bootstrap responsive grid system?",
+    "options": [
+      "6",
+      "10",
+      "12",
+      "16"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Bootstrap's layout grid is based on a flexible 12-column system."
+  },
+  {
+    "id": "bootstrap_9",
+    "category": "Bootstrap",
+    "topic": "Bootstrap 5 Basics, Containers & Breakpoints",
+    "difficulty": "Basic",
+    "question": "Which breakpoint abbreviation represents 'Small' screens (≥ 576px) in Bootstrap?",
+    "options": [
+      "xs",
+      "sm",
+      "md",
+      "s"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'sm' represents small devices with viewports 576px and wider."
+  },
+  {
+    "id": "bootstrap_10",
+    "category": "Bootstrap",
+    "topic": "Bootstrap 5 Basics, Containers & Breakpoints",
+    "difficulty": "Basic",
+    "question": "Which breakpoint abbreviation represents 'Medium' screens (≥ 768px, like tablets) in Bootstrap?",
+    "options": [
+      "md",
+      "med",
+      "tab",
+      "m"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'md' targets medium devices like tablets at 768px and wider."
+  },
+  {
+    "id": "bootstrap_11",
+    "category": "Bootstrap",
+    "topic": "Bootstrap 5 Basics, Containers & Breakpoints",
+    "difficulty": "Basic",
+    "question": "Which breakpoint abbreviation represents 'Large' screens (≥ 992px, like laptops) in Bootstrap?",
+    "options": [
+      "lg",
+      "lrg",
+      "desk",
+      "l"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'lg' targets large devices like desktop monitors and laptops at 992px and wider."
+  },
+  {
+    "id": "bootstrap_12",
+    "category": "Bootstrap",
+    "topic": "Bootstrap 5 Basics, Containers & Breakpoints",
+    "difficulty": "Basic",
+    "question": "Which breakpoint abbreviation represents 'Extra Large' screens (≥ 1200px) in Bootstrap?",
+    "options": [
+      "xl",
+      "xxl",
+      "elg",
+      "x"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'xl' targets extra large screens at 1200px and wider."
+  },
+  {
+    "id": "bootstrap_13",
+    "category": "Bootstrap",
+    "topic": "Bootstrap 5 Basics, Containers & Breakpoints",
+    "difficulty": "Basic",
+    "question": "Which new breakpoint was introduced in Bootstrap 5 for screens ≥ 1400px?",
+    "options": [
+      "xxl",
+      "huge",
+      "4k",
+      "super"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Bootstrap 5 added the 'xxl' breakpoint for viewports 1400px and wider."
+  },
+  {
+    "id": "bootstrap_14",
+    "category": "Bootstrap",
+    "topic": "Bootstrap 5 Basics, Containers & Breakpoints",
+    "difficulty": "Basic",
+    "question": "In Bootstrap grid markup, inside which element must columns (.col-*) be directly placed?",
+    "options": [
+      ".container",
+      ".row",
+      ".grid",
+      ".table"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Columns must be immediate children of a '.row' container."
+  },
+  {
+    "id": "bootstrap_15",
+    "category": "Bootstrap",
+    "topic": "Bootstrap 5 Basics, Containers & Breakpoints",
+    "difficulty": "Basic",
+    "question": "What is the purpose of the '.row' class in Bootstrap?",
+    "options": [
+      "To create table borders",
+      "To wrap columns and provide negative margins to align with container padding",
+      "To change font family",
+      "To animate buttons"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'.row' creates a horizontal group of columns and aligns them properly within containers."
+  },
+  {
+    "id": "bootstrap_16",
+    "category": "Bootstrap",
+    "topic": "Bootstrap 5 Basics, Containers & Breakpoints",
+    "difficulty": "Basic",
+    "question": "What happens if the sum of column spans in a single row exceeds 12 (e.g. .col-8 and .col-6 = 14)?",
+    "options": [
+      "The browser crashes",
+      "The extra columns wrap onto a new line as one unit",
+      "The columns shrink to 1px",
+      "Bootstrap throws a console error"
+    ],
+    "correctAnswer": 1,
+    "explanation": "If more than 12 columns are placed in a row, the excess columns wrap onto a new line automatically."
+  },
+  {
+    "id": "bootstrap_17",
+    "category": "Bootstrap",
+    "topic": "Bootstrap 5 Basics, Containers & Breakpoints",
+    "difficulty": "Basic",
+    "question": "Which class creates equal-width columns that automatically share available space equally without setting specific numbers?",
+    "options": [
+      ".col",
+      ".col-equal",
+      ".col-auto",
+      ".col-flex"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Adding plain '.col' to multiple elements causes them to automatically share row space equally."
+  },
+  {
+    "id": "bootstrap_18",
+    "category": "Bootstrap",
+    "topic": "Bootstrap 5 Basics, Containers & Breakpoints",
+    "difficulty": "Basic",
+    "question": "Which class sizes a column based on the natural width of its content?",
+    "options": [
+      ".col-content",
+      ".col-auto",
+      ".col-fit",
+      ".col-natural"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'.col-auto' sizes the column strictly to fit the natural width of its inner content."
+  },
+  {
+    "id": "bootstrap_19",
+    "category": "Bootstrap",
+    "topic": "Bootstrap 5 Basics, Containers & Breakpoints",
+    "difficulty": "Basic",
+    "question": "How do you create a column that spans 6 out of 12 columns on medium screens and larger (.col-md-6)?",
+    "options": [
+      "Takes 50% width on screens ≥ 768px, and 100% full width on smaller mobile screens",
+      "Takes 6% of the screen width",
+      "Takes 60px fixed width",
+      "Hides the column on mobile"
+    ],
+    "correctAnswer": 0,
+    "explanation": ".col-md-6 takes half the row (6/12 = 50%) on screens ≥ 768px and defaults to full width (100%) on mobile."
+  },
+  {
+    "id": "bootstrap_20",
+    "category": "Bootstrap",
+    "topic": "Bootstrap 5 Basics, Containers & Breakpoints",
+    "difficulty": "Basic",
+    "question": "How do you create 3 equal-width columns on large screens (laptops) in Bootstrap?",
+    "options": [
+      ".col-lg-3 on each",
+      ".col-lg-4 on each (4 + 4 + 4 = 12)",
+      ".col-lg-6 on each",
+      ".col-3 on each"
+    ],
+    "correctAnswer": 1,
+    "explanation": "12 divided by 3 is 4, so using '.col-lg-4' on three elements creates 3 equal columns."
+  },
+  {
+    "id": "bootstrap_21",
+    "category": "Bootstrap",
+    "topic": "Bootstrap 5 Basics, Containers & Breakpoints",
+    "difficulty": "Basic",
+    "question": "How do you create 4 equal-width columns on desktop screens in Bootstrap?",
+    "options": [
+      ".col-md-3 on each (3 + 3 + 3 + 3 = 12)",
+      ".col-md-4 on each",
+      ".col-4 on each",
+      ".col-md-6 on each"
+    ],
+    "correctAnswer": 0,
+    "explanation": "12 divided by 4 is 3, so '.col-md-3' creates 4 equal columns across the row."
+  },
+  {
+    "id": "bootstrap_22",
+    "category": "Bootstrap",
+    "topic": "Bootstrap 5 Basics, Containers & Breakpoints",
+    "difficulty": "Basic",
+    "question": "Which utility class adds gutters (spacing) between columns in a Bootstrap row?",
+    "options": [
+      ".g-3",
+      ".space-3",
+      ".gap-cols",
+      ".margin-grid"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Gutter classes like '.g-3' or '.g-4' control horizontal and vertical space between columns."
+  },
+  {
+    "id": "bootstrap_23",
+    "category": "Bootstrap",
+    "topic": "Bootstrap 5 Basics, Containers & Breakpoints",
+    "difficulty": "Basic",
+    "question": "Which class pushes or shifts a column to the right by 2 columns on medium screens?",
+    "options": [
+      ".push-md-2",
+      ".offset-md-2",
+      ".shift-2",
+      ".move-right-2"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'.offset-md-2' shifts the column 2 units to the right using left margin."
+  },
+  {
+    "id": "bootstrap_24",
+    "category": "Bootstrap",
+    "topic": "Bootstrap 5 Basics, Containers & Breakpoints",
+    "difficulty": "Basic",
+    "question": "Can you nest a new '.row' with columns inside an existing column in Bootstrap?",
+    "options": [
+      "No, nesting is strictly prohibited in Bootstrap",
+      "Yes, you can nest a .row inside any column to create complex layouts",
+      "Only in Bootstrap 4",
+      "Only inside .container-fluid"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Nesting is fully supported: you can place a new '.row' inside an existing column."
+  },
+  {
+    "id": "bootstrap_25",
+    "category": "Bootstrap",
+    "topic": "Bootstrap 5 Basics, Containers & Breakpoints",
+    "difficulty": "Basic",
+    "question": "Which class makes a row of columns reverse their visual order in Bootstrap?",
+    "options": [
+      ".flex-row-reverse",
+      ".row-reverse",
+      ".invert-row",
+      ".reverse-cols"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.flex-row-reverse' inverts the display order of flex items in a row."
+  },
+  {
+    "id": "bootstrap_26",
+    "category": "Bootstrap",
+    "topic": "12-Column Grid System & Layout",
+    "difficulty": "Basic",
+    "question": "Which contextual color class represents the primary blue theme in Bootstrap?",
+    "options": [
+      "primary",
+      "blue",
+      "main",
+      "brand"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'primary' is Bootstrap's default primary theme color (blue)."
+  },
+  {
+    "id": "bootstrap_27",
+    "category": "Bootstrap",
+    "topic": "12-Column Grid System & Layout",
+    "difficulty": "Basic",
+    "question": "Which contextual color class represents a green success state in Bootstrap?",
+    "options": [
+      "valid",
+      "success",
+      "green",
+      "confirm"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'success' represents positive or successful actions (green)."
+  },
+  {
+    "id": "bootstrap_28",
+    "category": "Bootstrap",
+    "topic": "12-Column Grid System & Layout",
+    "difficulty": "Basic",
+    "question": "Which contextual color class represents a red error or danger state in Bootstrap?",
+    "options": [
+      "danger",
+      "error",
+      "alert",
+      "red"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'danger' represents dangerous or negative actions/alerts (red)."
+  },
+  {
+    "id": "bootstrap_29",
+    "category": "Bootstrap",
+    "topic": "12-Column Grid System & Layout",
+    "difficulty": "Basic",
+    "question": "Which contextual color class represents a yellow warning state in Bootstrap?",
+    "options": [
+      "caution",
+      "warning",
+      "yellow",
+      "notice"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'warning' represents warnings or caution states (yellow/amber)."
+  },
+  {
+    "id": "bootstrap_30",
+    "category": "Bootstrap",
+    "topic": "12-Column Grid System & Layout",
+    "difficulty": "Basic",
+    "question": "Which contextual color class represents a cyan/teal informational state in Bootstrap?",
+    "options": [
+      "info",
+      "cyan",
+      "notice",
+      "help"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'info' represents informational alerts or badges (cyan/light blue)."
+  },
+  {
+    "id": "bootstrap_31",
+    "category": "Bootstrap",
+    "topic": "12-Column Grid System & Layout",
+    "difficulty": "Basic",
+    "question": "Which class changes text color to red in Bootstrap?",
+    "options": [
+      ".color-red",
+      ".text-danger",
+      ".font-danger",
+      ".text-red"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'.text-danger' sets the text color to red."
+  },
+  {
+    "id": "bootstrap_32",
+    "category": "Bootstrap",
+    "topic": "12-Column Grid System & Layout",
+    "difficulty": "Basic",
+    "question": "Which class changes background color to dark in Bootstrap?",
+    "options": [
+      ".bg-black",
+      ".bg-dark",
+      ".background-dark",
+      ".dark-mode"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'.bg-dark' applies a dark background color."
+  },
+  {
+    "id": "bootstrap_33",
+    "category": "Bootstrap",
+    "topic": "12-Column Grid System & Layout",
+    "difficulty": "Basic",
+    "question": "Which class changes text color to muted, subtle grey in Bootstrap 5?",
+    "options": [
+      ".text-muted or .text-secondary",
+      ".text-grey",
+      ".color-subtle",
+      ".text-disabled"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.text-muted' and '.text-secondary' apply subtle secondary text coloring."
+  },
+  {
+    "id": "bootstrap_34",
+    "category": "Bootstrap",
+    "topic": "12-Column Grid System & Layout",
+    "difficulty": "Basic",
+    "question": "Which class centers text horizontally in Bootstrap?",
+    "options": [
+      ".align-center",
+      ".text-center",
+      ".center-text",
+      ".horizontal-center"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'.text-center' applies CSS text-align: center;."
+  },
+  {
+    "id": "bootstrap_35",
+    "category": "Bootstrap",
+    "topic": "12-Column Grid System & Layout",
+    "difficulty": "Basic",
+    "question": "Which class aligns text to the right side in Bootstrap 5?",
+    "options": [
+      ".text-right",
+      ".text-end",
+      ".align-right",
+      ".text-last"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Bootstrap 5 uses direction-agnostic '.text-end' for right alignment (replacing Bootstrap 4's .text-right)."
+  },
+  {
+    "id": "bootstrap_36",
+    "category": "Bootstrap",
+    "topic": "12-Column Grid System & Layout",
+    "difficulty": "Basic",
+    "question": "Which class aligns text to the left side in Bootstrap 5?",
+    "options": [
+      ".text-left",
+      ".text-start",
+      ".align-left",
+      ".text-first"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Bootstrap 5 uses '.text-start' for left alignment (replacing Bootstrap 4's .text-left)."
+  },
+  {
+    "id": "bootstrap_37",
+    "category": "Bootstrap",
+    "topic": "12-Column Grid System & Layout",
+    "difficulty": "Basic",
+    "question": "Which class transforms text to all UPPERCASE in Bootstrap?",
+    "options": [
+      ".uppercase",
+      ".text-uppercase",
+      ".font-caps",
+      ".text-caps"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'.text-uppercase' applies text-transform: uppercase;."
+  },
+  {
+    "id": "bootstrap_38",
+    "category": "Bootstrap",
+    "topic": "12-Column Grid System & Layout",
+    "difficulty": "Basic",
+    "question": "Which class makes text bold in Bootstrap 5?",
+    "options": [
+      ".font-weight-bold",
+      ".fw-bold",
+      ".text-bold",
+      ".b"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Bootstrap 5 uses '.fw-bold' (Font Weight Bold) for bold text styling."
+  },
+  {
+    "id": "bootstrap_39",
+    "category": "Bootstrap",
+    "topic": "12-Column Grid System & Layout",
+    "difficulty": "Basic",
+    "question": "Which class makes text italic in Bootstrap 5?",
+    "options": [
+      ".fst-italic",
+      ".font-italic",
+      ".text-italic",
+      ".italic"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Bootstrap 5 uses '.fst-italic' (Font Style Italic)."
+  },
+  {
+    "id": "bootstrap_40",
+    "category": "Bootstrap",
+    "topic": "12-Column Grid System & Layout",
+    "difficulty": "Basic",
+    "question": "In Bootstrap spacing utilities, what do the letters 'm' and 'p' stand for?",
+    "options": [
+      "margin and padding",
+      "minimum and peak",
+      "main and primary",
+      "mode and position"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'m' sets margin; 'p' sets padding."
+  },
+  {
+    "id": "bootstrap_41",
+    "category": "Bootstrap",
+    "topic": "12-Column Grid System & Layout",
+    "difficulty": "Basic",
+    "question": "What does the spacing class '.mt-3' do in Bootstrap?",
+    "options": [
+      "Sets margin-top with size 3",
+      "Sets margin-total to 3px",
+      "Sets max-top to 30%",
+      "Moves text 3 spaces"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.mt-3' sets margin-top (size 3 = 1rem = 16px by default)."
+  },
+  {
+    "id": "bootstrap_42",
+    "category": "Bootstrap",
+    "topic": "12-Column Grid System & Layout",
+    "difficulty": "Basic",
+    "question": "What does the spacing class '.mb-4' do in Bootstrap?",
+    "options": [
+      "Sets margin-bottom with size 4",
+      "Sets margin-both",
+      "Sets margin-base",
+      "Sets padding-bottom"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.mb-4' sets margin-bottom (size 4 = 1.5rem = 24px)."
+  },
+  {
+    "id": "bootstrap_43",
+    "category": "Bootstrap",
+    "topic": "12-Column Grid System & Layout",
+    "difficulty": "Basic",
+    "question": "Which directional suffix represents the horizontal START (left) in Bootstrap 5 spacing?",
+    "options": [
+      "l (left)",
+      "s (start)",
+      "x (horizontal)",
+      "h (horizontal)"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Bootstrap 5 uses 's' (start) instead of 'l' (e.g. '.ms-3' sets margin-left)."
+  },
+  {
+    "id": "bootstrap_44",
+    "category": "Bootstrap",
+    "topic": "12-Column Grid System & Layout",
+    "difficulty": "Basic",
+    "question": "Which directional suffix represents the horizontal END (right) in Bootstrap 5 spacing?",
+    "options": [
+      "r (right)",
+      "e (end)",
+      "x",
+      "w"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Bootstrap 5 uses 'e' (end) instead of 'r' (e.g. '.me-3' sets margin-right)."
+  },
+  {
+    "id": "bootstrap_45",
+    "category": "Bootstrap",
+    "topic": "12-Column Grid System & Layout",
+    "difficulty": "Basic",
+    "question": "What does the spacing class '.mx-auto' accomplish on a block element?",
+    "options": [
+      "Sets left and right margin to auto, horizontally centering the element",
+      "Sets maximum width to auto",
+      "Removes all margins",
+      "Sets margins on mobile only"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.mx-auto' sets margin-left and margin-right to auto, centering elements with fixed width."
+  },
+  {
+    "id": "bootstrap_46",
+    "category": "Bootstrap",
+    "topic": "12-Column Grid System & Layout",
+    "difficulty": "Basic",
+    "question": "What does the spacing class '.p-3' do?",
+    "options": [
+      "Sets padding on all 4 sides (top, bottom, left, right) to size 3",
+      "Sets padding-left only",
+      "Sets pixel-size to 3",
+      "Removes padding"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.p-3' sets padding on all 4 sides."
+  },
+  {
+    "id": "bootstrap_47",
+    "category": "Bootstrap",
+    "topic": "12-Column Grid System & Layout",
+    "difficulty": "Basic",
+    "question": "What does the class '.p-0' do in Bootstrap?",
+    "options": [
+      "Sets padding to zero (removes all padding)",
+      "Sets padding to 10px",
+      "Sets padding to auto",
+      "Does nothing"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.p-0' and '.m-0' set padding and margin to 0."
+  },
+  {
+    "id": "bootstrap_48",
+    "category": "Bootstrap",
+    "topic": "12-Column Grid System & Layout",
+    "difficulty": "Basic",
+    "question": "What range of numeric sizing values (0 to 5) do Bootstrap spacing utilities support by default?",
+    "options": [
+      "0, 1, 2, 3, 4, 5",
+      "1 to 10",
+      "10 to 50",
+      "0 to 100"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Bootstrap spacing scales from 0 (0), 1 (0.25rem), 2 (0.5rem), 3 (1rem), 4 (1.5rem), to 5 (3rem)."
+  },
+  {
+    "id": "bootstrap_49",
+    "category": "Bootstrap",
+    "topic": "12-Column Grid System & Layout",
+    "difficulty": "Basic",
+    "question": "Which class turns an element into a flexbox container in Bootstrap?",
+    "options": [
+      ".d-flex",
+      ".flex-container",
+      ".display-flex",
+      ".flex-box"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.d-flex' sets CSS display: flex; on the element."
+  },
+  {
+    "id": "bootstrap_50",
+    "category": "Bootstrap",
+    "topic": "12-Column Grid System & Layout",
+    "difficulty": "Basic",
+    "question": "Which class hides an element on all screen sizes in Bootstrap?",
+    "options": [
+      ".hidden",
+      ".d-none",
+      ".invisible-all",
+      ".display-off"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'.d-none' sets display: none; hiding the element from view."
+  },
+  {
+    "id": "bootstrap_51",
+    "category": "Bootstrap",
+    "topic": "Colors, Typography & Utilities",
+    "difficulty": "Medium",
+    "question": "Which base class MUST be added to any button before adding color variations in Bootstrap?",
+    "options": [
+      ".button",
+      ".btn",
+      ".btn-base",
+      ".bs-btn"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'.btn' is the fundamental base button class required for all Bootstrap buttons."
+  },
+  {
+    "id": "bootstrap_52",
+    "category": "Bootstrap",
+    "topic": "Colors, Typography & Utilities",
+    "difficulty": "Medium",
+    "question": "Which class creates a solid blue primary button in Bootstrap?",
+    "options": [
+      ".btn .btn-blue",
+      ".btn .btn-primary",
+      ".btn .btn-main",
+      ".button-primary"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'btn btn-primary' styles a standard primary blue button."
+  },
+  {
+    "id": "bootstrap_53",
+    "category": "Bootstrap",
+    "topic": "Colors, Typography & Utilities",
+    "difficulty": "Medium",
+    "question": "Which class creates a button with an outline border and transparent background that fills on hover?",
+    "options": [
+      ".btn-outline-primary",
+      ".btn-border-primary",
+      ".btn-empty-primary",
+      ".btn-hollow-primary"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.btn-outline-primary' creates an outline-styled button."
+  },
+  {
+    "id": "bootstrap_54",
+    "category": "Bootstrap",
+    "topic": "Colors, Typography & Utilities",
+    "difficulty": "Medium",
+    "question": "Which class makes a button larger than default in Bootstrap?",
+    "options": [
+      ".btn-large",
+      ".btn-lg",
+      ".btn-big",
+      ".btn-xl"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'.btn-lg' increases button padding and font size."
+  },
+  {
+    "id": "bootstrap_55",
+    "category": "Bootstrap",
+    "topic": "Colors, Typography & Utilities",
+    "difficulty": "Medium",
+    "question": "Which class makes a button smaller and more compact in Bootstrap?",
+    "options": [
+      ".btn-sm",
+      ".btn-small",
+      ".btn-tiny",
+      ".btn-mini"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.btn-sm' creates a compact, smaller button."
+  },
+  {
+    "id": "bootstrap_56",
+    "category": "Bootstrap",
+    "topic": "Colors, Typography & Utilities",
+    "difficulty": "Medium",
+    "question": "How do you create a full-width block button spanning 100% of its parent in Bootstrap 5?",
+    "options": [
+      ".btn-block (deprecated in BS5)",
+      "Wrap in a grid or use utility: <div class='d-grid'><button class='btn btn-primary'>",
+      ".btn-full",
+      ".btn-wide"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Bootstrap 5 replaced .btn-block with the '.d-grid' wrapper utility."
+  },
+  {
+    "id": "bootstrap_57",
+    "category": "Bootstrap",
+    "topic": "Colors, Typography & Utilities",
+    "difficulty": "Medium",
+    "question": "Which class creates a green outline button in Bootstrap?",
+    "options": [
+      ".btn-outline-success",
+      ".btn-success-line",
+      ".btn-green-outline",
+      ".btn-outline-green"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.btn-outline-success' creates a green outline button."
+  },
+  {
+    "id": "bootstrap_58",
+    "category": "Bootstrap",
+    "topic": "Colors, Typography & Utilities",
+    "difficulty": "Medium",
+    "question": "Which class adds disabled styling and prevents pointer events on a Bootstrap button?",
+    "options": [
+      ".inactive",
+      ".disabled",
+      ".btn-off",
+      ".locked"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The class '.disabled' or HTML attribute 'disabled' disables a button."
+  },
+  {
+    "id": "bootstrap_59",
+    "category": "Bootstrap",
+    "topic": "Colors, Typography & Utilities",
+    "difficulty": "Medium",
+    "question": "Which base class must be applied to an HTML <table> to activate Bootstrap styling?",
+    "options": [
+      ".table",
+      ".bs-table",
+      ".table-style",
+      ".grid-table"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.table' is the mandatory base class for Bootstrap-styled tables."
+  },
+  {
+    "id": "bootstrap_60",
+    "category": "Bootstrap",
+    "topic": "Colors, Typography & Utilities",
+    "difficulty": "Medium",
+    "question": "Which class adds zebra-striping (alternating light/dark row backgrounds) to a table?",
+    "options": [
+      ".table-zebra",
+      ".table-striped",
+      ".table-alternate",
+      ".table-rows"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'.table-striped' applies zebra stripes to rows inside <tbody>."
+  },
+  {
+    "id": "bootstrap_61",
+    "category": "Bootstrap",
+    "topic": "Colors, Typography & Utilities",
+    "difficulty": "Medium",
+    "question": "Which class highlights table rows when the user hovers their mouse over them?",
+    "options": [
+      ".table-hover",
+      ".table-active",
+      ".table-focus",
+      ".table-interactive"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.table-hover' enables a hover state on table rows."
+  },
+  {
+    "id": "bootstrap_62",
+    "category": "Bootstrap",
+    "topic": "Colors, Typography & Utilities",
+    "difficulty": "Medium",
+    "question": "Which class adds borders on all sides of the table and individual cells?",
+    "options": [
+      ".table-bordered",
+      ".table-border",
+      ".table-outline",
+      ".table-grid"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.table-bordered' places borders around the table and all cells."
+  },
+  {
+    "id": "bootstrap_63",
+    "category": "Bootstrap",
+    "topic": "Colors, Typography & Utilities",
+    "difficulty": "Medium",
+    "question": "Which class removes all borders from a Bootstrap table?",
+    "options": [
+      ".table-clean",
+      ".table-borderless",
+      ".table-no-border",
+      ".table-plain"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'.table-borderless' strips away all borders from the table."
+  },
+  {
+    "id": "bootstrap_64",
+    "category": "Bootstrap",
+    "topic": "Colors, Typography & Utilities",
+    "difficulty": "Medium",
+    "question": "Which class makes a table horizontally scrollable on small screens to prevent layout breakage?",
+    "options": [
+      ".table-responsive",
+      ".table-scroll",
+      ".table-mobile",
+      ".table-overflow"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.table-responsive' wraps tables to make them scroll horizontally on mobile."
+  },
+  {
+    "id": "bootstrap_65",
+    "category": "Bootstrap",
+    "topic": "Colors, Typography & Utilities",
+    "difficulty": "Medium",
+    "question": "Which class creates an alert feedback notification box in Bootstrap?",
+    "options": [
+      ".alert",
+      ".notification",
+      ".callout",
+      ".message-box"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.alert' is the base class for alert message boxes."
+  },
+  {
+    "id": "bootstrap_66",
+    "category": "Bootstrap",
+    "topic": "Colors, Typography & Utilities",
+    "difficulty": "Medium",
+    "question": "Which class creates a green success alert box?",
+    "options": [
+      ".alert .alert-success",
+      ".alert .alert-valid",
+      ".alert .alert-green",
+      ".alert .alert-confirm"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'alert alert-success' styles a green success notification box."
+  },
+  {
+    "id": "bootstrap_67",
+    "category": "Bootstrap",
+    "topic": "Colors, Typography & Utilities",
+    "difficulty": "Medium",
+    "question": "Which class creates a red danger/error alert box?",
+    "options": [
+      ".alert .alert-danger",
+      ".alert .alert-error",
+      ".alert .alert-red",
+      ".alert .alert-warning"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'alert alert-danger' styles a red error alert box."
+  },
+  {
+    "id": "bootstrap_68",
+    "category": "Bootstrap",
+    "topic": "Colors, Typography & Utilities",
+    "difficulty": "Medium",
+    "question": "Which class creates a small contextual badge (like a notification counter or tag)?",
+    "options": [
+      ".badge",
+      ".tag",
+      ".pill",
+      ".label"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.badge' creates small badges (e.g. <span class='badge bg-primary'>New</span>)."
+  },
+  {
+    "id": "bootstrap_69",
+    "category": "Bootstrap",
+    "topic": "Colors, Typography & Utilities",
+    "difficulty": "Medium",
+    "question": "Which class turns a rectangular badge into a fully rounded pill badge?",
+    "options": [
+      ".rounded-pill",
+      ".badge-round",
+      ".pill-badge",
+      ".circle-badge"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.rounded-pill' creates oval, pill-shaped badges."
+  },
+  {
+    "id": "bootstrap_70",
+    "category": "Bootstrap",
+    "topic": "Colors, Typography & Utilities",
+    "difficulty": "Medium",
+    "question": "Which class creates a horizontal progress bar container in Bootstrap?",
+    "options": [
+      ".progress",
+      ".bar-container",
+      ".meter",
+      ".status-bar"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.progress' creates the outer container for progress bars."
+  },
+  {
+    "id": "bootstrap_71",
+    "category": "Bootstrap",
+    "topic": "Colors, Typography & Utilities",
+    "difficulty": "Medium",
+    "question": "Which inner class defines the colored progress fill bar inside .progress?",
+    "options": [
+      ".progress-fill",
+      ".progress-bar",
+      ".bar-value",
+      ".progress-inner"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'.progress-bar' represents the filled inner bar, styled with inline width (e.g. style='width: 75%')."
+  },
+  {
+    "id": "bootstrap_72",
+    "category": "Bootstrap",
+    "topic": "Colors, Typography & Utilities",
+    "difficulty": "Medium",
+    "question": "Which class animates stripes moving across a progress bar in Bootstrap?",
+    "options": [
+      ".progress-bar-animated",
+      ".progress-bar-move",
+      ".bar-animate",
+      ".progress-live"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.progress-bar-striped .progress-bar-animated' animates the progress stripes."
+  },
+  {
+    "id": "bootstrap_73",
+    "category": "Bootstrap",
+    "topic": "Colors, Typography & Utilities",
+    "difficulty": "Medium",
+    "question": "Which class creates a spinning loading indicator in Bootstrap?",
+    "options": [
+      ".spinner-border",
+      ".loader-circle",
+      ".loading-spin",
+      ".bs-spinner"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.spinner-border' creates a CSS-driven spinning loading wheel."
+  },
+  {
+    "id": "bootstrap_74",
+    "category": "Bootstrap",
+    "topic": "Colors, Typography & Utilities",
+    "difficulty": "Medium",
+    "question": "Which class creates a pulsing/growing loading dot animation in Bootstrap?",
+    "options": [
+      ".spinner-grow",
+      ".loader-pulse",
+      ".pulse-dot",
+      ".spinner-dot"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.spinner-grow' creates an expanding and fading pulse spinner."
+  },
+  {
+    "id": "bootstrap_75",
+    "category": "Bootstrap",
+    "topic": "Colors, Typography & Utilities",
+    "difficulty": "Medium",
+    "question": "Which class groups multiple buttons together horizontally on a single line?",
+    "options": [
+      ".btn-group",
+      ".button-row",
+      ".btn-toolbar",
+      ".btn-cluster"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.btn-group' combines multiple buttons into a single unified bar."
+  },
+  {
+    "id": "bootstrap_76",
+    "category": "Bootstrap",
+    "topic": "Components, Cards & Forms",
+    "difficulty": "Medium",
+    "question": "Which component class creates a flexible, bordered content container with padding in Bootstrap?",
+    "options": [
+      ".card",
+      ".box",
+      ".panel",
+      ".tile"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.card' is Bootstrap's versatile card container (replacing panels and wells from BS3)."
+  },
+  {
+    "id": "bootstrap_77",
+    "category": "Bootstrap",
+    "topic": "Components, Cards & Forms",
+    "difficulty": "Medium",
+    "question": "Which class contains the primary text and content inside a Bootstrap card?",
+    "options": [
+      ".card-content",
+      ".card-body",
+      ".card-main",
+      ".card-text-container"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'.card-body' provides internal padding for content inside a card."
+  },
+  {
+    "id": "bootstrap_78",
+    "category": "Bootstrap",
+    "topic": "Components, Cards & Forms",
+    "difficulty": "Medium",
+    "question": "Which class styles the main heading inside a card body?",
+    "options": [
+      ".card-title",
+      ".card-header",
+      ".card-heading",
+      ".card-top"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.card-title' styles the primary title of a card."
+  },
+  {
+    "id": "bootstrap_79",
+    "category": "Bootstrap",
+    "topic": "Components, Cards & Forms",
+    "difficulty": "Medium",
+    "question": "Which class styles an optional header bar at the top of a card?",
+    "options": [
+      ".card-top",
+      ".card-header",
+      ".card-head",
+      ".card-banner"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'.card-header' creates a shaded header block at the top of a card."
+  },
+  {
+    "id": "bootstrap_80",
+    "category": "Bootstrap",
+    "topic": "Components, Cards & Forms",
+    "difficulty": "Medium",
+    "question": "Which class styles an optional footer bar at the bottom of a card?",
+    "options": [
+      ".card-footer",
+      ".card-bottom",
+      ".card-end",
+      ".card-base"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.card-footer' creates an attached footer block at the bottom of a card."
+  },
+  {
+    "id": "bootstrap_81",
+    "category": "Bootstrap",
+    "topic": "Components, Cards & Forms",
+    "difficulty": "Medium",
+    "question": "Which class styles an image placed at the very top of a card so its top corners match the card border radius?",
+    "options": [
+      ".card-img-top",
+      ".card-top-img",
+      ".card-image",
+      ".img-card"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.card-img-top' rounds the top image corners to match the card border."
+  },
+  {
+    "id": "bootstrap_82",
+    "category": "Bootstrap",
+    "topic": "Components, Cards & Forms",
+    "difficulty": "Medium",
+    "question": "Which base class creates a navigation header bar in Bootstrap?",
+    "options": [
+      ".nav",
+      ".navbar",
+      ".navigation",
+      ".menu-bar"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'.navbar' is the base wrapper for navigation bars."
+  },
+  {
+    "id": "bootstrap_83",
+    "category": "Bootstrap",
+    "topic": "Components, Cards & Forms",
+    "difficulty": "Medium",
+    "question": "Which class makes a navbar collapse into a mobile hamburger menu on screens smaller than large (.col-lg)?",
+    "options": [
+      ".navbar-expand-lg",
+      ".navbar-collapse-lg",
+      ".navbar-responsive",
+      ".navbar-mobile"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.navbar-expand-lg' keeps the navbar horizontal on large screens and collapses it on smaller screens."
+  },
+  {
+    "id": "bootstrap_84",
+    "category": "Bootstrap",
+    "topic": "Components, Cards & Forms",
+    "difficulty": "Medium",
+    "question": "Which class styles the company brand name or logo inside a navbar?",
+    "options": [
+      ".navbar-logo",
+      ".navbar-brand",
+      ".navbar-title",
+      ".nav-company"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'.navbar-brand' styles the primary logo or company title in a navbar."
+  },
+  {
+    "id": "bootstrap_85",
+    "category": "Bootstrap",
+    "topic": "Components, Cards & Forms",
+    "difficulty": "Medium",
+    "question": "Which class creates the clickable hamburger toggle button that reveals mobile navbar links?",
+    "options": [
+      ".navbar-toggler",
+      ".hamburger-btn",
+      ".nav-toggle",
+      ".menu-icon"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.navbar-toggler' creates the mobile collapse trigger button."
+  },
+  {
+    "id": "bootstrap_86",
+    "category": "Bootstrap",
+    "topic": "Components, Cards & Forms",
+    "difficulty": "Medium",
+    "question": "Which class styles the container that collapses and expands in a responsive navbar?",
+    "options": [
+      ".collapse .navbar-collapse",
+      ".navbar-hidden",
+      ".nav-drawer",
+      ".menu-collapse"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.collapse .navbar-collapse' holds links that toggle visibility on mobile."
+  },
+  {
+    "id": "bootstrap_87",
+    "category": "Bootstrap",
+    "topic": "Components, Cards & Forms",
+    "difficulty": "Medium",
+    "question": "Which class fixes a navbar permanently to the very top of the viewport when scrolling?",
+    "options": [
+      ".fixed-top",
+      ".navbar-sticky-top",
+      ".pin-top",
+      ".navbar-fixed"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.fixed-top' locks the element to the top of the viewport."
+  },
+  {
+    "id": "bootstrap_88",
+    "category": "Bootstrap",
+    "topic": "Components, Cards & Forms",
+    "difficulty": "Medium",
+    "question": "Which class fixes an element permanently to the bottom of the viewport?",
+    "options": [
+      ".fixed-bottom",
+      ".bottom-lock",
+      ".dock-bottom",
+      ".navbar-bottom"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.fixed-bottom' locks elements to the bottom of the browser window."
+  },
+  {
+    "id": "bootstrap_89",
+    "category": "Bootstrap",
+    "topic": "Components, Cards & Forms",
+    "difficulty": "Medium",
+    "question": "Which class is used to style standard form text inputs, select dropdowns, and textareas in Bootstrap?",
+    "options": [
+      ".form-input",
+      ".form-control",
+      ".input-bs",
+      ".form-field"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'.form-control' styles text inputs, textareas, and inputs with full-width, padding, and focus states."
+  },
+  {
+    "id": "bootstrap_90",
+    "category": "Bootstrap",
+    "topic": "Components, Cards & Forms",
+    "difficulty": "Medium",
+    "question": "Which class styles <label> elements associated with form inputs in Bootstrap 5?",
+    "options": [
+      ".form-label",
+      ".control-label",
+      ".label-input",
+      ".input-label"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Bootstrap 5 uses '.form-label' to add proper margin and font styling to form labels."
+  },
+  {
+    "id": "bootstrap_91",
+    "category": "Bootstrap",
+    "topic": "Components, Cards & Forms",
+    "difficulty": "Medium",
+    "question": "Which class styles native <select> drop-down menus in Bootstrap 5?",
+    "options": [
+      ".form-select",
+      ".form-control-select",
+      ".select-bs",
+      ".dropdown-select"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Bootstrap 5 introduced '.form-select' specifically for custom-styled select dropdowns."
+  },
+  {
+    "id": "bootstrap_92",
+    "category": "Bootstrap",
+    "topic": "Components, Cards & Forms",
+    "difficulty": "Medium",
+    "question": "Which class styles checkboxes and radio buttons in Bootstrap 5?",
+    "options": [
+      ".form-check-input",
+      ".check-control",
+      ".radio-bs",
+      ".form-box"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.form-check-input' styles the checkbox or radio input itself."
+  },
+  {
+    "id": "bootstrap_93",
+    "category": "Bootstrap",
+    "topic": "Components, Cards & Forms",
+    "difficulty": "Medium",
+    "question": "Which wrapper class surrounds a checkbox/radio and its label in Bootstrap 5?",
+    "options": [
+      ".form-check",
+      ".check-group",
+      ".form-radio-wrapper",
+      ".input-check-box"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.form-check' groups the input and its corresponding '.form-check-label'."
+  },
+  {
+    "id": "bootstrap_94",
+    "category": "Bootstrap",
+    "topic": "Components, Cards & Forms",
+    "difficulty": "Medium",
+    "question": "Which class creates a togglable on/off switch instead of a standard square checkbox in Bootstrap 5?",
+    "options": [
+      ".form-switch",
+      ".toggle-switch",
+      ".switch-box",
+      ".form-toggle"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Adding '.form-switch' to a '.form-check' container renders the checkbox as an iOS-style toggle switch."
+  },
+  {
+    "id": "bootstrap_95",
+    "category": "Bootstrap",
+    "topic": "Components, Cards & Forms",
+    "difficulty": "Medium",
+    "question": "Which component displays floating modal dialog boxes on top of the page in Bootstrap?",
+    "options": [
+      ".modal",
+      ".popup",
+      ".dialog-box",
+      ".lightbox"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.modal' creates popup dialog boxes for alerts, confirmations, or forms."
+  },
+  {
+    "id": "bootstrap_96",
+    "category": "Bootstrap",
+    "topic": "Components, Cards & Forms",
+    "difficulty": "Medium",
+    "question": "What data attribute is used in HTML to designate a button as a trigger to open a Bootstrap modal?",
+    "options": [
+      "data-bs-toggle='modal'",
+      "data-open='modal'",
+      "trigger-modal='true'",
+      "bs-action='open'"
+    ],
+    "correctAnswer": 0,
+    "explanation": "data-bs-toggle='modal' connects a trigger button to a modal."
+  },
+  {
+    "id": "bootstrap_97",
+    "category": "Bootstrap",
+    "topic": "Components, Cards & Forms",
+    "difficulty": "Medium",
+    "question": "What data attribute specifies the ID of the target modal dialog to be opened by the trigger button?",
+    "options": [
+      "data-bs-target='#myModal'",
+      "target-id='myModal'",
+      "data-modal-id='myModal'",
+      "href-modal='#myModal'"
+    ],
+    "correctAnswer": 0,
+    "explanation": "data-bs-target='#myModal' specifies the CSS selector of the modal to open."
+  },
+  {
+    "id": "bootstrap_98",
+    "category": "Bootstrap",
+    "topic": "Components, Cards & Forms",
+    "difficulty": "Medium",
+    "question": "Which class styles an accordion / collapsible content panel in Bootstrap 5?",
+    "options": [
+      ".accordion",
+      ".collapse-group",
+      ".toggle-panel",
+      ".expandable"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.accordion' creates vertically stacked collapsible accordion panels."
+  },
+  {
+    "id": "bootstrap_99",
+    "category": "Bootstrap",
+    "topic": "Components, Cards & Forms",
+    "difficulty": "Medium",
+    "question": "Which class adds rounded corners to an image or card in Bootstrap?",
+    "options": [
+      ".rounded",
+      ".corner-round",
+      ".border-curve",
+      ".soft-corner"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.rounded' applies a subtle border-radius to elements."
+  },
+  {
+    "id": "bootstrap_100",
+    "category": "Bootstrap",
+    "topic": "Components, Cards & Forms",
+    "difficulty": "Medium",
+    "question": "Which class makes an image perfectly circular in Bootstrap?",
+    "options": [
+      ".rounded-circle",
+      ".circle-img",
+      ".img-round",
+      ".border-round"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'.rounded-circle' sets border-radius to 50%, producing a circular image."
+  }
+]

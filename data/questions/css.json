@@ -1,0 +1,1502 @@
+[
+  {
+    "id": "css_1",
+    "category": "CSS",
+    "topic": "CSS Basics, Selectors & Colors",
+    "difficulty": "Basic",
+    "question": "What does CSS stand for?",
+    "options": [
+      "Cascading Style Sheets",
+      "Creative Style System",
+      "Computer Style Sheets",
+      "Colorful Style Standards"
+    ],
+    "correctAnswer": 0,
+    "explanation": "CSS stands for Cascading Style Sheets, used to format the layout and presentation of HTML pages."
+  },
+  {
+    "id": "css_2",
+    "category": "CSS",
+    "topic": "CSS Basics, Selectors & Colors",
+    "difficulty": "Basic",
+    "question": "Which of the following is the correct CSS rule syntax?",
+    "options": [
+      "selector { property: value; }",
+      "selector ( property = value )",
+      "selector [ property: value ]",
+      "property: value { selector }"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A CSS rule-set consists of a selector followed by a declaration block inside curly braces { property: value; }."
+  },
+  {
+    "id": "css_3",
+    "category": "CSS",
+    "topic": "CSS Basics, Selectors & Colors",
+    "difficulty": "Basic",
+    "question": "Which symbol is used to select elements by their CLASS name in CSS?",
+    "options": [
+      "# (hash)",
+      ". (dot / period)",
+      "@ (at)",
+      "& (ampersand)"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In CSS, a class selector is prefixed with a dot (e.g. .btn or .card)."
+  },
+  {
+    "id": "css_4",
+    "category": "CSS",
+    "topic": "CSS Basics, Selectors & Colors",
+    "difficulty": "Basic",
+    "question": "Which symbol is used to select an element by its ID in CSS?",
+    "options": [
+      ". (dot)",
+      "# (hash / pound)",
+      "$ (dollar)",
+      "* (asterisk)"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In CSS, an ID selector is prefixed with a hash symbol (e.g. #header or #navbar)."
+  },
+  {
+    "id": "css_5",
+    "category": "CSS",
+    "topic": "CSS Basics, Selectors & Colors",
+    "difficulty": "Basic",
+    "question": "Which CSS selector selects ALL elements on a webpage universally?",
+    "options": [
+      "*",
+      "all",
+      ":root",
+      "body"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The asterisk (*) is the universal selector matching every single element in the document."
+  },
+  {
+    "id": "css_6",
+    "category": "CSS",
+    "topic": "CSS Basics, Selectors & Colors",
+    "difficulty": "Basic",
+    "question": "How do you select all <p> elements that are inside a <div> element (descendant selector)?",
+    "options": [
+      "div + p",
+      "div p",
+      "div.p",
+      "div > p only"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'div p' (separated by a space) selects all <p> elements inside <div> at any nesting depth."
+  },
+  {
+    "id": "css_7",
+    "category": "CSS",
+    "topic": "CSS Basics, Selectors & Colors",
+    "difficulty": "Basic",
+    "question": "How do you select all elements with tag <h1>, <h2>, AND <h3> simultaneously (grouping selector)?",
+    "options": [
+      "h1 h2 h3",
+      "h1, h2, h3",
+      "h1 + h2 + h3",
+      "h1 & h2 & h3"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Separating selectors with commas (h1, h2, h3) applies the same style rules to all of them."
+  },
+  {
+    "id": "css_8",
+    "category": "CSS",
+    "topic": "CSS Basics, Selectors & Colors",
+    "difficulty": "Basic",
+    "question": "Which CSS property is used to change the text color of an element?",
+    "options": [
+      "text-color",
+      "color",
+      "font-color",
+      "foreground"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The 'color' property sets the foreground color of text."
+  },
+  {
+    "id": "css_9",
+    "category": "CSS",
+    "topic": "CSS Basics, Selectors & Colors",
+    "difficulty": "Basic",
+    "question": "Which CSS property is used to set the background color of an element?",
+    "options": [
+      "bgcolor",
+      "color-background",
+      "background-color",
+      "background-style"
+    ],
+    "correctAnswer": 2,
+    "explanation": "'background-color' sets the background color of an element."
+  },
+  {
+    "id": "css_10",
+    "category": "CSS",
+    "topic": "CSS Basics, Selectors & Colors",
+    "difficulty": "Basic",
+    "question": "Which of the following is a valid Hexadecimal color code representing pure red?",
+    "options": [
+      "#00FF00",
+      "#0000FF",
+      "#FF0000",
+      "#FFFFFF"
+    ],
+    "correctAnswer": 2,
+    "explanation": "#FF0000 corresponds to Red: 255, Green: 0, Blue: 0 (pure red)."
+  },
+  {
+    "id": "css_11",
+    "category": "CSS",
+    "topic": "CSS Basics, Selectors & Colors",
+    "difficulty": "Basic",
+    "question": "In the RGB color model rgb(255, 255, 255), what color is produced?",
+    "options": [
+      "Black",
+      "White",
+      "Red",
+      "Grey"
+    ],
+    "correctAnswer": 1,
+    "explanation": "rgb(255, 255, 255) represents maximum intensity of all three primary light colors, producing white."
+  },
+  {
+    "id": "css_12",
+    "category": "CSS",
+    "topic": "CSS Basics, Selectors & Colors",
+    "difficulty": "Basic",
+    "question": "In the RGBA color format rgba(0, 0, 0, 0.5), what does the 4th value '0.5' represent?",
+    "options": [
+      "Brightness",
+      "Alpha / Opacity (50% transparency)",
+      "Blur radius",
+      "Saturation"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The 'A' in RGBA stands for Alpha, defining opacity from 0.0 (completely transparent) to 1.0 (completely opaque)."
+  },
+  {
+    "id": "css_13",
+    "category": "CSS",
+    "topic": "CSS Basics, Selectors & Colors",
+    "difficulty": "Basic",
+    "question": "Which CSS property controls the transparency of an entire element (and its children)?",
+    "options": [
+      "transparent",
+      "opacity",
+      "filter",
+      "visibility"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'opacity' takes a value between 0 (invisible) and 1 (fully visible)."
+  },
+  {
+    "id": "css_14",
+    "category": "CSS",
+    "topic": "CSS Basics, Selectors & Colors",
+    "difficulty": "Basic",
+    "question": "Which CSS property is used to set a background image for an element?",
+    "options": [
+      "background-image: url('img.jpg');",
+      "background-src: 'img.jpg';",
+      "img-background: 'img.jpg';",
+      "background: file('img.jpg');"
+    ],
+    "correctAnswer": 0,
+    "explanation": "background-image: url('path/to/image.jpg'); sets a background image."
+  },
+  {
+    "id": "css_15",
+    "category": "CSS",
+    "topic": "CSS Basics, Selectors & Colors",
+    "difficulty": "Basic",
+    "question": "Which property prevents a background image from repeating across the entire container?",
+    "options": [
+      "background-repeat: no-repeat;",
+      "background-tile: false;",
+      "image-repeat: none;",
+      "background-loop: 0;"
+    ],
+    "correctAnswer": 0,
+    "explanation": "background-repeat: no-repeat; ensures the background image displays only once."
+  },
+  {
+    "id": "css_16",
+    "category": "CSS",
+    "topic": "CSS Basics, Selectors & Colors",
+    "difficulty": "Basic",
+    "question": "Which CSS property stretches or resizes a background image to cover the entire container?",
+    "options": [
+      "background-fit: fill;",
+      "background-size: cover;",
+      "background-stretch: 100%;",
+      "image-size: auto;"
+    ],
+    "correctAnswer": 1,
+    "explanation": "background-size: cover scales the image to completely cover the container area."
+  },
+  {
+    "id": "css_17",
+    "category": "CSS",
+    "topic": "CSS Basics, Selectors & Colors",
+    "difficulty": "Basic",
+    "question": "What are the three ways to insert CSS into an HTML document?",
+    "options": [
+      "External, Internal, and Inline",
+      "Direct, Indirect, and Local",
+      "Linked, Scripted, and Embedded",
+      "Head, Body, and Footer"
+    ],
+    "correctAnswer": 0,
+    "explanation": "CSS can be applied via: 1) External (<link>), 2) Internal (<style>), and 3) Inline (style='...')."
+  },
+  {
+    "id": "css_18",
+    "category": "CSS",
+    "topic": "CSS Basics, Selectors & Colors",
+    "difficulty": "Basic",
+    "question": "Where in an HTML document is the <link> to an external stylesheet placed?",
+    "options": [
+      "Inside the <body> section",
+      "Inside the <head> section",
+      "At the very bottom of the document",
+      "Inside the <footer> section"
+    ],
+    "correctAnswer": 1,
+    "explanation": "External CSS files are linked inside the <head> element."
+  },
+  {
+    "id": "css_19",
+    "category": "CSS",
+    "topic": "CSS Basics, Selectors & Colors",
+    "difficulty": "Basic",
+    "question": "Which method of applying CSS has the HIGHEST priority among default styles (excluding !important)?",
+    "options": [
+      "External stylesheet",
+      "Internal style tag",
+      "Inline style attribute on the HTML element",
+      "Browser default"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Inline styles (style='...') take precedence over internal and external styles."
+  },
+  {
+    "id": "css_20",
+    "category": "CSS",
+    "topic": "CSS Basics, Selectors & Colors",
+    "difficulty": "Basic",
+    "question": "What keyword can be added to a CSS property value to override all normal cascading and specificity rules?",
+    "options": [
+      "!priority",
+      "!important",
+      "!override",
+      "!force"
+    ],
+    "correctAnswer": 1,
+    "explanation": "!important gives a CSS rule the highest priority, overriding all standard specificity."
+  },
+  {
+    "id": "css_21",
+    "category": "CSS",
+    "topic": "CSS Basics, Selectors & Colors",
+    "difficulty": "Basic",
+    "question": "How do you write a comment in CSS?",
+    "options": [
+      "// This is a comment",
+      "/* This is a comment */",
+      "<!-- This is a comment -->",
+      "# This is a comment"
+    ],
+    "correctAnswer": 1,
+    "explanation": "CSS comments are enclosed in /* comment text */."
+  },
+  {
+    "id": "css_22",
+    "category": "CSS",
+    "topic": "CSS Basics, Selectors & Colors",
+    "difficulty": "Basic",
+    "question": "Which pseudo-class styles an element when the user hovers their mouse pointer over it?",
+    "options": [
+      ":active",
+      ":hover",
+      ":focus",
+      ":visited"
+    ],
+    "correctAnswer": 1,
+    "explanation": "':hover' triggers when the user positions the mouse cursor over an element."
+  },
+  {
+    "id": "css_23",
+    "category": "CSS",
+    "topic": "CSS Basics, Selectors & Colors",
+    "difficulty": "Basic",
+    "question": "Which pseudo-class styles a hyperlink that has already been clicked and visited?",
+    "options": [
+      ":clicked",
+      ":visited",
+      ":link",
+      ":done"
+    ],
+    "correctAnswer": 1,
+    "explanation": "':visited' styles links the user has previously navigated to."
+  },
+  {
+    "id": "css_24",
+    "category": "CSS",
+    "topic": "CSS Basics, Selectors & Colors",
+    "difficulty": "Basic",
+    "question": "Which pseudo-class styles an input field currently receiving keyboard focus or clicks?",
+    "options": [
+      ":hover",
+      ":active",
+      ":focus",
+      ":target"
+    ],
+    "correctAnswer": 2,
+    "explanation": "':focus' styles elements that currently have focus (such as an active text box)."
+  },
+  {
+    "id": "css_25",
+    "category": "CSS",
+    "topic": "CSS Basics, Selectors & Colors",
+    "difficulty": "Basic",
+    "question": "Which selector targets an immediate direct child only (not deeper descendants)?",
+    "options": [
+      "div p",
+      "div > p",
+      "div + p",
+      "div ~ p"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The child combinator (>) selects elements that are immediate children of the parent."
+  },
+  {
+    "id": "css_26",
+    "category": "CSS",
+    "topic": "Text, Fonts & Typography",
+    "difficulty": "Basic",
+    "question": "Which CSS property changes the size of text?",
+    "options": [
+      "font-size",
+      "text-size",
+      "font-weight",
+      "size"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'font-size' sets the size of text (e.g. font-size: 16px;)."
+  },
+  {
+    "id": "css_27",
+    "category": "CSS",
+    "topic": "Text, Fonts & Typography",
+    "difficulty": "Basic",
+    "question": "Which CSS property specifies the font typeface (such as Arial, Helvetica, sans-serif)?",
+    "options": [
+      "font-style",
+      "font-family",
+      "typeface",
+      "text-font"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'font-family' defines a prioritized list of font names and a fallback generic family."
+  },
+  {
+    "id": "css_28",
+    "category": "CSS",
+    "topic": "Text, Fonts & Typography",
+    "difficulty": "Basic",
+    "question": "Which CSS property makes text bold or normal?",
+    "options": [
+      "font-weight",
+      "text-bold",
+      "font-style",
+      "weight"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'font-weight' sets thickness (e.g. font-weight: bold; or 700;)."
+  },
+  {
+    "id": "css_29",
+    "category": "CSS",
+    "topic": "Text, Fonts & Typography",
+    "difficulty": "Basic",
+    "question": "Which CSS property makes text italic?",
+    "options": [
+      "font-italic",
+      "font-style: italic;",
+      "text-style: slant;",
+      "font-weight: italic;"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'font-style: italic;' renders text in italic font."
+  },
+  {
+    "id": "css_30",
+    "category": "CSS",
+    "topic": "Text, Fonts & Typography",
+    "difficulty": "Basic",
+    "question": "Which CSS property controls horizontal text alignment (e.g. left, center, right)?",
+    "options": [
+      "align",
+      "text-align",
+      "horizontal-align",
+      "float-text"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'text-align' sets horizontal alignment (left, center, right, justify)."
+  },
+  {
+    "id": "css_31",
+    "category": "CSS",
+    "topic": "Text, Fonts & Typography",
+    "difficulty": "Basic",
+    "question": "How do you remove the default underline from a hyperlink (<a> tag)?",
+    "options": [
+      "text-decoration: none;",
+      "underline: false;",
+      "link-style: no-underline;",
+      "text-line: off;"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'text-decoration: none;' removes the underline from hyperlinks."
+  },
+  {
+    "id": "css_32",
+    "category": "CSS",
+    "topic": "Text, Fonts & Typography",
+    "difficulty": "Basic",
+    "question": "Which property converts text to all UPPERCASE, lowercase, or Capitalize?",
+    "options": [
+      "text-transform",
+      "text-case",
+      "font-variant",
+      "text-convert"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'text-transform: uppercase;' converts all letters in text to uppercase."
+  },
+  {
+    "id": "css_33",
+    "category": "CSS",
+    "topic": "Text, Fonts & Typography",
+    "difficulty": "Basic",
+    "question": "Which CSS property sets the vertical spacing between lines of text?",
+    "options": [
+      "line-spacing",
+      "line-height",
+      "vertical-spacing",
+      "line-gap"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'line-height' sets the distance between lines of text in a paragraph."
+  },
+  {
+    "id": "css_34",
+    "category": "CSS",
+    "topic": "Text, Fonts & Typography",
+    "difficulty": "Basic",
+    "question": "Which CSS property adjusts the spacing between individual letters?",
+    "options": [
+      "word-spacing",
+      "letter-spacing",
+      "char-spacing",
+      "kerning"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'letter-spacing' sets the spacing between characters in text."
+  },
+  {
+    "id": "css_35",
+    "category": "CSS",
+    "topic": "Text, Fonts & Typography",
+    "difficulty": "Basic",
+    "question": "Which CSS unit is an ABSOLUTE measurement unit that does not scale with screen size?",
+    "options": [
+      "px (pixel)",
+      "rem",
+      "% (percentage)",
+      "vw"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Pixels (px) are fixed absolute units; rem, %, and vw are relative units."
+  },
+  {
+    "id": "css_36",
+    "category": "CSS",
+    "topic": "Text, Fonts & Typography",
+    "difficulty": "Basic",
+    "question": "Which CSS relative unit is relative to the font-size of the ROOT (<html>) element?",
+    "options": [
+      "em",
+      "rem",
+      "ch",
+      "ex"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'rem' (root em) is relative to the font-size of the root <html> element (default: 1rem = 16px)."
+  },
+  {
+    "id": "css_37",
+    "category": "CSS",
+    "topic": "Text, Fonts & Typography",
+    "difficulty": "Basic",
+    "question": "Which CSS relative unit is relative to the font-size of its immediate PARENT element?",
+    "options": [
+      "rem",
+      "em",
+      "px",
+      "vh"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'em' is relative to the font-size of the immediate parent element."
+  },
+  {
+    "id": "css_38",
+    "category": "CSS",
+    "topic": "Text, Fonts & Typography",
+    "difficulty": "Basic",
+    "question": "What does the viewport unit '100vh' represent?",
+    "options": [
+      "100% of the viewport height",
+      "100 virtual horizontal pixels",
+      "100% of the document width",
+      "100 variable hours"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'vh' stands for viewport height; 100vh equals 100% of the browser visible window height."
+  },
+  {
+    "id": "css_39",
+    "category": "CSS",
+    "topic": "Text, Fonts & Typography",
+    "difficulty": "Basic",
+    "question": "What does the viewport unit '100vw' represent?",
+    "options": [
+      "100 variable words",
+      "100% of the viewport width",
+      "100 vertical weights",
+      "100 virtual widgets"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'vw' stands for viewport width; 100vw equals 100% of the browser visible window width."
+  },
+  {
+    "id": "css_40",
+    "category": "CSS",
+    "topic": "Text, Fonts & Typography",
+    "difficulty": "Basic",
+    "question": "What is the default font size in most web browsers if unstyled?",
+    "options": [
+      "12px",
+      "14px",
+      "16px",
+      "18px"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The standard default browser base font size is 16px (1rem = 16px)."
+  },
+  {
+    "id": "css_41",
+    "category": "CSS",
+    "topic": "Text, Fonts & Typography",
+    "difficulty": "Basic",
+    "question": "Which CSS property indents the very first line of a paragraph?",
+    "options": [
+      "text-indent",
+      "first-line-spacing",
+      "padding-left",
+      "paragraph-indent"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'text-indent' specifies the indentation of the first line of text in a block."
+  },
+  {
+    "id": "css_42",
+    "category": "CSS",
+    "topic": "Text, Fonts & Typography",
+    "difficulty": "Basic",
+    "question": "Which generic font family has decorative hooks/feet on the ends of letters (like Times New Roman)?",
+    "options": [
+      "serif",
+      "sans-serif",
+      "monospace",
+      "cursive"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Serif fonts have small strokes or feet on letter edges; sans-serif fonts do not."
+  },
+  {
+    "id": "css_43",
+    "category": "CSS",
+    "topic": "Text, Fonts & Typography",
+    "difficulty": "Basic",
+    "question": "Which generic font family has plain, clean strokes without feet (like Arial, Helvetica)?",
+    "options": [
+      "serif",
+      "sans-serif",
+      "fantasy",
+      "monospace"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Sans-serif ('sans' = without) fonts have clean lines without decorative strokes."
+  },
+  {
+    "id": "css_44",
+    "category": "CSS",
+    "topic": "Text, Fonts & Typography",
+    "difficulty": "Basic",
+    "question": "Which font family gives every character the EXACT same fixed width (like Courier, Consolas)?",
+    "options": [
+      "monospace",
+      "serif",
+      "sans-serif",
+      "system-ui"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Monospace fonts allocate identical horizontal space to every character, ideal for code."
+  },
+  {
+    "id": "css_45",
+    "category": "CSS",
+    "topic": "Text, Fonts & Typography",
+    "difficulty": "Basic",
+    "question": "Which CSS property adds a shadow effect behind text?",
+    "options": [
+      "text-shadow",
+      "box-shadow",
+      "font-shadow",
+      "drop-shadow"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'text-shadow: 2px 2px 4px grey;' adds shadows behind text characters."
+  },
+  {
+    "id": "css_46",
+    "category": "CSS",
+    "topic": "Text, Fonts & Typography",
+    "difficulty": "Basic",
+    "question": "Which property adds a shadow effect around an element's entire box boundary?",
+    "options": [
+      "text-shadow",
+      "box-shadow",
+      "border-shadow",
+      "shadow-box"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'box-shadow: 0 4px 6px rgba(0,0,0,0.1);' casts shadows around an element box."
+  },
+  {
+    "id": "css_47",
+    "category": "CSS",
+    "topic": "Text, Fonts & Typography",
+    "difficulty": "Basic",
+    "question": "Which CSS property controls how overflowed text that doesn't fit its container is shown?",
+    "options": [
+      "text-overflow",
+      "overflow-text",
+      "text-clip",
+      "text-cut"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'text-overflow: ellipsis;' displays '...' when text exceeds container width."
+  },
+  {
+    "id": "css_48",
+    "category": "CSS",
+    "topic": "Text, Fonts & Typography",
+    "difficulty": "Basic",
+    "question": "Which property forces long words to break onto the next line to prevent overflow?",
+    "options": [
+      "word-break: break-all; or overflow-wrap: break-word;",
+      "text-wrap: force;",
+      "line-break: strict;",
+      "word-cut: on;"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'overflow-wrap: break-word;' allows unbreakable words to wrap onto new lines."
+  },
+  {
+    "id": "css_49",
+    "category": "CSS",
+    "topic": "Text, Fonts & Typography",
+    "difficulty": "Basic",
+    "question": "How do you make text bold in CSS using numeric font-weight?",
+    "options": [
+      "font-weight: 100;",
+      "font-weight: 400;",
+      "font-weight: 700;",
+      "font-weight: 0;"
+    ],
+    "correctAnswer": 2,
+    "explanation": "400 is standard normal weight; 700 corresponds to standard bold."
+  },
+  {
+    "id": "css_50",
+    "category": "CSS",
+    "topic": "Text, Fonts & Typography",
+    "difficulty": "Basic",
+    "question": "Which property prevents text from wrapping onto a second line?",
+    "options": [
+      "white-space: nowrap;",
+      "text-wrap: none;",
+      "no-wrap: true;",
+      "line-break: off;"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'white-space: nowrap;' prevents text from automatically breaking onto new lines."
+  },
+  {
+    "id": "css_51",
+    "category": "CSS",
+    "topic": "Box Model & Sizing",
+    "difficulty": "Medium",
+    "question": "What are the four layers of the CSS Box Model, starting from the innermost layer outwards?",
+    "options": [
+      "Content -> Padding -> Border -> Margin",
+      "Content -> Margin -> Border -> Padding",
+      "Margin -> Border -> Padding -> Content",
+      "Border -> Padding -> Content -> Margin"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Innermost is Content, followed by internal Padding, then the Border, and outermost is Margin."
+  },
+  {
+    "id": "css_52",
+    "category": "CSS",
+    "topic": "Box Model & Sizing",
+    "difficulty": "Medium",
+    "question": "What does the 'padding' property control in the CSS box model?",
+    "options": [
+      "The outer space between neighboring elements",
+      "The inner space between the element's content and its border",
+      "The thickness of the border",
+      "The width of the text"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Padding creates breathing room inside the element between the content and its border."
+  },
+  {
+    "id": "css_53",
+    "category": "CSS",
+    "topic": "Box Model & Sizing",
+    "difficulty": "Medium",
+    "question": "What does the 'margin' property control in the CSS box model?",
+    "options": [
+      "The inner space inside the box",
+      "The outer clearance space outside the element's border",
+      "The color of the background",
+      "The line height"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Margin clears space outside the border of an element, pushing adjacent elements away."
+  },
+  {
+    "id": "css_54",
+    "category": "CSS",
+    "topic": "Box Model & Sizing",
+    "difficulty": "Medium",
+    "question": "In the shorthand property 'margin: 10px 20px 30px 40px;', what order do the sides follow?",
+    "options": [
+      "Top, Right, Bottom, Left (Clockwise)",
+      "Top, Left, Bottom, Right",
+      "Right, Bottom, Left, Top",
+      "Left, Right, Top, Bottom"
+    ],
+    "correctAnswer": 0,
+    "explanation": "4-value shorthand follows clockwise order: Top (10px), Right (20px), Bottom (30px), Left (40px)."
+  },
+  {
+    "id": "css_55",
+    "category": "CSS",
+    "topic": "Box Model & Sizing",
+    "difficulty": "Medium",
+    "question": "In the 2-value shorthand 'padding: 10px 20px;', what do the two values represent?",
+    "options": [
+      "Top/Bottom: 10px, Left/Right: 20px",
+      "Left/Right: 10px, Top/Bottom: 20px",
+      "Width: 10px, Height: 20px",
+      "Top: 10px, Bottom: 20px"
+    ],
+    "correctAnswer": 0,
+    "explanation": "2-value shorthand sets Top & Bottom (10px) first, and Left & Right (20px) second."
+  },
+  {
+    "id": "css_56",
+    "category": "CSS",
+    "topic": "Box Model & Sizing",
+    "difficulty": "Medium",
+    "question": "Which CSS property rounds the sharp square corners of an element's border?",
+    "options": [
+      "border-curve",
+      "corner-radius",
+      "border-radius",
+      "round-corners"
+    ],
+    "correctAnswer": 2,
+    "explanation": "'border-radius: 8px;' rounds corners; 'border-radius: 50%;' creates a circle."
+  },
+  {
+    "id": "css_57",
+    "category": "CSS",
+    "topic": "Box Model & Sizing",
+    "difficulty": "Medium",
+    "question": "How do you create a perfect circle from a square element (e.g. 100px by 100px)?",
+    "options": [
+      "border-radius: 10px;",
+      "border-radius: 50%;",
+      "shape: circle;",
+      "border-style: round;"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Setting border-radius: 50% on an element with equal width and height produces a circle."
+  },
+  {
+    "id": "css_58",
+    "category": "CSS",
+    "topic": "Box Model & Sizing",
+    "difficulty": "Medium",
+    "question": "How do you horizontally center a block-level element with a fixed width (like a container <div>)?",
+    "options": [
+      "align: center;",
+      "margin: 0 auto;",
+      "float: center;",
+      "text-align: center;"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'margin: 0 auto;' splits available horizontal space equally, centering the block element."
+  },
+  {
+    "id": "css_59",
+    "category": "CSS",
+    "topic": "Box Model & Sizing",
+    "difficulty": "Medium",
+    "question": "What is the effect of setting 'box-sizing: border-box;' on elements?",
+    "options": [
+      "Padding and border are included INSIDE the element's total specified width and height",
+      "Padding is added outside the width, making the box wider",
+      "Borders are removed completely",
+      "Margins are eliminated"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'border-box' ensures padding and borders do not expand the element beyond its defined width."
+  },
+  {
+    "id": "css_60",
+    "category": "CSS",
+    "topic": "Box Model & Sizing",
+    "difficulty": "Medium",
+    "question": "What is the default box-sizing property value in standard CSS?",
+    "options": [
+      "border-box",
+      "content-box",
+      "padding-box",
+      "margin-box"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The browser default is 'content-box', where padding and borders add onto the declared width."
+  },
+  {
+    "id": "css_61",
+    "category": "CSS",
+    "topic": "Box Model & Sizing",
+    "difficulty": "Medium",
+    "question": "What are the three required values in shorthand border syntax: 'border: 2px solid red;'?",
+    "options": [
+      "width, style, and color",
+      "color, radius, and shadow",
+      "size, font, and background",
+      "margin, padding, and width"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Border shorthand specifies border-width (2px), border-style (solid), and border-color (red)."
+  },
+  {
+    "id": "css_62",
+    "category": "CSS",
+    "topic": "Box Model & Sizing",
+    "difficulty": "Medium",
+    "question": "Which border style creates a dotted border around an element?",
+    "options": [
+      "border-style: broken;",
+      "border-style: dotted;",
+      "border-style: points;",
+      "border-style: dashes;"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'border-style: dotted;' creates a dotted line."
+  },
+  {
+    "id": "css_63",
+    "category": "CSS",
+    "topic": "Box Model & Sizing",
+    "difficulty": "Medium",
+    "question": "Which border style creates a dashed border?",
+    "options": [
+      "border-style: dashed;",
+      "border-style: stripe;",
+      "border-style: line;",
+      "border-style: dotted;"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'border-style: dashed;' creates a dashed line."
+  },
+  {
+    "id": "css_64",
+    "category": "CSS",
+    "topic": "Box Model & Sizing",
+    "difficulty": "Medium",
+    "question": "Which property sets the maximum width an element can stretch to (preventing it from getting too wide on large screens)?",
+    "options": [
+      "max-width",
+      "width-limit",
+      "limit-width",
+      "ceiling-width"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'max-width: 1200px;' caps how wide an element can expand."
+  },
+  {
+    "id": "css_65",
+    "category": "CSS",
+    "topic": "Box Model & Sizing",
+    "difficulty": "Medium",
+    "question": "Which property sets the minimum height an element must have?",
+    "options": [
+      "min-height",
+      "height-floor",
+      "floor-height",
+      "base-height"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'min-height: 200px;' guarantees the element will be at least 200px tall."
+  },
+  {
+    "id": "css_66",
+    "category": "CSS",
+    "topic": "Box Model & Sizing",
+    "difficulty": "Medium",
+    "question": "What happens when an element's content exceeds its defined height, and 'overflow: hidden;' is set?",
+    "options": [
+      "Scrollbars appear automatically",
+      "The extra content is clipped and hidden from view",
+      "The box automatically expands",
+      "The text turns red"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'overflow: hidden;' clips content that spills outside the element's boundaries."
+  },
+  {
+    "id": "css_67",
+    "category": "CSS",
+    "topic": "Box Model & Sizing",
+    "difficulty": "Medium",
+    "question": "Which overflow value adds scrollbars only when the content actually exceeds the container?",
+    "options": [
+      "overflow: visible;",
+      "overflow: auto;",
+      "overflow: scroll;",
+      "overflow: hidden;"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'overflow: auto;' displays scrollbars dynamically only when content overflows."
+  },
+  {
+    "id": "css_68",
+    "category": "CSS",
+    "topic": "Box Model & Sizing",
+    "difficulty": "Medium",
+    "question": "What is 'margin collapse' in CSS?",
+    "options": [
+      "Margins disappear on mobile screens",
+      "Adjacent vertical margins of two block elements merge into a single margin equal to the larger of the two",
+      "Margins expand infinitely",
+      "An error in CSS code"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Vertical margins between adjacent blocks collapse into the larger single margin value."
+  },
+  {
+    "id": "css_69",
+    "category": "CSS",
+    "topic": "Box Model & Sizing",
+    "difficulty": "Medium",
+    "question": "Do horizontal margins (left and right) collapse in CSS?",
+    "options": [
+      "Yes, always",
+      "No, horizontal margins never collapse",
+      "Only inside tables",
+      "Only with flexbox"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Only top and bottom (vertical) margins collapse; horizontal margins add together normally."
+  },
+  {
+    "id": "css_70",
+    "category": "CSS",
+    "topic": "Box Model & Sizing",
+    "difficulty": "Medium",
+    "question": "How do you remove borders from an input field completely?",
+    "options": [
+      "border: none; or border: 0;",
+      "border: false;",
+      "no-border: true;",
+      "border: empty;"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'border: none;' removes all borders from an element."
+  },
+  {
+    "id": "css_71",
+    "category": "CSS",
+    "topic": "Box Model & Sizing",
+    "difficulty": "Medium",
+    "question": "Which property draws a visual outline around an element OUTSIDE its border without affecting layout spacing?",
+    "options": [
+      "outline",
+      "outer-border",
+      "box-edge",
+      "ring"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'outline' draws outside the border and does NOT take up space in the box model."
+  },
+  {
+    "id": "css_72",
+    "category": "CSS",
+    "topic": "Box Model & Sizing",
+    "difficulty": "Medium",
+    "question": "How do you remove the default blue focus outline from active input fields in CSS?",
+    "options": [
+      "outline: none;",
+      "focus: false;",
+      "border-focus: 0;",
+      "ring: off;"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'outline: none;' removes the focus outline (though an accessible alternative should be provided)."
+  },
+  {
+    "id": "css_73",
+    "category": "CSS",
+    "topic": "Box Model & Sizing",
+    "difficulty": "Medium",
+    "question": "Which property sets the width of an element to 100% of its parent's width?",
+    "options": [
+      "width: 100%;",
+      "size: full;",
+      "horizontal: max;",
+      "stretch: 100%;"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'width: 100%;' fills the entire available width of the containing parent element."
+  },
+  {
+    "id": "css_74",
+    "category": "CSS",
+    "topic": "Box Model & Sizing",
+    "difficulty": "Medium",
+    "question": "Can you apply width and height to an inline element like <span> by default?",
+    "options": [
+      "Yes, width and height apply to all elements equally",
+      "No, inline elements ignore width and height properties",
+      "Only if border is set",
+      "Only on mobile devices"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Inline elements (like <span>, <a>) ignore width and height unless changed to inline-block or block."
+  },
+  {
+    "id": "css_75",
+    "category": "CSS",
+    "topic": "Box Model & Sizing",
+    "difficulty": "Medium",
+    "question": "Which display value allows an element to sit on the same line as other elements while respecting width and height?",
+    "options": [
+      "display: inline;",
+      "display: block;",
+      "display: inline-block;",
+      "display: flex;"
+    ],
+    "correctAnswer": 2,
+    "explanation": "'inline-block' flows inline with text but allows setting width, height, padding, and margins."
+  },
+  {
+    "id": "css_76",
+    "category": "CSS",
+    "topic": "Display, Flexbox & Positioning",
+    "difficulty": "Medium",
+    "question": "What is the difference between 'display: none;' and 'visibility: hidden;'?",
+    "options": [
+      "'display: none' removes the element completely from page layout (takes zero space); 'visibility: hidden' hides it visually but retains its empty space",
+      "They are identical",
+      "'visibility: hidden' deletes the element",
+      "'display: none' only works in JS"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'display: none;' releases layout space; 'visibility: hidden;' keeps the invisible layout gap."
+  },
+  {
+    "id": "css_77",
+    "category": "CSS",
+    "topic": "Display, Flexbox & Positioning",
+    "difficulty": "Medium",
+    "question": "Which display property turns a container into a flexible layout container?",
+    "options": [
+      "display: grid;",
+      "display: flex;",
+      "display: table;",
+      "display: box;"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'display: flex;' activates Flexbox layout on the container."
+  },
+  {
+    "id": "css_78",
+    "category": "CSS",
+    "topic": "Display, Flexbox & Positioning",
+    "difficulty": "Medium",
+    "question": "In Flexbox, which property controls alignment along the MAIN axis (default: horizontal row)?",
+    "options": [
+      "align-items",
+      "justify-content",
+      "align-content",
+      "flex-direction"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'justify-content' aligns flex items along the main axis (e.g. center, space-between)."
+  },
+  {
+    "id": "css_79",
+    "category": "CSS",
+    "topic": "Display, Flexbox & Positioning",
+    "difficulty": "Medium",
+    "question": "In Flexbox, which property controls alignment along the CROSS axis (vertical in row mode)?",
+    "options": [
+      "justify-content",
+      "align-items",
+      "flex-wrap",
+      "order"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'align-items' aligns flex items along the cross axis (e.g. center, stretch, flex-start)."
+  },
+  {
+    "id": "css_80",
+    "category": "CSS",
+    "topic": "Display, Flexbox & Positioning",
+    "difficulty": "Medium",
+    "question": "How do you center an item both vertically AND horizontally inside a flex container?",
+    "options": [
+      "justify-content: center; align-items: center;",
+      "text-align: center; margin: auto;",
+      "align: middle; justify: center;",
+      "flex: center;"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Combining 'justify-content: center;' and 'align-items: center;' perfectly centers children."
+  },
+  {
+    "id": "css_81",
+    "category": "CSS",
+    "topic": "Display, Flexbox & Positioning",
+    "difficulty": "Medium",
+    "question": "Which Flexbox property changes the direction of flex items from a row into a vertical column?",
+    "options": [
+      "flex-flow: vertical;",
+      "flex-direction: column;",
+      "flex-axis: y;",
+      "flex-orientation: portrait;"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'flex-direction: column;' stacks items vertically."
+  },
+  {
+    "id": "css_82",
+    "category": "CSS",
+    "topic": "Display, Flexbox & Positioning",
+    "difficulty": "Medium",
+    "question": "Which Flexbox property allows flex items to wrap onto multiple lines if they run out of space?",
+    "options": [
+      "flex-wrap: wrap;",
+      "flex-line: multi;",
+      "wrap-items: true;",
+      "flex-flow: multi-row;"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'flex-wrap: wrap;' allows items to flow onto new lines when the container width is exceeded."
+  },
+  {
+    "id": "css_83",
+    "category": "CSS",
+    "topic": "Display, Flexbox & Positioning",
+    "difficulty": "Medium",
+    "question": "Which 'justify-content' value distributes items evenly with equal space between them and no space at the outer edges?",
+    "options": [
+      "space-around",
+      "space-evenly",
+      "space-between",
+      "center"
+    ],
+    "correctAnswer": 2,
+    "explanation": "'space-between' puts the first item at the start, last at the end, and distributes space evenly in between."
+  },
+  {
+    "id": "css_84",
+    "category": "CSS",
+    "topic": "Display, Flexbox & Positioning",
+    "difficulty": "Medium",
+    "question": "Which CSS property defines the gap between flex items or grid columns without adding margins?",
+    "options": [
+      "gap",
+      "space",
+      "item-spacing",
+      "flex-margin"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The 'gap' property (e.g. gap: 16px;) sets spacing between flex or grid items cleanly."
+  },
+  {
+    "id": "css_85",
+    "category": "CSS",
+    "topic": "Display, Flexbox & Positioning",
+    "difficulty": "Medium",
+    "question": "What is the default positioning property value for all HTML elements?",
+    "options": [
+      "position: relative;",
+      "position: static;",
+      "position: absolute;",
+      "position: fixed;"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Elements are 'position: static;' by default, following the normal document flow."
+  },
+  {
+    "id": "css_86",
+    "category": "CSS",
+    "topic": "Display, Flexbox & Positioning",
+    "difficulty": "Medium",
+    "question": "Which positioning value positions an element relative to its NORMAL position in document flow?",
+    "options": [
+      "position: static;",
+      "position: relative;",
+      "position: absolute;",
+      "position: fixed;"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'position: relative;' allows offset shifts (top, left) from its default normal position."
+  },
+  {
+    "id": "css_87",
+    "category": "CSS",
+    "topic": "Display, Flexbox & Positioning",
+    "difficulty": "Medium",
+    "question": "Which positioning value positions an element relative to its closest POSITIONED ancestor?",
+    "options": [
+      "position: relative;",
+      "position: absolute;",
+      "position: static;",
+      "position: fixed;"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'position: absolute;' removes the element from flow, positioning relative to the nearest positioned ancestor."
+  },
+  {
+    "id": "css_88",
+    "category": "CSS",
+    "topic": "Display, Flexbox & Positioning",
+    "difficulty": "Medium",
+    "question": "Which positioning value locks an element to a fixed position on screen, staying visible even when scrolling?",
+    "options": [
+      "position: absolute;",
+      "position: fixed;",
+      "position: sticky;",
+      "position: static;"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'position: fixed;' locks an element relative to the browser viewport (e.g. fixed navigation bar)."
+  },
+  {
+    "id": "css_89",
+    "category": "CSS",
+    "topic": "Display, Flexbox & Positioning",
+    "difficulty": "Medium",
+    "question": "Which positioning value behaves like relative positioning until a scroll threshold is met, then locks in place?",
+    "options": [
+      "position: absolute;",
+      "position: sticky;",
+      "position: fixed;",
+      "position: lock;"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'position: sticky;' toggles between relative and fixed depending on scroll offset."
+  },
+  {
+    "id": "css_90",
+    "category": "CSS",
+    "topic": "Display, Flexbox & Positioning",
+    "difficulty": "Medium",
+    "question": "Which CSS property controls the stacking order of overlapping positioned elements (which element sits on top)?",
+    "options": [
+      "layer-index",
+      "stack-order",
+      "z-index",
+      "depth"
+    ],
+    "correctAnswer": 2,
+    "explanation": "'z-index' sets the stack level along the 3D Z-axis. Higher numbers appear on top."
+  },
+  {
+    "id": "css_91",
+    "category": "CSS",
+    "topic": "Display, Flexbox & Positioning",
+    "difficulty": "Medium",
+    "question": "Does 'z-index' work on elements with 'position: static;' (default)?",
+    "options": [
+      "Yes, always",
+      "No, z-index only applies to positioned elements (relative, absolute, fixed, sticky) or flex/grid children",
+      "Only in Firefox",
+      "Only with negative numbers"
+    ],
+    "correctAnswer": 1,
+    "explanation": "z-index is ignored on position: static elements in standard document flow."
+  },
+  {
+    "id": "css_92",
+    "category": "CSS",
+    "topic": "Display, Flexbox & Positioning",
+    "difficulty": "Medium",
+    "question": "Which property is used to make an element float to the left or right of text content?",
+    "options": [
+      "float: left; or float: right;",
+      "align: float;",
+      "dock: left;",
+      "push: side;"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The 'float' property wraps text around an element on its left or right."
+  },
+  {
+    "id": "css_93",
+    "category": "CSS",
+    "topic": "Display, Flexbox & Positioning",
+    "difficulty": "Medium",
+    "question": "Which property is used to clear floats and prevent neighboring content from wrapping around floating elements?",
+    "options": [
+      "clear: both;",
+      "float: none;",
+      "reset: float;",
+      "unfloat: true;"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'clear: both;' prevents elements from wrapping around floated elements above them."
+  },
+  {
+    "id": "css_94",
+    "category": "CSS",
+    "topic": "Display, Flexbox & Positioning",
+    "difficulty": "Medium",
+    "question": "Which CSS property changes the mouse pointer appearance when hovering over a button?",
+    "options": [
+      "cursor: pointer;",
+      "mouse: hand;",
+      "pointer-style: click;",
+      "cursor: hand;"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'cursor: pointer;' changes the mouse icon to a clicking hand indicator."
+  },
+  {
+    "id": "css_95",
+    "category": "CSS",
+    "topic": "Display, Flexbox & Positioning",
+    "difficulty": "Medium",
+    "question": "Which CSS property smoothly animates changes to property values (like hover colors)?",
+    "options": [
+      "transition",
+      "transform",
+      "animation",
+      "motion"
+    ],
+    "correctAnswer": 0,
+    "explanation": "'transition: all 0.3s ease;' provides smooth visual transitions between states."
+  },
+  {
+    "id": "css_96",
+    "category": "CSS",
+    "topic": "Display, Flexbox & Positioning",
+    "difficulty": "Medium",
+    "question": "Which CSS property rotates, scales, skews, or translates an element in 2D or 3D space?",
+    "options": [
+      "transition",
+      "transform",
+      "convert",
+      "modify"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'transform: rotate(45deg);' or 'transform: scale(1.2);' visually manipulates elements."
+  },
+  {
+    "id": "css_97",
+    "category": "CSS",
+    "topic": "Display, Flexbox & Positioning",
+    "difficulty": "Medium",
+    "question": "What is a CSS Media Query (@media) primarily used for in web design?",
+    "options": [
+      "Playing audio clips",
+      "Creating responsive websites that adapt layouts to different screen sizes and devices",
+      "Connecting to SQL databases",
+      "Encrypting passwords"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Media queries (@media) apply specific CSS styles based on device characteristics (like screen width)."
+  },
+  {
+    "id": "css_98",
+    "category": "CSS",
+    "topic": "Display, Flexbox & Positioning",
+    "difficulty": "Medium",
+    "question": "Which media query rule applies styles only to screens narrower than 768px (like tablets and phones)?",
+    "options": [
+      "@media (min-width: 768px)",
+      "@media (max-width: 768px)",
+      "@media screen and 768",
+      "@device width < 768"
+    ],
+    "correctAnswer": 1,
+    "explanation": "@media (max-width: 768px) { ... } targets screen widths from 0 up to 768px."
+  },
+  {
+    "id": "css_99",
+    "category": "CSS",
+    "topic": "Display, Flexbox & Positioning",
+    "difficulty": "Medium",
+    "question": "What does 'Mobile-First' responsive design mean in CSS?",
+    "options": [
+      "Writing styles for mobile phones first as base styles, then adding media queries (min-width) for larger desktop screens",
+      "Only allowing mobile users to view the site",
+      "Writing CSS inside a mobile app",
+      "Using mobile phone numbers as class names"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Mobile-first begins with mobile styles and progressively enhances for larger screens using min-width."
+  },
+  {
+    "id": "css_100",
+    "category": "CSS",
+    "topic": "Display, Flexbox & Positioning",
+    "difficulty": "Medium",
+    "question": "Which CSS display property creates a two-dimensional grid layout of rows and columns?",
+    "options": [
+      "display: flex;",
+      "display: grid;",
+      "display: table;",
+      "display: matrix;"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'display: grid;' enables CSS Grid, a two-dimensional layout system for both rows and columns."
+  }
+]

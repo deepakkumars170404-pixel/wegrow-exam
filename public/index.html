@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WEGROW MNC Assessment Portal | 2-Round Examination</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between">
+
+  <!-- Header / Navigation -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white font-bold text-xl shadow-md shadow-blue-500/20">
+          W
+        </div>
+        <div>
+          <span class="text-xl font-bold bg-gradient-to-r from-blue-700 to-indigo-600 bg-clip-text text-transparent">WEGROW</span>
+          <span class="text-xs font-semibold px-2 py-0.5 ml-2 bg-blue-50 text-blue-700 rounded-full border border-blue-200">MNC Assessment Platform</span>
+        </div>
+      </div>
+
+      <!-- Instructor Login Button -->
+      <div class="flex items-center space-x-3">
+        <a href="admin.html" class="inline-flex items-center px-3.5 py-2 text-xs font-semibold rounded-lg text-slate-700 bg-slate-100 hover:bg-slate-200 hover:text-slate-900 border border-slate-300 transition-colors">
+          <i data-lucide="shield-check" class="w-4 h-4 mr-1.5 text-blue-600"></i>
+          Instructor Login (Deepak)
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Hero & Registration Container -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
+    
+    <!-- Top Alert Banner for Strict MNC Proctoring -->
+    <div class="mb-8 p-4 bg-amber-50 border-l-4 border-amber-500 rounded-r-xl shadow-sm flex items-start space-x-3">
+      <i data-lucide="alert-triangle" class="w-6 h-6 text-amber-600 flex-shrink-0 mt-0.5"></i>
+      <div>
+        <h4 class="text-sm font-bold text-amber-900">Strict CTS / MNC Proctoring Guidelines Active</h4>
+        <p class="text-xs text-amber-800 mt-1">
+          Once the exam begins, you must remain in <strong>Full Screen Mode</strong>. <strong>Tab switching, window minimizing, and external navigation are prohibited.</strong> Any attempt logs an automated strike. At 3 strikes, the examination is locked and automatically terminated.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      
+      <!-- Left Column: Student Details & Flow (7 cols) -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+          <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+            <div>
+              <h2 class="text-xl font-bold text-slate-900 flex items-center">
+                <i data-lucide="user-check" class="w-5 h-5 text-blue-600 mr-2"></i>
+                Candidate Registration
+              </h2>
+              <p class="text-xs text-slate-500 mt-0.5">Enter your name to start the 2-Round MNC Assessment (50 Total Questions).</p>
+            </div>
+            <span class="px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 text-[11px] font-bold border border-blue-200">
+              Total 50 Marks
+            </span>
+          </div>
+
+          <form id="startExamForm" class="mt-6 space-y-5" onsubmit="handleStartExam(event)">
+            
+            <!-- Student Name (Compulsory) -->
+            <div>
+              <label for="studentName" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                Full Name <span class="text-red-500">* (Compulsory)</span>
+              </label>
+              <div class="relative rounded-xl shadow-sm">
+                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                  <i data-lucide="user" class="w-5 h-5"></i>
+                </div>
+                <input 
+                  type="text" 
+                  id="studentName" 
+                  name="studentName" 
+                  required
+                  placeholder="Enter your full name (e.g., Rajesh Kumar)"
+                  class="block w-full pl-11 pr-4 py-3.5 bg-slate-50 border border-slate-300 rounded-xl text-sm font-semibold text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-white transition-all"
+                >
+              </div>
+              <p class="text-[11px] text-slate-500 mt-1">No candidate email needed. Your exam scores and leaderboard ranking are tracked under this name.</p>
+            </div>
+
+            <!-- College / Batch / Roll (Optional) -->
+            <div>
+              <label for="studentBatch" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                Batch / College / Section (Optional)
+              </label>
+              <div class="relative rounded-xl shadow-sm">
+                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                  <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                </div>
+                <input 
+                  type="text" 
+                  id="studentBatch" 
+                  name="studentBatch" 
+                  placeholder="e.g. CSE-2026 / Section A"
+                  class="block w-full pl-11 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:bg-white transition-all"
+                >
+              </div>
+            </div>
+
+            <!-- 2-Round Structure Preview Card -->
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
+              <div class="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center">
+                <i data-lucide="workflow" class="w-4 h-4 mr-1.5 text-blue-600"></i>
+                Assessment Progression Architecture
+              </div>
+
+              <!-- Round 1 Card -->
+              <div class="p-3 bg-white rounded-xl border border-blue-200 flex items-start space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold text-xs flex items-center justify-center flex-shrink-0">
+                  R1
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold text-blue-900">Round 1: MNC Aptitude (Compulsory)</span>
+                    <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-blue-100 text-blue-800">20 Qs &bull; 20 Marks</span>
+                  </div>
+                  <p class="text-[11px] text-slate-500 mt-0.5">
+                    Quantitative Aptitude, Logical Reasoning & Verbal English. Exactly 20 questions randomly sampled per student from a 150+ pool, arranged Basic to Medium.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Round 2 Card -->
+              <div class="p-3 bg-white rounded-xl border border-indigo-200 flex items-start space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-indigo-600 text-white font-bold text-xs flex items-center justify-center flex-shrink-0">
+                  R2
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold text-indigo-900">Round 2: Technical Electives (Multi-Select)</span>
+                    <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-800">30 Qs &bull; 30 Marks</span>
+                  </div>
+                  <p class="text-[11px] text-slate-500 mt-0.5">
+                    Directly after submitting Round 1, select any combination from HTML, CSS, Bootstrap, JavaScript, Python, React, and Data Analytics. Exactly 30 questions will be dynamically and randomly distributed across your choices.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Submit / Start Button -->
+            <div class="pt-2">
+              <button 
+                type="submit" 
+                id="startBtn"
+                class="w-full py-4 px-6 rounded-xl text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 shadow-lg shadow-blue-500/25 flex items-center justify-center space-x-2 transition-all transform hover:-translate-y-0.5 cursor-pointer"
+              >
+                <span>Launch Round 1: MNC Aptitude (Full Screen)</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </button>
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+
+      <!-- Right Column: Exam Details & System Readiness (5 cols) -->
+      <div class="lg:col-span-5 space-y-6">
+        
+        <!-- Round 2 Multi-Select Electives Preview -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+          <h3 class="text-base font-bold text-slate-900 flex items-center mb-3">
+            <i data-lucide="code" class="w-5 h-5 text-indigo-600 mr-2"></i>
+            Round 2 Elective Topics (100 Qs Pool Each)
+          </h3>
+          <p class="text-xs text-slate-500 mb-4">Choose any combination after Round 1; questions are dynamically divided to equal 30 questions:</p>
+
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <div class="p-2.5 rounded-xl bg-orange-50/70 border border-orange-200 text-orange-900 font-semibold flex items-center space-x-2">
+              <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+              <span>HTML5 (100 Qs)</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-sky-50/70 border border-sky-200 text-sky-900 font-semibold flex items-center space-x-2">
+              <span class="w-2 h-2 rounded-full bg-sky-500"></span>
+              <span>CSS3 (100 Qs)</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-purple-50/70 border border-purple-200 text-purple-900 font-semibold flex items-center space-x-2">
+              <span class="w-2 h-2 rounded-full bg-purple-500"></span>
+              <span>Bootstrap 5 (100 Qs)</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-yellow-50/70 border border-yellow-200 text-yellow-900 font-semibold flex items-center space-x-2">
+              <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+              <span>JavaScript (100 Qs)</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-emerald-50/70 border border-emerald-200 text-emerald-900 font-semibold flex items-center space-x-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span>Python (100 Qs)</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-cyan-50/70 border border-cyan-200 text-cyan-900 font-semibold flex items-center space-x-2">
+              <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
+              <span>React.js (100 Qs)</span>
+            </div>
+            <div class="col-span-2 p-2.5 rounded-xl bg-teal-50/70 border border-teal-200 text-teal-900 font-semibold flex items-center space-x-2">
+              <span class="w-2 h-2 rounded-full bg-teal-500"></span>
+              <span>Data Analytics & Python (100 Qs - Excel, EDA, DA Roles)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Anti-Cheating & System Readiness Checklist -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+          <h3 class="text-base font-bold text-slate-900 flex items-center mb-3">
+            <i data-lucide="shield-alert" class="w-5 h-5 text-emerald-600 mr-2"></i>
+            Proctoring & System Verification
+          </h3>
+
+          <div class="space-y-2.5 text-xs">
+            <div class="flex items-center justify-between p-2 rounded-lg bg-slate-50 border border-slate-100">
+              <span class="text-slate-600 flex items-center">
+                <i data-lucide="maximize" class="w-4 h-4 mr-2 text-slate-400"></i> Full-Screen Auto-Takeover
+              </span>
+              <span class="font-bold text-emerald-600 flex items-center">
+                <i data-lucide="check" class="w-3.5 h-3.5 mr-1"></i> Active
+              </span>
+            </div>
+
+            <div class="flex items-center justify-between p-2 rounded-lg bg-slate-50 border border-slate-100">
+              <span class="text-slate-600 flex items-center">
+                <i data-lucide="eye-off" class="w-4 h-4 mr-2 text-slate-400"></i> Anti-Tab Switching (3 Strikes)
+              </span>
+              <span class="font-bold text-emerald-600 flex items-center">
+                <i data-lucide="check" class="w-3.5 h-3.5 mr-1"></i> Enforced
+              </span>
+            </div>
+
+            <div class="flex items-center justify-between p-2 rounded-lg bg-slate-50 border border-slate-100">
+              <span class="text-slate-600 flex items-center">
+                <i data-lucide="lock" class="w-4 h-4 mr-2 text-slate-400"></i> DevTools & Copy Protection
+              </span>
+              <span class="font-bold text-emerald-600 flex items-center">
+                <i data-lucide="check" class="w-3.5 h-3.5 mr-1"></i> Locked
+              </span>
+            </div>
+          </div>
+
+          <div class="mt-4 p-3 rounded-xl bg-slate-50 border border-slate-200 text-[11px] text-slate-500">
+            <strong>Mistakenly closed the tab or locked out?</strong><br>
+            Instructor <strong>Deepak Kumar</strong> (<a href="mailto:deepakkumars170404@gmail.com" class="text-blue-600 hover:underline">deepakkumars170404@gmail.com</a>) can authorize an immediate Re-exam unlock from the Admin Portal.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-4 mt-8">
+    <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500">
+      &copy; 2026 WEGROW Assessment Platform. Designed for MNC Recruitment Readiness. Instructor: Deepak Kumar (<a href="mailto:deepakkumars170404@gmail.com" class="text-blue-600 hover:underline">deepakkumars170404@gmail.com</a>).
+    </div>
+  </footer>
+
+  <script src="js/student.js"></script>
+</body>
+</html>

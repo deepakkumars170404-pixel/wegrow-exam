@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MNC Assessment in Progress | WEGROW Proctor</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-100 text-slate-800 h-screen flex flex-col select-none overflow-hidden">
+
+  <!-- TOP PROCTOR BAR -->
+  <header class="bg-slate-900 text-white px-4 py-2.5 flex items-center justify-between border-b border-slate-800 z-30 shadow-md">
+    
+    <!-- Candidate & Test Info -->
+    <div class="flex items-center space-x-3">
+      <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center font-bold text-white text-sm">
+        W
+      </div>
+      <div>
+        <div class="flex items-center space-x-2">
+          <h1 id="topTestTitle" class="text-xs sm:text-sm font-bold text-slate-100">Round 1 of 2: MNC Aptitude</h1>
+          <span id="roundPill" class="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-blue-600 text-white">ROUND 1</span>
+        </div>
+        <p class="text-[11px] text-slate-400">Candidate: <span id="candidateNameSpan" class="text-blue-400 font-semibold">Student Name</span></p>
+      </div>
+    </div>
+
+    <!-- Center: Timer -->
+    <div class="flex items-center space-x-3 bg-slate-800/80 px-4 py-1.5 rounded-xl border border-slate-700">
+      <i data-lucide="clock" class="w-4 h-4 text-amber-400 animate-pulse"></i>
+      <div class="text-center">
+        <div class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Time Remaining</div>
+        <div id="examTimer" class="font-mono font-bold text-base sm:text-lg text-amber-300">25:00</div>
+      </div>
+    </div>
+
+    <!-- Right: Warnings & Proctoring Badges -->
+    <div class="flex items-center space-x-3">
+      
+      <!-- Strikes Tracker -->
+      <div class="flex items-center space-x-1.5 bg-red-950/40 border border-red-800/60 px-3 py-1.5 rounded-lg text-xs">
+        <i data-lucide="shield-alert" class="w-4 h-4 text-red-400"></i>
+        <span class="text-slate-300 hidden sm:inline">Strikes:</span>
+        <span id="strikeBadge" class="font-bold text-red-400">0 / 3</span>
+      </div>
+
+      <!-- Fullscreen Button -->
+      <button 
+        id="fullscreenBtn" 
+        onclick="requestBrowserFullscreen()" 
+        class="hidden sm:inline-flex items-center px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium rounded-lg border border-slate-700 transition"
+        title="Fullscreen Mode"
+      >
+        <i data-lucide="maximize" class="w-3.5 h-3.5 mr-1"></i> Fullscreen
+      </button>
+
+      <!-- Submit Button (Contextual) -->
+      <button 
+        id="topSubmitBtn"
+        onclick="confirmExamSubmission()" 
+        class="bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold text-xs px-3.5 py-1.5 rounded-lg shadow transition flex items-center space-x-1"
+      >
+        <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+        <span id="topSubmitBtnText">Submit Round 1</span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- MAIN EXAM SPLIT CONTAINER -->
+  <div class="flex-1 flex overflow-hidden">
+    
+    <!-- LEFT: QUESTION AREA (Scrollable) -->
+    <main class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 flex flex-col justify-between">
+      
+      <div class="max-w-4xl mx-auto w-full">
+        
+        <!-- Question Meta Info Header -->
+        <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-200">
+          <div class="flex items-center space-x-2">
+            <span class="px-2.5 py-1 rounded-md bg-blue-100 text-blue-800 text-xs font-bold" id="questionNumberBadge">
+              Question 1 of 20
+            </span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-200 text-slate-700 text-xs font-semibold" id="questionCategoryBadge">
+              Quantitative Aptitude
+            </span>
+            <span class="px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-800 text-xs font-semibold" id="questionDifficultyBadge">
+              Basic
+            </span>
+          </div>
+
+          <div class="text-xs text-slate-500 font-medium">
+            Marks: <span class="text-emerald-600 font-bold">+1.0</span> | Negative: <span class="text-slate-400 font-bold">0.0</span>
+          </div>
+        </div>
+
+        <!-- Question Body -->
+        <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm mb-6">
+          <div id="questionText" class="text-sm sm:text-base font-medium text-slate-900 leading-relaxed whitespace-pre-wrap">
+            Loading question...
+          </div>
+
+          <!-- Code Snippet Container -->
+          <div id="codeSnippetWrapper" class="hidden mt-4">
+            <pre><code id="codeSnippet" class="code-container block"></code></pre>
+          </div>
+        </div>
+
+        <!-- Options Container -->
+        <div class="space-y-3 mb-8" id="optionsContainer">
+          <!-- Dynamically injected option cards -->
+        </div>
+
+      </div>
+
+      <!-- BOTTOM CONTROL BAR -->
+      <footer class="bg-white border-t border-slate-200 p-4 -mx-4 -mb-4 sm:-mx-6 sm:-mb-6 lg:-mx-8 lg:-mb-8 sticky bottom-0 z-20 shadow-md">
+        <div class="max-w-4xl mx-auto flex flex-wrap items-center justify-between gap-2">
+          
+          <div class="flex items-center space-x-2">
+            <button 
+              id="prevBtn" 
+              onclick="navigateQuestion(-1)"
+              class="px-4 py-2 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-300 flex items-center space-x-1.5 transition disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <i data-lucide="chevron-left" class="w-4 h-4"></i>
+              <span>Previous</span>
+            </button>
+
+            <button 
+              id="clearBtn" 
+              onclick="clearCurrentSelection()"
+              class="px-3.5 py-2 rounded-xl text-xs font-semibold text-rose-600 bg-rose-50 hover:bg-rose-100 border border-rose-200 transition"
+            >
+              Clear Response
+            </button>
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <button 
+              id="markReviewBtn" 
+              onclick="toggleMarkForReview()"
+              class="px-4 py-2 rounded-xl text-xs font-bold text-purple-700 bg-purple-50 hover:bg-purple-100 border border-purple-200 flex items-center space-x-1.5 transition"
+            >
+              <i data-lucide="bookmark" class="w-4 h-4"></i>
+              <span id="markReviewText">Mark for Review & Next</span>
+            </button>
+
+            <button 
+              id="nextBtn" 
+              onclick="saveAndNextQuestion()"
+              class="px-5 py-2 rounded-xl text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 shadow shadow-blue-500/20 flex items-center space-x-1.5 transition"
+            >
+              <span>Save & Next</span>
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+        </div>
+      </footer>
+
+    </main>
+
+    <!-- RIGHT: QUESTION PALETTE SIDEBAR -->
+    <aside class="w-80 bg-white border-l border-slate-200 flex flex-col justify-between hidden md:flex shadow-sm z-10">
+      
+      <!-- Palette Top: Legend -->
+      <div class="p-4 border-b border-slate-200 bg-slate-50/50">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-600 mb-2 flex items-center">
+          <i data-lucide="grid" class="w-3.5 h-3.5 mr-1.5 text-blue-600"></i>
+          Question Palette (<span id="paletteRoundText">Round 1</span>)
+        </h3>
+
+        <!-- Status Legend Grid -->
+        <div class="grid grid-cols-2 gap-2 text-[11px] font-medium text-slate-600">
+          <div class="flex items-center space-x-1.5">
+            <span class="w-3.5 h-3.5 rounded bg-emerald-500"></span>
+            <span>Answered (<span id="countAnswered">0</span>)</span>
+          </div>
+          <div class="flex items-center space-x-1.5">
+            <span class="w-3.5 h-3.5 rounded bg-orange-500"></span>
+            <span>Unanswered (<span id="countUnanswered">0</span>)</span>
+          </div>
+          <div class="flex items-center space-x-1.5">
+            <span class="w-3.5 h-3.5 rounded bg-purple-600"></span>
+            <span>Review (<span id="countReview">0</span>)</span>
+          </div>
+          <div class="flex items-center space-x-1.5">
+            <span class="w-3.5 h-3.5 rounded bg-slate-200 border border-slate-300"></span>
+            <span>Not Visited (<span id="countNotVisited">20</span>)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Palette Center: Question Buttons Grid -->
+      <div class="p-4 flex-1 overflow-y-auto">
+        <div id="paletteGrid" class="grid grid-cols-5 gap-2.5">
+          <!-- Palette Buttons injected via exam.js -->
+        </div>
+      </div>
+
+      <!-- Palette Bottom: Quick Overview & Finish -->
+      <div class="p-4 border-t border-slate-200 bg-slate-50">
+        <div class="text-[11px] text-slate-500 mb-3 text-center">
+          Click any number to jump directly to that question.
+        </div>
+        <button 
+          id="sideSubmitBtn"
+          onclick="confirmExamSubmission()" 
+          class="w-full py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-sm flex items-center justify-center space-x-2 transition"
+        >
+          <i data-lucide="send" class="w-3.5 h-3.5"></i>
+          <span id="sideSubmitBtnText">Submit Round 1</span>
+        </button>
+      </div>
+
+    </aside>
+
+  </div>
+
+  <!-- SUDDEN FULL-SCREEN REQUIRED TAKEOVER MODAL -->
+  <div id="fullscreenTakeoverModal" class="fixed inset-0 bg-slate-950/95 z-50 flex items-center justify-center p-4 backdrop-blur-md">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-8 text-center shadow-2xl border-4 border-blue-600">
+      <div class="w-16 h-16 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center mx-auto mb-4 animate-bounce">
+        <i data-lucide="maximize" class="w-8 h-8"></i>
+      </div>
+      <h2 class="text-xl font-black text-slate-900">FULL-SCREEN REQUIRED</h2>
+      <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+        Under MNC proctoring regulations, this examination must run in <strong>Full Screen Mode</strong>. Window minimizing, multi-tasking, or tab switching will trigger automated strikes.
+      </p>
+      <div class="my-4 p-3 rounded-xl bg-blue-50 border border-blue-200 text-xs font-bold text-blue-900">
+        Candidate: <span id="takeoverCandidateName">Student</span> &bull; <span id="takeoverModuleName">MNC Assessment</span>
+      </div>
+      <button 
+        onclick="enterFullscreenAndStart()"
+        class="w-full py-3.5 px-6 rounded-xl text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-500/30 transition flex items-center justify-center space-x-2 cursor-pointer"
+      >
+        <i data-lucide="expand" class="w-4 h-4"></i>
+        <span>Click to Enter Full-Screen Examination Mode</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ROUND 2 TOPIC MULTI-SELECT OVERLAY MODAL (Shows immediately after Round 1 Submit) -->
+  <div id="round2TopicSelectModal" class="fixed inset-0 bg-slate-950/90 z-50 flex items-center justify-center p-4 backdrop-blur-md hidden">
+    <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border-2 border-indigo-500 overflow-y-auto max-h-[90vh]">
+      
+      <!-- Top Celebration & Score Banner -->
+      <div class="text-center pb-4 border-b border-slate-100">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold mb-2">
+          <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+          <span>Round 1 (Aptitude) Successfully Submitted!</span>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900">
+          Round 1 Score: <span id="r1ScoreDisplay" class="text-blue-600">--</span> / 20
+        </h2>
+        <p class="text-xs text-slate-500 mt-1">
+          Now choose your technical modules for <strong>Round 2</strong>. Exactly <strong>30 questions</strong> will be dynamically and randomly distributed across your chosen topics.
+        </p>
+      </div>
+
+      <!-- Dynamic Topic Multi-Select Checklist -->
+      <div class="mt-5 space-y-3">
+        <div class="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-600">
+          <span>Select Elective Topics (1 to 7)</span>
+          <span id="selectedCountBadge" class="text-blue-600 font-extrabold">0 Selected</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          
+          <!-- HTML -->
+          <label class="topic-check-label flex items-start p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-blue-50/50 hover:border-blue-300 transition cursor-pointer">
+            <input type="checkbox" name="round2Topic" value="html" onchange="updateTopicSelection()" class="mt-0.5 rounded text-blue-600 focus:ring-blue-500 w-4 h-4">
+            <div class="ml-2.5">
+              <span class="text-xs font-bold text-slate-900 block">HTML5 Core to Medium</span>
+              <span class="text-[10px] text-slate-500 block">Semantic tags, forms, tables, DOM & HTML5 (100 in Bank)</span>
+            </div>
+          </label>
+
+          <!-- CSS -->
+          <label class="topic-check-label flex items-start p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-blue-50/50 hover:border-blue-300 transition cursor-pointer">
+            <input type="checkbox" name="round2Topic" value="css" onchange="updateTopicSelection()" class="mt-0.5 rounded text-blue-600 focus:ring-blue-500 w-4 h-4">
+            <div class="ml-2.5">
+              <span class="text-xs font-bold text-slate-900 block">CSS3 Core to Medium</span>
+              <span class="text-[10px] text-slate-500 block">Box model, flexbox, grid, specificity, animations (100 in Bank)</span>
+            </div>
+          </label>
+
+          <!-- Bootstrap -->
+          <label class="topic-check-label flex items-start p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-blue-50/50 hover:border-blue-300 transition cursor-pointer">
+            <input type="checkbox" name="round2Topic" value="bootstrap" onchange="updateTopicSelection()" class="mt-0.5 rounded text-blue-600 focus:ring-blue-500 w-4 h-4">
+            <div class="ml-2.5">
+              <span class="text-xs font-bold text-slate-900 block">Bootstrap 5 Framework</span>
+              <span class="text-[10px] text-slate-500 block">Grid system, breakpoints, utilities & UI components (100 in Bank)</span>
+            </div>
+          </label>
+
+          <!-- JavaScript -->
+          <label class="topic-check-label flex items-start p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-blue-50/50 hover:border-blue-300 transition cursor-pointer">
+            <input type="checkbox" name="round2Topic" value="javascript" onchange="updateTopicSelection()" class="mt-0.5 rounded text-blue-600 focus:ring-blue-500 w-4 h-4">
+            <div class="ml-2.5">
+              <span class="text-xs font-bold text-slate-900 block">JavaScript Mastery</span>
+              <span class="text-[10px] text-slate-500 block">ES6+, scope, closures, promises, async/await & DOM (100 in Bank)</span>
+            </div>
+          </label>
+
+          <!-- Python -->
+          <label class="topic-check-label flex items-start p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-blue-50/50 hover:border-blue-300 transition cursor-pointer">
+            <input type="checkbox" name="round2Topic" value="python" onchange="updateTopicSelection()" class="mt-0.5 rounded text-blue-600 focus:ring-blue-500 w-4 h-4">
+            <div class="ml-2.5">
+              <span class="text-xs font-bold text-slate-900 block">Python Core Programming</span>
+              <span class="text-[10px] text-slate-500 block">Syntax, conditionals, loops, collections & functions (100 in Bank)</span>
+            </div>
+          </label>
+
+          <!-- React -->
+          <label class="topic-check-label flex items-start p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-blue-50/50 hover:border-blue-300 transition cursor-pointer">
+            <input type="checkbox" name="round2Topic" value="react" onchange="updateTopicSelection()" class="mt-0.5 rounded text-blue-600 focus:ring-blue-500 w-4 h-4">
+            <div class="ml-2.5">
+              <span class="text-xs font-bold text-slate-900 block">React.js Essentials</span>
+              <span class="text-[10px] text-slate-500 block">Hooks, Virtual DOM, components, props/state, router (100 in Bank)</span>
+            </div>
+          </label>
+
+          <!-- Data Analytics -->
+          <label class="col-span-1 sm:col-span-2 topic-check-label flex items-start p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-blue-50/50 hover:border-blue-300 transition cursor-pointer">
+            <input type="checkbox" name="round2Topic" value="data_analytics" onchange="updateTopicSelection()" class="mt-0.5 rounded text-blue-600 focus:ring-blue-500 w-4 h-4">
+            <div class="ml-2.5">
+              <span class="text-xs font-bold text-slate-900 block">Data Analytics Track</span>
+              <span class="text-[10px] text-slate-500 block">Python (up to Conditionals), Complete Excel, EDA, Analytics Types & Role of Data Analyst (100 in Bank)</span>
+            </div>
+          </label>
+
+        </div>
+      </div>
+
+      <!-- Live Dynamic Allocation Calculation Banner -->
+      <div id="dynamicAllocationBanner" class="mt-4 p-3.5 rounded-xl bg-blue-50 border border-blue-200 text-xs">
+        <div class="font-bold text-blue-900 flex items-center">
+          <i data-lucide="calculator" class="w-4 h-4 mr-1.5 text-blue-600"></i>
+          Dynamic 30-Question Allocation:
+        </div>
+        <p id="allocationBreakdownText" class="text-[11px] text-blue-800 mt-1">
+          Please check one or more topics above to see the question distribution.
+        </p>
+      </div>
+
+      <!-- Action Button -->
+      <div class="mt-5">
+        <button 
+          id="startRound2Btn"
+          onclick="launchRound2()" 
+          disabled
+          class="w-full py-3.5 px-6 rounded-xl text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-blue-500/25 transition flex items-center justify-center space-x-2 cursor-pointer"
+        >
+          <span>Launch Round 2 (30 Questions)</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PROCTORING VIOLATION MODAL (Warning / Strike Overlay) -->
+  <div id="violationModal" class="proctor-overlay hidden">
+    <div class="bg-white rounded-2xl max-w-md w-full mx-4 p-6 sm:p-8 text-center shadow-2xl border-4 border-red-500 pulse-warning">
+      <div class="w-16 h-16 rounded-full bg-red-100 text-red-600 flex items-center justify-center mx-auto mb-4">
+        <i data-lucide="alert-octagon" class="w-9 h-9"></i>
+      </div>
+      <h3 class="text-lg font-extrabold text-red-600" id="violationTitle">PROCTORING VIOLATION DETECTED!</h3>
+      <p class="text-xs text-slate-600 mt-2" id="violationDesc">
+        You switched tabs or exited full-screen mode. This activity violates MNC exam regulations.
+      </p>
+      
+      <div class="my-4 p-3 bg-red-50 rounded-xl border border-red-200">
+        <div class="text-xs font-bold text-red-800">
+          STRIKE <span id="modalStrikeCount">1</span> OF 3
+        </div>
+        <p class="text-[11px] text-red-700 mt-0.5">
+          At Strike 3, your assessment will be <strong>terminated and rejected</strong> automatically.
+        </p>
+      </div>
+
+      <div class="text-xs font-semibold text-slate-700 mb-4">
+        Returning to exam in <span id="violationTimer" class="font-mono text-red-600 font-bold text-sm">10</span> seconds...
+      </div>
+
+      <button 
+        id="dismissViolationBtn"
+        onclick="dismissViolationModal()" 
+        class="w-full py-3 px-4 rounded-xl text-xs font-bold text-white bg-red-600 hover:bg-red-700 shadow-md transition cursor-pointer"
+      >
+        I Understand - Return to Full Screen
+      </button>
+    </div>
+  </div>
+
+  <!-- DISQUALIFICATION / TERMINATION MODAL -->
+  <div id="disqualifiedModal" class="proctor-overlay hidden">
+    <div class="bg-white rounded-2xl max-w-md w-full mx-4 p-6 sm:p-8 text-center shadow-2xl border-4 border-slate-900">
+      <div class="w-16 h-16 rounded-full bg-slate-100 text-slate-800 flex items-center justify-center mx-auto mb-4">
+        <i data-lucide="shield-x" class="w-9 h-9 text-red-600"></i>
+      </div>
+      <h3 class="text-lg font-extrabold text-slate-900">EXAM TERMINATED</h3>
+      <p class="text-xs text-slate-600 mt-2">
+        You have exceeded the maximum allowed proctoring violations (3 strikes) by repeatedly switching tabs or exiting full screen.
+      </p>
+      <div class="my-4 p-3 bg-slate-100 rounded-xl text-[11px] text-slate-700 text-left space-y-1">
+        <div><strong>Status:</strong> Disqualified / Auto-submitted</div>
+        <div><strong>Instructor:</strong> Deepak Kumar</div>
+        <div><strong>Contact Email:</strong> deepakkumars170404@gmail.com</div>
+        <div><strong>Resolution:</strong> Only instructor Deepak can permit a re-exam from his Admin Dashboard.</div>
+      </div>
+      <button 
+        onclick="proceedToAutoResult()" 
+        class="w-full py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-slate-800 hover:bg-slate-900 transition cursor-pointer"
+      >
+        View Auto-Evaluated Score
+      </button>
+    </div>
+  </div>
+
+  <!-- SUBMIT CONFIRMATION MODAL -->
+  <div id="submitConfirmModal" class="proctor-overlay hidden">
+    <div class="bg-white rounded-2xl max-w-md w-full mx-4 p-6 sm:p-8 text-center shadow-2xl border border-slate-200">
+      <div class="w-14 h-14 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-3">
+        <i data-lucide="help-circle" class="w-7 h-7"></i>
+      </div>
+      <h3 class="text-base font-bold text-slate-900" id="confirmModalTitle">Submit Assessment?</h3>
+      <p class="text-xs text-slate-500 mt-1" id="confirmModalDesc">
+        Please review your attempt summary before submitting:
+      </p>
+
+      <div class="grid grid-cols-2 gap-2 my-4 text-xs">
+        <div class="p-2.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 font-bold">
+          <div class="text-[10px] uppercase font-semibold text-emerald-600">Answered</div>
+          <span id="confirmAnsweredCount" class="text-base">0</span> / <span id="confirmTotalCount">20</span>
+        </div>
+        <div class="p-2.5 rounded-lg bg-orange-50 border border-orange-200 text-orange-800 font-bold">
+          <div class="text-[10px] uppercase font-semibold text-orange-600">Unanswered</div>
+          <span id="confirmUnansweredCount" class="text-base">20</span> / <span id="confirmTotalCount2">20</span>
+        </div>
+        <div class="p-2.5 rounded-lg bg-purple-50 border border-purple-200 text-purple-800 font-bold">
+          <div class="text-[10px] uppercase font-semibold text-purple-600">Marked for Review</div>
+          <span id="confirmReviewCount" class="text-base">0</span>
+        </div>
+        <div class="p-2.5 rounded-lg bg-slate-100 border border-slate-200 text-slate-800 font-bold">
+          <div class="text-[10px] uppercase font-semibold text-slate-500">Strikes / Warnings</div>
+          <span id="confirmStrikesCount" class="text-base">0</span>
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-3 mt-5">
+        <button 
+          onclick="closeSubmitConfirmModal()" 
+          class="flex-1 py-2.5 px-4 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-300 transition cursor-pointer"
+        >
+          Cancel & Continue
+        </button>
+        <button 
+          id="finalSubmitBtn"
+          onclick="handleConfirmedSubmit()" 
+          class="flex-1 py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-500/25 transition cursor-pointer"
+        >
+          <span id="confirmSubmitBtnText">Submit & Proceed</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/exam.js"></script>
+</body>
+</html>
