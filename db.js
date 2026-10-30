@@ -13,11 +13,13 @@ if (!fs.existsSync(dataDir)) {
 const db = new Database(DB_PATH);
 
 // High concurrency tuning for 100+ concurrent students
-db.pragma('journal_mode = WAL');
-db.pragma('busy_timeout = 10000'); // Wait up to 10 seconds for locks instead of throwing SQLITE_BUSY
-db.pragma('synchronous = NORMAL');  // Blazing fast WAL writes
-db.pragma('cache_size = -64000');   // 64MB in-memory cache
-db.pragma('temp_store = MEMORY');   // Temp operations in RAM
+try {
+  db.pragma('journal_mode = WAL');
+  db.pragma('busy_timeout = 10000');
+  db.pragma('synchronous = NORMAL');
+} catch (e) {
+  console.warn('[DB WARNING] Pragmas fallback:', e.message);
+}
 
 // -------------------------------------------------------------
 // DATABASE SCHEMA DEFINITION
