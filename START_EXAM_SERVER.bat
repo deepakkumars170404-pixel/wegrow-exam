@@ -29,8 +29,7 @@ echo  http://192.168.1.36:3000
 echo.
 echo  INSTRUCTOR ADMIN PORTAL:
 echo  http://localhost:3000/admin.html
-echo  Email: deepakkumars170404@gmail.com
-echo  PIN:   wegrow2026
+echo  (Login with your administrator credentials)
 echo =====================================================================
 echo.
 echo Starting live public tunnel now... Please wait 5 seconds...

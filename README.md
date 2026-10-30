@@ -12,7 +12,7 @@ All data is stored purely in an SQLite database powered by `better-sqlite3`:
 - **`sessions` Table**: Tracks active student exam sessions, proctoring strikes, question orders, and round progression in real time.
 - **`results` Table**: Stores actual completed candidate submissions (Round 1 /20, Round 2 /30, Total /50, percentage, grades, time taken, proctoring violations, and full 50-question reviews). **Zero dummy records.**
 - **`reexam_permits` Table**: Stores re-exam unlock permits issued by Deepak.
-- **`admin_config` Table**: Stores instructor credentials (`deepakkumars170404@gmail.com`).
+- **`admin_config` Table**: Stores instructor credentials securely in the database.
 
 ---
 
@@ -35,13 +35,11 @@ npm start
 | Portal | URL | Description |
 |---|---|---|
 | **Student Assessment Portal** | `http://localhost:3000` | Candidates enter Full Name (Compulsory) & begin Round 1 |
-| **Instructor Dashboard** | `http://localhost:3000/admin.html` | Deepak Kumar's Admin Control Center |
+| **Instructor Dashboard** | `http://localhost:3000/admin.html` | Instructor Admin Control Center |
 
-### 🔑 Instructor Login Credentials:
-- **Email:** `deepakkumars170404@gmail.com`
-- **Security PIN:** `wegrow2026`
-
-*(Only Deepak's email can access the answer keys and leaderboard management.)*
+### 🔑 Instructor Access:
+- Configure your administrator credentials via `ADMIN_EMAIL` and `ADMIN_PIN` environment variables (or database `admin_config` table).
+- Only authorized administrators can access answer keys and the leaderboard management.
 
 ---
 
@@ -102,7 +100,7 @@ npm start
 
 ---
 
-## 🏆 Admin & Instructor Dashboard Features (`deepakkumars170404@gmail.com`)
+## 🏆 Admin & Instructor Dashboard Features
 
 - **Ranked Leaderboard:** Students sorted from **Top Mark to Low Mark** (Total /50, Round 1 /20, Round 2 /30, percentage, time taken, strikes).
 - **Top 3 Podium:** Gold, Silver, and Bronze badges for the top 3 high scorers.

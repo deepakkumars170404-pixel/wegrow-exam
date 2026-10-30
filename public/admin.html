@@ -22,7 +22,7 @@
           W
         </div>
         <h2 class="text-xl font-bold text-slate-900">Instructor Dashboard Login</h2>
-        <p class="text-xs text-slate-500 mt-1">Authorized for Deepak Kumar (deepakkumars170404@gmail.com)</p>
+        <p class="text-xs text-slate-500 mt-1">Authorized Personnel Only</p>
       </div>
 
       <form id="adminLoginForm" onsubmit="handleAdminLogin(event)" class="space-y-4">
@@ -38,7 +38,8 @@
               type="email" 
               id="adminEmailInput" 
               required
-              value="deepakkumars170404@gmail.com"
+              placeholder="Enter instructor email"
+              autocomplete="email"
               class="block w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm font-medium text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
           </div>
@@ -56,11 +57,11 @@
               type="password" 
               id="adminPinInput" 
               required
-              placeholder="Enter PIN (Default: wegrow2026)"
+              placeholder="Enter your security PIN"
+              autocomplete="current-password"
               class="block w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm font-medium text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
           </div>
-          <p class="text-[11px] text-slate-400 mt-1">Default PIN: <code class="font-bold text-blue-600">wegrow2026</code></p>
         </div>
 
         <div id="loginErrorMsg" class="hidden text-xs text-red-600 p-2.5 bg-red-50 rounded-xl border border-red-200">
@@ -100,7 +101,7 @@
               <span class="text-lg font-bold text-white">WEGROW Instructor HQ</span>
               <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30">Admin</span>
             </div>
-            <p class="text-[11px] text-slate-400">Deepak Kumar (<span class="text-blue-400">deepakkumars170404@gmail.com</span>)</p>
+            <p class="text-[11px] text-slate-400">Authenticated Session</p>
           </div>
         </div>
 
@@ -225,7 +226,7 @@
               <!-- Export CSV Button -->
               <a 
                 id="exportCsvBtn" 
-                href="/api/admin/export-csv?adminEmail=deepakkumars170404@gmail.com&adminPin=wegrow2026" 
+                href="#" 
                 download
                 class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center space-x-1.5 shadow-sm transition"
               >
@@ -438,7 +439,7 @@
     <!-- Footer -->
     <footer class="bg-white border-t border-slate-200 py-4 mt-8 print:hidden">
       <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500">
-        &copy; 2026 WEGROW Assessment Headquarters. Lead Instructor: Deepak Kumar (<a href="mailto:deepakkumars170404@gmail.com" class="text-blue-600 hover:underline">deepakkumars170404@gmail.com</a>).
+        &copy; 2026 WEGROW Assessment Headquarters. All rights reserved.
       </div>
     </footer>
 

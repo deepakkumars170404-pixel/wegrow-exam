@@ -185,10 +185,12 @@ alterTable('results', 'round2_total INTEGER NOT NULL DEFAULT 30');
 alterTable('results', 'selected_topics TEXT');
 
 // Admin Configuration
+const adminEmail = process.env.ADMIN_EMAIL || "deepakkumars170404@gmail.com";
+const adminPin = process.env.ADMIN_PIN || "wegrow2026";
 db.prepare(`
   INSERT OR IGNORE INTO admin_config (email, pin, name, role)
   VALUES (?, ?, ?, ?)
-`).run("deepakkumars170404@gmail.com", "wegrow2026", "Deepak Kumar", "Lead Instructor & Exam Administrator");
+`).run(adminEmail, adminPin, "Lead Instructor", "Exam Administrator");
 
 // All 8 Modules
 const modulesData = [

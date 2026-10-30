@@ -1,13 +1,14 @@
-// Admin Dashboard Script for Deepak Kumar (deepakkumars170404@gmail.com)
-const ADMIN_EMAIL = "deepakkumars170404@gmail.com";
-let currentAdminPin = null;
+// Admin Dashboard Script
+let currentAdminEmail = sessionStorage.getItem('adminEmail') || '';
+let currentAdminPin = sessionStorage.getItem('adminPin') || null;
 let cachedLeaderboard = [];
 
 document.addEventListener('DOMContentLoaded', () => {
   const savedPin = sessionStorage.getItem('adminPin');
   const savedEmail = sessionStorage.getItem('adminEmail');
 
-  if (savedEmail === ADMIN_EMAIL && savedPin) {
+  if (savedEmail && savedPin) {
+    currentAdminEmail = savedEmail;
     currentAdminPin = savedPin;
     showAdminDashboard();
   } else {
@@ -21,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function getAuthHeaders() {
   return {
     'Content-Type': 'application/json',
-    'x-admin-email': ADMIN_EMAIL,
+    'x-admin-email': currentAdminEmail,
     'x-admin-pin': currentAdminPin
   };
 }
@@ -52,6 +53,7 @@ async function handleAdminLogin(e) {
       return;
     }
 
+    currentAdminEmail = emailInput;
     currentAdminPin = pinInput;
     sessionStorage.setItem('adminEmail', emailInput);
     sessionStorage.setItem('adminPin', pinInput);
@@ -69,7 +71,7 @@ function showAdminDashboard() {
   document.getElementById('adminApp').classList.remove('hidden');
 
   // Update CSV download link with credentials
-  document.getElementById('exportCsvBtn').href = `/api/admin/export-csv?adminEmail=${encodeURIComponent(ADMIN_EMAIL)}&adminPin=${encodeURIComponent(currentAdminPin)}`;
+  document.getElementById('exportCsvBtn').href = `/api/admin/export-csv?adminEmail=${encodeURIComponent(currentAdminEmail)}&adminPin=${encodeURIComponent(currentAdminPin)}`;
 
   loadLeaderboard();
   loadLiveSessions();
@@ -81,6 +83,8 @@ function showAdminDashboard() {
 function handleAdminLogout() {
   sessionStorage.removeItem('adminEmail');
   sessionStorage.removeItem('adminPin');
+  currentAdminEmail = '';
+  currentAdminPin = null;
   window.location.reload();
 }
 

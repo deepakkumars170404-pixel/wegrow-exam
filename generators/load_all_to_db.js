@@ -136,10 +136,12 @@ alterTable('results', 'round2_total INTEGER NOT NULL DEFAULT 30');
 alterTable('results', 'selected_topics TEXT');
 
 // Ensure admin credentials
+const adminEmail = process.env.ADMIN_EMAIL || "deepakkumars170404@gmail.com";
+const adminPin = process.env.ADMIN_PIN || "wegrow2026";
 db.prepare(`
   INSERT OR REPLACE INTO admin_config (email, pin, name, role)
   VALUES (?, ?, ?, ?)
-`).run("deepakkumars170404@gmail.com", "wegrow2026", "Deepak Kumar", "Lead Instructor & Exam Administrator");
+`).run(adminEmail, adminPin, "Lead Instructor", "Exam Administrator");
 
 // 2. Define All 8 Modules
 const modulesData = [

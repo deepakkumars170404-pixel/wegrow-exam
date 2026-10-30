@@ -103,7 +103,7 @@ app.post('/api/exam/start', (req, res) => {
       success: false,
       isCompleted: true,
       resultId: priorCompleted.id,
-      message: `Candidate '${cleanName}' has already submitted the examination. If you need to re-attempt due to accidental closure or technical issues, request instructor Deepak (deepakkumars170404@gmail.com) for Re-exam permission.`
+      message: `Candidate '${cleanName}' has already submitted the examination. If you need to re-attempt due to accidental closure or technical issues, request instructor for Re-exam permission.`
     });
   }
 
@@ -117,7 +117,7 @@ app.post('/api/exam/start', (req, res) => {
     return res.status(403).json({
       success: false,
       isLocked: true,
-      message: `Your exam attempt was locked due to prohibited tab-switches or window exits. Contact instructor Deepak (deepakkumars170404@gmail.com) to unlock your session.`
+      message: `Your exam attempt was locked due to prohibited tab-switches or window exits. Contact the instructor to unlock your session.`
     });
   }
 
@@ -662,7 +662,7 @@ function checkAdminAuth(req, res, next) {
 
   return res.status(401).json({ 
     success: false, 
-    message: "Access denied. Instructor access is reserved for deepakkumars170404@gmail.com." 
+    message: "Access denied. Valid instructor credentials required." 
   });
 }
 
@@ -677,7 +677,7 @@ app.post('/api/admin/login', (req, res) => {
   if (!admin) {
     return res.status(403).json({ 
       success: false, 
-      message: "Access denied. Only registered instructor deepakkumars170404@gmail.com can log in." 
+      message: "Access denied. Invalid instructor credentials." 
     });
   }
 
@@ -958,8 +958,7 @@ app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 WEGROW MNC Examination Platform (SQLite Database Mode)`);
   console.log(`📍 Local URL:     http://localhost:${PORT}`);
   console.log(`👨‍🏫 Admin Portal: http://localhost:${PORT}/admin.html`);
-  console.log(`🔑 Admin Email:  deepakkumars170404@gmail.com`);
-  console.log(`🔒 Admin PIN:    wegrow2026`);
-  console.log(`💾 SQLite DB:    data/exam.db (850 Total Questions)`);
+  console.log(`🔒 Admin Auth:   Protected in Database`);
+  console.log(`💾 SQLite DB:    ${db.name || 'Active Database'}`);
   console.log(`=======================================================`);
 });
