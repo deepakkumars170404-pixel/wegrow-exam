@@ -1,4 +1,5 @@
 const http = require('http');
+const path = require('path');
 
 console.log('Testing 100 simultaneous student exam registrations...');
 
@@ -55,11 +56,13 @@ for (let i = 1; i <= TOTAL_STUDENTS; i++) {
         console.log(`========================================\n`);
 
         // Clean up test sessions
-        const Database = require('better-sqlite3');
-        const db = new Database('D:\\WEGROW\\Exam\\data\\exam.db');
-        const del = db.prepare("DELETE FROM sessions WHERE student_name LIKE 'StressTest_Student_%'").run();
-        console.log(`Cleaned up ${del.changes} stress test sessions from database.`);
-        db.close();
+        try {
+          const Database = require('better-sqlite3');
+          const db = new Database(path.join(__dirname, '..', 'data', 'exam.db'));
+          const del = db.prepare("DELETE FROM sessions WHERE student_name LIKE 'StressTest_Student_%'").run();
+          console.log(`Cleaned up ${del.changes} stress test sessions from database.`);
+          db.close();
+        } catch(e) {}
       }
     });
   });
@@ -76,4 +79,3 @@ for (let i = 1; i <= TOTAL_STUDENTS; i++) {
   req.write(postData);
   req.end();
 }
-

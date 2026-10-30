@@ -5,10 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "build": "npm rebuild better-sqlite3 --build-from-source && node generators/load_all_to_db.js",
-    "postinstall": "npm rebuild better-sqlite3 --build-from-source || true",
+    "build": "node generators/load_all_to_db.js",
+    "seed:sqlite": "node generators/load_all_to_db.js",
     "seed:supabase": "node generators/seed_to_supabase.js",
-    "test": "node test_system.js"
+    "test": "node tests/test_system.js",
+    "test:concurrency": "node tests/test_concurrency.js",
+    "test:simulate": "node tests/simulate_exam.js"
   },
   "engines": {
     "node": ">=22.0.0"
