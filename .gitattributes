@@ -1,0 +1,7 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Explicitly declare binary files so Git never touches line endings
+*.db binary
+*.png binary
+*.jpg binary

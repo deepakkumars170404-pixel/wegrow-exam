@@ -4,31 +4,19 @@ const fs = require('fs');
 
 console.log('[DB INIT] Initializing SQLite connection...');
 
-let DB_PATH = path.join(__dirname, 'data', 'exam.db');
+const DB_PATH = path.join(__dirname, 'data', 'exam.db');
+const dataDir = path.join(__dirname, 'data');
+if (!fs.existsSync(dataDir)) {
+  fs.mkdirSync(dataDir, { recursive: true });
+}
 
-// In production (Linux / Render), /opt/render/project/src is read-only.
-// Use writable /tmp storage to prevent SIGSEGV 139 errors on Linux.
-if (process.platform === 'linux' || process.env.RENDER) {
-  try {
-    const tmpDataDir = path.join('/tmp', 'data');
-    if (!fs.existsSync(tmpDataDir)) {
-      fs.mkdirSync(tmpDataDir, { recursive: true });
-    }
-    const tmpDbPath = path.join(tmpDataDir, 'exam.db');
-    if (fs.existsSync(DB_PATH) && !fs.existsSync(tmpDbPath)) {
-      console.log('[DB INIT] Copying initial database to writable /tmp path...');
-      fs.copyFileSync(DB_PATH, tmpDbPath);
-    }
-    if (fs.existsSync(tmpDbPath)) {
-      DB_PATH = tmpDbPath;
-    }
-  } catch (err) {
-    console.warn('[DB INIT] Could not use /tmp path, falling back to local path:', err.message);
-  }
+// If database file doesn't exist on server, generate it natively from seed questions
+if (!fs.existsSync(DB_PATH)) {
+  console.log('[DB INIT] Generating fresh native database from question bank...');
+  require('./generators/load_all_to_db');
 }
 
 console.log('[DB INIT] Active DB Path:', DB_PATH);
-
 const db = new Database(DB_PATH);
 
 // High concurrency tuning for 100+ concurrent students
