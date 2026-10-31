@@ -118,7 +118,7 @@ function switchTab(tabId) {
 }
 
 // -------------------------------------------------------------
-// LEADERBOARD (TOP MARK TO LOW MARK)
+// LEADERSHIP DASHBOARD & 4-ROUND GRAND MATRIX
 // -------------------------------------------------------------
 
 async function loadLeaderboard() {
@@ -138,19 +138,94 @@ async function loadLeaderboard() {
 
     cachedLeaderboard = data.leaderboard || [];
 
-    // Update Top Overview Stats
-    document.getElementById('statTotalSubmissions').innerText = data.stats.totalSubmissions;
-    document.getElementById('statAveragePercentage').innerText = `${data.stats.avgPercentage}%`;
-    document.getElementById('statHighestScore').innerText = `${data.stats.highestScore} / 50`;
+    // 1. Executive Performance KPI Cards
+    const grandAvgElem = document.getElementById('statGrandAverage');
+    if (grandAvgElem) {
+      grandAvgElem.innerText = data.stats.avgGrandScore !== null ? data.stats.avgGrandScore : (cachedLeaderboard.length > 0 ? (cachedLeaderboard.reduce((s, r) => s + (r.grandTotal || r.score), 0) / cachedLeaderboard.length).toFixed(1) : '--');
+    }
 
-    // Update HR Stats & Badges (Distinguishes Pending, Partial, and Completed)
-    const hrCompleted = cachedLeaderboard.filter(item => item.hrStatus === 'completed').length;
-    const hrPartial = cachedLeaderboard.filter(item => item.hrStatus === 'gd_completed' || item.hrStatus === 'interview_completed').length;
-    const hrPending = cachedLeaderboard.length - hrCompleted - hrPartial;
+    const topScoreElem = document.getElementById('statTopRankerScore');
+    if (topScoreElem) {
+      topScoreElem.innerText = data.stats.highestGrandScore !== null ? data.stats.highestGrandScore : (data.stats.highestQuizScore || '--');
+    }
+
+    const topRanker = cachedLeaderboard.find(r => r.grandTotal !== null) || cachedLeaderboard[0];
+    const topNameElem = document.getElementById('statTopRankerName');
+    if (topNameElem && topRanker) {
+      topNameElem.innerText = `🥇 ${topRanker.studentName} (${topRanker.batch || 'Campus'})`;
+    }
+
+    // 4-Round Benchmark Averages
+    const avgR1Elem = document.getElementById('statAvgR1');
+    if (avgR1Elem) avgR1Elem.innerText = data.stats.avgR1Score !== undefined ? `${data.stats.avgR1Score}` : '--';
+
+    const avgR2Elem = document.getElementById('statAvgR2');
+    if (avgR2Elem) avgR2Elem.innerText = data.stats.avgR2Score !== undefined ? `${data.stats.avgR2Score}` : '--';
+
+    const avgGdElem = document.getElementById('statAvgGd');
+    if (avgGdElem) avgGdElem.innerText = data.stats.avgGdScore !== undefined ? `${data.stats.avgGdScore}` : '--';
+
+    const avgIntElem = document.getElementById('statAvgInterview');
+    if (avgIntElem) avgIntElem.innerText = data.stats.avgInterviewScore !== undefined ? `${data.stats.avgInterviewScore}` : '--';
+
+    // Candidate Pipeline Counts
+    const statTotal = document.getElementById('statTotalSubmissions');
+    if (statTotal) statTotal.innerText = data.stats.totalSubmissions || 0;
+
+    const statDone = document.getElementById('statCompletedPipeline');
+    if (statDone) statDone.innerText = data.stats.hrCompletedCount || 0;
+
+    const statPartial = document.getElementById('statPartialPipeline');
+    if (statPartial) statPartial.innerText = data.stats.hrPartialCount || 0;
+
+    const statPending = document.getElementById('statPendingPipeline');
+    if (statPending) statPending.innerText = data.stats.hrPendingCount || 0;
+
+    // 2. Cross-Center Comparisons (Sivakasi vs Srivilliputhur)
+    const cStats = data.stats.centerStats || {};
+    const siva = cStats.sivakasi || {};
+    const srivi = cStats.srivilliputhur || {};
+
+    const elSivaTot = document.getElementById('centerSivakasiTotal');
+    if (elSivaTot) elSivaTot.innerText = `${siva.count || 0} Candidates (${siva.completed || 0} Done)`;
+
+    const elSivaAvgG = document.getElementById('centerSivakasiAvgGrand');
+    if (elSivaAvgG) elSivaAvgG.innerText = siva.avgGrand !== null && siva.avgGrand !== undefined ? `${siva.avgGrand} / 100` : '--';
+
+    const elSivaAvgQ = document.getElementById('centerSivakasiAvgQuiz');
+    if (elSivaAvgQ) elSivaAvgQ.innerText = siva.avgQuiz ? `${siva.avgQuiz} / 50` : '--';
+
+    const elSivaTopG = document.getElementById('centerSivakasiTopGrand');
+    if (elSivaTopG) elSivaTopG.innerText = siva.topGrand ? `${siva.topGrand} / 100` : (siva.topQuiz ? `${siva.topQuiz} / 50` : '--');
+
+    const elSriviTot = document.getElementById('centerSrivilliTotal');
+    if (elSriviTot) elSriviTot.innerText = `${srivi.count || 0} Candidates (${srivi.completed || 0} Done)`;
+
+    const elSriviAvgG = document.getElementById('centerSrivilliAvgGrand');
+    if (elSriviAvgG) elSriviAvgG.innerText = srivi.avgGrand !== null && srivi.avgGrand !== undefined ? `${srivi.avgGrand} / 100` : '--';
+
+    const elSriviAvgQ = document.getElementById('centerSrivilliAvgQuiz');
+    if (elSriviAvgQ) elSriviAvgQ.innerText = srivi.avgQuiz ? `${srivi.avgQuiz} / 50` : '--';
+
+    const elSriviTopG = document.getElementById('centerSrivilliTopGrand');
+    if (elSriviTopG) elSriviTopG.innerText = srivi.topGrand ? `${srivi.topGrand} / 100` : (srivi.topQuiz ? `${srivi.topQuiz} / 50` : '--');
+
+    // HR Tab Badges & Counts
+    const hrStatTotal = document.getElementById('hrStatTotal');
+    if (hrStatTotal) hrStatTotal.innerText = cachedLeaderboard.length;
+
+    const hrStatPending = document.getElementById('hrStatPending');
+    if (hrStatPending) hrStatPending.innerText = data.stats.hrPendingCount || 0;
+
+    const hrStatPartial = document.getElementById('hrStatPartial');
+    if (hrStatPartial) hrStatPartial.innerText = data.stats.hrPartialCount || 0;
+
+    const hrStatCompleted = document.getElementById('hrStatCompleted');
+    if (hrStatCompleted) hrStatCompleted.innerText = data.stats.hrCompletedCount || 0;
 
     const badge = document.getElementById('hrBadgePending');
     if (badge) {
-      const activePending = hrPending + hrPartial;
+      const activePending = (data.stats.hrPendingCount || 0) + (data.stats.hrPartialCount || 0);
       if (activePending > 0) {
         badge.innerText = activePending;
         badge.classList.remove('hidden');
@@ -158,15 +233,6 @@ async function loadLeaderboard() {
         badge.classList.add('hidden');
       }
     }
-
-    const statTotal = document.getElementById('hrStatTotal');
-    if (statTotal) statTotal.innerText = cachedLeaderboard.length;
-    const statPending = document.getElementById('hrStatPending');
-    if (statPending) statPending.innerText = hrPending;
-    const statPartial = document.getElementById('hrStatPartial');
-    if (statPartial) statPartial.innerText = hrPartial;
-    const statCompleted = document.getElementById('hrStatCompleted');
-    if (statCompleted) statCompleted.innerText = hrCompleted;
 
     // Render Podium
     renderPodium(cachedLeaderboard);
@@ -178,7 +244,7 @@ async function loadLeaderboard() {
     renderHrCandidates(cachedLeaderboard);
 
   } catch (err) {
-    console.error('Error fetching leaderboard:', err);
+    console.error('Error fetching leadership leaderboard:', err);
   }
 }
 
@@ -187,109 +253,183 @@ function renderPodium(list) {
   const container = document.getElementById('podiumCardsContainer');
 
   if (!list || list.length === 0) {
-    podiumSection.classList.add('hidden');
+    if (podiumSection) podiumSection.classList.add('hidden');
     return;
   }
 
-  podiumSection.classList.remove('hidden');
-  container.innerHTML = '';
+  if (podiumSection) podiumSection.classList.remove('hidden');
+  if (container) container.innerHTML = '';
 
   const top3 = list.slice(0, 3);
   const ranks = [
-    { title: "Rank 1 (Gold)", bg: "rank-1", badge: "🥇 Rank 1", text: "text-amber-900" },
-    { title: "Rank 2 (Silver)", bg: "rank-2", badge: "🥈 Rank 2", text: "text-slate-800" },
-    { title: "Rank 3 (Bronze)", bg: "rank-3", badge: "🥉 Rank 3", text: "text-orange-950" }
+    { title: "Rank 1 (Gold)", bg: "rank-1", badge: "🥇 Rank 1 Champion", border: "border-amber-400/60", text: "text-amber-950" },
+    { title: "Rank 2 (Silver)", bg: "rank-2", badge: "🥈 Rank 2 Runner Up", border: "border-slate-300", text: "text-slate-800" },
+    { title: "Rank 3 (Bronze)", bg: "rank-3", badge: "🥉 Rank 3 Finalist", border: "border-orange-300", text: "text-orange-950" }
   ];
 
   top3.forEach((item, idx) => {
     const r = ranks[idx];
     const card = document.createElement('div');
-    card.className = `podium-card p-4 rounded-2xl ${r.bg} shadow-sm`;
+    card.className = `podium-card p-5 rounded-3xl ${r.bg} border ${r.border} shadow-lg relative overflow-hidden flex flex-col justify-between space-y-4`;
+
+    const isDone = item.grandTotal !== null && item.grandTotal !== undefined;
+    const grandScoreVal = isDone ? item.grandTotal : item.score;
+    const maxScoreVal = isDone ? 100 : 50;
+    const grandPctVal = isDone ? item.grandPercentage : item.percentage;
+
+    const gdScoreText = item.gdScore !== null && item.gdScore !== undefined ? `${item.gdScore}/25` : '--';
+    const intScoreText = item.interviewScore !== null && item.interviewScore !== undefined ? `${item.interviewScore}/25` : '--';
 
     card.innerHTML = `
-      <div class="flex items-center justify-between mb-2">
-        <span class="text-xs font-black uppercase tracking-wider ${r.text}">${r.badge}</span>
-        <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-white/80 ${r.text}">${item.percentage}%</span>
+      <div>
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-black uppercase tracking-wider ${r.text} flex items-center">
+            ${r.badge}
+          </span>
+          <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-white/90 ${r.text} shadow-xs">
+            ${grandPctVal}%
+          </span>
+        </div>
+
+        <h3 class="text-lg font-black text-slate-900 truncate">${escapeHtml(item.studentName)}</h3>
+        <div class="flex items-center space-x-1.5 mt-1">
+          <span class="px-2 py-0.5 rounded-full bg-white/70 text-[10px] font-bold text-blue-900 border border-blue-200">
+            📍 ${escapeHtml(item.batch || 'Sivakasi')}
+          </span>
+          <span class="text-[10px] font-medium text-slate-600">
+            ${item.timeTakenFormatted || ''}
+          </span>
+        </div>
+
+        <!-- 4-Round Marks Micro Grid -->
+        <div class="grid grid-cols-2 gap-1.5 mt-3 pt-3 border-t border-black/10 text-[10px] font-bold">
+          <div class="bg-white/80 p-1.5 rounded-xl border border-black/5">
+            <span class="text-slate-400 block font-normal text-[9px]">R1 Aptitude</span>
+            <span class="text-blue-900 font-black">${item.round1Score}/20</span>
+          </div>
+          <div class="bg-white/80 p-1.5 rounded-xl border border-black/5">
+            <span class="text-slate-400 block font-normal text-[9px]">R2 Technical</span>
+            <span class="text-indigo-900 font-black">${item.round2Score}/30</span>
+          </div>
+          <div class="bg-white/80 p-1.5 rounded-xl border border-black/5">
+            <span class="text-slate-400 block font-normal text-[9px]">R3 GD</span>
+            <span class="text-emerald-900 font-black">${gdScoreText}</span>
+          </div>
+          <div class="bg-white/80 p-1.5 rounded-xl border border-black/5">
+            <span class="text-slate-400 block font-normal text-[9px]">R4 Interview</span>
+            <span class="text-purple-900 font-black">${intScoreText}</span>
+          </div>
+        </div>
       </div>
-      <h3 class="text-base font-extrabold text-slate-900 truncate">${escapeHtml(item.studentName)}</h3>
-      <p class="text-[11px] text-slate-600 truncate mt-0.5">R1: ${item.round1Score}/20 &bull; R2: ${item.round2Score}/30</p>
-      
-      <div class="flex items-center justify-between mt-3 pt-2 border-t border-black/10 text-xs font-bold ${r.text}">
-        <span>Total: ${item.score}/50</span>
-        <span>${item.timeTakenFormatted || 'N/A'}</span>
+
+      <!-- Grand Total Footer Pill -->
+      <div class="p-3 rounded-2xl bg-slate-900 text-white flex items-center justify-between shadow-md">
+        <div>
+          <span class="text-[9px] uppercase tracking-wider text-slate-400 block font-bold">Grand Score</span>
+          <span class="text-xs text-amber-300 font-semibold">${isDone ? 'All 4 Rounds' : 'Quiz Stage 1'}</span>
+        </div>
+        <div class="text-right">
+          <span class="text-xl font-black text-amber-300">${grandScoreVal}</span>
+          <span class="text-xs text-slate-400">/ ${maxScoreVal}</span>
+        </div>
       </div>
     `;
-    container.appendChild(card);
+    if (container) container.appendChild(card);
   });
 }
 
 function renderLeaderboardRows(list) {
   const tbody = document.getElementById('leaderboardTbody');
+  if (!tbody) return;
   tbody.innerHTML = '';
 
   if (!list || list.length === 0) {
     tbody.innerHTML = `
       <tr>
         <td colspan="12" class="p-8 text-center text-slate-400">
-          No assessment submissions found. Real-time candidate submissions will appear here.
+          No candidates match the selected filters.
         </td>
       </tr>
     `;
     return;
   }
 
-  list.forEach((item) => {
+  list.forEach((item, idx) => {
     const tr = document.createElement('tr');
     tr.className = "hover:bg-slate-50/80 transition-colors";
 
-    // Rank Medal/Badge
-    let rankBadge = `<span class="w-6 h-6 rounded-full bg-slate-100 border border-slate-300 text-slate-600 font-bold inline-flex items-center justify-center text-xs">#${item.rank}</span>`;
-    if (item.rank === 1) rankBadge = `<span class="w-6 h-6 rounded-full bg-amber-400 text-amber-950 font-black inline-flex items-center justify-center text-xs shadow-sm">1</span>`;
-    else if (item.rank === 2) rankBadge = `<span class="w-6 h-6 rounded-full bg-slate-300 text-slate-900 font-bold inline-flex items-center justify-center text-xs shadow-sm">2</span>`;
-    else if (item.rank === 3) rankBadge = `<span class="w-6 h-6 rounded-full bg-orange-300 text-orange-950 font-bold inline-flex items-center justify-center text-xs shadow-sm">3</span>`;
+    // Rank Badge with Medals for Top 3
+    let rankBadge = `<span class="w-6 h-6 rounded-full bg-slate-100 border border-slate-300 text-slate-700 font-bold inline-flex items-center justify-center text-xs">#${item.rank || (idx + 1)}</span>`;
+    if (item.rank === 1) rankBadge = `<span class="w-7 h-7 rounded-full bg-amber-400 text-amber-950 font-black inline-flex items-center justify-center text-xs shadow-md">🥇 1</span>`;
+    else if (item.rank === 2) rankBadge = `<span class="w-7 h-7 rounded-full bg-slate-300 text-slate-900 font-bold inline-flex items-center justify-center text-xs shadow-md">🥈 2</span>`;
+    else if (item.rank === 3) rankBadge = `<span class="w-7 h-7 rounded-full bg-orange-300 text-orange-950 font-bold inline-flex items-center justify-center text-xs shadow-md">🥉 3</span>`;
 
-    // HR Status badge
-    const isHrDone = item.hrStatus === 'completed';
-    const hrBadge = isHrDone 
-      ? `<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[10px]">✅ Evaluated</span>`
-      : `<span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-bold text-[10px]">⏳ Pending</span>`;
+    const hasGd = item.gdScore !== null && item.gdScore !== undefined;
+    const hasInt = item.interviewScore !== null && item.interviewScore !== undefined;
+    const isBothDone = hasGd && hasInt;
 
-    const gdVal = (item.gdScore !== null && item.gdScore !== undefined) ? item.gdScore : '-';
-    const intVal = (item.interviewScore !== null && item.interviewScore !== undefined) ? item.interviewScore : '-';
-    const hrVal = (item.hrTotal !== null && item.hrTotal !== undefined) ? `${item.hrTotal}/50` : '-';
-    const grandVal = (item.grandTotal !== null && item.grandTotal !== undefined) ? `${item.grandTotal}/100` : `${item.score}/50`;
-    const grandPctVal = (item.grandPercentage !== null && item.grandPercentage !== undefined) ? `${item.grandPercentage}%` : `${item.percentage}%`;
+    // Status Badge
+    let statusBadge = '<span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 font-bold text-[10px]">⏳ Quiz Only</span>';
+    if (isBothDone) {
+      statusBadge = '<span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 font-black text-[10px] border border-emerald-300 shadow-xs flex items-center justify-center space-x-1"><i data-lucide="check-circle" class="w-3 h-3 text-emerald-600"></i><span>Complete (/100)</span></span>';
+    } else if (hasGd) {
+      statusBadge = '<span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-bold text-[10px] border border-amber-200">🟡 GD Done • F2F Pending</span>';
+    } else if (hasInt) {
+      statusBadge = '<span class="px-2 py-0.5 rounded-full bg-purple-100 text-purple-800 font-bold text-[10px] border border-purple-200">🟡 F2F Done • GD Pending</span>';
+    }
+
+    const gdVal = hasGd ? item.gdScore : '-';
+    const intVal = hasInt ? item.interviewScore : '-';
+    const hrVal = isBothDone ? `${item.hrTotal} / 50` : (hasGd ? `${item.gdScore} (GD)` : (hasInt ? `${item.interviewScore} (F2F)` : '-'));
+
+    // Highlighted Grand Total Card
+    const grandScoreVal = isBothDone ? item.grandTotal : item.score;
+    const grandMaxVal = isBothDone ? 100 : 50;
+    const grandPctVal = isBothDone ? item.grandPercentage : item.percentage;
+
+    const grandHighlight = isBothDone
+      ? `<div class="inline-flex flex-col items-center px-3 py-1.5 rounded-2xl bg-gradient-to-r from-purple-900 to-indigo-950 text-white shadow-md shadow-purple-500/20">
+           <div class="text-sm font-black text-amber-300">${grandScoreVal} <span class="text-[10px] text-purple-200 font-normal">/ ${grandMaxVal}</span></div>
+           <div class="text-[9px] font-bold text-emerald-300">${grandPctVal}%</div>
+         </div>`
+      : `<div class="inline-flex flex-col items-center px-2.5 py-1 rounded-xl bg-slate-100 text-slate-800">
+           <div class="text-xs font-bold">${grandScoreVal} / 50</div>
+           <div class="text-[9px] font-medium text-slate-500">${grandPctVal}%</div>
+         </div>`;
 
     tr.innerHTML = `
-      <td class="py-3.5 px-3 font-bold">${rankBadge}</td>
+      <td class="py-3.5 px-3 font-bold text-center">${rankBadge}</td>
       <td class="py-3.5 px-3">
-        <div class="font-bold text-slate-900 text-xs sm:text-sm">${escapeHtml(item.studentName)}</div>
-        <div class="text-[10px] text-blue-600 font-semibold">${escapeHtml(item.batch || 'Sivakasi')}</div>
+        <div class="font-black text-slate-900 text-xs sm:text-sm">${escapeHtml(item.studentName)}</div>
+        <div class="flex items-center space-x-1 mt-0.5">
+          <span class="px-2 py-0.2 rounded-full bg-blue-50 text-blue-700 text-[10px] font-bold border border-blue-200">
+            📍 ${escapeHtml(item.batch || 'Sivakasi')}
+          </span>
+        </div>
       </td>
       <td class="py-3.5 px-2 text-center font-bold text-blue-700">
-        ${item.round1Score}
+        ${item.round1Score} <span class="text-[10px] text-slate-400">/20</span>
       </td>
       <td class="py-3.5 px-2 text-center font-bold text-indigo-700">
-        ${item.round2Score}
+        ${item.round2Score} <span class="text-[10px] text-slate-400">/30</span>
       </td>
-      <td class="py-3.5 px-2 text-center font-black text-slate-900 bg-slate-100/60 text-sm">
-        ${item.score}
-      </td>
-      <td class="py-3.5 px-2 text-center font-bold text-emerald-700">
-        ${gdVal}
+      <td class="py-3.5 px-2 text-center font-black text-slate-900 bg-slate-100/70 text-xs">
+        ${item.score} <span class="text-[10px] text-slate-400">/50</span>
       </td>
       <td class="py-3.5 px-2 text-center font-bold text-emerald-700">
-        ${intVal}
+        ${gdVal} ${hasGd ? '<span class="text-[10px] text-slate-400">/25</span>' : ''}
       </td>
-      <td class="py-3.5 px-2 text-center font-black text-emerald-900 bg-emerald-50/50">
+      <td class="py-3.5 px-2 text-center font-bold text-purple-700">
+        ${intVal} ${hasInt ? '<span class="text-[10px] text-slate-400">/25</span>' : ''}
+      </td>
+      <td class="py-3.5 px-2 text-center font-black text-emerald-900 bg-emerald-50/50 text-xs">
         ${hrVal}
       </td>
-      <td class="py-3.5 px-3 text-center bg-purple-50/60">
-        <div class="font-black text-purple-900 text-sm">${grandVal}</div>
-        <div class="text-[10px] font-bold text-purple-700">${grandPctVal}</div>
+      <td class="py-3.5 px-3 text-center bg-purple-50/40">
+        ${grandHighlight}
       </td>
       <td class="py-3.5 px-2 text-center">
-        ${hrBadge}
+        ${statusBadge}
       </td>
       <td class="py-3.5 px-2 text-center text-slate-500 font-mono text-[11px]">
         ${item.timeTakenFormatted || '-'}
@@ -298,29 +438,30 @@ function renderLeaderboardRows(list) {
         <div class="flex items-center justify-end space-x-1.5">
           <button 
             onclick="openHrModal('${item.id}')"
-            class="px-2 py-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 rounded-lg text-[11px] font-bold border border-emerald-200 transition cursor-pointer flex items-center shadow-xs"
-            title="Score Round 3 GD & Round 4 Interview"
+            class="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-[11px] font-bold transition cursor-pointer flex items-center space-x-1 shadow-sm"
+            title="Score or Edit HR Marks"
           >
-            <i data-lucide="award" class="w-3.5 h-3.5 mr-1 text-emerald-600"></i> HR Marks
-          </button>
-          <button 
-            onclick="quickAllowReexam('${escapeHtml(item.studentName)}')"
-            class="px-2 py-1 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-lg text-[11px] font-bold border border-blue-200 transition cursor-pointer"
-            title="Unlock Re-Exam for student"
-          >
-            Re-exam
+            <i data-lucide="award" class="w-3.5 h-3.5"></i>
+            <span>HR Marks</span>
           </button>
           <a 
             href="result.html?id=${item.id}" 
             target="_blank"
-            class="p-1 text-slate-500 hover:text-blue-600 rounded-lg hover:bg-slate-100 transition"
-            title="Inspect Candidate Scorecard"
+            class="p-1.5 text-slate-500 hover:text-blue-600 rounded-xl hover:bg-slate-100 transition"
+            title="Inspect Candidate Full Scorecard"
           >
             <i data-lucide="eye" class="w-4 h-4"></i>
           </a>
           <button 
+            onclick="quickAllowReexam('${escapeHtml(item.studentName)}')"
+            class="px-2 py-1 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-xl text-[11px] font-bold border border-blue-200 transition cursor-pointer"
+            title="Unlock Re-Exam for student"
+          >
+            Re-exam
+          </button>
+          <button 
             onclick="deleteResultEntry('${item.id}', '${escapeHtml(item.studentName)}')"
-            class="p-1 text-slate-400 hover:text-red-600 rounded-lg hover:bg-red-50 transition cursor-pointer"
+            class="p-1.5 text-slate-400 hover:text-red-600 rounded-xl hover:bg-red-50 transition cursor-pointer"
             title="Delete Entry"
           >
             <i data-lucide="trash-2" class="w-4 h-4"></i>
@@ -337,19 +478,52 @@ function renderLeaderboardRows(list) {
 function filterLeaderboardTable() {
   const query = (document.getElementById('searchStudentInput')?.value || '').trim().toLowerCase();
   const center = (document.getElementById('filterCenterSelect')?.value || '').trim().toLowerCase();
+  const status = (document.getElementById('filterStatusSelect')?.value || 'all').trim();
+  const sortBy = (document.getElementById('sortBySelect')?.value || 'grand').trim();
 
-  let filtered = cachedLeaderboard;
+  let filtered = [...cachedLeaderboard];
 
+  // 1. Filter by Center
   if (center) {
     filtered = filtered.filter(item => (item.batch || '').toLowerCase() === center);
   }
 
+  // 2. Filter by Status
+  if (status === 'completed') {
+    filtered = filtered.filter(item => item.grandTotal !== null && item.grandTotal !== undefined);
+  } else if (status === 'partial') {
+    filtered = filtered.filter(item => item.hrStatus === 'gd_completed' || item.hrStatus === 'interview_completed');
+  } else if (status === 'pending') {
+    filtered = filtered.filter(item => item.hrStatus === 'pending' || !item.hrStatus);
+  }
+
+  // 3. Search query
   if (query) {
     filtered = filtered.filter(item => 
-      item.studentName.toLowerCase().includes(query) ||
+      (item.studentName || '').toLowerCase().includes(query) ||
       (item.batch && item.batch.toLowerCase().includes(query))
     );
   }
+
+  // 4. Sort selection
+  filtered.sort((a, b) => {
+    if (sortBy === 'grand') {
+      const gA = a.grandTotal !== null && a.grandTotal !== undefined ? a.grandTotal : a.score;
+      const gB = b.grandTotal !== null && b.grandTotal !== undefined ? b.grandTotal : b.score;
+      if (gB !== gA) return gB - gA;
+      return (a.timeTakenSeconds || 0) - (b.timeTakenSeconds || 0);
+    } else if (sortBy === 'quiz') {
+      if ((b.score || 0) !== (a.score || 0)) return (b.score || 0) - (a.score || 0);
+      return (a.timeTakenSeconds || 0) - (b.timeTakenSeconds || 0);
+    } else if (sortBy === 'gd') {
+      return (b.gdScore || 0) - (a.gdScore || 0);
+    } else if (sortBy === 'interview') {
+      return (b.interviewScore || 0) - (a.interviewScore || 0);
+    } else if (sortBy === 'time') {
+      return (a.timeTakenSeconds || 0) - (b.timeTakenSeconds || 0);
+    }
+    return 0;
+  });
 
   renderLeaderboardRows(filtered);
 }

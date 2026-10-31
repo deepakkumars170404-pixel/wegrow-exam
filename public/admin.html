@@ -108,8 +108,8 @@
         <!-- Navigation Tabs -->
         <nav class="hidden md:flex items-center space-x-1 bg-slate-800 p-1 rounded-xl text-xs font-semibold">
           <button onclick="switchTab('leaderboard')" id="tab-btn-leaderboard" class="tab-btn px-4 py-2 rounded-lg bg-blue-600 text-white shadow-sm flex items-center space-x-1.5 cursor-pointer">
-            <i data-lucide="trophy" class="w-4 h-4"></i>
-            <span>Leaderboard</span>
+            <i data-lucide="crown" class="w-4 h-4 text-amber-300"></i>
+            <span>Leadership Dashboard</span>
           </button>
           <button onclick="switchTab('hr')" id="tab-btn-hr" class="tab-btn px-4 py-2 rounded-lg text-slate-400 hover:text-white flex items-center space-x-1.5 cursor-pointer">
             <i data-lucide="award" class="w-4 h-4 text-emerald-400"></i>
@@ -144,7 +144,7 @@
 
       <!-- Mobile Tab Bar -->
       <div class="md:hidden flex items-center justify-around border-t border-slate-800 p-2 bg-slate-900 text-xs">
-        <button onclick="switchTab('leaderboard')" class="text-blue-400 font-bold p-1">Leaderboard</button>
+        <button onclick="switchTab('leaderboard')" class="text-blue-400 font-bold p-1">Leadership</button>
         <button onclick="switchTab('hr')" id="m-tab-btn-hr" class="text-emerald-400 font-bold p-1">HR Marks</button>
         <button onclick="switchTab('hr')" class="text-emerald-400 font-bold p-1">HR Marks</button>
         <button onclick="switchTab('reexam')" class="text-slate-400 p-1">Re-Exam</button>
@@ -156,67 +156,255 @@
     <!-- CONTENT WRAPPER -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-grow">
       
-      <!-- TAB 1: LEADERBOARD -->
+      <!-- TAB 1: LEADERSHIP DASHBOARD (4-ROUND PERFORMANCE MATRIX) -->
       <section id="tab-leaderboard" class="tab-content space-y-6">
         
-        <!-- Top Stats Overview Cards -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
-            <div>
-              <p class="text-xs font-bold uppercase tracking-wider text-slate-400">Total Submissions</p>
-              <h3 id="statTotalSubmissions" class="text-2xl font-black text-slate-900 mt-1">0</h3>
+        <!-- Leadership Executive Header -->
+        <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl border border-slate-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div class="space-y-1.5">
+            <div class="flex items-center space-x-2">
+              <span class="px-2.5 py-0.5 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/30 text-[10px] font-black uppercase tracking-wider flex items-center">
+                <i data-lucide="crown" class="w-3 h-3 mr-1 text-amber-300"></i> Executive Matrix
+              </span>
+              <span class="text-xs text-slate-400">4-Round Recruitment Scorecard</span>
             </div>
-            <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
-              <i data-lucide="users" class="w-6 h-6"></i>
-            </div>
+            <h1 class="text-2xl sm:text-3xl font-black tracking-tight text-white">
+              Official Recruitment Leadership Dashboard
+            </h1>
+            <p class="text-xs text-slate-300 max-w-2xl leading-relaxed">
+              Evaluating all 4 rounds: <strong>Round 1 Aptitude (20)</strong> + <strong>Round 2 Technical (30)</strong> + <strong>Round 3 Group Discussion (25)</strong> + <strong>Round 4 Personal Interview (25)</strong> = <strong>100 Marks Grand Total</strong>.
+            </p>
           </div>
 
-          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
-            <div>
-              <p class="text-xs font-bold uppercase tracking-wider text-slate-400">Batch Average %</p>
-              <h3 id="statAveragePercentage" class="text-2xl font-black text-indigo-600 mt-1">0.0%</h3>
-            </div>
-            <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center">
-              <i data-lucide="trending-up" class="w-6 h-6"></i>
-            </div>
-          </div>
-
-          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
-            <div>
-              <p class="text-xs font-bold uppercase tracking-wider text-slate-400">Highest Score</p>
-              <h3 id="statHighestScore" class="text-2xl font-black text-emerald-600 mt-1">0 / 50</h3>
-            </div>
-            <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
-              <i data-lucide="award" class="w-6 h-6"></i>
-            </div>
-          </div>
-
-          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
-            <div>
-              <p class="text-xs font-bold uppercase tracking-wider text-slate-400">Active Live Tests</p>
-              <h3 id="statActiveSessions" class="text-2xl font-black text-amber-500 mt-1">0</h3>
-            </div>
-            <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
-              <i data-lucide="radio" class="w-6 h-6"></i>
-            </div>
+          <div class="flex items-center space-x-2 shrink-0 print:hidden">
+            <button 
+              onclick="window.print()" 
+              class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold border border-white/10 transition flex items-center space-x-1.5 cursor-pointer shadow-sm"
+              title="Print Official Leadership Report"
+            >
+              <i data-lucide="printer" class="w-4 h-4"></i>
+              <span>Print Report</span>
+            </button>
+            <a 
+              id="exportCsvBtn" 
+              href="#" 
+              download
+              class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition flex items-center space-x-1.5 shadow-md shadow-emerald-600/30 cursor-pointer"
+              title="Download full 4-round candidates matrix in CSV"
+            >
+              <i data-lucide="download" class="w-4 h-4"></i>
+              <span>Export Leadership CSV</span>
+            </a>
           </div>
         </div>
 
-        <!-- Leaderboard Table Container -->
+        <!-- 4 Key Executive Performance KPI Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          
+          <!-- KPI 1: Grand Batch Average (/100) -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Grand Batch Average</span>
+              <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center font-bold">
+                <i data-lucide="award" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <div class="mt-3">
+              <div class="text-3xl font-black text-purple-900">
+                <span id="statGrandAverage">--</span> <span class="text-base font-semibold text-slate-400">/ 100</span>
+              </div>
+              <p class="text-[11px] text-slate-500 mt-1 flex items-center">
+                <span>Quiz (/50) + HR (/50) Combined Index</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- KPI 2: #1 Grand Ranker -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-amber-600 flex items-center">
+                <i data-lucide="trophy" class="w-3.5 h-3.5 mr-1 text-amber-500"></i> #1 Grand Ranker
+              </span>
+              <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold">
+                <i data-lucide="crown" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <div class="mt-3">
+              <div class="text-3xl font-black text-amber-950">
+                <span id="statTopRankerScore">--</span> <span class="text-base font-semibold text-slate-400">/ 100</span>
+              </div>
+              <p class="text-[11px] font-bold text-slate-800 mt-1 truncate" id="statTopRankerName">
+                Awaiting evaluations
+              </p>
+            </div>
+          </div>
+
+          <!-- KPI 3: 4-Round Average Benchmarks -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-400">4-Round Avg Benchmark</span>
+              <div class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">
+                <i data-lucide="bar-chart-3" class="w-4 h-4"></i>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-2 text-[11px] font-bold">
+              <div class="p-1.5 rounded-lg bg-slate-50 text-slate-700">
+                <span class="text-[10px] text-slate-400 block font-normal">R1 Apt (/20)</span>
+                <span id="statAvgR1" class="text-blue-700 font-black">--</span>
+              </div>
+              <div class="p-1.5 rounded-lg bg-slate-50 text-slate-700">
+                <span class="text-[10px] text-slate-400 block font-normal">R2 Tech (/30)</span>
+                <span id="statAvgR2" class="text-indigo-700 font-black">--</span>
+              </div>
+              <div class="p-1.5 rounded-lg bg-slate-50 text-slate-700">
+                <span class="text-[10px] text-slate-400 block font-normal">R3 GD (/25)</span>
+                <span id="statAvgGd" class="text-emerald-700 font-black">--</span>
+              </div>
+              <div class="p-1.5 rounded-lg bg-slate-50 text-slate-700">
+                <span class="text-[10px] text-slate-400 block font-normal">R4 F2F (/25)</span>
+                <span id="statAvgInterview" class="text-purple-700 font-black">--</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- KPI 4: Evaluation Pipeline Funnel -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Candidate Pipeline</span>
+              <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">
+                <i data-lucide="git-merge" class="w-4 h-4"></i>
+              </div>
+            </div>
+            <div class="space-y-1.5 text-xs">
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500 font-medium">Total Registered:</span>
+                <span id="statTotalSubmissions" class="font-black text-slate-900">0</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-emerald-700 font-medium">🏆 All 4 Done (/100):</span>
+                <span id="statCompletedPipeline" class="font-black text-emerald-700">0</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-amber-700 font-medium">🟡 Partial HR:</span>
+                <span id="statPartialPipeline" class="font-black text-amber-700">0</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400 font-medium">⏳ Quiz Only:</span>
+                <span id="statPendingPipeline" class="font-black text-slate-600">0</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Center Performance Head-to-Head Comparison Card -->
+        <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm">
+          <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
+            <div>
+              <h3 class="text-sm font-bold text-slate-900 flex items-center">
+                <i data-lucide="building" class="w-4 h-4 text-blue-600 mr-1.5"></i>
+                Campus Head-to-Head Comparison
+              </h3>
+              <p class="text-[11px] text-slate-500">Live recruitment analytics between Sivakasi and Srivilliputhur centers.</p>
+            </div>
+            <span class="text-[10px] font-bold uppercase px-2.5 py-1 rounded-full bg-slate-100 text-slate-600">Cross-Center Metric</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            
+            <!-- Sivakasi Card -->
+            <div class="p-4 rounded-2xl bg-blue-50/50 border border-blue-200">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-black text-blue-900 uppercase tracking-wide">📍 Sivakasi Center</span>
+                <span id="centerSivakasiTotal" class="text-xs font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-800">0 Candidates</span>
+              </div>
+              <div class="grid grid-cols-3 gap-2 mt-3 text-center">
+                <div class="bg-white p-2 rounded-xl border border-blue-100">
+                  <span class="text-[9px] uppercase font-bold text-slate-400 block">Grand Avg</span>
+                  <span id="centerSivakasiAvgGrand" class="text-sm font-black text-purple-900">--</span>
+                </div>
+                <div class="bg-white p-2 rounded-xl border border-blue-100">
+                  <span class="text-[9px] uppercase font-bold text-slate-400 block">Quiz Avg</span>
+                  <span id="centerSivakasiAvgQuiz" class="text-sm font-black text-blue-900">--</span>
+                </div>
+                <div class="bg-white p-2 rounded-xl border border-blue-100">
+                  <span class="text-[9px] uppercase font-bold text-slate-400 block">Top Score</span>
+                  <span id="centerSivakasiTopGrand" class="text-sm font-black text-emerald-700">--</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Srivilliputhur Card -->
+            <div class="p-4 rounded-2xl bg-indigo-50/50 border border-indigo-200">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-black text-indigo-900 uppercase tracking-wide">📍 Srivilliputhur Center</span>
+                <span id="centerSrivilliTotal" class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-800">0 Candidates</span>
+              </div>
+              <div class="grid grid-cols-3 gap-2 mt-3 text-center">
+                <div class="bg-white p-2 rounded-xl border border-indigo-100">
+                  <span class="text-[9px] uppercase font-bold text-slate-400 block">Grand Avg</span>
+                  <span id="centerSrivilliAvgGrand" class="text-sm font-black text-purple-900">--</span>
+                </div>
+                <div class="bg-white p-2 rounded-xl border border-indigo-100">
+                  <span class="text-[9px] uppercase font-bold text-slate-400 block">Quiz Avg</span>
+                  <span id="centerSrivilliAvgQuiz" class="text-sm font-black text-indigo-900">--</span>
+                </div>
+                <div class="bg-white p-2 rounded-xl border border-indigo-100">
+                  <span class="text-[9px] uppercase font-bold text-slate-400 block">Top Score</span>
+                  <span id="centerSrivilliTopGrand" class="text-sm font-black text-emerald-700">--</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Top 3 Podium Cards (Grand Champions) -->
+        <div id="podiumSection" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm hidden">
+          <div class="text-center mb-6">
+            <span class="px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-[10px] font-black uppercase tracking-wider">
+              🏆 Grand Champions Podium
+            </span>
+            <h3 class="text-xl font-black text-slate-900 mt-1">Top 3 All-Round Rank Holders</h3>
+            <p class="text-xs text-slate-500">Highest Combined Score across all 4 Examination &amp; Interview Rounds.</p>
+          </div>
+          <div id="podiumCardsContainer" class="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+            <!-- Dynamically rendered podium cards -->
+          </div>
+        </div>
+
+        <!-- Grand Leaderboard Table Container -->
         <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
           
           <!-- Filter & Search Controls Header -->
-          <div class="p-5 border-b border-slate-200 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div class="p-5 border-b border-slate-200 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
             <div>
               <h2 class="text-lg font-bold text-slate-900 flex items-center">
-                <i data-lucide="trophy" class="w-5 h-5 text-amber-500 mr-2"></i>
-                Official Leaderboard: Top Mark to Low Mark
+                <i data-lucide="crown" class="w-5 h-5 text-amber-500 mr-2"></i>
+                Official Selection Rankings: High to Low
               </h2>
-              <p class="text-xs text-slate-500 mt-0.5">Ranked automatically by Highest Combined Score (/50), Percentage, and Time Taken.</p>
+              <p class="text-xs text-slate-500 mt-0.5">
+                Complete candidate ledger showing all 4 distinct round marks, aggregate scores, and final rankings.
+              </p>
             </div>
 
             <div class="flex flex-wrap items-center gap-2">
-              <!-- Filter by Center / Branch -->
+              
+              <!-- Sort By Dropdown -->
+              <select 
+                id="sortBySelect" 
+                onchange="filterLeaderboardTable()"
+                class="px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-pointer"
+                title="Sort Candidates"
+              >
+                <option value="grand">🏆 Sort: Grand Total (/100)</option>
+                <option value="quiz">📝 Sort: Quiz Score (/50)</option>
+                <option value="gd">🗣️ Sort: GD Score (/25)</option>
+                <option value="interview">💼 Sort: Interview (/25)</option>
+                <option value="time">⚡ Sort: Fastest Time</option>
+              </select>
+
+              <!-- Filter by Center -->
               <select 
                 id="filterCenterSelect" 
                 onchange="filterLeaderboardTable()"
@@ -225,6 +413,18 @@
                 <option value="">All Centers</option>
                 <option value="Sivakasi">Sivakasi</option>
                 <option value="Srivilliputhur">Srivilliputhur</option>
+              </select>
+
+              <!-- Filter by Status -->
+              <select 
+                id="filterStatusSelect" 
+                onchange="filterLeaderboardTable()"
+                class="px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer"
+              >
+                <option value="all">All Statuses</option>
+                <option value="completed">🏆 All 4 Rounds Done (/100)</option>
+                <option value="partial">🟡 Partial HR Saved</option>
+                <option value="pending">⏳ Quiz Only</option>
               </select>
 
               <!-- Search by Candidate Name -->
@@ -241,17 +441,6 @@
                 >
               </div>
 
-              <!-- Export CSV Button -->
-              <a 
-                id="exportCsvBtn" 
-                href="#" 
-                download
-                class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center space-x-1.5 shadow-sm transition"
-              >
-                <i data-lucide="download" class="w-3.5 h-3.5"></i>
-                <span>Export CSV</span>
-              </a>
-
               <!-- Refresh Button -->
               <button 
                 onclick="loadLeaderboard()" 
@@ -263,36 +452,28 @@
             </div>
           </div>
 
-          <!-- Top 3 Podium Cards (If entries exist) -->
-          <div id="podiumSection" class="p-6 bg-slate-50/50 border-b border-slate-200 hidden">
-            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 text-center">Top 3 Rank Holders</h4>
-            <div id="podiumCardsContainer" class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-              <!-- Dynamically rendered -->
-            </div>
-          </div>
-
-          <!-- Leaderboard Table -->
+          <!-- Grand Leaderboard Table -->
           <div class="overflow-x-auto">
             <table class="w-full text-left text-xs border-collapse">
-              <thead class="bg-slate-50 text-slate-500 uppercase font-bold text-[10px] tracking-wider border-b border-slate-200">
+              <thead class="bg-slate-50 text-slate-600 uppercase font-bold text-[10px] tracking-wider border-b border-slate-200">
                 <tr>
                   <th class="py-3.5 px-3">Rank</th>
                   <th class="py-3.5 px-3">Candidate &amp; Center</th>
                   <th class="py-3.5 px-2 text-center text-blue-700">R1 Apt (/20)</th>
                   <th class="py-3.5 px-2 text-center text-indigo-700">R2 Tech (/30)</th>
-                  <th class="py-3.5 px-2 text-center font-bold text-slate-900 bg-slate-100/60">Quiz (/50)</th>
-                  <th class="py-3.5 px-2 text-center text-emerald-700">GD (/25)</th>
-                  <th class="py-3.5 px-2 text-center text-emerald-700">F2F (/25)</th>
+                  <th class="py-3.5 px-2 text-center font-bold text-slate-900 bg-slate-100/70">Quiz (/50)</th>
+                  <th class="py-3.5 px-2 text-center text-emerald-700">R3 GD (/25)</th>
+                  <th class="py-3.5 px-2 text-center text-purple-700">R4 F2F (/25)</th>
                   <th class="py-3.5 px-2 text-center font-bold text-emerald-800 bg-emerald-50/50">HR (/50)</th>
-                  <th class="py-3.5 px-3 text-center font-black text-purple-700 bg-purple-50/60">🏆 Grand (/100)</th>
-                  <th class="py-3.5 px-2 text-center">HR Status</th>
+                  <th class="py-3.5 px-3 text-center font-black text-purple-950 bg-purple-50/70">🏆 Grand (/100)</th>
+                  <th class="py-3.5 px-2 text-center">Status</th>
                   <th class="py-3.5 px-2 text-center">Time</th>
                   <th class="py-3.5 px-3 text-right">Actions</th>
                 </tr>
               </thead>
               <tbody id="leaderboardTbody" class="divide-y divide-slate-100 text-slate-700 font-medium">
                 <tr>
-                  <td colspan="12" class="p-8 text-center text-slate-400">Loading student rankings...</td>
+                  <td colspan="12" class="p-8 text-center text-slate-400">Loading leadership rankings...</td>
                 </tr>
               </tbody>
             </table>
@@ -301,8 +482,6 @@
         </div>
 
       </section>
-
-      
 
       <!-- TAB: HR EVALUATION (GD & INTERVIEW) -->
       <section id="tab-hr" class="tab-content hidden space-y-6">

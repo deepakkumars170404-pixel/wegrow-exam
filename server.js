@@ -949,15 +949,14 @@ app.post('/api/admin/login', async (req, res) => {
   }
 });
 
-// Leaderboard: Top Mark to Low Mark
+// Official Leadership & Grand Leaderboard (4-Round Ranking: /100 Total)
 app.get('/api/admin/leaderboard', checkAdminAuth, async (req, res) => {
   try {
     let ranked = [];
-    let stats = {};
 
     if (supabaseDb.isConfigured()) {
       const rows = await supabaseDb.getLeaderboard();
-      ranked = rows.map((r, index) => {
+      ranked = rows.map((r) => {
         let hr = null;
         try {
           const logs = typeof r.violation_logs === 'object' ? r.violation_logs : JSON.parse(r.violation_logs || '{}');
@@ -999,10 +998,10 @@ app.get('/api/admin/leaderboard', checkAdminAuth, async (req, res) => {
           moduleName: r.module_name,
           round: r.round,
           batch: r.batch,
-          round1Score: r.round1_score,
-          round1Total: r.round1_total,
-          round2Score: r.round2_score,
-          round2Total: r.round2_total,
+          round1Score: r.round1_score || 0,
+          round1Total: r.round1_total || 20,
+          round2Score: r.round2_score || 0,
+          round2Total: r.round2_total || 30,
           score: r.score, // Quiz Score /50
           totalQuestions: r.total_questions,
           percentage: r.percentage,
@@ -1024,23 +1023,9 @@ app.get('/api/admin/leaderboard', checkAdminAuth, async (req, res) => {
           grandTotal,
           grandPercentage,
           hrRemarks: hr?.remarks || r.hr_remarks || '',
-          rank: index + 1
+          isBoth
         };
       });
-
-      const total = ranked.length;
-      const avg = total > 0 ? (ranked.reduce((sum, r) => sum + (r.percentage || 0), 0) / total).toFixed(1) : 0;
-      const max = total > 0 ? Math.max(...ranked.map(r => r.score || 0)) : 0;
-      const hrDone = ranked.filter(r => r.hrStatus === 'completed').length;
-      const hrPartial = ranked.filter(r => r.hrStatus === 'gd_completed' || r.hrStatus === 'interview_completed').length;
-      stats = {
-        totalSubmissions: total,
-        avgPercentage: Number(avg),
-        highestScore: max,
-        hrCompletedCount: hrDone,
-        hrPartialCount: hrPartial,
-        hrPendingCount: total - hrDone - hrPartial
-      };
     } else {
       const rows = db.prepare(`
         SELECT id, session_id, student_name as studentName, module_id as moduleId, module_name as moduleName,
@@ -1058,7 +1043,7 @@ app.get('/api/admin/leaderboard', checkAdminAuth, async (req, res) => {
         ORDER BY percentage DESC, score DESC, time_taken_seconds ASC
       `).all();
 
-      ranked = rows.map((r, index) => {
+      ranked = rows.map((r) => {
         let hr = null;
         try {
           const logs = typeof r.violationLogs === 'object' ? r.violationLogs : JSON.parse(r.violationLogs || '{}');
@@ -1093,7 +1078,6 @@ app.get('/api/admin/leaderboard', checkAdminAuth, async (req, res) => {
 
         return {
           ...r,
-          rank: index + 1,
           selectedTopics: r.selectedTopics ? JSON.parse(r.selectedTopics) : [],
           autoSubmitted: Boolean(r.autoSubmitted),
           hrStatus,
@@ -1102,26 +1086,98 @@ app.get('/api/admin/leaderboard', checkAdminAuth, async (req, res) => {
           hrTotal,
           grandTotal,
           grandPercentage,
-          hrRemarks: hr?.remarks || r.hr_remarks || ''
+          hrRemarks: hr?.remarks || r.hr_remarks || '',
+          isBoth
         };
       });
+    }
 
-      const dbStats = db.prepare(`
-        SELECT COUNT(*) as total, AVG(percentage) as avg_pct, MAX(score) as max_score 
-        FROM results
-      `).get();
+    // Official Leadership Sorting:
+    // 1. Candidates with completed Grand Total (/100) rank top, ordered by grandTotal DESC, timeTakenSeconds ASC
+    // 2. Candidates with partial/pending HR rank next by effective score (Quiz + partial HR) DESC
+    ranked.sort((a, b) => {
+      if (a.grandTotal !== null && b.grandTotal !== null) {
+        if (b.grandTotal !== a.grandTotal) return b.grandTotal - a.grandTotal;
+        return (a.timeTakenSeconds || 0) - (b.timeTakenSeconds || 0);
+      }
+      if (a.grandTotal !== null && b.grandTotal === null) return -1;
+      if (b.grandTotal !== null && a.grandTotal === null) return 1;
 
-      const hrDone = ranked.filter(r => r.hrStatus === 'completed').length;
-      const hrPartial = ranked.filter(r => r.hrStatus === 'gd_completed' || r.hrStatus === 'interview_completed').length;
-      stats = {
-        totalSubmissions: dbStats.total || 0,
-        avgPercentage: dbStats.avg_pct ? Number(dbStats.avg_pct.toFixed(1)) : 0,
-        highestScore: dbStats.max_score || 0,
-        hrCompletedCount: hrDone,
-        hrPartialCount: hrPartial,
-        hrPendingCount: (dbStats.total || 0) - hrDone - hrPartial
+      const effA = (a.score || 0) + (a.gdScore || 0) + (a.interviewScore || 0);
+      const effB = (b.score || 0) + (b.gdScore || 0) + (b.interviewScore || 0);
+      if (effB !== effA) return effB - effA;
+      if (b.percentage !== a.percentage) return (b.percentage || 0) - (a.percentage || 0);
+      return (a.timeTakenSeconds || 0) - (b.timeTakenSeconds || 0);
+    });
+
+    // Assign Official Leadership Rank 1..N
+    ranked.forEach((r, idx) => {
+      r.rank = idx + 1;
+    });
+
+    // Compute Comprehensive Leadership Analytics
+    const total = ranked.length;
+    const completedCandidates = ranked.filter(r => r.grandTotal !== null);
+    const highestGrandScore = completedCandidates.length > 0 ? Math.max(...completedCandidates.map(r => r.grandTotal)) : null;
+    const avgGrandScore = completedCandidates.length > 0 
+      ? Number((completedCandidates.reduce((s, r) => s + r.grandTotal, 0) / completedCandidates.length).toFixed(1)) 
+      : null;
+
+    const highestQuizScore = total > 0 ? Math.max(...ranked.map(r => r.score || 0)) : 0;
+    const avgQuizScore = total > 0 ? Number((ranked.reduce((s, r) => s + (r.score || 0), 0) / total).toFixed(1)) : 0;
+    const avgPercentage = total > 0 ? Number((ranked.reduce((s, r) => s + (r.percentage || 0), 0) / total).toFixed(1)) : 0;
+
+    // 4-Round Averages Benchmark
+    const avgR1Score = total > 0 ? Number((ranked.reduce((s, r) => s + (r.round1Score || 0), 0) / total).toFixed(1)) : 0;
+    const avgR2Score = total > 0 ? Number((ranked.reduce((s, r) => s + (r.round2Score || 0), 0) / total).toFixed(1)) : 0;
+
+    const gdCandidates = ranked.filter(r => r.gdScore !== null && r.gdScore !== undefined);
+    const avgGdScore = gdCandidates.length > 0 
+      ? Number((gdCandidates.reduce((s, r) => s + r.gdScore, 0) / gdCandidates.length).toFixed(1)) 
+      : 0;
+
+    const interviewCandidates = ranked.filter(r => r.interviewScore !== null && r.interviewScore !== undefined);
+    const avgInterviewScore = interviewCandidates.length > 0 
+      ? Number((interviewCandidates.reduce((s, r) => s + r.interviewScore, 0) / interviewCandidates.length).toFixed(1)) 
+      : 0;
+
+    const hrDone = completedCandidates.length;
+    const hrPartial = ranked.filter(r => r.hrStatus === 'gd_completed' || r.hrStatus === 'interview_completed').length;
+    const hrPending = total - hrDone - hrPartial;
+
+    // Center Comparisons
+    function getCenterStats(centerName) {
+      const cList = ranked.filter(r => (r.batch || '').toLowerCase() === centerName.toLowerCase());
+      const cDone = cList.filter(r => r.grandTotal !== null);
+      return {
+        count: cList.length,
+        completed: cDone.length,
+        avgQuiz: cList.length > 0 ? Number((cList.reduce((s, r) => s + (r.score || 0), 0) / cList.length).toFixed(1)) : 0,
+        avgGrand: cDone.length > 0 ? Number((cDone.reduce((s, r) => s + r.grandTotal, 0) / cDone.length).toFixed(1)) : null,
+        topGrand: cDone.length > 0 ? Math.max(...cDone.map(r => r.grandTotal)) : null,
+        topQuiz: cList.length > 0 ? Math.max(...cList.map(r => r.score || 0)) : 0
       };
     }
+
+    const stats = {
+      totalSubmissions: total,
+      avgPercentage,
+      highestQuizScore,
+      avgQuizScore,
+      highestGrandScore,
+      avgGrandScore,
+      avgR1Score,
+      avgR2Score,
+      avgGdScore,
+      avgInterviewScore,
+      hrCompletedCount: hrDone,
+      hrPartialCount: hrPartial,
+      hrPendingCount: hrPending,
+      centerStats: {
+        sivakasi: getCenterStats('Sivakasi'),
+        srivilliputhur: getCenterStats('Srivilliputhur')
+      }
+    };
 
     res.json({
       success: true,
@@ -1130,7 +1186,7 @@ app.get('/api/admin/leaderboard', checkAdminAuth, async (req, res) => {
     });
   } catch (err) {
     console.error('Leaderboard error:', err);
-    res.status(500).json({ success: false, message: "Error loading leaderboard." });
+    res.status(500).json({ success: false, message: "Error loading leadership leaderboard." });
   }
 });
 
@@ -1572,9 +1628,23 @@ app.get('/api/admin/export-csv', checkAdminAuth, async (req, res) => {
     } else {
       rows = db.prepare(`
         SELECT * FROM results 
-        ORDER BY percentage DESC, score DESC, time_taken_seconds ASC
+        ORDER BY CASE WHEN grand_total_score IS NOT NULL THEN 1 ELSE 2 END, grand_total_score DESC, percentage DESC, score DESC, time_taken_seconds ASC
       `).all();
     }
+
+    // Sort rows for export according to Leadership ranking
+    rows.sort((a, b) => {
+      const gA = a.grand_total_score;
+      const gB = b.grand_total_score;
+      if (gA !== null && gA !== undefined && gB !== null && gB !== undefined) {
+        if (gB !== gA) return gB - gA;
+        return (a.time_taken_seconds || 0) - (b.time_taken_seconds || 0);
+      }
+      if (gA !== null && gA !== undefined) return -1;
+      if (gB !== null && gB !== undefined) return 1;
+      if (b.percentage !== a.percentage) return (b.percentage || 0) - (a.percentage || 0);
+      return (b.score || 0) - (a.score || 0);
+    });
 
     let csv = "Rank,Student Name,Center / Branch,Round 1 (Aptitude /20),Round 2 (Technical /30),Quiz Score (/50),Round 3 GD (/25),Round 4 Interview (/25),HR Total (/50),Grand Total (/100),Grand %,HR Status,HR Remarks,Selected Topics,Time Taken,Warnings,Auto Submitted,Submitted At\n";
 
