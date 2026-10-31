@@ -70,6 +70,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 function renderResultSummary(res) {
   document.getElementById('resStudentName').innerText = res.studentName || "Candidate";
+  const batchElem = document.getElementById('resBatch');
+  if (batchElem) batchElem.innerText = res.batch || "General";
   document.getElementById('resScore').innerText = res.score;
   document.getElementById('resPercentage').innerText = `${res.percentage}%`;
   document.getElementById('resTimeTaken').innerText = res.timeTakenFormatted || "N/A";

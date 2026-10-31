@@ -319,16 +319,21 @@ function renderLeaderboardRows(list) {
 }
 
 function filterLeaderboardTable() {
-  const query = document.getElementById('searchStudentInput').value.trim().toLowerCase();
-  if (!query) {
-    renderLeaderboardRows(cachedLeaderboard);
-    return;
+  const query = (document.getElementById('searchStudentInput')?.value || '').trim().toLowerCase();
+  const center = (document.getElementById('filterCenterSelect')?.value || '').trim().toLowerCase();
+
+  let filtered = cachedLeaderboard;
+
+  if (center) {
+    filtered = filtered.filter(item => (item.batch || '').toLowerCase() === center);
   }
 
-  const filtered = cachedLeaderboard.filter(item => 
-    item.studentName.toLowerCase().includes(query) ||
-    (item.batch && item.batch.toLowerCase().includes(query))
-  );
+  if (query) {
+    filtered = filtered.filter(item => 
+      item.studentName.toLowerCase().includes(query) ||
+      (item.batch && item.batch.toLowerCase().includes(query))
+    );
+  }
 
   renderLeaderboardRows(filtered);
 }

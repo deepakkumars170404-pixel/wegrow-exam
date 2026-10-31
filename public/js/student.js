@@ -19,7 +19,13 @@ async function handleStartExam(e) {
   }
 
   const studentName = studentNameInput.value.trim();
-  const batch = studentBatchInput ? studentBatchInput.value.trim() : 'General';
+  const batch = studentBatchInput ? studentBatchInput.value.trim() : '';
+
+  if (!batch) {
+    alert("Please select your Branch / Center (Sivakasi or Srivilliputhur). Branch selection is compulsory.");
+    if (studentBatchInput) studentBatchInput.focus();
+    return;
+  }
 
   startBtn.disabled = true;
   startBtn.innerHTML = `
@@ -54,6 +60,7 @@ async function handleStartExam(e) {
     // Save session in sessionStorage
     sessionStorage.setItem('currentSessionId', data.sessionId);
     sessionStorage.setItem('studentName', data.studentName);
+    sessionStorage.setItem('studentBatch', batch);
     sessionStorage.setItem('currentRound', '1');
     sessionStorage.setItem('roundTitle', data.roundTitle);
     sessionStorage.setItem('totalQuestions', data.totalQuestions);
