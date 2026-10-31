@@ -360,7 +360,7 @@ const db = {
     questionsMemoryCache = null; // Invalidate cache so new question is immediately accessible
   },
 
-  // 21. Save HR Assessment Marks (GD 25 + Interview 25 = 50, Grand Total = 100)
+  // 21. Save HR Assessment Marks (Supports saving GD or Interview separately, or both together)
   async saveHrScore(resultId, hrData) {
     if (!supabase) return null;
     const { data: existing, error: fetchErr } = await supabase
@@ -371,34 +371,88 @@ const db = {
     if (fetchErr) throw fetchErr;
     if (!existing) throw new Error("Candidate result record not found.");
 
-    const gdScore = Math.max(0, Math.min(25, parseInt(hrData.gdScore) || 0));
-    const interviewScore = Math.max(0, Math.min(25, parseInt(hrData.interviewScore) || 0));
-    const hrTotal = gdScore + interviewScore; // out of 50
-    const quizScore = existing.score || 0; // out of 50
-    const grandTotal = quizScore + hrTotal; // out of 100
-    const grandPercentage = Number(((grandTotal / 100) * 100).toFixed(1));
-    const remarks = (hrData.remarks || '').trim();
-    const scoredAt = new Date().toISOString();
-    const status = 'completed';
-
-    const hrAssessment = {
-      gdScore,
-      interviewScore,
-      hrTotal,
-      grandTotal,
-      grandPercentage,
-      remarks,
-      scoredAt,
-      status
-    };
-
+    // Extract any existing HR evaluation from violation_logs or native columns
+    let existingHr = null;
     let logs = existing.violation_logs;
     if (typeof logs === 'string') {
-      try { logs = JSON.parse(logs); } catch(e) { logs = {}; }
+      try { logs = JSON.parse(logs); } catch (e) { logs = {}; }
     }
     if (!logs || typeof logs !== 'object' || Array.isArray(logs)) {
       logs = { violations: Array.isArray(logs) ? logs : [] };
     }
+    if (logs && logs.hrAssessment) existingHr = logs.hrAssessment;
+
+    const prevGd = (existingHr && existingHr.gdScore !== undefined && existingHr.gdScore !== null) 
+      ? existingHr.gdScore 
+      : (existing.gd_score !== undefined && existing.gd_score !== null ? existing.gd_score : null);
+
+    const prevInterview = (existingHr && existingHr.interviewScore !== undefined && existingHr.interviewScore !== null) 
+      ? existingHr.interviewScore 
+      : (existing.interview_score !== undefined && existing.interview_score !== null ? existing.interview_score : null);
+
+    const prevRemarks = (existingHr && existingHr.remarks) || existing.hr_remarks || '';
+
+    // Check if new values were explicitly passed
+    const hasNewGd = hrData.gdScore !== undefined && hrData.gdScore !== null && String(hrData.gdScore).trim() !== '';
+    const hasNewInterview = hrData.interviewScore !== undefined && hrData.interviewScore !== null && String(hrData.interviewScore).trim() !== '';
+
+    let gdScore = prevGd;
+    if (hasNewGd) {
+      gdScore = Math.max(0, Math.min(25, parseInt(hrData.gdScore, 10) || 0));
+    }
+
+    let interviewScore = prevInterview;
+    if (hasNewInterview) {
+      interviewScore = Math.max(0, Math.min(25, parseInt(hrData.interviewScore, 10) || 0));
+    }
+
+    const remarks = (hrData.remarks !== undefined && hrData.remarks !== null) 
+      ? String(hrData.remarks).trim() 
+      : prevRemarks;
+
+    const scoredAt = new Date().toISOString();
+    const quizScore = existing.score || 0; // Round 1 (/20) + Round 2 (/30) = /50
+
+    const isGdDone = (gdScore !== null && gdScore !== undefined);
+    const isInterviewDone = (interviewScore !== null && interviewScore !== undefined);
+    const isBothDone = isGdDone && isInterviewDone;
+
+    let hrTotal = null;
+    let grandTotal = quizScore;
+    let grandPercentage = null;
+    let status = 'pending';
+
+    if (isBothDone) {
+      // All 4 rounds complete! Calculate all 4 marks into Grand Total (/100)
+      hrTotal = gdScore + interviewScore; // Max 50
+      grandTotal = quizScore + hrTotal;   // Max 100
+      grandPercentage = Number(((grandTotal / 100) * 100).toFixed(1));
+      status = 'completed';
+    } else if (isGdDone) {
+      hrTotal = gdScore;
+      grandTotal = quizScore + gdScore;
+      status = 'gd_completed';
+    } else if (isInterviewDone) {
+      hrTotal = interviewScore;
+      grandTotal = quizScore + interviewScore;
+      status = 'interview_completed';
+    }
+
+    const hrAssessment = {
+      gdScore,
+      interviewScore,
+      hrTotal: isBothDone ? hrTotal : (isGdDone ? gdScore : (isInterviewDone ? interviewScore : null)),
+      grandTotal: isBothDone ? grandTotal : null,
+      grandPercentage: isBothDone ? grandPercentage : null,
+      remarks,
+      scoredAt,
+      status,
+      isCompleted: isBothDone,
+      round1Score: existing.round1_score || 0,
+      round2Score: existing.round2_score || 0,
+      quizScore
+    };
+
     logs.hrAssessment = hrAssessment;
 
     const { error: updateErr } = await supabase
@@ -413,14 +467,14 @@ const db = {
       await supabase.from('results').update({
         gd_score: gdScore,
         interview_score: interviewScore,
-        hr_total_score: hrTotal,
-        grand_total_score: grandTotal,
-        grand_percentage: grandPercentage,
+        hr_total_score: isBothDone ? hrTotal : null,
+        grand_total_score: isBothDone ? grandTotal : null,
+        grand_percentage: isBothDone ? grandPercentage : null,
         hr_remarks: remarks,
         hr_status: status,
         hr_scored_at: scoredAt
       }).eq('id', resultId);
-    } catch(e) {}
+    } catch (e) {}
 
     return hrAssessment;
   }

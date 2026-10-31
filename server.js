@@ -820,16 +820,24 @@ app.get('/api/result/:resultId', async (req, res) => {
       const logs = typeof row.violation_logs === 'object' ? row.violation_logs : JSON.parse(row.violation_logs || '{}');
       if (logs && logs.hrAssessment) hrAssessment = logs.hrAssessment;
     } catch(e) {}
-    if (!hrAssessment && row.gd_score !== undefined && row.gd_score !== null) {
+    if (!hrAssessment && ((row.gd_score !== undefined && row.gd_score !== null) || (row.interview_score !== undefined && row.interview_score !== null))) {
+      const isBoth = (row.gd_score !== null && row.gd_score !== undefined) && (row.interview_score !== null && row.interview_score !== undefined);
+      const isGd = row.gd_score !== null && row.gd_score !== undefined;
+      const isInt = row.interview_score !== null && row.interview_score !== undefined;
+      const hrTotal = isBoth ? (row.gd_score + row.interview_score) : (isGd ? row.gd_score : (isInt ? row.interview_score : null));
+      const grandTotal = isBoth ? ((row.score || 0) + hrTotal) : null;
+      const grandPercentage = isBoth ? Number(((grandTotal / 100) * 100).toFixed(1)) : null;
+
       hrAssessment = {
-        gdScore: row.gd_score,
-        interviewScore: row.interview_score,
-        hrTotal: row.hr_total_score,
-        grandTotal: row.grand_total_score,
-        grandPercentage: row.grand_percentage,
+        gdScore: row.gd_score ?? null,
+        interviewScore: row.interview_score ?? null,
+        hrTotal,
+        grandTotal,
+        grandPercentage,
         remarks: row.hr_remarks || '',
-        status: row.hr_status || 'completed',
-        scoredAt: row.hr_scored_at
+        status: row.hr_status || (isBoth ? 'completed' : (isGd ? 'gd_completed' : 'interview_completed')),
+        scoredAt: row.hr_scored_at,
+        isCompleted: isBoth
       };
     }
 
@@ -955,10 +963,10 @@ app.get('/api/admin/leaderboard', checkAdminAuth, async (req, res) => {
           const logs = typeof r.violation_logs === 'object' ? r.violation_logs : JSON.parse(r.violation_logs || '{}');
           if (logs && logs.hrAssessment) hr = logs.hrAssessment;
         } catch(e) {}
-        if (!hr && r.gd_score !== undefined && r.gd_score !== null) {
+        if (!hr && ((r.gd_score !== undefined && r.gd_score !== null) || (r.interview_score !== undefined && r.interview_score !== null))) {
           hr = {
-            gdScore: r.gd_score,
-            interviewScore: r.interview_score,
+            gdScore: r.gd_score ?? null,
+            interviewScore: r.interview_score ?? null,
             hrTotal: r.hr_total_score,
             grandTotal: r.grand_total_score,
             grandPercentage: r.grand_percentage,
@@ -968,11 +976,20 @@ app.get('/api/admin/leaderboard', checkAdminAuth, async (req, res) => {
           };
         }
 
-        const gdScore = hr?.gdScore ?? null;
-        const interviewScore = hr?.interviewScore ?? null;
-        const hrTotal = hr?.hrTotal ?? (gdScore !== null && interviewScore !== null ? (gdScore + interviewScore) : null);
-        const grandTotal = hr?.grandTotal ?? (hrTotal !== null ? (r.score + hrTotal) : r.score);
-        const grandPercentage = hr?.grandPercentage ?? (hrTotal !== null ? Number(((grandTotal / 100) * 100).toFixed(1)) : null);
+        const gdScore = hr?.gdScore ?? (r.gd_score !== undefined && r.gd_score !== null ? r.gd_score : null);
+        const interviewScore = hr?.interviewScore ?? (r.interview_score !== undefined && r.interview_score !== null ? r.interview_score : null);
+        const isBoth = (gdScore !== null && gdScore !== undefined) && (interviewScore !== null && interviewScore !== undefined);
+        const isGd = gdScore !== null && gdScore !== undefined;
+        const isInt = interviewScore !== null && interviewScore !== undefined;
+
+        const hrTotal = isBoth ? (gdScore + interviewScore) : (isGd ? gdScore : (isInt ? interviewScore : null));
+        const grandTotal = isBoth ? (r.score + hrTotal) : null;
+        const grandPercentage = isBoth ? Number(((grandTotal / 100) * 100).toFixed(1)) : null;
+
+        let hrStatus = 'pending';
+        if (isBoth) hrStatus = 'completed';
+        else if (isGd) hrStatus = 'gd_completed';
+        else if (isInt) hrStatus = 'interview_completed';
 
         return {
           id: r.id,
@@ -1000,13 +1017,13 @@ app.get('/api/admin/leaderboard', checkAdminAuth, async (req, res) => {
           submitReason: r.submit_reason,
           performanceGrade: r.performance_grade,
           submittedAt: r.submitted_at,
-          hrStatus: hr?.status || (hrTotal !== null ? 'completed' : 'pending'),
+          hrStatus,
           gdScore,
           interviewScore,
           hrTotal,
           grandTotal,
           grandPercentage,
-          hrRemarks: hr?.remarks || '',
+          hrRemarks: hr?.remarks || r.hr_remarks || '',
           rank: index + 1
         };
       });
@@ -1015,12 +1032,14 @@ app.get('/api/admin/leaderboard', checkAdminAuth, async (req, res) => {
       const avg = total > 0 ? (ranked.reduce((sum, r) => sum + (r.percentage || 0), 0) / total).toFixed(1) : 0;
       const max = total > 0 ? Math.max(...ranked.map(r => r.score || 0)) : 0;
       const hrDone = ranked.filter(r => r.hrStatus === 'completed').length;
+      const hrPartial = ranked.filter(r => r.hrStatus === 'gd_completed' || r.hrStatus === 'interview_completed').length;
       stats = {
         totalSubmissions: total,
         avgPercentage: Number(avg),
         highestScore: max,
         hrCompletedCount: hrDone,
-        hrPendingCount: total - hrDone
+        hrPartialCount: hrPartial,
+        hrPendingCount: total - hrDone - hrPartial
       };
     } else {
       const rows = db.prepare(`
@@ -1045,10 +1064,10 @@ app.get('/api/admin/leaderboard', checkAdminAuth, async (req, res) => {
           const logs = typeof r.violationLogs === 'object' ? r.violationLogs : JSON.parse(r.violationLogs || '{}');
           if (logs && logs.hrAssessment) hr = logs.hrAssessment;
         } catch(e) {}
-        if (!hr && r.gd_score !== undefined && r.gd_score !== null) {
+        if (!hr && ((r.gd_score !== undefined && r.gd_score !== null) || (r.interview_score !== undefined && r.interview_score !== null))) {
           hr = {
-            gdScore: r.gd_score,
-            interviewScore: r.interview_score,
+            gdScore: r.gd_score ?? null,
+            interviewScore: r.interview_score ?? null,
             hrTotal: r.hr_total_score,
             grandTotal: r.grand_total_score,
             grandPercentage: r.grand_percentage,
@@ -1057,18 +1076,27 @@ app.get('/api/admin/leaderboard', checkAdminAuth, async (req, res) => {
           };
         }
 
-        const gdScore = hr?.gdScore ?? r.gd_score ?? null;
-        const interviewScore = hr?.interviewScore ?? r.interview_score ?? null;
-        const hrTotal = hr?.hrTotal ?? r.hr_total_score ?? (gdScore !== null && interviewScore !== null ? (gdScore + interviewScore) : null);
-        const grandTotal = hr?.grandTotal ?? r.grand_total_score ?? (hrTotal !== null ? (r.score + hrTotal) : r.score);
-        const grandPercentage = hr?.grandPercentage ?? r.grand_percentage ?? (hrTotal !== null ? Number(((grandTotal / 100) * 100).toFixed(1)) : null);
+        const gdScore = hr?.gdScore ?? (r.gd_score !== undefined && r.gd_score !== null ? r.gd_score : null);
+        const interviewScore = hr?.interviewScore ?? (r.interview_score !== undefined && r.interview_score !== null ? r.interview_score : null);
+        const isBoth = (gdScore !== null && gdScore !== undefined) && (interviewScore !== null && interviewScore !== undefined);
+        const isGd = gdScore !== null && gdScore !== undefined;
+        const isInt = interviewScore !== null && interviewScore !== undefined;
+
+        const hrTotal = isBoth ? (gdScore + interviewScore) : (isGd ? gdScore : (isInt ? interviewScore : null));
+        const grandTotal = isBoth ? (r.score + hrTotal) : null;
+        const grandPercentage = isBoth ? Number(((grandTotal / 100) * 100).toFixed(1)) : null;
+
+        let hrStatus = 'pending';
+        if (isBoth) hrStatus = 'completed';
+        else if (isGd) hrStatus = 'gd_completed';
+        else if (isInt) hrStatus = 'interview_completed';
 
         return {
           ...r,
           rank: index + 1,
           selectedTopics: r.selectedTopics ? JSON.parse(r.selectedTopics) : [],
           autoSubmitted: Boolean(r.autoSubmitted),
-          hrStatus: hr?.status || r.hr_status || (hrTotal !== null ? 'completed' : 'pending'),
+          hrStatus,
           gdScore,
           interviewScore,
           hrTotal,
@@ -1084,12 +1112,14 @@ app.get('/api/admin/leaderboard', checkAdminAuth, async (req, res) => {
       `).get();
 
       const hrDone = ranked.filter(r => r.hrStatus === 'completed').length;
+      const hrPartial = ranked.filter(r => r.hrStatus === 'gd_completed' || r.hrStatus === 'interview_completed').length;
       stats = {
         totalSubmissions: dbStats.total || 0,
         avgPercentage: dbStats.avg_pct ? Number(dbStats.avg_pct.toFixed(1)) : 0,
         highestScore: dbStats.max_score || 0,
         hrCompletedCount: hrDone,
-        hrPendingCount: (dbStats.total || 0) - hrDone
+        hrPartialCount: hrPartial,
+        hrPendingCount: (dbStats.total || 0) - hrDone - hrPartial
       };
     }
 
@@ -1380,7 +1410,7 @@ app.delete('/api/admin/result/:id', checkAdminAuth, async (req, res) => {
   }
 });
 
-// Submit HR Assessment Score (Round 3 GD /25 + Round 4 Interview /25 = HR /50, Grand Total /100)
+// Submit HR Assessment Score (Supports saving GD /25 or Interview /25 separately, or both together)
 app.post('/api/admin/hr-score', checkAdminAuth, async (req, res) => {
   const { resultId, gdScore, interviewScore, remarks } = req.body;
 
@@ -1388,17 +1418,20 @@ app.post('/api/admin/hr-score', checkAdminAuth, async (req, res) => {
     return res.status(400).json({ success: false, message: "Result ID is required." });
   }
 
-  const parsedGd = Math.max(0, Math.min(25, parseInt(gdScore, 10) || 0));
-  const parsedInterview = Math.max(0, Math.min(25, parseInt(interviewScore, 10) || 0));
-  const cleanRemarks = (remarks || '').trim();
+  const hasNewGd = gdScore !== undefined && gdScore !== null && String(gdScore).trim() !== '';
+  const hasNewInterview = interviewScore !== undefined && interviewScore !== null && String(interviewScore).trim() !== '';
+
+  if (!hasNewGd && !hasNewInterview && remarks === undefined) {
+    return res.status(400).json({ success: false, message: "Please provide either GD Score, Interview Score, or Remarks." });
+  }
 
   try {
     let hrAssessment;
     if (supabaseDb.isConfigured()) {
       hrAssessment = await supabaseDb.saveHrScore(resultId, {
-        gdScore: parsedGd,
-        interviewScore: parsedInterview,
-        remarks: cleanRemarks
+        gdScore: hasNewGd ? gdScore : undefined,
+        interviewScore: hasNewInterview ? interviewScore : undefined,
+        remarks
       });
     } else {
       const row = db.prepare('SELECT * FROM results WHERE id = ?').get(resultId);
@@ -1406,22 +1439,74 @@ app.post('/api/admin/hr-score', checkAdminAuth, async (req, res) => {
         return res.status(404).json({ success: false, message: "Candidate result record not found." });
       }
 
-      const hrTotal = parsedGd + parsedInterview;
-      const quizScore = row.score || 0;
-      const grandTotal = quizScore + hrTotal;
-      const grandPercentage = Number(((grandTotal / 100) * 100).toFixed(1));
+      let existingHr = null;
+      try {
+        const logs = typeof row.violation_logs === 'object' ? (row.violation_logs || {}) : JSON.parse(row.violation_logs || '{}');
+        if (logs && logs.hrAssessment) existingHr = logs.hrAssessment;
+      } catch (e) {}
+
+      const prevGd = (existingHr && existingHr.gdScore !== undefined && existingHr.gdScore !== null)
+        ? existingHr.gdScore
+        : (row.gd_score !== undefined && row.gd_score !== null ? row.gd_score : null);
+
+      const prevInterview = (existingHr && existingHr.interviewScore !== undefined && existingHr.interviewScore !== null)
+        ? existingHr.interviewScore
+        : (row.interview_score !== undefined && row.interview_score !== null ? row.interview_score : null);
+
+      const prevRemarks = (existingHr && existingHr.remarks) || row.hr_remarks || '';
+
+      let finalGd = prevGd;
+      if (hasNewGd) {
+        finalGd = Math.max(0, Math.min(25, parseInt(gdScore, 10) || 0));
+      }
+
+      let finalInterview = prevInterview;
+      if (hasNewInterview) {
+        finalInterview = Math.max(0, Math.min(25, parseInt(interviewScore, 10) || 0));
+      }
+
+      const cleanRemarks = (remarks !== undefined && remarks !== null) ? String(remarks).trim() : prevRemarks;
       const scoredAt = new Date().toISOString();
-      const status = 'completed';
+
+      const isGdDone = (finalGd !== null && finalGd !== undefined);
+      const isInterviewDone = (finalInterview !== null && finalInterview !== undefined);
+      const isBothDone = isGdDone && isInterviewDone;
+
+      const quizScore = row.score || 0; // Mark 1 (R1 /20) + Mark 2 (R2 /30) = /50
+      let hrTotal = null;
+      let grandTotal = quizScore;
+      let grandPercentage = null;
+      let status = 'pending';
+
+      if (isBothDone) {
+        // All 4 rounds complete: Mark 1 (R1) + Mark 2 (R2) + Mark 3 (GD) + Mark 4 (F2F Interview) = Grand Total (/100)
+        hrTotal = finalGd + finalInterview;
+        grandTotal = quizScore + hrTotal;
+        grandPercentage = Number(((grandTotal / 100) * 100).toFixed(1));
+        status = 'completed';
+      } else if (isGdDone) {
+        hrTotal = finalGd;
+        grandTotal = quizScore + finalGd;
+        status = 'gd_completed';
+      } else if (isInterviewDone) {
+        hrTotal = finalInterview;
+        grandTotal = quizScore + finalInterview;
+        status = 'interview_completed';
+      }
 
       hrAssessment = {
-        gdScore: parsedGd,
-        interviewScore: parsedInterview,
-        hrTotal,
-        grandTotal,
-        grandPercentage,
+        gdScore: finalGd,
+        interviewScore: finalInterview,
+        hrTotal: isBothDone ? hrTotal : (isGdDone ? finalGd : (isInterviewDone ? finalInterview : null)),
+        grandTotal: isBothDone ? grandTotal : null,
+        grandPercentage: isBothDone ? grandPercentage : null,
         remarks: cleanRemarks,
         scoredAt,
-        status
+        status,
+        isCompleted: isBothDone,
+        round1Score: row.round1_score || 0,
+        round2Score: row.round2_score || 0,
+        quizScore
       };
 
       let logs = {};
@@ -1443,11 +1528,11 @@ app.post('/api/admin/hr-score', checkAdminAuth, async (req, res) => {
           violation_logs = ?
         WHERE id = ?
       `).run(
-        parsedGd, 
-        parsedInterview, 
-        hrTotal, 
-        grandTotal, 
-        grandPercentage, 
+        finalGd, 
+        finalInterview, 
+        isBothDone ? hrTotal : null, 
+        isBothDone ? grandTotal : null, 
+        isBothDone ? grandPercentage : null, 
         cleanRemarks, 
         status, 
         scoredAt, 
@@ -1456,9 +1541,20 @@ app.post('/api/admin/hr-score', checkAdminAuth, async (req, res) => {
       );
     }
 
+    let message = "";
+    if (hrAssessment.isCompleted) {
+      message = `All 4 rounds evaluated! Grand Total: ${hrAssessment.grandTotal}/100 saved.`;
+    } else if (hrAssessment.status === 'gd_completed') {
+      message = `Round 3 (GD: ${hrAssessment.gdScore}/25) saved successfully! Awaiting Round 4 Face-to-Face Interview.`;
+    } else if (hrAssessment.status === 'interview_completed') {
+      message = `Round 4 (Interview: ${hrAssessment.interviewScore}/25) saved successfully! Awaiting Round 3 Group Discussion.`;
+    } else {
+      message = "HR evaluation record updated.";
+    }
+
     res.json({
       success: true,
-      message: `HR evaluation successfully saved! Grand Total: ${hrAssessment.grandTotal}/100.`,
+      message,
       hrAssessment
     });
   } catch (err) {

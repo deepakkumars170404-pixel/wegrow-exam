@@ -183,6 +183,57 @@
         </div>
       </div>
 
+      <!-- When ONLY ONE HR mark is recorded (PARTIAL) -->
+      <div id="hrPartialCard" class="hidden p-6 rounded-2xl bg-gradient-to-r from-blue-50 via-indigo-50 to-amber-50 border border-blue-200 space-y-4">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div class="flex items-start space-x-3">
+            <div class="w-12 h-12 rounded-2xl bg-indigo-600 text-white font-bold flex items-center justify-center shrink-0 shadow-sm">
+              <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-bold uppercase tracking-wider text-indigo-800">Stage 2 In Progress</span>
+                <span id="partialBadge" class="px-2 py-0.5 rounded-full bg-amber-200 text-amber-900 text-[10px] font-black uppercase">Round 3 Recorded</span>
+              </div>
+              <h3 id="partialTitle" class="text-lg font-black text-slate-900 mt-1">
+                Round 3 Group Discussion Score Saved!
+              </h3>
+              <p id="partialDesc" class="text-xs text-slate-600 mt-1 max-w-2xl leading-relaxed">
+                Your Round 3 (Group Discussion) mark has been submitted by the HR panel. Please complete Round 4 (Personal Interview) to calculate your final 100-mark Grand Scorecard.
+              </p>
+            </div>
+          </div>
+
+          <button 
+            onclick="pollLatestResult(true)" 
+            class="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-md shadow-indigo-500/20 transition flex items-center space-x-1.5 shrink-0 cursor-pointer"
+          >
+            <i data-lucide="rotate-cw" class="w-4 h-4"></i>
+            <span>Check for 2nd Mark</span>
+          </button>
+        </div>
+
+        <!-- Mini Progress Row showing recorded vs pending -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2 border-t border-slate-200 text-xs">
+          <div class="p-2.5 rounded-xl bg-white border border-slate-200">
+            <span class="text-[10px] text-slate-400 font-bold block">R1: Aptitude</span>
+            <div><span class="font-black text-blue-900 text-sm" id="partialR1Score">--</span> <span class="text-[10px] text-slate-400">/ 20</span></div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-white border border-slate-200">
+            <span class="text-[10px] text-slate-400 font-bold block">R2: Technical</span>
+            <div><span class="font-black text-indigo-900 text-sm" id="partialR2Score">--</span> <span class="text-[10px] text-slate-400">/ 30</span></div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-white border border-emerald-300" id="partialGdBox">
+            <span class="text-[10px] text-emerald-800 font-bold block">R3: GD (/25)</span>
+            <div><span class="font-black text-emerald-700 text-sm" id="partialGdScore">--</span></div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-white border border-purple-300" id="partialIntBox">
+            <span class="text-[10px] text-purple-800 font-bold block">R4: Interview (/25)</span>
+            <div><span class="font-black text-purple-700 text-sm" id="partialIntScore">--</span></div>
+          </div>
+        </div>
+      </div>
+
       <!-- When HR marks are COMPLETED (GRAND SCORECARD /100) -->
       <div id="hrCompletedCard" class="hidden space-y-6">
         

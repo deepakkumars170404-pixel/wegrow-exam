@@ -289,28 +289,35 @@ let hrPollingTimer = null;
 
 function updateHrScorecardUI(res) {
   const pendingCard = document.getElementById('hrPendingCard');
+  const partialCard = document.getElementById('hrPartialCard');
   const completedCard = document.getElementById('hrCompletedCard');
 
   if (!pendingCard || !completedCard) return;
 
   const hr = res.hrAssessment;
-  const isCompleted = hr && hr.status === 'completed' && hr.grandTotal !== undefined && hr.grandTotal !== null;
+  const hasGd = hr && hr.gdScore !== null && hr.gdScore !== undefined;
+  const hasInt = hr && hr.interviewScore !== null && hr.interviewScore !== undefined;
+  const isBothDone = hr && (hr.isCompleted || (hasGd && hasInt));
 
-  if (isCompleted) {
+  if (isBothDone) {
     if (hrPollingTimer) {
       clearInterval(hrPollingTimer);
       hrPollingTimer = null;
     }
 
     pendingCard.classList.add('hidden');
+    if (partialCard) partialCard.classList.add('hidden');
     completedCard.classList.remove('hidden');
 
     // Populate Grand Card values
     const grandScoreElem = document.getElementById('grandScoreDisplay');
-    if (grandScoreElem) grandScoreElem.innerText = hr.grandTotal;
+    const grandScoreVal = hr.grandTotal ?? ((res.score || 0) + (hr.hrTotal || 0));
+    if (grandScoreElem) grandScoreElem.innerText = grandScoreVal;
 
     const grandPctElem = document.getElementById('grandPercentageDisplay');
-    if (grandPctElem) grandPctElem.innerText = `${hr.grandPercentage}%`;
+    if (grandPctElem) {
+      grandPctElem.innerText = hr.grandPercentage ? `${hr.grandPercentage}%` : `${((grandScoreVal / 100) * 100).toFixed(1)}%`;
+    }
 
     // 4-Round Breakdown
     const r1Elem = document.getElementById('r1ScoreDisplay');
@@ -330,7 +337,7 @@ function updateHrScorecardUI(res) {
     if (s1Elem) s1Elem.innerText = res.score !== undefined ? res.score : 0;
 
     const s2Elem = document.getElementById('stage2TotalDisplay');
-    if (s2Elem) s2Elem.innerText = hr.hrTotal !== undefined ? hr.hrTotal : 0;
+    if (s2Elem) s2Elem.innerText = hr.hrTotal !== undefined ? hr.hrTotal : (Number(hr.gdScore || 0) + Number(hr.interviewScore || 0));
 
     // Remarks
     const remElem = document.getElementById('hrRemarksContent');
@@ -338,11 +345,54 @@ function updateHrScorecardUI(res) {
       remElem.innerText = hr.remarks ? `"${hr.remarks}"` : "Candidate performance successfully recorded and verified by HR panel.";
     }
 
-  } else {
-    pendingCard.classList.remove('hidden');
+  } else if (hasGd || hasInt) {
+    // PARTIAL: 1 round evaluated so far!
+    pendingCard.classList.add('hidden');
     completedCard.classList.add('hidden');
 
-    // Automatically poll every 12 seconds if not already running
+    if (partialCard) {
+      partialCard.classList.remove('hidden');
+      const r1Score = res.round1Score !== undefined ? res.round1Score : 0;
+      const r2Score = res.round2Score !== undefined ? res.round2Score : 0;
+
+      const pR1 = document.getElementById('partialR1Score');
+      if (pR1) pR1.innerText = r1Score;
+      const pR2 = document.getElementById('partialR2Score');
+      if (pR2) pR2.innerText = r2Score;
+
+      const pBadge = document.getElementById('partialBadge');
+      const pTitle = document.getElementById('partialTitle');
+      const pDesc = document.getElementById('partialDesc');
+      const pGd = document.getElementById('partialGdScore');
+      const pInt = document.getElementById('partialIntScore');
+
+      if (hasGd) {
+        if (pBadge) pBadge.innerText = "Round 3 GD Recorded";
+        if (pTitle) pTitle.innerText = "Round 3 Group Discussion Score Saved!";
+        if (pDesc) pDesc.innerText = `Your Round 3 (Group Discussion) mark is ${hr.gdScore}/25! Please complete Round 4 (Personal Interview) to calculate your final 100-mark Grand Scorecard.`;
+        if (pGd) pGd.innerText = `${hr.gdScore} / 25 ✅`;
+        if (pInt) pInt.innerText = "⏳ In Progress";
+      } else {
+        if (pBadge) pBadge.innerText = "Round 4 F2F Recorded";
+        if (pTitle) pTitle.innerText = "Round 4 Face-to-Face Interview Score Saved!";
+        if (pDesc) pDesc.innerText = `Your Round 4 (Personal Interview) mark is ${hr.interviewScore}/25! Please complete Round 3 (Group Discussion) to calculate your final 100-mark Grand Scorecard.`;
+        if (pGd) pGd.innerText = "⏳ In Progress";
+        if (pInt) pInt.innerText = `${hr.interviewScore} / 25 ✅`;
+      }
+    }
+
+    if (!hrPollingTimer && res.id) {
+      hrPollingTimer = setInterval(() => {
+        pollLatestResult(false);
+      }, 12000);
+    }
+
+  } else {
+    // Both rounds pending
+    pendingCard.classList.remove('hidden');
+    if (partialCard) partialCard.classList.add('hidden');
+    completedCard.classList.add('hidden');
+
     if (!hrPollingTimer && res.id) {
       hrPollingTimer = setInterval(() => {
         pollLatestResult(false);
@@ -379,10 +429,11 @@ async function pollLatestResult(manual = false) {
       renderResultSummary(currentResult);
 
       if (manual && btn) {
-        if (data.result.hrAssessment && data.result.hrAssessment.status === 'completed') {
+        const isDone = data.result.hrAssessment && data.result.hrAssessment.isCompleted;
+        if (isDone) {
           btn.innerHTML = `<i data-lucide="check" class="w-4 h-4"></i><span>HR Marks Loaded!</span>`;
         } else {
-          btn.innerHTML = `<i data-lucide="clock" class="w-4 h-4"></i><span>Still In Progress</span>`;
+          btn.innerHTML = `<i data-lucide="clock" class="w-4 h-4"></i><span>Checked Just Now</span>`;
           setTimeout(() => {
             btn.disabled = false;
             btn.innerHTML = `<i data-lucide="rotate-cw" class="w-4 h-4"></i><span>Check for HR Marks</span>`;
