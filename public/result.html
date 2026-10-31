@@ -148,6 +148,148 @@
       </div>
     </div>
 
+    <!-- STAGE 2: HR ASSESSMENT (GD 25 + INTERVIEW 25) & 100-MARK GRAND SCORECARD -->
+    <div id="hrAssessmentSection" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+      
+      <!-- When HR marks are PENDING -->
+      <div id="hrPendingCard" class="p-6 rounded-2xl bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 border border-amber-200">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div class="flex items-start space-x-3">
+            <div class="w-12 h-12 rounded-2xl bg-amber-500 text-slate-900 font-bold flex items-center justify-center shrink-0 shadow-sm">
+              <i data-lucide="clock" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-800">Stage 2 Offline Round</span>
+                <span class="px-2 py-0.5 rounded-full bg-amber-200 text-amber-900 text-[10px] font-black uppercase">Pending HR Evaluation</span>
+              </div>
+              <h3 class="text-lg font-black text-slate-900 mt-1">
+                Round 3: Group Discussion (25) &amp; Round 4: Personal Interview (25)
+              </h3>
+              <p class="text-xs text-slate-600 mt-1 max-w-2xl leading-relaxed">
+                You have successfully completed Stage 1 (Online Assessment: 50 Marks)! Please proceed to the evaluation cabin for your Group Discussion and Face-to-Face Interview. As soon as the HR team submits your marks, your final <strong>100-Mark Grand Scorecard</strong> will unlock here automatically.
+              </p>
+            </div>
+          </div>
+
+          <button 
+            onclick="pollLatestResult(true)" 
+            id="btnPollHrMarks"
+            class="px-4 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs shadow-md shadow-amber-500/20 transition flex items-center space-x-1.5 shrink-0 cursor-pointer"
+          >
+            <i data-lucide="rotate-cw" class="w-4 h-4"></i>
+            <span>Check for HR Marks</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- When HR marks are COMPLETED (GRAND SCORECARD /100) -->
+      <div id="hrCompletedCard" class="hidden space-y-6">
+        
+        <!-- Grand Total Trophy Banner -->
+        <div class="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-emerald-600 via-teal-700 to-slate-900 text-white shadow-xl shadow-emerald-500/20 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex items-center space-x-4">
+            <div class="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-amber-300 shadow-inner">
+              <i data-lucide="trophy" class="w-9 h-9"></i>
+            </div>
+            <div>
+              <div class="flex items-center space-x-2">
+                <span class="px-2.5 py-0.5 rounded-full bg-white/20 text-white text-[10px] font-black uppercase tracking-wider">Final Selection Scorecard</span>
+                <span class="text-xs text-emerald-200 font-semibold">100 Marks Comprehensive</span>
+              </div>
+              <h2 class="text-2xl sm:text-3xl font-black mt-1">Official Grand Total Score</h2>
+              <p class="text-xs text-emerald-100 mt-0.5">Stage 1 Online Exam (50) + Stage 2 HR Assessment (50)</p>
+            </div>
+          </div>
+
+          <div class="text-center md:text-right bg-white/10 px-6 py-4 rounded-2xl border border-white/20 min-w-[200px]">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-200 block">Grand Total</span>
+            <div class="text-4xl sm:text-5xl font-black mt-0.5">
+              <span id="grandScoreDisplay">--</span><span class="text-2xl font-light text-emerald-200">/100</span>
+            </div>
+            <div id="grandPercentageDisplay" class="text-base font-extrabold text-amber-300 mt-1">--%</div>
+          </div>
+        </div>
+
+        <!-- 4-Round Performance Breakdown Grid -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Complete 4-Round Marks Breakdown</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            
+            <!-- Round 1: Aptitude -->
+            <div class="p-4 rounded-2xl bg-blue-50/70 border border-blue-200">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-blue-700 block">Round 1: MNC Aptitude</span>
+              <div class="text-2xl font-black text-blue-900 mt-1">
+                <span id="r1ScoreDisplay">--</span> <span class="text-xs font-semibold text-blue-600">/ 20</span>
+              </div>
+              <p class="text-[11px] text-blue-600 mt-0.5">Quant, Logical &amp; Verbal</p>
+            </div>
+
+            <!-- Round 2: Technical -->
+            <div class="p-4 rounded-2xl bg-indigo-50/70 border border-indigo-200">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-700 block">Round 2: Technical Stream</span>
+              <div class="text-2xl font-black text-indigo-900 mt-1">
+                <span id="r2ScoreDisplay">--</span> <span class="text-xs font-semibold text-indigo-600">/ 30</span>
+              </div>
+              <p class="text-[11px] text-indigo-600 mt-0.5">Elective Core Modules</p>
+            </div>
+
+            <!-- Round 3: Group Discussion -->
+            <div class="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-200">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-700 block">Round 3: Group Discussion</span>
+              <div class="text-2xl font-black text-emerald-900 mt-1">
+                <span id="gdScoreDisplay">--</span> <span class="text-xs font-semibold text-emerald-600">/ 25</span>
+              </div>
+              <p class="text-[11px] text-emerald-600 mt-0.5">Communication &amp; Team Dynamics</p>
+            </div>
+
+            <!-- Round 4: F2F Interview -->
+            <div class="p-4 rounded-2xl bg-purple-50/70 border border-purple-200">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-purple-700 block">Round 4: HR &amp; Tech Interview</span>
+              <div class="text-2xl font-black text-purple-900 mt-1">
+                <span id="interviewScoreDisplay">--</span> <span class="text-xs font-semibold text-purple-600">/ 25</span>
+              </div>
+              <p class="text-[11px] text-purple-600 mt-0.5">Personal &amp; Problem Solving</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Split Totals Comparison Row -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200">
+          <div class="flex items-center justify-between px-3">
+            <div>
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Stage 1: Online Technical Exam</span>
+              <div class="text-sm font-semibold text-slate-700">R1 Aptitude (20) + R2 Technical (30)</div>
+            </div>
+            <div class="text-xl font-black text-blue-700"><span id="stage1TotalDisplay">--</span> / 50</div>
+          </div>
+          <div class="flex items-center justify-between px-3 border-t sm:border-t-0 sm:border-l border-slate-200 pt-3 sm:pt-0">
+            <div>
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Stage 2: HR Assessment Panel</span>
+              <div class="text-sm font-semibold text-slate-700">R3 GD (25) + R4 Personal Interview (25)</div>
+            </div>
+            <div class="text-xl font-black text-emerald-700"><span id="stage2TotalDisplay">--</span> / 50</div>
+          </div>
+        </div>
+
+        <!-- HR Remarks & Evaluation Note -->
+        <div id="hrRemarksBox" class="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-start space-x-3">
+          <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5 font-bold">
+            <i data-lucide="message-square" class="w-4 h-4"></i>
+          </div>
+          <div class="flex-1">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Instructor / HR Panel Remarks</span>
+            <p id="hrRemarksContent" class="text-xs sm:text-sm font-medium text-slate-800 mt-0.5 italic">
+              Candidate demonstrated strong conceptual clarity.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
     <!-- SOLUTIONS & REVIEW SECTION -->
     <div class="space-y-6">
       

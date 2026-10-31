@@ -815,6 +815,24 @@ app.get('/api/result/:resultId', async (req, res) => {
     const selectedTopics = Array.isArray(row.selected_topics) ? row.selected_topics : JSON.parse(row.selected_topics || '[]');
     const reviewList = Array.isArray(row.review_list) ? row.review_list : JSON.parse(row.review_list || '[]');
 
+    let hrAssessment = null;
+    try {
+      const logs = typeof row.violation_logs === 'object' ? row.violation_logs : JSON.parse(row.violation_logs || '{}');
+      if (logs && logs.hrAssessment) hrAssessment = logs.hrAssessment;
+    } catch(e) {}
+    if (!hrAssessment && row.gd_score !== undefined && row.gd_score !== null) {
+      hrAssessment = {
+        gdScore: row.gd_score,
+        interviewScore: row.interview_score,
+        hrTotal: row.hr_total_score,
+        grandTotal: row.grand_total_score,
+        grandPercentage: row.grand_percentage,
+        remarks: row.hr_remarks || '',
+        status: row.hr_status || 'completed',
+        scoredAt: row.hr_scored_at
+      };
+    }
+
     res.json({
       success: true,
       result: {
@@ -840,7 +858,8 @@ app.get('/api/result/:resultId', async (req, res) => {
         submitReason: row.submit_reason,
         performanceGrade: row.performance_grade,
         submittedAt: row.submitted_at,
-        reviewList
+        reviewList,
+        hrAssessment: hrAssessment || { status: 'pending' }
       }
     });
   } catch (err) {
@@ -930,42 +949,78 @@ app.get('/api/admin/leaderboard', checkAdminAuth, async (req, res) => {
 
     if (supabaseDb.isConfigured()) {
       const rows = await supabaseDb.getLeaderboard();
-      ranked = rows.map((r, index) => ({
-        id: r.id,
-        sessionId: r.session_id,
-        studentName: r.student_name,
-        moduleId: r.module_id,
-        moduleName: r.module_name,
-        round: r.round,
-        batch: r.batch,
-        round1Score: r.round1_score,
-        round1Total: r.round1_total,
-        round2Score: r.round2_score,
-        round2Total: r.round2_total,
-        score: r.score,
-        totalQuestions: r.total_questions,
-        percentage: r.percentage,
-        selectedTopics: Array.isArray(r.selected_topics) ? r.selected_topics : JSON.parse(r.selected_topics || '[]'),
-        correctCount: r.correct_count,
-        incorrectCount: r.incorrect_count,
-        unattemptedCount: r.unattempted_count,
-        timeTakenSeconds: r.time_taken_seconds,
-        timeTakenFormatted: r.time_taken_formatted,
-        warningsCount: r.warnings_count,
-        autoSubmitted: Boolean(r.auto_submitted),
-        submitReason: r.submit_reason,
-        performanceGrade: r.performance_grade,
-        submittedAt: r.submitted_at,
-        rank: index + 1
-      }));
+      ranked = rows.map((r, index) => {
+        let hr = null;
+        try {
+          const logs = typeof r.violation_logs === 'object' ? r.violation_logs : JSON.parse(r.violation_logs || '{}');
+          if (logs && logs.hrAssessment) hr = logs.hrAssessment;
+        } catch(e) {}
+        if (!hr && r.gd_score !== undefined && r.gd_score !== null) {
+          hr = {
+            gdScore: r.gd_score,
+            interviewScore: r.interview_score,
+            hrTotal: r.hr_total_score,
+            grandTotal: r.grand_total_score,
+            grandPercentage: r.grand_percentage,
+            remarks: r.hr_remarks || '',
+            status: r.hr_status || 'completed',
+            scoredAt: r.hr_scored_at
+          };
+        }
+
+        const gdScore = hr?.gdScore ?? null;
+        const interviewScore = hr?.interviewScore ?? null;
+        const hrTotal = hr?.hrTotal ?? (gdScore !== null && interviewScore !== null ? (gdScore + interviewScore) : null);
+        const grandTotal = hr?.grandTotal ?? (hrTotal !== null ? (r.score + hrTotal) : r.score);
+        const grandPercentage = hr?.grandPercentage ?? (hrTotal !== null ? Number(((grandTotal / 100) * 100).toFixed(1)) : null);
+
+        return {
+          id: r.id,
+          sessionId: r.session_id,
+          studentName: r.student_name,
+          moduleId: r.module_id,
+          moduleName: r.module_name,
+          round: r.round,
+          batch: r.batch,
+          round1Score: r.round1_score,
+          round1Total: r.round1_total,
+          round2Score: r.round2_score,
+          round2Total: r.round2_total,
+          score: r.score, // Quiz Score /50
+          totalQuestions: r.total_questions,
+          percentage: r.percentage,
+          selectedTopics: Array.isArray(r.selected_topics) ? r.selected_topics : JSON.parse(r.selected_topics || '[]'),
+          correctCount: r.correct_count,
+          incorrectCount: r.incorrect_count,
+          unattemptedCount: r.unattempted_count,
+          timeTakenSeconds: r.time_taken_seconds,
+          timeTakenFormatted: r.time_taken_formatted,
+          warningsCount: r.warnings_count,
+          autoSubmitted: Boolean(r.auto_submitted),
+          submitReason: r.submit_reason,
+          performanceGrade: r.performance_grade,
+          submittedAt: r.submitted_at,
+          hrStatus: hr?.status || (hrTotal !== null ? 'completed' : 'pending'),
+          gdScore,
+          interviewScore,
+          hrTotal,
+          grandTotal,
+          grandPercentage,
+          hrRemarks: hr?.remarks || '',
+          rank: index + 1
+        };
+      });
 
       const total = ranked.length;
       const avg = total > 0 ? (ranked.reduce((sum, r) => sum + (r.percentage || 0), 0) / total).toFixed(1) : 0;
       const max = total > 0 ? Math.max(...ranked.map(r => r.score || 0)) : 0;
+      const hrDone = ranked.filter(r => r.hrStatus === 'completed').length;
       stats = {
         totalSubmissions: total,
         avgPercentage: Number(avg),
-        highestScore: max
+        highestScore: max,
+        hrCompletedCount: hrDone,
+        hrPendingCount: total - hrDone
       };
     } else {
       const rows = db.prepare(`
@@ -977,27 +1032,64 @@ app.get('/api/admin/leaderboard', checkAdminAuth, async (req, res) => {
                correct_count as correctCount, incorrect_count as incorrectCount, unattempted_count as unattemptedCount,
                time_taken_seconds as timeTakenSeconds, time_taken_formatted as timeTakenFormatted,
                warnings_count as warningsCount, auto_submitted as autoSubmitted, submit_reason as submitReason,
-               performance_grade as performanceGrade, submitted_at as submittedAt
+               performance_grade as performanceGrade, submitted_at as submittedAt,
+               violation_logs as violationLogs, gd_score, interview_score, hr_total_score,
+               grand_total_score, grand_percentage, hr_remarks, hr_status
         FROM results
         ORDER BY percentage DESC, score DESC, time_taken_seconds ASC
       `).all();
 
-      ranked = rows.map((r, index) => ({
-        ...r,
-        rank: index + 1,
-        selectedTopics: r.selectedTopics ? JSON.parse(r.selectedTopics) : [],
-        autoSubmitted: Boolean(r.autoSubmitted)
-      }));
+      ranked = rows.map((r, index) => {
+        let hr = null;
+        try {
+          const logs = typeof r.violationLogs === 'object' ? r.violationLogs : JSON.parse(r.violationLogs || '{}');
+          if (logs && logs.hrAssessment) hr = logs.hrAssessment;
+        } catch(e) {}
+        if (!hr && r.gd_score !== undefined && r.gd_score !== null) {
+          hr = {
+            gdScore: r.gd_score,
+            interviewScore: r.interview_score,
+            hrTotal: r.hr_total_score,
+            grandTotal: r.grand_total_score,
+            grandPercentage: r.grand_percentage,
+            remarks: r.hr_remarks || '',
+            status: r.hr_status || 'completed'
+          };
+        }
+
+        const gdScore = hr?.gdScore ?? r.gd_score ?? null;
+        const interviewScore = hr?.interviewScore ?? r.interview_score ?? null;
+        const hrTotal = hr?.hrTotal ?? r.hr_total_score ?? (gdScore !== null && interviewScore !== null ? (gdScore + interviewScore) : null);
+        const grandTotal = hr?.grandTotal ?? r.grand_total_score ?? (hrTotal !== null ? (r.score + hrTotal) : r.score);
+        const grandPercentage = hr?.grandPercentage ?? r.grand_percentage ?? (hrTotal !== null ? Number(((grandTotal / 100) * 100).toFixed(1)) : null);
+
+        return {
+          ...r,
+          rank: index + 1,
+          selectedTopics: r.selectedTopics ? JSON.parse(r.selectedTopics) : [],
+          autoSubmitted: Boolean(r.autoSubmitted),
+          hrStatus: hr?.status || r.hr_status || (hrTotal !== null ? 'completed' : 'pending'),
+          gdScore,
+          interviewScore,
+          hrTotal,
+          grandTotal,
+          grandPercentage,
+          hrRemarks: hr?.remarks || r.hr_remarks || ''
+        };
+      });
 
       const dbStats = db.prepare(`
         SELECT COUNT(*) as total, AVG(percentage) as avg_pct, MAX(score) as max_score 
         FROM results
       `).get();
 
+      const hrDone = ranked.filter(r => r.hrStatus === 'completed').length;
       stats = {
         totalSubmissions: dbStats.total || 0,
         avgPercentage: dbStats.avg_pct ? Number(dbStats.avg_pct.toFixed(1)) : 0,
-        highestScore: dbStats.max_score || 0
+        highestScore: dbStats.max_score || 0,
+        hrCompletedCount: hrDone,
+        hrPendingCount: (dbStats.total || 0) - hrDone
       };
     }
 
@@ -1288,7 +1380,94 @@ app.delete('/api/admin/result/:id', checkAdminAuth, async (req, res) => {
   }
 });
 
-// Export Leaderboard to CSV
+// Submit HR Assessment Score (Round 3 GD /25 + Round 4 Interview /25 = HR /50, Grand Total /100)
+app.post('/api/admin/hr-score', checkAdminAuth, async (req, res) => {
+  const { resultId, gdScore, interviewScore, remarks } = req.body;
+
+  if (!resultId) {
+    return res.status(400).json({ success: false, message: "Result ID is required." });
+  }
+
+  const parsedGd = Math.max(0, Math.min(25, parseInt(gdScore, 10) || 0));
+  const parsedInterview = Math.max(0, Math.min(25, parseInt(interviewScore, 10) || 0));
+  const cleanRemarks = (remarks || '').trim();
+
+  try {
+    let hrAssessment;
+    if (supabaseDb.isConfigured()) {
+      hrAssessment = await supabaseDb.saveHrScore(resultId, {
+        gdScore: parsedGd,
+        interviewScore: parsedInterview,
+        remarks: cleanRemarks
+      });
+    } else {
+      const row = db.prepare('SELECT * FROM results WHERE id = ?').get(resultId);
+      if (!row) {
+        return res.status(404).json({ success: false, message: "Candidate result record not found." });
+      }
+
+      const hrTotal = parsedGd + parsedInterview;
+      const quizScore = row.score || 0;
+      const grandTotal = quizScore + hrTotal;
+      const grandPercentage = Number(((grandTotal / 100) * 100).toFixed(1));
+      const scoredAt = new Date().toISOString();
+      const status = 'completed';
+
+      hrAssessment = {
+        gdScore: parsedGd,
+        interviewScore: parsedInterview,
+        hrTotal,
+        grandTotal,
+        grandPercentage,
+        remarks: cleanRemarks,
+        scoredAt,
+        status
+      };
+
+      let logs = {};
+      try {
+        logs = typeof row.violation_logs === 'object' ? (row.violation_logs || {}) : JSON.parse(row.violation_logs || '{}');
+      } catch (e) { logs = {}; }
+      logs.hrAssessment = hrAssessment;
+
+      db.prepare(`
+        UPDATE results SET 
+          gd_score = ?, 
+          interview_score = ?, 
+          hr_total_score = ?, 
+          grand_total_score = ?, 
+          grand_percentage = ?, 
+          hr_remarks = ?, 
+          hr_status = ?, 
+          hr_scored_at = ?,
+          violation_logs = ?
+        WHERE id = ?
+      `).run(
+        parsedGd, 
+        parsedInterview, 
+        hrTotal, 
+        grandTotal, 
+        grandPercentage, 
+        cleanRemarks, 
+        status, 
+        scoredAt, 
+        JSON.stringify(logs), 
+        resultId
+      );
+    }
+
+    res.json({
+      success: true,
+      message: `HR evaluation successfully saved! Grand Total: ${hrAssessment.grandTotal}/100.`,
+      hrAssessment
+    });
+  } catch (err) {
+    console.error('HR Score save error:', err);
+    res.status(500).json({ success: false, message: "Error saving HR assessment marks." });
+  }
+});
+
+// Export Leaderboard to CSV (Includes Round 1 Aptitude, Round 2 Tech, GD, Interview, Grand Total)
 app.get('/api/admin/export-csv', checkAdminAuth, async (req, res) => {
   try {
     let rows = [];
@@ -1301,7 +1480,7 @@ app.get('/api/admin/export-csv', checkAdminAuth, async (req, res) => {
       `).all();
     }
 
-    let csv = "Rank,Student Name,Round 1 (Aptitude /20),Round 2 (Technical /30),Total Score (/50),Percentage,Selected Topics,Time Taken,Warnings,Auto Submitted,Submitted At\n";
+    let csv = "Rank,Student Name,Center / Branch,Round 1 (Aptitude /20),Round 2 (Technical /30),Quiz Score (/50),Round 3 GD (/25),Round 4 Interview (/25),HR Total (/50),Grand Total (/100),Grand %,HR Status,HR Remarks,Selected Topics,Time Taken,Warnings,Auto Submitted,Submitted At\n";
 
     rows.forEach((r, idx) => {
       let topics = '';
@@ -1310,13 +1489,34 @@ app.get('/api/admin/export-csv', checkAdminAuth, async (req, res) => {
         topics = parsed.join('; ');
       } catch(e) {}
 
+      let hr = null;
+      try {
+        const logs = typeof r.violation_logs === 'object' ? r.violation_logs : JSON.parse(r.violation_logs || '{}');
+        if (logs && logs.hrAssessment) hr = logs.hrAssessment;
+      } catch(e) {}
+
+      const gdScore = hr?.gdScore ?? r.gd_score ?? '';
+      const interviewScore = hr?.interviewScore ?? r.interview_score ?? '';
+      const hrTotal = hr?.hrTotal ?? r.hr_total_score ?? (gdScore !== '' && interviewScore !== '' ? (Number(gdScore) + Number(interviewScore)) : '');
+      const grandTotal = hr?.grandTotal ?? r.grand_total_score ?? (hrTotal !== '' ? (r.score + Number(hrTotal)) : r.score);
+      const grandPercentage = hr?.grandPercentage ?? r.grand_percentage ?? (hrTotal !== '' ? Number(((grandTotal / 100) * 100).toFixed(1)) : r.percentage);
+      const hrStatus = hr?.status || r.hr_status || (hrTotal !== '' ? 'completed' : 'pending');
+      const hrRemarks = hr?.remarks || r.hr_remarks || '';
+
       const row = [
         idx + 1,
         `"${(r.student_name || '').replace(/"/g, '""')}"`,
+        `"${(r.batch || 'Sivakasi').replace(/"/g, '""')}"`,
         r.round1_score || 0,
         r.round2_score || 0,
         r.score,
-        `${r.percentage}%`,
+        gdScore !== '' ? gdScore : '-',
+        interviewScore !== '' ? interviewScore : '-',
+        hrTotal !== '' ? hrTotal : '-',
+        grandTotal,
+        `${grandPercentage}%`,
+        hrStatus.toUpperCase(),
+        `"${hrRemarks.replace(/"/g, '""')}"`,
         `"${topics}"`,
         `"${r.time_taken_formatted || ''}"`,
         r.warnings_count || 0,
@@ -1327,7 +1527,7 @@ app.get('/api/admin/export-csv', checkAdminAuth, async (req, res) => {
     });
 
     res.header('Content-Type', 'text/csv');
-    res.attachment('WEGROW_MNC_Exam_Leaderboard.csv');
+    res.attachment('WEGROW_MNC_Exam_Grand_Leaderboard.csv');
     res.send(csv);
   } catch (err) {
     console.error('CSV export error:', err);

@@ -111,6 +111,11 @@
             <i data-lucide="trophy" class="w-4 h-4"></i>
             <span>Leaderboard</span>
           </button>
+          <button onclick="switchTab('hr')" id="tab-btn-hr" class="tab-btn px-4 py-2 rounded-lg text-slate-400 hover:text-white flex items-center space-x-1.5 cursor-pointer">
+            <i data-lucide="award" class="w-4 h-4 text-emerald-400"></i>
+            <span>HR Evaluation (GD &amp; Interview)</span>
+            <span id="hrBadgePending" class="hidden text-[10px] font-black bg-amber-500 text-slate-900 px-1.5 py-0.5 rounded-full ml-1">0</span>
+          </button>
           <button onclick="switchTab('reexam')" id="tab-btn-reexam" class="tab-btn px-4 py-2 rounded-lg text-slate-400 hover:text-white flex items-center space-x-1.5 cursor-pointer">
             <i data-lucide="refresh-cw" class="w-4 h-4"></i>
             <span>Re-Exam Manager</span>
@@ -140,6 +145,7 @@
       <!-- Mobile Tab Bar -->
       <div class="md:hidden flex items-center justify-around border-t border-slate-800 p-2 bg-slate-900 text-xs">
         <button onclick="switchTab('leaderboard')" class="text-blue-400 font-bold p-1">Leaderboard</button>
+        <button onclick="switchTab('hr')" id="m-tab-btn-hr" class="text-emerald-400 font-bold p-1">HR Marks</button>
         <button onclick="switchTab('reexam')" class="text-slate-400 p-1">Re-Exam</button>
         <button onclick="switchTab('questions')" class="text-slate-400 p-1">Master Keys</button>
         <button onclick="switchTab('live')" class="text-slate-400 p-1">Live</button>
@@ -269,22 +275,149 @@
             <table class="w-full text-left text-xs border-collapse">
               <thead class="bg-slate-50 text-slate-500 uppercase font-bold text-[10px] tracking-wider border-b border-slate-200">
                 <tr>
-                  <th class="py-3.5 px-4">Rank</th>
-                  <th class="py-3.5 px-4">Candidate Name</th>
-                  <th class="py-3.5 px-4 text-center">Round 1 (Aptitude /20)</th>
-                  <th class="py-3.5 px-4 text-center">Round 2 (Technical /30)</th>
-                  <th class="py-3.5 px-4 text-center font-black">Total Score (/50)</th>
-                  <th class="py-3.5 px-4 text-center">Percentage</th>
-                  <th class="py-3.5 px-4">Selected Topics</th>
-                  <th class="py-3.5 px-4 text-center">Strikes</th>
-                  <th class="py-3.5 px-4 text-center">Time</th>
-                  <th class="py-3.5 px-4">Submitted At</th>
-                  <th class="py-3.5 px-4 text-right">Instructor Actions</th>
+                  <th class="py-3.5 px-3">Rank</th>
+                  <th class="py-3.5 px-3">Candidate &amp; Center</th>
+                  <th class="py-3.5 px-2 text-center text-blue-700">R1 Apt (/20)</th>
+                  <th class="py-3.5 px-2 text-center text-indigo-700">R2 Tech (/30)</th>
+                  <th class="py-3.5 px-2 text-center font-bold text-slate-900 bg-slate-100/60">Quiz (/50)</th>
+                  <th class="py-3.5 px-2 text-center text-emerald-700">GD (/25)</th>
+                  <th class="py-3.5 px-2 text-center text-emerald-700">F2F (/25)</th>
+                  <th class="py-3.5 px-2 text-center font-bold text-emerald-800 bg-emerald-50/50">HR (/50)</th>
+                  <th class="py-3.5 px-3 text-center font-black text-purple-700 bg-purple-50/60">🏆 Grand (/100)</th>
+                  <th class="py-3.5 px-2 text-center">HR Status</th>
+                  <th class="py-3.5 px-2 text-center">Time</th>
+                  <th class="py-3.5 px-3 text-right">Actions</th>
                 </tr>
               </thead>
               <tbody id="leaderboardTbody" class="divide-y divide-slate-100 text-slate-700 font-medium">
                 <tr>
-                  <td colspan="11" class="p-8 text-center text-slate-400">Loading student rankings...</td>
+                  <td colspan="12" class="p-8 text-center text-slate-400">Loading student rankings...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- TAB: HR EVALUATION (GD & INTERVIEW) -->
+      <section id="tab-hr" class="tab-content hidden space-y-6">
+        
+        <!-- Header & Stats -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-slate-200 pb-5">
+            <div>
+              <div class="flex items-center space-x-2">
+                <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold uppercase">HR Interview Panel</span>
+                <span class="text-xs text-slate-400">Offline Assessment Entry</span>
+              </div>
+              <h2 class="text-xl font-black text-slate-900 mt-1">
+                Candidate Evaluation: GD (25 Marks) &amp; F2F Interview (25 Marks)
+              </h2>
+              <p class="text-xs text-slate-500 mt-1">
+                Score candidates for Round 3 Group Discussion and Round 4 Face-to-Face Interview. Upon saving, the candidate's Grand Scorecard (/100) updates instantly on their result view.
+              </p>
+            </div>
+
+            <!-- Fast Search & Center Filter -->
+            <div class="flex flex-wrap items-center gap-2">
+              <select 
+                id="hrCenterFilter" 
+                onchange="filterHrCandidates()"
+                class="px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer"
+              >
+                <option value="">All Centers</option>
+                <option value="Sivakasi">Sivakasi</option>
+                <option value="Srivilliputhur">Srivilliputhur</option>
+              </select>
+
+              <select 
+                id="hrStatusFilter" 
+                onchange="filterHrCandidates()"
+                class="px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer"
+              >
+                <option value="all">All Candidates</option>
+                <option value="pending">⏳ Pending HR Evaluation</option>
+                <option value="completed">✅ HR Evaluation Completed</option>
+              </select>
+
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                  <i data-lucide="search" class="w-3.5 h-3.5"></i>
+                </div>
+                <input 
+                  type="text" 
+                  id="hrSearchInput" 
+                  oninput="filterHrCandidates()"
+                  placeholder="Search candidate name..." 
+                  class="pl-9 pr-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs font-medium text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                >
+              </div>
+
+              <button 
+                onclick="loadLeaderboard()" 
+                class="p-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl border border-slate-300 transition cursor-pointer"
+                title="Refresh Candidates"
+              >
+                <i data-lucide="rotate-cw" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- HR Mini Progress Bar -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4">
+            <div class="p-3.5 rounded-2xl bg-blue-50/60 border border-blue-200 flex items-center justify-between">
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-blue-700">Total Quiz Completed</span>
+                <div id="hrStatTotal" class="text-xl font-black text-blue-900 mt-0.5">0</div>
+              </div>
+              <div class="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold">
+                <i data-lucide="users" class="w-4 h-4"></i>
+              </div>
+            </div>
+
+            <div class="p-3.5 rounded-2xl bg-amber-50/60 border border-amber-200 flex items-center justify-between">
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-amber-700">Awaiting HR Evaluation</span>
+                <div id="hrStatPending" class="text-xl font-black text-amber-900 mt-0.5">0</div>
+              </div>
+              <div class="w-9 h-9 rounded-xl bg-amber-500 text-slate-900 flex items-center justify-center font-bold">
+                <i data-lucide="clock" class="w-4 h-4"></i>
+              </div>
+            </div>
+
+            <div class="p-3.5 rounded-2xl bg-emerald-50/60 border border-emerald-200 flex items-center justify-between">
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-700">HR Evaluated (/100 Grand)</span>
+                <div id="hrStatCompleted" class="text-xl font-black text-emerald-900 mt-0.5">0</div>
+              </div>
+              <div class="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold">
+                <i data-lucide="check-circle" class="w-4 h-4"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- HR Candidates Scoring Table -->
+          <div class="mt-6 overflow-x-auto rounded-2xl border border-slate-200">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead class="bg-slate-50 text-slate-600 uppercase font-bold text-[10px] tracking-wider border-b border-slate-200">
+                <tr>
+                  <th class="py-3 px-3">Candidate</th>
+                  <th class="py-3 px-2 text-center">Center</th>
+                  <th class="py-3 px-2 text-center">Quiz (/50)</th>
+                  <th class="py-3 px-3 text-center">Round 3: GD (/25)</th>
+                  <th class="py-3 px-3 text-center">Round 4: F2F (/25)</th>
+                  <th class="py-3 px-2 text-center font-bold text-indigo-700">HR (/50)</th>
+                  <th class="py-3 px-2 text-center font-black text-emerald-700">Grand (/100)</th>
+                  <th class="py-3 px-3">HR Remarks / Feedback</th>
+                  <th class="py-3 px-3 text-center">Status</th>
+                  <th class="py-3 px-3 text-right">Action</th>
+                </tr>
+              </thead>
+              <tbody id="hrCandidatesTbody" class="divide-y divide-slate-100 text-slate-700 font-medium">
+                <tr>
+                  <td colspan="10" class="p-8 text-center text-slate-400">Loading candidates for HR evaluation...</td>
                 </tr>
               </tbody>
             </table>
@@ -572,6 +705,118 @@
         </div>
 
       </form>
+    </div>
+  </div>
+
+  <!-- MODAL: HR EVALUATION POPUP -->
+  <div id="hrScoreModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 my-8">
+      
+      <div class="flex items-center justify-between pb-4 border-b border-slate-200">
+        <div class="flex items-center space-x-2">
+          <div class="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold text-sm">
+            <i data-lucide="award" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-slate-900">HR Candidate Evaluation</h3>
+            <p class="text-xs text-slate-500">GD (25) &amp; F2F Interview (25) = HR (50) &bull; Grand (100)</p>
+          </div>
+        </div>
+        <button onclick="closeHrModal()" class="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg hover:bg-slate-100 cursor-pointer">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="hrModalForm" onsubmit="handleSaveModalHrScore(event)" class="mt-4 space-y-4">
+        <input type="hidden" id="modalHrResultId">
+
+        <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Candidate Name</span>
+            <div id="modalHrCandidateName" class="text-sm font-black text-slate-900 mt-0.5">--</div>
+            <div id="modalHrCenter" class="text-[11px] text-blue-600 font-semibold">--</div>
+          </div>
+          <div class="text-right">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Quiz Score</span>
+            <div class="text-base font-black text-blue-700 mt-0.5"><span id="modalHrQuizScore">0</span> / 50</div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+              Round 3: GD Score <span class="text-red-500">*</span>
+            </label>
+            <div class="relative">
+              <input 
+                type="number" 
+                id="modalHrGdInput" 
+                min="0" 
+                max="25" 
+                required 
+                placeholder="0 - 25" 
+                oninput="calcModalLiveTotal()"
+                class="w-full px-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm font-black text-slate-900 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+              >
+              <span class="absolute right-3 top-2.5 text-xs font-bold text-slate-400">/ 25</span>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+              Round 4: F2F Interview <span class="text-red-500">*</span>
+            </label>
+            <div class="relative">
+              <input 
+                type="number" 
+                id="modalHrInterviewInput" 
+                min="0" 
+                max="25" 
+                required 
+                placeholder="0 - 25" 
+                oninput="calcModalLiveTotal()"
+                class="w-full px-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm font-black text-slate-900 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+              >
+              <span class="absolute right-3 top-2.5 text-xs font-bold text-slate-400">/ 25</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Real-time Grand Total Preview -->
+        <div class="p-3.5 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-between">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-700">Combined HR Score</span>
+            <div class="text-base font-black text-emerald-900"><span id="modalLiveHrTotal">0</span> / 50</div>
+          </div>
+          <div class="text-right">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-700">🏆 Final Grand Total</span>
+            <div class="text-lg font-black text-emerald-900"><span id="modalLiveGrandTotal">0</span> / 100 <span id="modalLiveGrandPct" class="text-xs font-bold text-emerald-700">(0%)</span></div>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+            HR Remarks / Performance Feedback
+          </label>
+          <textarea 
+            id="modalHrRemarksInput" 
+            rows="2" 
+            placeholder="e.g. Good technical articulation, active discussion participation." 
+            class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs font-medium focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+          ></textarea>
+        </div>
+
+        <div class="flex items-center space-x-3 pt-2">
+          <button type="button" onclick="closeHrModal()" class="flex-1 py-2.5 px-4 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-300 transition cursor-pointer">
+            Cancel
+          </button>
+          <button type="submit" id="modalHrSaveBtn" class="flex-1 py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-md shadow-emerald-500/20 transition flex items-center justify-center space-x-1.5 cursor-pointer">
+            <i data-lucide="check" class="w-4 h-4"></i>
+            <span>Save HR Marks</span>
+          </button>
+        </div>
+      </form>
+
     </div>
   </div>
 

@@ -183,6 +183,14 @@ alterTable('results', 'round1_total INTEGER NOT NULL DEFAULT 20');
 alterTable('results', 'round2_score INTEGER NOT NULL DEFAULT 0');
 alterTable('results', 'round2_total INTEGER NOT NULL DEFAULT 30');
 alterTable('results', 'selected_topics TEXT');
+alterTable('results', 'gd_score INTEGER DEFAULT NULL');
+alterTable('results', 'interview_score INTEGER DEFAULT NULL');
+alterTable('results', 'hr_total_score INTEGER DEFAULT NULL');
+alterTable('results', 'grand_total_score INTEGER DEFAULT NULL');
+alterTable('results', 'grand_percentage REAL DEFAULT NULL');
+alterTable('results', 'hr_remarks TEXT DEFAULT NULL');
+alterTable('results', 'hr_status TEXT DEFAULT "pending"');
+alterTable('results', 'hr_scored_at TEXT DEFAULT NULL');
 
 // Admin Configuration
 const adminEmail = process.env.ADMIN_EMAIL || "deepakkumars170404@gmail.com";

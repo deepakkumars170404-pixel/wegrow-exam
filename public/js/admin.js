@@ -110,6 +110,7 @@ function switchTab(tabId) {
   }
 
   if (tabId === 'leaderboard') loadLeaderboard();
+  if (tabId === 'hr') renderHrCandidates(cachedLeaderboard);
   if (tabId === 'questions') loadMasterQuestions();
   if (tabId === 'live') loadLiveSessions();
 
@@ -142,11 +143,35 @@ async function loadLeaderboard() {
     document.getElementById('statAveragePercentage').innerText = `${data.stats.avgPercentage}%`;
     document.getElementById('statHighestScore').innerText = `${data.stats.highestScore} / 50`;
 
+    // Update HR Stats & Badges
+    const hrCompleted = cachedLeaderboard.filter(item => item.hrStatus === 'completed').length;
+    const hrPending = cachedLeaderboard.length - hrCompleted;
+
+    const badge = document.getElementById('hrBadgePending');
+    if (badge) {
+      if (hrPending > 0) {
+        badge.innerText = hrPending;
+        badge.classList.remove('hidden');
+      } else {
+        badge.classList.add('hidden');
+      }
+    }
+
+    const statTotal = document.getElementById('hrStatTotal');
+    if (statTotal) statTotal.innerText = cachedLeaderboard.length;
+    const statPending = document.getElementById('hrStatPending');
+    if (statPending) statPending.innerText = hrPending;
+    const statCompleted = document.getElementById('hrStatCompleted');
+    if (statCompleted) statCompleted.innerText = hrCompleted;
+
     // Render Podium
     renderPodium(cachedLeaderboard);
 
     // Render Table
     renderLeaderboardRows(cachedLeaderboard);
+
+    // Render HR Table
+    renderHrCandidates(cachedLeaderboard);
 
   } catch (err) {
     console.error('Error fetching leaderboard:', err);
@@ -201,24 +226,13 @@ function renderLeaderboardRows(list) {
   if (!list || list.length === 0) {
     tbody.innerHTML = `
       <tr>
-        <td colspan="11" class="p-8 text-center text-slate-400">
+        <td colspan="12" class="p-8 text-center text-slate-400">
           No assessment submissions found. Real-time candidate submissions will appear here.
         </td>
       </tr>
     `;
     return;
   }
-
-  const topicDisplayMap = {
-    html: "HTML",
-    css: "CSS",
-    bootstrap: "Bootstrap",
-    javascript: "JS",
-    python: "Python",
-    react: "React",
-    data_science: "Data Science",
-    data_analytics: "DA"
-  };
 
   list.forEach((item) => {
     const tr = document.createElement('tr');
@@ -230,69 +244,67 @@ function renderLeaderboardRows(list) {
     else if (item.rank === 2) rankBadge = `<span class="w-6 h-6 rounded-full bg-slate-300 text-slate-900 font-bold inline-flex items-center justify-center text-xs shadow-sm">2</span>`;
     else if (item.rank === 3) rankBadge = `<span class="w-6 h-6 rounded-full bg-orange-300 text-orange-950 font-bold inline-flex items-center justify-center text-xs shadow-sm">3</span>`;
 
-    // Percentage color
-    let percentColor = "text-slate-800";
-    if (item.percentage >= 80) percentColor = "text-emerald-600 font-bold";
-    else if (item.percentage >= 60) percentColor = "text-blue-600 font-bold";
-    else percentColor = "text-amber-600 font-medium";
+    // HR Status badge
+    const isHrDone = item.hrStatus === 'completed';
+    const hrBadge = isHrDone 
+      ? `<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[10px]">✅ Evaluated</span>`
+      : `<span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-bold text-[10px]">⏳ Pending</span>`;
 
-    // Strikes badge
-    let strikesHtml = `<span class="text-slate-400 font-normal">0</span>`;
-    if (item.warningsCount > 0) {
-      strikesHtml = `<span class="px-2 py-0.5 rounded-full bg-red-100 text-red-700 font-bold text-[10px]">${item.warningsCount} Strikes</span>`;
-    }
-
-    // Topics pills
-    const topics = (item.selectedTopics || []).map(t => topicDisplayMap[t] || t);
-    const topicsHtml = topics.length > 0 
-      ? topics.map(t => `<span class="px-1.5 py-0.5 rounded bg-indigo-50 text-indigo-700 text-[10px] font-bold border border-indigo-200">${t}</span>`).join(' ')
-      : '<span class="text-slate-400 text-[11px]">-</span>';
-
-    const dateStr = item.submittedAt ? new Date(item.submittedAt).toLocaleDateString('en-IN', {
-      day: 'numeric',
-      month: 'short',
-      hour: '2-digit',
-      minute: '2-digit'
-    }) : 'Recent';
+    const gdVal = (item.gdScore !== null && item.gdScore !== undefined) ? item.gdScore : '-';
+    const intVal = (item.interviewScore !== null && item.interviewScore !== undefined) ? item.interviewScore : '-';
+    const hrVal = (item.hrTotal !== null && item.hrTotal !== undefined) ? `${item.hrTotal}/50` : '-';
+    const grandVal = (item.grandTotal !== null && item.grandTotal !== undefined) ? `${item.grandTotal}/100` : `${item.score}/50`;
+    const grandPctVal = (item.grandPercentage !== null && item.grandPercentage !== undefined) ? `${item.grandPercentage}%` : `${item.percentage}%`;
 
     tr.innerHTML = `
-      <td class="py-3.5 px-4 font-bold">${rankBadge}</td>
-      <td class="py-3.5 px-4">
+      <td class="py-3.5 px-3 font-bold">${rankBadge}</td>
+      <td class="py-3.5 px-3">
         <div class="font-bold text-slate-900 text-xs sm:text-sm">${escapeHtml(item.studentName)}</div>
-        <div class="text-[10px] text-slate-400">${item.batch || 'General'}</div>
+        <div class="text-[10px] text-blue-600 font-semibold">${escapeHtml(item.batch || 'Sivakasi')}</div>
       </td>
-      <td class="py-3.5 px-4 text-center font-bold text-blue-800">
-        ${item.round1Score} / ${item.round1Total || 20}
+      <td class="py-3.5 px-2 text-center font-bold text-blue-700">
+        ${item.round1Score}
       </td>
-      <td class="py-3.5 px-4 text-center font-bold text-indigo-800">
-        ${item.round2Score} / ${item.round2Total || 30}
+      <td class="py-3.5 px-2 text-center font-bold text-indigo-700">
+        ${item.round2Score}
       </td>
-      <td class="py-3.5 px-4 text-center font-black text-slate-900 text-sm">
-        ${item.score} / ${item.totalQuestions || 50}
+      <td class="py-3.5 px-2 text-center font-black text-slate-900 bg-slate-100/60 text-sm">
+        ${item.score}
       </td>
-      <td class="py-3.5 px-4 text-center ${percentColor}">
-        ${item.percentage}%
+      <td class="py-3.5 px-2 text-center font-bold text-emerald-700">
+        ${gdVal}
       </td>
-      <td class="py-3.5 px-4">
-        <div class="flex flex-wrap gap-1 max-w-[180px]">${topicsHtml}</div>
+      <td class="py-3.5 px-2 text-center font-bold text-emerald-700">
+        ${intVal}
       </td>
-      <td class="py-3.5 px-4 text-center">
-        ${strikesHtml}
+      <td class="py-3.5 px-2 text-center font-black text-emerald-900 bg-emerald-50/50">
+        ${hrVal}
       </td>
-      <td class="py-3.5 px-4 text-center text-slate-500 font-mono text-[11px]">
+      <td class="py-3.5 px-3 text-center bg-purple-50/60">
+        <div class="font-black text-purple-900 text-sm">${grandVal}</div>
+        <div class="text-[10px] font-bold text-purple-700">${grandPctVal}</div>
+      </td>
+      <td class="py-3.5 px-2 text-center">
+        ${hrBadge}
+      </td>
+      <td class="py-3.5 px-2 text-center text-slate-500 font-mono text-[11px]">
         ${item.timeTakenFormatted || '-'}
       </td>
-      <td class="py-3.5 px-4 text-slate-500 text-[11px]">
-        ${dateStr}
-      </td>
-      <td class="py-3.5 px-4 text-right">
+      <td class="py-3.5 px-3 text-right">
         <div class="flex items-center justify-end space-x-1.5">
           <button 
+            onclick="openHrModal('${item.id}')"
+            class="px-2 py-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 rounded-lg text-[11px] font-bold border border-emerald-200 transition cursor-pointer flex items-center shadow-xs"
+            title="Score Round 3 GD & Round 4 Interview"
+          >
+            <i data-lucide="award" class="w-3.5 h-3.5 mr-1 text-emerald-600"></i> HR Marks
+          </button>
+          <button 
             onclick="quickAllowReexam('${escapeHtml(item.studentName)}')"
-            class="px-2.5 py-1 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-lg text-[11px] font-bold border border-blue-200 transition cursor-pointer"
+            class="px-2 py-1 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-lg text-[11px] font-bold border border-blue-200 transition cursor-pointer"
             title="Unlock Re-Exam for student"
           >
-            Allow Re-exam
+            Re-exam
           </button>
           <a 
             href="result.html?id=${item.id}" 
@@ -696,4 +708,412 @@ function escapeHtml(str) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
+}
+
+// -------------------------------------------------------------
+// HR EVALUATION MODULE (ROUND 3 GD 25 + ROUND 4 F2F 25)
+// -------------------------------------------------------------
+
+function filterHrCandidates() {
+  const center = (document.getElementById('hrCenterFilter')?.value || '').trim().toLowerCase();
+  const status = (document.getElementById('hrStatusFilter')?.value || 'all').trim();
+  const search = (document.getElementById('hrSearchInput')?.value || '').trim().toLowerCase();
+
+  let list = cachedLeaderboard;
+
+  if (center) {
+    list = list.filter(item => (item.batch || '').toLowerCase() === center);
+  }
+
+  if (status === 'pending') {
+    list = list.filter(item => item.hrStatus !== 'completed');
+  } else if (status === 'completed') {
+    list = list.filter(item => item.hrStatus === 'completed');
+  }
+
+  if (search) {
+    list = list.filter(item => (item.studentName || '').toLowerCase().includes(search));
+  }
+
+  renderHrCandidates(list);
+}
+
+function renderHrCandidates(list) {
+  const tbody = document.getElementById('hrCandidatesTbody');
+  if (!tbody) return;
+  tbody.innerHTML = '';
+
+  if (!list || list.length === 0) {
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="10" class="p-8 text-center text-slate-400">
+          No candidates match the selected filters.
+        </td>
+      </tr>
+    `;
+    return;
+  }
+
+  list.forEach((item) => {
+    const tr = document.createElement('tr');
+    tr.id = `hr_row_${item.id}`;
+    tr.className = "hover:bg-slate-50/80 transition-colors";
+
+    const isHrDone = item.hrStatus === 'completed';
+    const gdVal = (item.gdScore !== null && item.gdScore !== undefined) ? item.gdScore : '';
+    const intVal = (item.interviewScore !== null && item.interviewScore !== undefined) ? item.interviewScore : '';
+    const hrVal = (item.hrTotal !== null && item.hrTotal !== undefined) ? item.hrTotal : '-';
+    const grandVal = (item.grandTotal !== null && item.grandTotal !== undefined) ? item.grandTotal : item.score;
+    const grandPct = (item.grandPercentage !== null && item.grandPercentage !== undefined) ? item.grandPercentage : item.percentage;
+
+    tr.innerHTML = `
+      <td class="py-3 px-3">
+        <div class="font-bold text-slate-900 text-xs sm:text-sm">${escapeHtml(item.studentName)}</div>
+        <div class="text-[10px] text-slate-400">R1: ${item.round1Score}/20 &bull; R2: ${item.round2Score}/30</div>
+      </td>
+      <td class="py-3 px-2 text-center">
+        <span class="px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 text-[10px] font-bold border border-blue-200">
+          ${escapeHtml(item.batch || 'Sivakasi')}
+        </span>
+      </td>
+      <td class="py-3 px-2 text-center font-black text-slate-800">
+        ${item.score} / 50
+      </td>
+      <td class="py-3 px-3 text-center">
+        <div class="inline-flex items-center space-x-1">
+          <input 
+            type="number" 
+            min="0" 
+            max="25" 
+            id="hr_gd_${item.id}" 
+            value="${gdVal}" 
+            placeholder="0-25"
+            oninput="calcCandidateLiveTotal('${item.id}', ${item.score})"
+            class="w-16 px-2 py-1.5 text-center font-bold text-xs bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+          >
+          <span class="text-[10px] text-slate-400">/ 25</span>
+        </div>
+      </td>
+      <td class="py-3 px-3 text-center">
+        <div class="inline-flex items-center space-x-1">
+          <input 
+            type="number" 
+            min="0" 
+            max="25" 
+            id="hr_int_${item.id}" 
+            value="${intVal}" 
+            placeholder="0-25"
+            oninput="calcCandidateLiveTotal('${item.id}', ${item.score})"
+            class="w-16 px-2 py-1.5 text-center font-bold text-xs bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+          >
+          <span class="text-[10px] text-slate-400">/ 25</span>
+        </div>
+      </td>
+      <td class="py-3 px-2 text-center font-black text-indigo-700">
+        <span id="hr_hrtot_${item.id}">${hrVal}</span> / 50
+      </td>
+      <td class="py-3 px-2 text-center">
+        <div class="font-black text-emerald-800 text-sm"><span id="hr_grand_${item.id}">${grandVal}</span> / 100</div>
+        <div class="text-[10px] font-bold text-emerald-600"><span id="hr_pct_${item.id}">${grandPct}%</span></div>
+      </td>
+      <td class="py-3 px-3">
+        <input 
+          type="text" 
+          id="hr_rem_${item.id}" 
+          value="${escapeHtml(item.hrRemarks || '')}" 
+          placeholder="Remarks (e.g. Good communication)"
+          class="w-full px-2.5 py-1.5 text-xs bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+        >
+      </td>
+      <td class="py-3 px-3 text-center" id="hr_badge_col_${item.id}">
+        ${isHrDone 
+          ? '<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[10px]">✅ Evaluated</span>'
+          : '<span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-bold text-[10px]">⏳ Pending</span>'
+        }
+      </td>
+      <td class="py-3 px-3 text-right">
+        <button 
+          onclick="saveCandidateHrScore('${item.id}')"
+          id="hr_btn_${item.id}"
+          class="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm transition flex items-center space-x-1 cursor-pointer ml-auto"
+        >
+          <i data-lucide="check" class="w-3.5 h-3.5"></i>
+          <span>Save</span>
+        </button>
+      </td>
+    `;
+
+    tbody.appendChild(tr);
+  });
+
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function calcCandidateLiveTotal(resultId, quizScore) {
+  const gdInput = document.getElementById(`hr_gd_${resultId}`);
+  const intInput = document.getElementById(`hr_int_${resultId}`);
+
+  let gd = parseInt(gdInput?.value, 10);
+  let f2f = parseInt(intInput?.value, 10);
+
+  if (isNaN(gd) || gd < 0) gd = 0;
+  if (gd > 25) { gd = 25; gdInput.value = 25; }
+
+  if (isNaN(f2f) || f2f < 0) f2f = 0;
+  if (f2f > 25) { f2f = 25; intInput.value = 25; }
+
+  const hrTotal = gd + f2f;
+  const grandTotal = quizScore + hrTotal;
+  const grandPct = ((grandTotal / 100) * 100).toFixed(1);
+
+  const hrTotElem = document.getElementById(`hr_hrtot_${resultId}`);
+  if (hrTotElem) hrTotElem.innerText = hrTotal;
+
+  const grandElem = document.getElementById(`hr_grand_${resultId}`);
+  if (grandElem) grandElem.innerText = grandTotal;
+
+  const pctElem = document.getElementById(`hr_pct_${resultId}`);
+  if (pctElem) pctElem.innerText = `${grandPct}%`;
+}
+
+async function saveCandidateHrScore(resultId) {
+  const gdInput = document.getElementById(`hr_gd_${resultId}`);
+  const intInput = document.getElementById(`hr_int_${resultId}`);
+  const remInput = document.getElementById(`hr_rem_${resultId}`);
+  const btn = document.getElementById(`hr_btn_${resultId}`);
+
+  if (!gdInput || !intInput) return;
+
+  const gdScore = parseInt(gdInput.value, 10);
+  const interviewScore = parseInt(intInput.value, 10);
+  const remarks = remInput ? remInput.value.trim() : '';
+
+  if (isNaN(gdScore) || gdScore < 0 || gdScore > 25) {
+    alert("Please enter a valid Group Discussion mark between 0 and 25.");
+    gdInput.focus();
+    return;
+  }
+
+  if (isNaN(interviewScore) || interviewScore < 0 || interviewScore > 25) {
+    alert("Please enter a valid Face-to-Face Interview mark between 0 and 25.");
+    intInput.focus();
+    return;
+  }
+
+  const originalBtnHtml = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = `<i data-lucide="loader-2" class="w-3.5 h-3.5 animate-spin"></i><span>Saving...</span>`;
+  if (window.lucide) window.lucide.createIcons();
+
+  try {
+    const res = await fetch('/api/admin/hr-score', {
+      method: 'POST',
+      headers: getAuthHeaders(),
+      body: JSON.stringify({
+        resultId,
+        gdScore,
+        interviewScore,
+        remarks
+      })
+    });
+
+    const data = await res.json();
+    if (!data.success) {
+      alert("Error saving HR marks: " + (data.message || "Failed"));
+      btn.disabled = false;
+      btn.innerHTML = originalBtnHtml;
+      if (window.lucide) window.lucide.createIcons();
+      return;
+    }
+
+    // Success: Update locally in cachedLeaderboard
+    const targetItem = cachedLeaderboard.find(i => i.id === resultId);
+    if (targetItem) {
+      targetItem.gdScore = data.hrAssessment.gdScore;
+      targetItem.interviewScore = data.hrAssessment.interviewScore;
+      targetItem.hrTotal = data.hrAssessment.hrTotal;
+      targetItem.grandTotal = data.hrAssessment.grandTotal;
+      targetItem.grandPercentage = data.hrAssessment.grandPercentage;
+      targetItem.hrRemarks = data.hrAssessment.remarks;
+      targetItem.hrStatus = 'completed';
+    }
+
+    // Update status badge column
+    const badgeCol = document.getElementById(`hr_badge_col_${resultId}`);
+    if (badgeCol) {
+      badgeCol.innerHTML = '<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[10px]">✅ Evaluated</span>';
+    }
+
+    btn.disabled = false;
+    btn.className = "px-3 py-1.5 rounded-xl bg-slate-800 text-white font-bold text-xs shadow-sm transition flex items-center space-x-1 cursor-pointer ml-auto";
+    btn.innerHTML = `<i data-lucide="check-check" class="w-3.5 h-3.5 text-emerald-400"></i><span>Saved!</span>`;
+    if (window.lucide) window.lucide.createIcons();
+
+    setTimeout(() => {
+      btn.className = "px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm transition flex items-center space-x-1 cursor-pointer ml-auto";
+      btn.innerHTML = `<i data-lucide="check" class="w-3.5 h-3.5"></i><span>Save</span>`;
+      if (window.lucide) window.lucide.createIcons();
+    }, 2000);
+
+    // Refresh pending counter
+    const hrCompleted = cachedLeaderboard.filter(item => item.hrStatus === 'completed').length;
+    const hrPending = cachedLeaderboard.length - hrCompleted;
+    const badge = document.getElementById('hrBadgePending');
+    if (badge) {
+      if (hrPending > 0) {
+        badge.innerText = hrPending;
+        badge.classList.remove('hidden');
+      } else {
+        badge.classList.add('hidden');
+      }
+    }
+    const statPending = document.getElementById('hrStatPending');
+    if (statPending) statPending.innerText = hrPending;
+    const statCompleted = document.getElementById('hrStatCompleted');
+    if (statCompleted) statCompleted.innerText = hrCompleted;
+
+  } catch (err) {
+    console.error("Save HR score error:", err);
+    alert("Connection error while saving HR marks.");
+    btn.disabled = false;
+    btn.innerHTML = originalBtnHtml;
+    if (window.lucide) window.lucide.createIcons();
+  }
+}
+
+// -------------------------------------------------------------
+// HR EVALUATION MODAL (ACCESSIBLE FROM LEADERBOARD TABLE)
+// -------------------------------------------------------------
+
+function openHrModal(resultId) {
+  const item = cachedLeaderboard.find(i => i.id === resultId);
+  if (!item) {
+    alert("Candidate not found.");
+    return;
+  }
+
+  document.getElementById('modalHrResultId').value = item.id;
+  document.getElementById('modalHrCandidateName').innerText = item.studentName;
+  document.getElementById('modalHrCenter').innerText = `Center: ${item.batch || 'Sivakasi'}`;
+  document.getElementById('modalHrQuizScore').innerText = item.score;
+
+  document.getElementById('modalHrGdInput').value = (item.gdScore !== null && item.gdScore !== undefined) ? item.gdScore : '';
+  document.getElementById('modalHrInterviewInput').value = (item.interviewScore !== null && item.interviewScore !== undefined) ? item.interviewScore : '';
+  document.getElementById('modalHrRemarksInput').value = item.hrRemarks || '';
+
+  calcModalLiveTotal();
+
+  document.getElementById('hrScoreModal').classList.remove('hidden');
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function closeHrModal() {
+  document.getElementById('hrScoreModal').classList.add('hidden');
+}
+
+function calcModalLiveTotal() {
+  const quizScore = parseInt(document.getElementById('modalHrQuizScore').innerText, 10) || 0;
+  const gdInput = document.getElementById('modalHrGdInput');
+  const intInput = document.getElementById('modalHrInterviewInput');
+
+  let gd = parseInt(gdInput.value, 10);
+  let f2f = parseInt(intInput.value, 10);
+
+  if (isNaN(gd) || gd < 0) gd = 0;
+  if (gd > 25) { gd = 25; gdInput.value = 25; }
+
+  if (isNaN(f2f) || f2f < 0) f2f = 0;
+  if (f2f > 25) { f2f = 25; intInput.value = 25; }
+
+  const hrTotal = gd + f2f;
+  const grandTotal = quizScore + hrTotal;
+  const grandPct = ((grandTotal / 100) * 100).toFixed(1);
+
+  document.getElementById('modalLiveHrTotal').innerText = hrTotal;
+  document.getElementById('modalLiveGrandTotal').innerText = grandTotal;
+  document.getElementById('modalLiveGrandPct').innerText = `(${grandPct}%)`;
+}
+
+async function handleSaveModalHrScore(e) {
+  e.preventDefault();
+
+  const resultId = document.getElementById('modalHrResultId').value;
+  const gdScore = parseInt(document.getElementById('modalHrGdInput').value, 10);
+  const interviewScore = parseInt(document.getElementById('modalHrInterviewInput').value, 10);
+  const remarks = document.getElementById('modalHrRemarksInput').value.trim();
+  const btn = document.getElementById('modalHrSaveBtn');
+
+  if (isNaN(gdScore) || gdScore < 0 || gdScore > 25) {
+    alert("Please enter a valid Group Discussion mark between 0 and 25.");
+    return;
+  }
+
+  if (isNaN(interviewScore) || interviewScore < 0 || interviewScore > 25) {
+    alert("Please enter a valid Face-to-Face Interview mark between 0 and 25.");
+    return;
+  }
+
+  btn.disabled = true;
+  btn.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 animate-spin mr-1"></i> Saving...`;
+  if (window.lucide) window.lucide.createIcons();
+
+  try {
+    const res = await fetch('/api/admin/hr-score', {
+      method: 'POST',
+      headers: getAuthHeaders(),
+      body: JSON.stringify({
+        resultId,
+        gdScore,
+        interviewScore,
+        remarks
+      })
+    });
+
+    const data = await res.json();
+    if (!data.success) {
+      alert("Error saving HR marks: " + (data.message || "Failed"));
+      btn.disabled = false;
+      btn.innerHTML = `<i data-lucide="check" class="w-4 h-4"></i><span>Save HR Marks</span>`;
+      if (window.lucide) window.lucide.createIcons();
+      return;
+    }
+
+    // Success: Update locally in cachedLeaderboard
+    const targetItem = cachedLeaderboard.find(i => i.id === resultId);
+    if (targetItem) {
+      targetItem.gdScore = data.hrAssessment.gdScore;
+      targetItem.interviewScore = data.hrAssessment.interviewScore;
+      targetItem.hrTotal = data.hrAssessment.hrTotal;
+      targetItem.grandTotal = data.hrAssessment.grandTotal;
+      targetItem.grandPercentage = data.hrAssessment.grandPercentage;
+      targetItem.hrRemarks = data.hrAssessment.remarks;
+      targetItem.hrStatus = 'completed';
+    }
+
+    closeHrModal();
+    renderLeaderboardRows(cachedLeaderboard);
+    renderHrCandidates(cachedLeaderboard);
+
+    // Update pending counter
+    const hrCompleted = cachedLeaderboard.filter(item => item.hrStatus === 'completed').length;
+    const hrPending = cachedLeaderboard.length - hrCompleted;
+    const badge = document.getElementById('hrBadgePending');
+    if (badge) {
+      if (hrPending > 0) {
+        badge.innerText = hrPending;
+        badge.classList.remove('hidden');
+      } else {
+        badge.classList.add('hidden');
+      }
+    }
+
+    alert(`HR Evaluation successfully saved! Candidate Grand Total: ${data.hrAssessment.grandTotal} / 100.`);
+  } catch (err) {
+    console.error("Modal save HR error:", err);
+    alert("Connection error while saving HR marks.");
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = `<i data-lucide="check" class="w-4 h-4"></i><span>Save HR Marks</span>`;
+    if (window.lucide) window.lucide.createIcons();
+  }
 }

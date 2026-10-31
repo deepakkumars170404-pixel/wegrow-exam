@@ -358,6 +358,71 @@ const db = {
       .insert(questionData);
     if (error) throw error;
     questionsMemoryCache = null; // Invalidate cache so new question is immediately accessible
+  },
+
+  // 21. Save HR Assessment Marks (GD 25 + Interview 25 = 50, Grand Total = 100)
+  async saveHrScore(resultId, hrData) {
+    if (!supabase) return null;
+    const { data: existing, error: fetchErr } = await supabase
+      .from('results')
+      .select('*')
+      .eq('id', resultId)
+      .maybeSingle();
+    if (fetchErr) throw fetchErr;
+    if (!existing) throw new Error("Candidate result record not found.");
+
+    const gdScore = Math.max(0, Math.min(25, parseInt(hrData.gdScore) || 0));
+    const interviewScore = Math.max(0, Math.min(25, parseInt(hrData.interviewScore) || 0));
+    const hrTotal = gdScore + interviewScore; // out of 50
+    const quizScore = existing.score || 0; // out of 50
+    const grandTotal = quizScore + hrTotal; // out of 100
+    const grandPercentage = Number(((grandTotal / 100) * 100).toFixed(1));
+    const remarks = (hrData.remarks || '').trim();
+    const scoredAt = new Date().toISOString();
+    const status = 'completed';
+
+    const hrAssessment = {
+      gdScore,
+      interviewScore,
+      hrTotal,
+      grandTotal,
+      grandPercentage,
+      remarks,
+      scoredAt,
+      status
+    };
+
+    let logs = existing.violation_logs;
+    if (typeof logs === 'string') {
+      try { logs = JSON.parse(logs); } catch(e) { logs = {}; }
+    }
+    if (!logs || typeof logs !== 'object' || Array.isArray(logs)) {
+      logs = { violations: Array.isArray(logs) ? logs : [] };
+    }
+    logs.hrAssessment = hrAssessment;
+
+    const { error: updateErr } = await supabase
+      .from('results')
+      .update({
+        violation_logs: logs
+      })
+      .eq('id', resultId);
+    if (updateErr) throw updateErr;
+
+    try {
+      await supabase.from('results').update({
+        gd_score: gdScore,
+        interview_score: interviewScore,
+        hr_total_score: hrTotal,
+        grand_total_score: grandTotal,
+        grand_percentage: grandPercentage,
+        hr_remarks: remarks,
+        hr_status: status,
+        hr_scored_at: scoredAt
+      }).eq('id', resultId);
+    } catch(e) {}
+
+    return hrAssessment;
   }
 };
 

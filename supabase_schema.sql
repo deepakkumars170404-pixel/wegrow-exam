@@ -85,8 +85,26 @@ CREATE TABLE IF NOT EXISTS results (
   submit_reason TEXT,
   performance_grade TEXT NOT NULL,
   submitted_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-  review_list JSONB NOT NULL
+  review_list JSONB NOT NULL,
+  gd_score INTEGER DEFAULT NULL,
+  interview_score INTEGER DEFAULT NULL,
+  hr_total_score INTEGER DEFAULT NULL,
+  grand_total_score INTEGER DEFAULT NULL,
+  grand_percentage REAL DEFAULT NULL,
+  hr_remarks TEXT DEFAULT NULL,
+  hr_status TEXT DEFAULT 'pending',
+  hr_scored_at TIMESTAMPTZ DEFAULT NULL
 );
+
+-- HR Assessment Columns (Run this if table already exists)
+ALTER TABLE results ADD COLUMN IF NOT EXISTS gd_score INTEGER DEFAULT NULL;
+ALTER TABLE results ADD COLUMN IF NOT EXISTS interview_score INTEGER DEFAULT NULL;
+ALTER TABLE results ADD COLUMN IF NOT EXISTS hr_total_score INTEGER DEFAULT NULL;
+ALTER TABLE results ADD COLUMN IF NOT EXISTS grand_total_score INTEGER DEFAULT NULL;
+ALTER TABLE results ADD COLUMN IF NOT EXISTS grand_percentage REAL DEFAULT NULL;
+ALTER TABLE results ADD COLUMN IF NOT EXISTS hr_remarks TEXT DEFAULT NULL;
+ALTER TABLE results ADD COLUMN IF NOT EXISTS hr_status TEXT DEFAULT 'pending';
+ALTER TABLE results ADD COLUMN IF NOT EXISTS hr_scored_at TIMESTAMPTZ DEFAULT NULL;
 
 CREATE INDEX IF NOT EXISTS idx_results_student ON results(LOWER(student_name));
 CREATE INDEX IF NOT EXISTS idx_results_score ON results(score DESC, time_taken_seconds ASC);

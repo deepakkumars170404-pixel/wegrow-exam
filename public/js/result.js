@@ -130,6 +130,9 @@ function renderResultSummary(res) {
   // Filter Tab Counts
   const total = (res.reviewList || []).length || 50;
   document.getElementById('filter-all').innerText = `All (${total})`;
+
+  // Stage 2: HR Assessment & Grand Total (/100)
+  updateHrScorecardUI(res);
 }
 
 function filterQuestions(type) {
@@ -277,4 +280,124 @@ function escapeHtml(str) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
+}
+
+// -------------------------------------------------------------
+// HR EVALUATION & GRAND TOTAL SCORECARD LOGIC
+// -------------------------------------------------------------
+let hrPollingTimer = null;
+
+function updateHrScorecardUI(res) {
+  const pendingCard = document.getElementById('hrPendingCard');
+  const completedCard = document.getElementById('hrCompletedCard');
+
+  if (!pendingCard || !completedCard) return;
+
+  const hr = res.hrAssessment;
+  const isCompleted = hr && hr.status === 'completed' && hr.grandTotal !== undefined && hr.grandTotal !== null;
+
+  if (isCompleted) {
+    if (hrPollingTimer) {
+      clearInterval(hrPollingTimer);
+      hrPollingTimer = null;
+    }
+
+    pendingCard.classList.add('hidden');
+    completedCard.classList.remove('hidden');
+
+    // Populate Grand Card values
+    const grandScoreElem = document.getElementById('grandScoreDisplay');
+    if (grandScoreElem) grandScoreElem.innerText = hr.grandTotal;
+
+    const grandPctElem = document.getElementById('grandPercentageDisplay');
+    if (grandPctElem) grandPctElem.innerText = `${hr.grandPercentage}%`;
+
+    // 4-Round Breakdown
+    const r1Elem = document.getElementById('r1ScoreDisplay');
+    if (r1Elem) r1Elem.innerText = res.round1Score !== undefined ? res.round1Score : 0;
+
+    const r2Elem = document.getElementById('r2ScoreDisplay');
+    if (r2Elem) r2Elem.innerText = res.round2Score !== undefined ? res.round2Score : 0;
+
+    const gdElem = document.getElementById('gdScoreDisplay');
+    if (gdElem) gdElem.innerText = hr.gdScore !== undefined ? hr.gdScore : 0;
+
+    const intElem = document.getElementById('interviewScoreDisplay');
+    if (intElem) intElem.innerText = hr.interviewScore !== undefined ? hr.interviewScore : 0;
+
+    // Split Totals
+    const s1Elem = document.getElementById('stage1TotalDisplay');
+    if (s1Elem) s1Elem.innerText = res.score !== undefined ? res.score : 0;
+
+    const s2Elem = document.getElementById('stage2TotalDisplay');
+    if (s2Elem) s2Elem.innerText = hr.hrTotal !== undefined ? hr.hrTotal : 0;
+
+    // Remarks
+    const remElem = document.getElementById('hrRemarksContent');
+    if (remElem) {
+      remElem.innerText = hr.remarks ? `"${hr.remarks}"` : "Candidate performance successfully recorded and verified by HR panel.";
+    }
+
+  } else {
+    pendingCard.classList.remove('hidden');
+    completedCard.classList.add('hidden');
+
+    // Automatically poll every 12 seconds if not already running
+    if (!hrPollingTimer && res.id) {
+      hrPollingTimer = setInterval(() => {
+        pollLatestResult(false);
+      }, 12000);
+    }
+  }
+
+  if (window.lucide) window.lucide.createIcons();
+}
+
+async function pollLatestResult(manual = false) {
+  const urlParams = new URLSearchParams(window.location.search);
+  const resultId = urlParams.get('id') || (currentResult && currentResult.id);
+
+  if (!resultId) return;
+
+  const btn = document.getElementById('btnPollHrMarks');
+  if (manual && btn) {
+    btn.disabled = true;
+    btn.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i><span>Checking Server...</span>`;
+    if (window.lucide) window.lucide.createIcons();
+  }
+
+  try {
+    const res = await fetch(`/api/result/${resultId}`);
+    const data = await res.json();
+
+    if (data.success && data.result) {
+      currentResult = data.result;
+      try {
+        localStorage.setItem('wegrow_result_' + resultId, JSON.stringify(data.result));
+      } catch (e) {}
+
+      renderResultSummary(currentResult);
+
+      if (manual && btn) {
+        if (data.result.hrAssessment && data.result.hrAssessment.status === 'completed') {
+          btn.innerHTML = `<i data-lucide="check" class="w-4 h-4"></i><span>HR Marks Loaded!</span>`;
+        } else {
+          btn.innerHTML = `<i data-lucide="clock" class="w-4 h-4"></i><span>Still In Progress</span>`;
+          setTimeout(() => {
+            btn.disabled = false;
+            btn.innerHTML = `<i data-lucide="rotate-cw" class="w-4 h-4"></i><span>Check for HR Marks</span>`;
+            if (window.lucide) window.lucide.createIcons();
+          }, 3000);
+        }
+      }
+    }
+  } catch (err) {
+    console.error("Error polling result:", err);
+    if (manual && btn) {
+      btn.disabled = false;
+      btn.innerHTML = `<i data-lucide="rotate-cw" class="w-4 h-4"></i><span>Check for HR Marks</span>`;
+    }
+  }
+
+  if (window.lucide) window.lucide.createIcons();
 }
